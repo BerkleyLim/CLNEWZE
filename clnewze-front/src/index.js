@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import "../../node_modules/bootstrap/dist/css/bootstrap.min.css?ver=1"
-import "../../node_modules/@fortawesome/fontawesome-free/css/all.min.css?ver=1"
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css?ver=1"
+// import "./node_modules/@fortawesome/fontawesome-free/css/all.min.css?ver=1"
 
 ReactDOM.render(
   <React.StrictMode>
