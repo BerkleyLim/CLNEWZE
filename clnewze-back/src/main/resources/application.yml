@@ -1,0 +1,74 @@
+spring:
+  datasource:
+    hikari:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/profile?useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true
+      password: 1111
+      username: root
+  devtools:
+    livereload:
+      enabled: true
+
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLInnoDBDialect
+    hibernate:
+      ddl-auto: none
+#      ddl-auto: create # 이것은 개발 초기에 테이블 생성할때 주로 쓰기, 단 문법이 오류떠서 생략 가능
+#      ddl-auto: update # 이미 생성된 Table에 변경 가능
+#      ddl-auto: validate # 조건 검사
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    open-in-view: false
+    generate-ddl: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLInnoDBDialect
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+        temp:
+          use_jdbc_metadata_defaults: false
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql: true
+  # 파일 관련 메소드
+  thymeleaf:
+    cache: false
+  sql:
+    init:
+      encoding: UTF-8
+
+#jwt:
+#  header: Authorization # header : JWT를 검증하는데 필요한 정보
+#  # secret : HS512 알고리즘을 사용할 것이기 때문에 512bit, 즉 64byte 이상의 secret key를 사용해야 한다.
+#  # 예제에서는 Secret Key 를 Base64 로 인코딩한 값임.
+#  #echo 'silvernine-tech-spring-boot-jwt-tutorial-secret-silvernine-tech-spring-boot-jwt-tutorial-secret'|base64
+#  secret: c2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQtc2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQK
+#  token-validity-in-seconds: 86400 # token-validity-in-seconds : 토큰의 만료시간을 지정함 (단위는 초)
+
+# Mabatis 환경 설정 :
+# 참조 : https://jydlove.tistory.com/49
+# xml 대신 속성값으로 설정한다
+mybatis:
+  type-aliases-package: profile.back.mapper
+  configuration:
+    cache-enabled: true
+    use-column-label: true
+    use-generated-keys: false
+    map-underscore-to-camel-case: true
+    default-statement-timeout: 25000
+    jdbc-type-for-null: NULL
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  
+logging:
+  level:
+    org:
+#      hibernate: info
+      hibernate:
+        type:
+          descriptor:
+            sql: trace
+      
+  

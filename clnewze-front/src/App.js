@@ -10,7 +10,7 @@ function App() {
         <div className="modal-container"></div>
         <div className="container">
           <Routes>
-            <Route path="/" exact element = {AppComponent}/>
+            <Route path="/"  element = {AppComponent}/>
             {/* <Route path="/introduction"  component = {IntroductionComponent}/>
             <Route path="/career"  component = {CareerComponent}/>
             <Route path="/project"  component = {ProjectComponent}/>
