@@ -17,7 +17,7 @@ import clnewze.back.domain.Information;
 import clnewze.back.service.InformationService;
 
 @RestController
-@RequestMapping("/information")
+@RequestMapping("/api/information")
 public class InformationController {
     @Autowired ServletContext sc;
     

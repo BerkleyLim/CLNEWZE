@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import clnewze.back.service.PracticeRoomService;
 
 @RestController
-@RequestMapping("/practiceRoom")
+@RequestMapping("/api/practiceRoom")
 public class PracticeRoomController {
     @Autowired ServletContext sc;
     

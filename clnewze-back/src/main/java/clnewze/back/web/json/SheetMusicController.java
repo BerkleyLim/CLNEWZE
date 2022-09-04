@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import clnewze.back.service.SheetMusicService;
 
 @RestController
-@RequestMapping("/sheetmusic")
+@RequestMapping("/api/sheetmusic")
 public class SheetMusicController {
     @Autowired ServletContext sc;
     SheetMusicService sheetMusicService;

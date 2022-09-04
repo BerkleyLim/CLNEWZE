@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import clnewze.back.service.TeacherService;
 
 @RestController
-@RequestMapping("/teacher")
+@RequestMapping("/api/teacher")
 public class TeacherController {
     @Autowired ServletContext sc;
 //    

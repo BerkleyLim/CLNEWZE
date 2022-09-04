@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import clnewze.back.service.MediaService;
 
 @RestController
-@RequestMapping("/media")
+@RequestMapping("/api/media")
 public class MediaController {
     @Autowired ServletContext sc;
     
