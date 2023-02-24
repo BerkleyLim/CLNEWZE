@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-impr
 
 export default function informationComponent(props) {
   let [informations, setInformations] = useState([]);
