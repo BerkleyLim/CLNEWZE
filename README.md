@@ -8,12 +8,12 @@ CLNEWZE 란 Classic, Newage, Zezz를 합친 말로 음악에 관한 취미 및 �
 - 23' 04 ~ (개발중)
 
 ### 개발 환경
-Maven XX
-VS code
-React
-My-batis
-Spring boot
-MySQL
+- Maven XX
+- VS code
+- React
+- My-batis
+- Spring boot
+- MySQL
 
 
 ### 작업 진행 예정
