@@ -2,6 +2,9 @@ import './App.css';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'; 
 import MainView from './components/main/index';
 import Header from "./components/commom/header/index"
+import Footer from "./components/commom/footer/index"
+
+import Information from "./components/information/index"
 
 function App() {
   return (
@@ -12,14 +15,15 @@ function App() {
         <div className="container">
           <Routes>
             <Route path="/"  element = {<MainView />}/>
-            {/* <Route path="/introduction"  component = {IntroductionComponent}/>
-            <Route path="/career"  component = {CareerComponent}/>
+            {/* <Route path="/introduction"  component = {Informations}/> */}
+            <Route path="/information"  element = {<Information />}/>
+            {/* <Route path="/career"  component = {CareerComponent}/>
             <Route path="/project"  component = {ProjectComponent}/>
             <Route path="/together"  component = {TogetherComponent}/> */}
           </Routes>
         </div>
 
-        {/* <Footer /> */}
+        <Footer />
       </Router>
     </div>
   );
