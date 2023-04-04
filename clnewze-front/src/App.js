@@ -1,6 +1,7 @@
 import './App.css';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'; 
-import AppComponent from './components/AppComponent';
+import MainView from './components/main/index';
+import Header from "./components/commom/header/index"
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
         <div className="modal-container"></div>
         <div className="container">
           <Routes>
-            <Route path="/"  element = {AppComponent}/>
+            <Route path="/"  element = {<MainView />}/>
             {/* <Route path="/introduction"  component = {IntroductionComponent}/>
             <Route path="/career"  component = {CareerComponent}/>
             <Route path="/project"  component = {ProjectComponent}/>
@@ -18,7 +19,7 @@ function App() {
           </Routes>
         </div>
 
-        <Footer />
+        {/* <Footer /> */}
       </Router>
     </div>
   );
