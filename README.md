@@ -20,6 +20,10 @@ CLNEWZE 란 Classic, Newage, Zezz를 합친 말로 음악에 관한 취미 및 �
 UI 설계(템플릿 제작) -> UI 구현 -> DB 설계 -> Spring boot 환경 설정 -> My-batis 구현 -> 프론트와 백엔드 Restful API 사용 -> 테스트 -> 운영
 
 ### 현재 작업사항
+23년도
+4월
+
+4일
 - header 부분 작업 진행중
 - main 부분 샘플로 넣을 템플릿 연구중
 - footer 부분 작업 진행예정
