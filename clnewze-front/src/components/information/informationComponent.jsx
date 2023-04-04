@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 
-export default function informationComponent(props) {
+const InformationComponent = (props) => {
   let [informations, setInformations] = useState([]);
   return (
     <div>
@@ -163,3 +163,5 @@ export default function informationComponent(props) {
     </div >
   )
 }
+
+export default IntroductionComponent;
