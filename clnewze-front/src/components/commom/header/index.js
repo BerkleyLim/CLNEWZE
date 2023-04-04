@@ -10,11 +10,14 @@ import {
   // DropdownItem,
 } from "reactstrap";
 
-import SelectMenuDropDown from "./dropdown/selectManu";
+import SelectMenuIndex from "./dropdown/selectMemu/index";
+import SelectLanguageIndex from "./dropdown/language/index";
 
 const HeaderComponent = (props) => {
   let navigate = useNavigate();
-  const movePage = (link) => {};
+  const movePage = (link) => {
+    navigate(link);
+  };
 
 
   return (
@@ -27,12 +30,14 @@ const HeaderComponent = (props) => {
             <img src="" />
           </a>
         </div>
-        <SelectMenuDropDown />
+        <SelectMenuIndex />
+        {/* <SelectMenuDropDown /> */}
         
         {/* <!-- 여기는 그냥 100px의 여백 두기 --> */}
         <div style={{ display: "flex", width: "100px" }}></div>
 
-        <div className="header_language">
+        <SelectLanguageIndex />
+        {/* <div className="header_language"> */}
           {/* <div className="dropdown">
             <button className="btn btn-secondary dropdown-toggle" type="button"
               id="select-language" data-target="#" data-toggle="dropdown"
@@ -46,7 +51,7 @@ const HeaderComponent = (props) => {
               <button id="" className="dropdown-item" type="button">etc..</button>
             </div>
           </div> */}
-        </div>
+        {/* </div> */}
 
         <i className="fas fa-list header-icon"></i>
 
