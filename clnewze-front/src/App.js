@@ -5,6 +5,7 @@ import Header from "./components/commom/header/index"
 import Footer from "./components/commom/footer/index"
 
 import Information from "./components/information/index"
+import Introduction from "./components/introduction/index"
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <div className="container">
           <Routes>
             <Route path="/"  element = {<MainView />}/>
-            {/* <Route path="/introduction"  component = {Informations}/> */}
+            <Route path="/introduction"  element = {<Introduction />}/>
             <Route path="/information"  element = {<Information />}/>
             {/* <Route path="/career"  component = {CareerComponent}/>
             <Route path="/project"  component = {ProjectComponent}/>
