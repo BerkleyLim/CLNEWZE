@@ -4,7 +4,7 @@ import DropdownForm from "./dropdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "../information.scss"
 
-const index = () => {
+const TitleIndex = () => {
   return (
     <div className={styles.title}>
       <Navbar className={styles.title_area}>
@@ -22,7 +22,7 @@ const index = () => {
           </Button>
         </InputGroup>
       </Navbar>
-      <Navbar className="items_wrap">
+      <Navbar className={styles.items_wrap}>
         <button type="button">전체</button>
         <button type="button">클래식</button>
         <button type="button">뉴에이지</button>
@@ -36,4 +36,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default TitleIndex;
