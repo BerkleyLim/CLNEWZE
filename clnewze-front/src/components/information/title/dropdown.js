@@ -30,7 +30,5 @@ const InformationTitleDropdown = () => {
     </ButtonDropdown>
   );
 };
-{
-}
 
 export default InformationTitleDropdown;
