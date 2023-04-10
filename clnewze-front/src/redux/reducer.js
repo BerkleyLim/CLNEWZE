@@ -5,7 +5,7 @@ import storage from "redux-persist/lib/storage/session";
 
 import userReducer from "./action/user.js"
 import careerReducer from "./action/career.js"
-
+import languageReducer from "./action/language.js"
 
 const persistConfig = {
   key: "root",
@@ -19,6 +19,7 @@ const persistConfig = {
 export const rootReducer = combineReducers({
   user:userReducer,
   career:careerReducer,
+  language:languageReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);
