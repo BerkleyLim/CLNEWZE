@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const MediaComponent = () => {
   return (
@@ -41,79 +41,130 @@ const MediaComponent = () => {
         </nav>
     </div> */}
 
-  <div className="information-container">
-      <nav className="navbar information-list-setting"> 
+      <div className="information-container">
+        <nav className="navbar information-list-setting">
           <h2>전체 곡 목록</h2>
           <div className="sub-menu board">
-              <div className="sort-list">
-                  <div className="view_mode">
-                      <button type="button" className="feed-type fas fa-bars on" data-viewtype="3">
-                          {/* <!-- <span>카드형</span> --> */}
-                      </button>
-                      <button type="button" className="list-type fas fa-th-large" data-viewtype="1">
-                          {/* <!-- <span>게시판형</span> --> */}
-                      </button>
-                  </div>
-                  <div className="select-box">
-                      <a href="javascript:;" className="selected">20개</a>
-                      <ul className="select-layer" data-align="left">
-                          <li><a href="javascript:;">10개</a></li>
-                          <li><a href="javascript:;">20개</a></li>
-                          <li><a href="javascript:;">30개</a></li>
-                          <li><a href="javascript:;">40개</a></li>
-                      </ul>
-                  </div>
+            <div className="sort-list">
+              <div className="view_mode">
+                <button
+                  type="button"
+                  className="feed-type fas fa-bars on"
+                  data-viewtype="3"
+                >
+                  {/* <!-- <span>카드형</span> --> */}
+                </button>
+                <button
+                  type="button"
+                  className="list-type fas fa-th-large"
+                  data-viewtype="1"
+                >
+                  {/* <!-- <span>게시판형</span> --> */}
+                </button>
               </div>
+              <div className="select-box">
+                <a href="javascript:;" className="selected">
+                  20개
+                </a>
+                <ul className="select-layer" data-align="left">
+                  <li>
+                    <a href="javascript:;">10개</a>
+                  </li>
+                  <li>
+                    <a href="javascript:;">20개</a>
+                  </li>
+                  <li>
+                    <a href="javascript:;">30개</a>
+                  </li>
+                  <li>
+                    <a href="javascript:;">40개</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-      </nav>
-      
-      {/* 이부분 map */}
-      <div className="media-feed">
+        </nav>
+
+        {/* 이부분 map */}
+        <div className="media-feed">
           <div id="information-detail-00001" className="autor_wrap card mb-3">
-              <div className="information-title">이루마</div>
-              <div className="card-body">
-                  <div className="card mb-3 content" >
-                      <div className="row no-gutters">
-                          <div className="col-md-4">
-                              <img src="/image/sample-yiruma-chaconne.png" className="card-img" alt="..." style="width:150px;height:150px"/>
-                          </div>
-                          <div className="col-md-8">
-                              <div className="">
-                                  <h5 className="card-title">장르 : 뉴에이지</h5>
-                                  <p className="card-text">● 발매날짜 : 1996년 <br/>
-                                          ● 앨범명 : <br/>
-                                          ● 상세정보 : 이 곡은 클래식을 기반으로 해서....</p>
-                                  <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-                              </div>
-                          </div>
-                      </div>
+            <div className="information-title">이루마</div>
+            <div className="card-body">
+              <div className="card mb-3 content">
+                <div className="row no-gutters">
+                  <div className="col-md-4">
+                    <img
+                      src="/image/sample-yiruma-chaconne.png"
+                      className="card-img"
+                      alt="..."
+                      style="width:150px;height:150px"
+                    />
                   </div>
+                  <div className="col-md-8">
+                    <div className="">
+                      <h5 className="card-title">장르 : 뉴에이지</h5>
+                      <p className="card-text">
+                        ● 발매날짜 : 1996년 <br />
+                        ● 앨범명 : <br />● 상세정보 : 이 곡은 클래식을 기반으로
+                        해서....
+                      </p>
+                      <p className="card-text">
+                        <small className="text-muted">
+                          Last updated 3 mins ago
+                        </small>
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
+            </div>
           </div>
-      </div>
+        </div>
 
-      <section className="board-srh_wrap">
+        <section className="board-srh_wrap">
           <div className="paging">
-              <a className="page-item on" href="#">1</a>
-              <a className="page-item" href="#">2</a>
-              <a className="page-item" href="#">3</a>
-              <a className="page-item" href="#">4</a>
-              <a className="page-item" href="#">5</a>
-              <a className="page-item" href="#">6</a>
-              <a className="page-item" href="#">7</a>
-              <a className="page-item" href="#">8</a>
-              <a className="page-item" href="#">9</a>
-              <a className="page-item" href="#">10</a>
-              <span>...</span>
-              <a className="page-item" href="#">15</a>
-              <a className="page-item next" href="#">다음</a>
+            <a className="page-item on" href="#">
+              1
+            </a>
+            <a className="page-item" href="#">
+              2
+            </a>
+            <a className="page-item" href="#">
+              3
+            </a>
+            <a className="page-item" href="#">
+              4
+            </a>
+            <a className="page-item" href="#">
+              5
+            </a>
+            <a className="page-item" href="#">
+              6
+            </a>
+            <a className="page-item" href="#">
+              7
+            </a>
+            <a className="page-item" href="#">
+              8
+            </a>
+            <a className="page-item" href="#">
+              9
+            </a>
+            <a className="page-item" href="#">
+              10
+            </a>
+            <span>...</span>
+            <a className="page-item" href="#">
+              15
+            </a>
+            <a className="page-item next" href="#">
+              다음
+            </a>
           </div>
-      </section>
-
-  </div>
+        </section>
+      </div>
     </>
+  );
+};
 
-  )
-}
-
-export default MediaComponent
+export default MediaComponent;
