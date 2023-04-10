@@ -1,24 +1,21 @@
 /* 카테코리 안의 있는 헤더 */
-.title-information {
+.title {
   top: 65px;
   background: #eee;
   padding: 15px 15px 15px 15px;
   border-bottom-right-radius: 3px;
   margin-bottom: 50px;
   width:1100px;
+  & .title_area h1 {
+    margin-bottom:40px;
+  }
+
+  & .items_wrap button {
+    height: 36px;
+    font: 0/0 a;
+    font-size: 1.2em;
+  }
 }
-
-.title-information .title_area h1 {
-  margin-bottom:40px;
-}
-
-
-.title-information .items_wrap button {
-  height: 36px;
-  font: 0/0 a;
-  font-size: 1.2em;
-}
-
 
 
 .search-box {
@@ -26,10 +23,41 @@
   text-align: right;
   font-size: 0;
   /* line-height: 0; */
-}
+  & button {
+    width: 110px;
+  }
+  & .input-box {
+    display: inline-block;
+    position: relative;
+    margin-left: 4px;
+    vertical-align: -14px;
 
-.search-box button {
-  width : 110px;
+    & input[type=text] {
+      float: left;
+      width: 186px;
+      height: 34px;
+      padding: 0 0 0 12px;
+      border: 1px solid #d9dddf;
+      border-radius: 2px;
+      color: #000;
+      font-size: 13px;
+      line-height: 34px;
+    }
+
+    & .submit {
+      float: left;
+      background: #fff;
+      width: 58px;
+      height: 36px;
+      margin-left: -3px;
+      border: 1px solid #fa0;
+      border-radius: 2px;
+      color: #fa0;
+      font-size: 13px;
+      text-align: center;
+      line-height: 34px;
+    }
+  }
 }
 
 .select-box {
@@ -37,81 +65,46 @@
   position: relative;
   background: #fff;
   z-index: 10;
-}
+  & .selected {
+    display: block;
+    position: relative;
+    height: 34px;
+    padding: 0 38px 0 12px;
+    border: 1px solid #d9dddf;
+    border-radius: 2px;
+    color: #666;
+    font-size: 13px;
+    line-height: 34px;
+  }
+  & .select-layer {
+    display: none;
+    position: absolute;
+    top: 33px;
+    background: #fff;
+    border: 1px solid #d9dddf;
+    border-radius: 2px;
+  }
+  & .select-layer[data-align="left"] {
+    left: 0;
+  }
+  & .select-layer {
+   & li {
+    padding: 0 !important;
+    border: 0 !important;
+    white-space: nowrap;
+    animation: none;
 
-.select-box .selected {
-  display: block;
-  position: relative;
-  height: 34px;
-  padding: 0 38px 0 12px;
-  border: 1px solid #d9dddf;
-  border-radius: 2px;
-  color: #666;
-  font-size: 13px;
-  line-height: 34px;
-}
-
-.select-box .select-layer {
-  display: none;
-  position: absolute;
-  top: 33px;
-  background: #fff;
-  border: 1px solid #d9dddf;
-  border-radius: 2px;
-}
-
-.select-box .select-layer[data-align="left"] {
-  left: 0;
-}
-
-.select-box .select-layer li {
-  padding: 0 !important;
-  border: 0 !important;
-  white-space: nowrap;
-  animation: none;
-}
-
-.select-box .select-layer li a {
-  display: block;
-  padding: 10px 34px 10px 16px;
-  box-sizing: border-box;
-  color: #333;
-  font-size: 13px;
-  text-align: left;
-  line-height: 1.2;
-}
-
-.search-box .input-box {
-  display: inline-block;
-  position: relative;
-  margin-left: 4px;
-  vertical-align: -14px;
-}
-
-.search-box .input-box input[type=text] {
-  float: left;
-  width: 186px;
-  height: 34px;
-  padding: 0 0 0 12px;
-  border: 1px solid #d9dddf;
-  border-radius: 2px;
-  color: #000;
-  font-size: 13px;
-  line-height: 34px;
-}
-
-.search-box .input-box .submit {
-  float: left;
-  background: #fff;
-  width: 58px;
-  height: 36px;
-  margin-left: -3px;
-  border: 1px solid #fa0;
-  border-radius: 2px;
-  color: #fa0;
-  font-size: 13px;
-  text-align: center;
-  line-height: 34px;
+    &  a {
+      display: block;
+      padding: 10px 34px 10px 16px;
+      box-sizing: border-box;
+      color: #333;
+      font-size: 13px;
+      text-align: left;
+      line-height: 1.2;
+    }
+  }  
+  } 
 }
 
 button > * {

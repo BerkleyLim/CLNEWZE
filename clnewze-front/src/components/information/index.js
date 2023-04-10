@@ -2,6 +2,7 @@ import React, { useState } from "react";
 // import { Navbar } from "reactstrap";
 
 import Title from "./title/index"
+import styles from "./information.scss"
 
 const Informations = (props) => {
   let [informations, setInformations] = useState([]);
