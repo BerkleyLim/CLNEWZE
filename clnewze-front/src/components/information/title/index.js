@@ -2,8 +2,6 @@ import React from "react";
 import { Button, Input, InputGroup, Navbar, Row } from "reactstrap";
 import DropdownForm from "./dropdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import styles from "../information.scss"
-import "../information.scss"
 
 const TitleIndex = () => {
   return (
