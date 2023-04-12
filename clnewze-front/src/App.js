@@ -6,6 +6,11 @@ import Footer from "./components/commom/footer/index"
 
 import Information from "./components/information/index"
 import Introduction from "./components/introduction/index"
+import PracticeRoom from "./components/practiceRoom/index"
+import Media from "./components/media/index"
+import SheetMusic from "./components/sheetmusic/index"
+import Teacher from "./components/teacher/index"
+import Community from "./components/community/index"
 
 function App() {
   return (
@@ -18,9 +23,11 @@ function App() {
             <Route path="/"  element = {<MainView />}/>
             <Route path="/introduction"  element = {<Introduction />}/>
             <Route path="/information"  element = {<Information />}/>
-            {/* <Route path="/career"  component = {CareerComponent}/>
-            <Route path="/project"  component = {ProjectComponent}/>
-            <Route path="/together"  component = {TogetherComponent}/> */}
+            <Route path="/practiceRoom"  element = {<PracticeRoom />}/>
+            <Route path="/media"  element = {<Media />}/>
+            <Route path="/sheetmusic"  element = {<SheetMusic />}/>
+            <Route path="/teacher"  element = {<Teacher />}/>
+            <Route path="/community"  element = {<Community />}/>
           </Routes>
         </div>
 
