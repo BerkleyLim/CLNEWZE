@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 
 const BoardPagingnation = ({ totalPosts, limit, page, setPage }) => {
   const numPages = Math.ceil(totalPosts / limit);
@@ -8,12 +9,13 @@ const BoardPagingnation = ({ totalPosts, limit, page, setPage }) => {
 // console.log({"currPage is":currPage, "firsNum is" : firstNum, "page is" : page})
   // console.log(numPages);
   return (
-    <div>
+    <>
       <nav aria-label="Page navigation example">
-        <div className="pagination justify-content-center">
-          <div className={`page-item ${page === 1 && "disabled"}`}>
-            <button
-              className={`page-link`}
+        <Pagination className="justify-content-center">
+          {/* <div className={`page-item ${page === 1 && "disabled"}`}> */}
+          <PaginationItem className={`${page === 1 && "disabled"}`}>
+            <PaginationLink
+              // className={`page-link`}
               onClick={() => {
                 setPage(page - 1);
                 setCurrPage(page-2);
@@ -22,42 +24,45 @@ const BoardPagingnation = ({ totalPosts, limit, page, setPage }) => {
               tabIndex="-1"
             >
               Previous
-            </button>
-          </div>
-          {/* {Array(numPages).map( */}
+            </PaginationLink>
+          </PaginationItem>
           {Array(5).fill().map(
             (_, i) => (
-              // return (
-              <div className="page-item" key={i + 1}>
-                {" "}
-                {i <4 ? (
-                  <button
-                    className="page-link"
-                    onClick={() => setPage(i + 1)}
-                    aria-current={page === firstNum + 1 + i ? "page" : null}
-                  >
-                    {/* {firstNum + 1 + i} */}
-                    {firstNum + i}
-                  </button>
-                ) : (
-                  /*
-                        i > 4 일때
-                      */
-                  <button
-                    className="page-link"
-                    onClick={() => setPage(lastNum)}
-                    aria-current={page === lastNum ? "page" : null}
-                  >
-                    {lastNum}
-                  </button>
-                )}
+              <div key={i + 1}>
+              {
+                i < numPages && 
+                // <div className="page-item" >
+                <PaginationItem>
+                  {" "}
+                  {i <4 ? (
+                    <PaginationLink
+                      // className="page-link"
+                      // onClick={() => setPage(i + 1)}
+                      onClick={() => setPage(firstNum + i)}
+                      aria-current={page === firstNum + 1 + i ? "page" : null}
+                    >
+                      {firstNum + i}
+                    </PaginationLink>
+                  ) : (
+                    /*
+                          i > 4 일때
+                        */
+                    <PaginationLink
+                      // className="page-link"
+                      onClick={() => setPage(lastNum)}
+                      aria-current={page === lastNum ? "page" : null}
+                    >
+                      {lastNum}
+                    </PaginationLink>
+                  )}
+                </PaginationItem>
+              }
               </div>
             )
-            // )
           )}
-          <div className={`page-item ${page === numPages && "disabled"}`}>
-            <button
-              className={`page-link`}
+          <PaginationItem className={`${page === numPages && "disabled"}`}>
+            <PaginationLink
+              // className={`page-link`}
               onClick={() => {
                 setPage(page + 1);
                 setCurrPage(page + 1);
@@ -66,11 +71,11 @@ const BoardPagingnation = ({ totalPosts, limit, page, setPage }) => {
               // tabindex="-1"
             >
               Next
-            </button>
-          </div>
-        </div>
+            </PaginationLink>
+          </PaginationItem>
+        </Pagination>
       </nav>
-    </div>
+    </>
   );
 };
 
