@@ -6,7 +6,6 @@ import {
   ButtonDropdown,
   Button,
 } from "reactstrap";
-// import "../information.scss"
 
 const InformationTitleDropdown = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
