@@ -23,25 +23,6 @@ const ContentsMenu = () => {
             </Button>
           </div>
           <DropdownPaging />
-          {/* <div className="selectBox">
-            <a href="javascript:;" className="selected">
-              20개
-            </a>
-            <ul className="select-layer" data-align="left">
-              <li>
-                <a href="javascript:;">10개</a>
-              </li>
-              <li>
-                <a href="javascript:;">20개</a>
-              </li>
-              <li>
-                <a href="javascript:;">30개</a>
-              </li>
-              <li>
-                <a href="javascript:;">40개</a>
-              </li>
-            </ul>
-          </div> */}
         </div>
       </div>
     </Navbar>

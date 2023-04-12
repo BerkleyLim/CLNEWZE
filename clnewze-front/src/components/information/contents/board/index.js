@@ -1,51 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
+import { Card, CardBody, CardHeader, Col, Row } from "reactstrap";
 
-const BoardIndex = (index, information) => {
+const BoardIndex = (index, board) => {
+
+
   return (
-    <div
+    <Card
       key={index}
-      className="autor_wrap card mb-3 information-detail"
-      // onclick={() => informationDetail(information.ino)}
+      mb={3}
+      className="autor_wrap"
+      // onclick={() => boardDetail(board.ino)}
     >
-      <div className="information-title">
-        {information.artist} - {information.title}
-      </div>
-      <div className="card-body">
-        <div className="card mb-3 content">
-          <div className="row no-gutters">
-            <div className="col-md-4">
+      <CardHeader className="board-title">
+        {board.artist} - {board.title}
+      </CardHeader>
+      <CardBody>
+        <Card mb={3} className="content">
+          <Row className="no-gutters">
+            <Col md={1}>
               <img
-                src={information.img}
+                src={board.img}
                 className="card-img"
                 alt="..."
-                style={{width:"150px", height:"150px"}}
+                style={{ width: "150px", height: "150px" }}
               />
-            </div>
-            <div className="col-md-8">
+            </Col>
+            <Col md={11}>
               <div className="">
-                <div className="row" style={{verticalAlign:"bottom"}}>
+                <Row style={{ verticalAlign: "bottom" }}>
                   <h5 className="card-title col-md-8 align-self-center">
-                    장르 : {information.genre}
+                    장르 : {board.genre}
                   </h5>
                   <div className="display col align-self-center justify-content-end">
-                    조회수 : {information.viewNumber}
+                    조회수 : {board.viewNumber}
                   </div>
-                </div>
+                </Row>
 
                 <p className="card-text">
-                  ● 발매날짜 : {information.releaseDate} 년 <br />● 앨범명 :{" "}
-                  {information.albumName}
-                  <br />● 상세정보 : {information.content}
+                  ● 발매날짜 : {board.releaseDate} 년 <br />● 앨범명 :{" "}
+                  {board.albumName} <br />● 상세정보 :{" "}
+                  {board.content}
                 </p>
                 <p className="card-text">
-                  <small className="text-muted">{information.upLoadDate}</small>
+                  <small className="text-muted">{board.upLoadDate}</small>
                 </p>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+            </Col>
+          </Row>
+        </Card>
+      </CardBody>
+    </Card>
   );
 };
 
