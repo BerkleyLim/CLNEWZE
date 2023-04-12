@@ -1,60 +1,20 @@
 import React, { useState } from "react";
 // import { Navbar } from "reactstrap";
 
-import Title from "./title/index"
-import styles from "./information.scss"
+import Title from "./title/index";
+import Menu from "./contents/menu/index";
+import "./information.scss";
 
 const Informations = (props) => {
   let [informations, setInformations] = useState([]);
   return (
     <div>
       <Title />
-      
-      <div className="information-container">
-        <nav className="navbar information-list-setting">
-          <h2>전체 곡 목록</h2>
-          <div className="sub-menu board">
-            <div className="sort-list">
-              <div className="view_mode">
-                <button
-                  type="button"
-                  className="feed-type fas fa-bars on"
-                  data-viewtype="3"
-                >
-                  {/* <!-- <span>카드형</span> --> */}
-                </button>
-                <button
-                  type="button"
-                  className="list-type fas fa-th-large"
-                  data-viewtype="1"
-                >
-                  {/* <!-- <span>게시판형</span> --> */}
-                </button>
-              </div>
-              <div className="selectBox">
-                <a href="javascript:;" className="selected">
-                  20개
-                </a>
-                <ul className="select-layer" data-align="left">
-                  <li>
-                    <a href="javascript:;">10개</a>
-                  </li>
-                  <li>
-                    <a href="javascript:;">20개</a>
-                  </li>
-                  <li>
-                    <a href="javascript:;">30개</a>
-                  </li>
-                  <li>
-                    <a href="javascript:;">40개</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </nav>
 
-        <div className="information-feed">
+      <div className="contain">
+        <Menu />
+
+        <div className="contents">
           {informations.map((information, index) => (
             <div
               key={index}
