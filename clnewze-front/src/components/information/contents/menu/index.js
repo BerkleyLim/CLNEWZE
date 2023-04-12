@@ -1,6 +1,11 @@
 import React from "react";
 import { Button, Navbar } from "reactstrap";
-import DropdownPaging from "./dropdown"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import DropdownPaging from "./dropdown";
+// import { faGrid2 } from "@fortawesome/free-regular-svg-icons";
+import { faList, faTableCellsLarge } from "@fortawesome/free-solid-svg-icons";
+// import { faGrid2 } from "@fortawesome/free-regular-svg-icons";
+
 const ContentsMenu = () => {
   return (
     <Navbar className="listMenu">
@@ -10,15 +15,21 @@ const ContentsMenu = () => {
           <div className="view_mode">
             <Button
               // className="feed-type fas fa-bars on"
-              data-viewtype="3"
+              // data-viewtype="3"
             >
+              <FontAwesomeIcon
+                icon={faTableCellsLarge}
+                // style={{ padding: "-10px 0 0 -10px" }}
+              />
               {/* <!-- <span>카드형</span> --> */}
             </Button>
             <Button
-              type="button"
-              // className="list-type fas fa-th-large"
-              data-viewtype="1"
+            // className="list-type fas fa-th-large"
+            // data-viewtype="1"
+            // style={{backgroundColor:"#fff"}}
             >
+              {/* <FontAwesomeIcon icon="fa-solid fa-list" /> */}
+              <FontAwesomeIcon icon={faList} />
               {/* <!-- <span>게시판형</span> --> */}
             </Button>
           </div>
