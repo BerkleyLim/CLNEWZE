@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Navbar } from "reactstrap";
-
+import DropdownPaging from "./dropdown"
 const ContentsMenu = () => {
   return (
     <Navbar className="listMenu">
@@ -9,20 +9,21 @@ const ContentsMenu = () => {
         <div className="sort-list">
           <div className="view_mode">
             <Button
-              className="feed-type fas fa-bars on"
+              // className="feed-type fas fa-bars on"
               data-viewtype="3"
             >
               {/* <!-- <span>카드형</span> --> */}
             </Button>
             <Button
               type="button"
-              className="list-type fas fa-th-large"
+              // className="list-type fas fa-th-large"
               data-viewtype="1"
             >
               {/* <!-- <span>게시판형</span> --> */}
             </Button>
           </div>
-          <div className="selectBox">
+          <DropdownPaging />
+          {/* <div className="selectBox">
             <a href="javascript:;" className="selected">
               20개
             </a>
@@ -40,7 +41,7 @@ const ContentsMenu = () => {
                 <a href="javascript:;">40개</a>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
     </Navbar>

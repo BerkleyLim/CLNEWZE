@@ -230,7 +230,8 @@ section[class$=-srh_wrap] {
 
 /* 곡 상세 정보 */
 /* 상세 정보 폼*/
-.common-board-detail-container {
+// 모달용
+.boardDetail {
   width: 1000px;
   height: 700px;
   z-index: 9999;
@@ -239,15 +240,15 @@ section[class$=-srh_wrap] {
   margin: 0 auto;
   background: white;
   overflow: scroll;
-}
 
-.title-detail-information {
-  top: 65px;
-  background: #eee;
-  padding: 15px 15px 15px 15px;
-  border-bottom-right-radius: 3px;
-  margin-bottom: 50px;
-  width: 900px;
+  & .DetailTitle {
+    top: 65px;
+    background: #eee;
+    padding: 15px 15px 15px 15px;
+    border-bottom-right-radius: 3px;
+    margin-bottom: 50px;
+    width: 900px;
+  }
 }
 
 /* 장르 정보 관련 */

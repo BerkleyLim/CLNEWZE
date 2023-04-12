@@ -97,7 +97,7 @@ const MediaComponent = () => {
                       src="/image/sample-yiruma-chaconne.png"
                       className="card-img"
                       alt="..."
-                      style="width:150px;height:150px"
+                      style={{width:"150px", height:"150px"}}
                     />
                   </div>
                   <div className="col-md-8">
