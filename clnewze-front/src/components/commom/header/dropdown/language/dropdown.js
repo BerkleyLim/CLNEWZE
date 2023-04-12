@@ -14,7 +14,7 @@ const LanguageDropdown = () => {
     dispatch({type:"setLanguage", language:language});
   }
 
-  console.log(language.language);
+  // console.log(language.language);
   return (
     <ButtonDropdown isOpen={dropdownOpen} direction="down" toggle={toggle}>
       <Button outline color="btn-secondary">
