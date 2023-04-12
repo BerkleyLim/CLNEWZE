@@ -68,7 +68,7 @@ const Informations = (props) => {
                   {/* <!-- <span>게시판형</span> --> */}
                 </button>
               </div>
-              <div className="select-box">
+              <div className="selectBox">
                 <a href="javascript:;" className="selected">
                   20개
                 </a>

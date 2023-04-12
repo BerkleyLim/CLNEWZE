@@ -6,15 +6,16 @@ import {
   ButtonDropdown,
   Button,
 } from "reactstrap";
+// import "../information.scss"
 
 const InformationTitleDropdown = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
   return (
-    <ButtonDropdown toggle={toggle} className="dropdown select-box">
-      <Button outline> 전체장르</Button>
-      <DropdownToggle caret color="primary">
+    <ButtonDropdown isOpen={dropdownOpen} toggle={toggle} direction="down" className="dropdown selectBox">
+      <Button className="dropdownTitle" outline> 전체장르</Button>
+      <DropdownToggle className="dropdownToggle" caret color="primary">
         {/* 전체 */}
       </DropdownToggle>
       <DropdownMenu>
