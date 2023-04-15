@@ -1,1 +1,128 @@
+server:
+  shutdown: graceful
 
+spring:
+  h2:
+    console:
+      enabled: true
+
+  # 데이터베이스 죽는 현상 참조 : https://kakaocommerce.tistory.com/45
+  # 데이터베이스 누수 현상 해결하기 : https://do-study.tistory.com/97
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver  #마리아 DB시 org.mariadb.jdbc.Driver
+    # jdbc-url: jdbc:mysql://localhost:3306/profile?useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true&autoReconnect=true
+    url: jdbc:mysql://localhost:3306/music?useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true&autoReconnect=true
+    password: 1111 # 비밀번호 수정
+    username: root
+    # hikariCP 커넥션 과사용으로 누수 현상 나오면 메모리 부족 현상 발생
+    # mysql 서비스 죽이는 것은 Idle 상태의 커넥션으로 끊어진다.
+    # 히카리에서는 SELECT 1 대신 maxLifetime 설정
+    # 이것은 기존 커넥션 풀은 일정 시간 사용 하지 않는 커넥션을 종료 시킨다.
+    # 여기서 my-sql 기준 wait_timeout은 8시간 설정
+    # maxLifetime 값은 DB의 wait_timeout 보다 몇 초 정도 짧게 설정하기 (실패)
+    # minimumIdle 조정 해보기 (실패)
+    # 근본적인 문제 : HikariPool-1에 무수히 많은 사용자 연결 후 해제 안됨 Added connection com.mysql.cj.jdbc.ConnectionImpl@5e9~~
+    # hikari에 대해 알아보기 : https://brunch.co.kr/@jehovah/24
+    # 해결 소스 참조 : https://hyunsoori.tistory.com/2
+    # hikari:
+    #   data-source-properties:
+    #     cachePrepStmts: true
+    #     prepStmtCacheSize: 250 # 연결당 캐쉬가 준비할 명령문의 수 지정
+    #     prepStmtCacheSqlLimit: 2048
+    #     useServerPrepStmts: true # 서버측 준비된 명령문 지원, 성능 향상 도움됨
+    #   connectionTimeout: 30000
+    #   maximumPoolSize: 10
+    #   max-lifetime: 1799995
+    #   # minimum-idle: 1000
+    #   # poolName : HikariCP
+    #   readOnly : false
+    #   # connectionTestQuery: SELECT 1 #활성 상태 확인, 참조 : https://bamdule.tistory.com/166
+
+    # 기존 커넥션풀에서는 dbcp2에서 최적화 사용
+    # Oracle에서는 SELECT 1 FROM DUAL 사용
+    # 최경량인지 확인 
+    # 디비서버에서는 DBCP의 ValidationQuery로 할당한 SQL 호출이 가장 많음
+    # dbcp2:
+    #   validation-query: SELECT 1;
+  devtools:
+    livereload:
+      enabled: true
+
+#   jpa:
+#     database: mysql
+#     database-platform: org.hibernate.dialect.MySQLInnoDBDialect # maria-db MySQL5InnoDBDialect
+#     hibernate:
+#       ddl-auto: none
+# #      ddl-auto: create # 이것은 개발 초기에 테이블 생성할때 주로 쓰기, 단 문법이 오류떠서 생략 가능
+# #      ddl-auto: update # 이미 생성된 Table에 변경 가능
+# #      ddl-auto: validate # 조건 검사
+#       naming:
+#         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#     open-in-view: false
+#     generate-ddl: false
+#     properties:
+#       hibernate:
+#         dialect: org.hibernate.dialect.MySQLInnoDBDialect
+#         show_sql: true
+#         format_sql: true
+#         use_sql_comments: true
+#         temp:
+#           use_jdbc_metadata_defaults: false
+#         jdbc:
+#           lob:
+#             non_contextual_creation: true
+#     show-sql: true
+  # 파일 관련 메소드
+  thymeleaf:
+    cache: false
+  sql:
+    init:
+      encoding: UTF-8
+
+#jwt:
+#  header: Authorization # header : JWT를 검증하는데 필요한 정보
+#  # secret : HS512 알고리즘을 사용할 것이기 때문에 512bit, 즉 64byte 이상의 secret key를 사용해야 한다.
+#  # 예제에서는 Secret Key 를 Base64 로 인코딩한 값임.
+#  #echo 'silvernine-tech-spring-boot-jwt-tutorial-secret-silvernine-tech-spring-boot-jwt-tutorial-secret'|base64
+#  secret: c2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQtc2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQK
+#  token-validity-in-seconds: 86400 # token-validity-in-seconds : 토큰의 만료시간을 지정함 (단위는 초)
+
+jwt:
+  header: Authorization
+  secret: and0LXRlc3QtYWxqamFiYWVnaS1qd3QtdGVzdC1hbGpqYWJhZWdpLWp3dC10ZXN0LWFsamphYmFlZ2ktand0LXRlc3QtYWxqamFiYWVnaS1qd3QtdGVzdC1hbGpqYWJhZWdpLWp3dC10ZXN0LWFsamphYmFlZ2ktand0LXRlc3QtYWxqamFiYWVnaS1qd3QtdGVzdC1hbGpqYWJhZWdp
+  token-validity-in-seconds: 86400
+
+# Mabatis 환경 설정 :
+# 참조 : https://jydlove.tistory.com/49
+# xml 대신 속성값으로 설정한다
+mybatis:
+  type-aliases-package: clnewze.sql.mapper
+  configuration:
+    cache-enabled: true
+    use-column-label: true
+    use-generated-keys: false
+    map-underscore-to-camel-case: true
+    default-statement-timeout: 25000
+    jdbc-type-for-null: NULL
+  mapper-locations: classpath:mapper/*Mapper.xml
+  
+logging:
+  level:
+    # root: debug
+    com.zaxxer.hikari.pool.HikariPool: debug
+    org:
+#      hibernate: info
+      hibernate:
+        type:
+          descriptor:
+            sql: trace
+
+
+# jwt:
+#   header: Authorization
+#   #HS512 알고리즘을 사용할 것이기 때문에 512bit, 즉 64byte 이상의 secret key를 사용해야 한다.
+#   #echo 'silvernine-tech-spring-boot-jwt-tutorial-secret-silvernine-tech-spring-boot-jwt-tutorial-secret'|base64
+#   secret: c2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQtc2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQK
+#   tokenValidityInSeconds: 86400000
+#   tokenSubject: 'User'
+  
