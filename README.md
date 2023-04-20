@@ -24,7 +24,7 @@
 1) UI 설계(템플릿 제작) - 완
 2) UI 구현 - 완 (차후 부족한 기능 추가 예정)
 3) DB 설계 
-4) Spring boot 환경 설정 
+4) Spring boot 환경 설정 - mybatis 피드백 주시면 감사하겠습니다.
 5) My-batis 구현 
 6) 프론트와 백엔드 Restful API 사용 
 7) 테스트 
