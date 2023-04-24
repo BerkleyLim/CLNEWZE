@@ -52,12 +52,6 @@ public class DBConnection {
         applicationContext.getResource("classpath:/mapper/db1/db1-config.xml"));
     sqlSessionFactoryBean.setMapperLocations(
         applicationContext.getResources("classpath*:/mapper/db1/**/*Mapper.xml"));
-    // sqlSessionFactoryBean.setConfigLocation(
-    // applicationContext.getResource("classpath:/mapper/db1/db1-config.xml"));
-    // sqlSessionFactoryBean.setTypeAliasesPackage("com.k1ple.k1order.main.entity");
-    // sqlSessionFactoryBean.setDataSource(db1DataSource);
-    // sqlSessionFactoryBean.setMapperLocations(
-    // applicationContext.getResources("classpath*:/mapper/db1/**/*Mapper.xml"));
 
     return sqlSessionFactoryBean.getObject();
   }
