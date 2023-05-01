@@ -10,6 +10,10 @@
   <insert id="studentInsertValue" parameterType="student">
   	INSERT INTO STUDENT VALUES(student_seq.nextval, #{studentName},#{studentTel},#{studentEmail},#{studentAddr},default)
   </insert>
+
+  <select id="selectList" resultType="java.util.List">
+    select * from information
+  </select>
   
   
 </mapper>
