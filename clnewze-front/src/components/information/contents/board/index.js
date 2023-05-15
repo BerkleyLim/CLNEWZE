@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card, CardBody, CardHeader, Col, Row } from "reactstrap";
 
-const BoardIndex = ({boards}) => {
+const BoardIndex = ({ boards, onClickView }) => {
   return (
     <>
       {boards?.map((board, index) => (
@@ -9,7 +9,7 @@ const BoardIndex = ({boards}) => {
           key={index}
           mb={3}
           className="autor_wrap"
-          // onclick={() => boardDetail(board.ino)}
+          onClick={() => onClickView(board)}
         >
           <CardHeader className="board-title">
             {board?.artist} - {board?.title}

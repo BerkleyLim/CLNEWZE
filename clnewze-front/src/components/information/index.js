@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
-// import { Navbar } from "reactstrap";
 
 import Title from "./title/index";
 import Menu from "./contents/menu/index";
 import Board from "./contents/board/index";
-// import BoardForm from "./contents/board/form";
+import BoardForm from "./contents/board/form";
 import Paging from "./contents/board/paging";
 import "./information.scss";
-// import { Modal } from "reactstrap";
 
-import sample from "./data/sample";
-import URI from "../util/URI"
+import URI from "../util/URI";
+import { Modal } from "reactstrap";
+
 
 const Informations = (props) => {
   const [boards, setBoards] = useState();
@@ -19,6 +18,8 @@ const Informations = (props) => {
   const limit = 10;
   const offset = (page - 1) * 10; // 시작점, 끝점 구하는 offset
   // Pagination 관련 끝
+  const [isModal, setIsModal] = useState(false);
+  const [modalData, setModalData] = useState();
 
   const postsData = (posts) => {
     if (!!posts) {
@@ -28,15 +29,18 @@ const Informations = (props) => {
   };
 
   useEffect(() => {
-    URI.get(process.env.REACT_APP_API_ROOT +"/api/information/selectList")
-    .then( (res) =>
-      setBoards(res.data)
-    )
-    .catch( (e) => console.error(e))
-    // setBoards(sample);
+    URI.get(process.env.REACT_APP_API_ROOT + "/api/information/selectList")
+      .then((res) => setBoards(res.data))
+      .catch((e) => console.error(e));
   }, [setBoards]);
-  // console.log(boards);
-  // console.log(sample);
+
+  const onClickView = (board) => {
+    setModalData(board);
+    setIsModal(!isModal);
+  };
+
+  const toggle = () => setIsModal(!isModal)
+
   return (
     <div>
       <Title />
@@ -47,12 +51,13 @@ const Informations = (props) => {
         <div className="contents">
           <Board
             boards={postsData(boards)}
-            // openDetail={openDetail}
-            // closeDetail={closeDetail}
+            onClickView={onClickView}
           />
 
           {/* 모달 상세 출력 */}
-          {/* <Modal><BoardForm/></Modal> */}
+          <Modal isOpen={isModal} toggle={toggle}>
+            <BoardForm information={modalData}/>
+          </Modal>
 
           <Paging
             limit={limit}
