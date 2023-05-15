@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./header.scss";
 // import styled from "styled-components";
 import {
+  Modal,
   Nav,
   // Dropdown,
   // DropdownToggle,
@@ -12,17 +13,23 @@ import {
 
 import SelectMenuIndex from "./dropdown/selectMemu/index";
 import SelectLanguageIndex from "./dropdown/language/index";
+import LoginForm from "../../login/index";
 
 const HeaderComponent = (props) => {
   let navigate = useNavigate();
+  const [loginIsModal, setLoginIsModal] = useState(false);
+  const toggle = () => setLoginIsModal(!loginIsModal);
+
   const movePage = (link) => {
     navigate(link);
   };
 
-
   return (
     // < !--헤더 작성: 맴버, 소개, 곡목록, 악보, 커뮤니티, 다국어기능, 검색-- >
     <div className="header">
+      <Modal isOpen={loginIsModal} toggle={toggle} centered={true} >
+        <LoginForm />
+      </Modal>
       <Nav className="hd-content1 navbar">
         <div className="header_logo">
           <a href="/">
@@ -32,13 +39,13 @@ const HeaderComponent = (props) => {
         </div>
         <SelectMenuIndex />
         {/* <SelectMenuDropDown /> */}
-        
+
         {/* <!-- 여기는 그냥 100px의 여백 두기 --> */}
         <div style={{ display: "flex", width: "100px" }}></div>
 
         <SelectLanguageIndex />
         {/* <div className="header_language"> */}
-          {/* <div className="dropdown">
+        {/* <div className="dropdown">
             <button className="btn btn-secondary dropdown-toggle" type="button"
               id="select-language" data-target="#" data-toggle="dropdown"
               aria-haspopup="true" role="button" aria-expanded="false">
@@ -56,7 +63,7 @@ const HeaderComponent = (props) => {
         <i className="fas fa-list header-icon"></i>
 
         <div className="header_mymenu">
-          <button type="button">
+          <button type="button" onClick={toggle}>
             <i className="fas fa-user-circle"></i>
             <span className="header-nickname">홍길동</span>
           </button>
