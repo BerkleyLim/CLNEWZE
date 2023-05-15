@@ -77,3 +77,10 @@
     - Mybatis 설정 아직 실패
     - 차후 적용 예정
     - Information 부분과, sql 부분 테스트 진행 중
+
+
+5월
+15일
+1) Back-end 버그 픽스
+    - my-batis 설정 과정에서 오류 발생
+    - 현재 my-batis 연동 되고, 테스트까지 완료!
