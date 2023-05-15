@@ -9,9 +9,9 @@ spring:
   # 데이터베이스 죽는 현상 참조 : https://kakaocommerce.tistory.com/45
   # 데이터베이스 누수 현상 해결하기 : https://do-study.tistory.com/97
   datasource:
+    url: jdbc:mysql://localhost:3306/music?useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true&autoReconnect=true
     dataSourceClassName: com.mysql.cj.jdbc.Driver  #마리아 DB시 org.mariadb.jdbc.Driver
     # jdbc-url: jdbc:mysql://localhost:3306/profile?useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true&autoReconnect=true
-    url: jdbc:mysql://localhost:3306/music?useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true&autoReconnect=true
     password: 1111 # 비밀번호 수정
     username: root
     # hikariCP 커넥션 과사용으로 누수 현상 나오면 메모리 부족 현상 발생
@@ -96,7 +96,7 @@ jwt:
 # 참조 : https://jydlove.tistory.com/49
 # xml 대신 속성값으로 설정한다
 mybatis:
-  type-aliases-package: com.clnewze.back.clnewzeback.mapper
+  type-aliases-package: com.clnewze.back.clnewzeback.domain
   configuration:
     cache-enabled: true
     use-column-label: true
@@ -104,7 +104,7 @@ mybatis:
     map-underscore-to-camel-case: true
     default-statement-timeout: 25000
     jdbc-type-for-null: NULL
-  mapper-locations: classpath:mapper/*Mapper.xml
+  mapper-locations: classpath:/mapper/*Mapper.xml
   
 logging:
   level:
