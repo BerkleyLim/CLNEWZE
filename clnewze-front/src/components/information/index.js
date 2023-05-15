@@ -30,7 +30,7 @@ const Informations = (props) => {
 
   useEffect(() => {
     URI.get(process.env.REACT_APP_API_ROOT + "/api/information/selectList")
-      .then((res) => setBoards(res.data))
+      .then((res) => setBoards(res.data.data))
       .catch((e) => console.error(e));
   }, [setBoards]);
 
