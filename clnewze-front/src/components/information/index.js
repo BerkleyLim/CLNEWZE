@@ -55,7 +55,7 @@ const Informations = (props) => {
           />
 
           {/* 모달 상세 출력 */}
-          <Modal isOpen={isModal} toggle={toggle}>
+          <Modal isOpen={isModal} toggle={toggle} centered={true} size="xl">
             <BoardForm information={modalData}/>
           </Modal>
 

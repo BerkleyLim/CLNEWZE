@@ -4,7 +4,8 @@ div .header {
   height: 130px;
   background-color: #fa0;
   color: #800;
-  z-index: 9997;
+  // z-index: 9997;
+  z-index: 1000;
   
   & {
     .hd-content1 {

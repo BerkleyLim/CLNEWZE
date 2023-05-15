@@ -1,17 +1,17 @@
 import React from "react";
 import { Nav, Navbar } from "reactstrap";
 
-const BoardForm = ({information}) => {
+const InformationForm = ({information}) => {
   return (
-    <div className="boardDetail">
-      <h5 className="DetailTitle">
+    <div className="informationDetail">
+      <h5 className="informationDetailTitle">
         {information?.artist} - {information?.title}
       </h5>
       <div style={{fontSize:"9px", color: "#555", float:"right"}}>
         조회수 : {information?.view}{" "}
       </div>
       <Nav className="common-content-detail-container">
-        <img src="{{img}}" className="album" />
+        <img src={information?.img} className="album" />
         <div className="detail-container">
           <div className="">장르 : {information?.genre}</div>
           <div className="">발매날짜 : {information?.releaseDate}년</div>
@@ -35,4 +35,4 @@ const BoardForm = ({information}) => {
   );
 };
 
-export default BoardForm;
+export default InformationForm;
