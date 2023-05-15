@@ -10,6 +10,7 @@ import "./information.scss";
 // import { Modal } from "reactstrap";
 
 import sample from "./data/sample";
+import URI from "../util/URI"
 
 const Informations = (props) => {
   const [boards, setBoards] = useState();
@@ -27,7 +28,12 @@ const Informations = (props) => {
   };
 
   useEffect(() => {
-    setBoards(sample);
+    URI.get(process.env.REACT_APP_API_ROOT +"/api/information/selectList")
+    .then( (res) =>
+      setBoards(res.data)
+    )
+    .catch( (e) => console.error(e))
+    // setBoards(sample);
   }, [setBoards]);
   // console.log(boards);
   // console.log(sample);
