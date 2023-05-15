@@ -38,7 +38,7 @@ const BoardIndex = ({boards}) => {
 
                     <p className="card-text">
                       ● 발매날짜 : {board?.releaseDate} 년 <br />● 앨범명 :{" "}
-                      {board?.albumName} <br />● 상세정보 : {board?.content}
+                      {board?.albumName} <br />● 상세정보 : {board?.contents}
                     </p>
                     <p className="card-text">
                       <small className="text-muted">{board?.upLoadDate}</small>
