@@ -7,8 +7,9 @@ const InformationForm = ({information}) => {
       <h5 className="informationDetailTitle">
         {information?.artist} - {information?.title}
       </h5>
+      <h3>상세정보</h3>
       <div style={{fontSize:"9px", color: "#555", float:"right"}}>
-        조회수 : {information?.view}{" "}
+        조회수 : {information?.viewNumber}{" "}
       </div>
       <Nav className="common-content-detail-container">
         <img src={information?.img} className="album" />
@@ -20,10 +21,9 @@ const InformationForm = ({information}) => {
         </div>
       </Nav>
 
-      <h3>상세정보</h3>
 
       {/* <!-- 내용 작성 --> */}
-      <div style={{height:"80%"}}>{information?.content}</div>
+      <div style={{paddingTop: "100px",  minHeight:"80%"}}>{information?.contents}</div>
 
       {/* <!-- 여기는 하단에 놓는다 --> */}
       <Navbar className="information-button-event">
