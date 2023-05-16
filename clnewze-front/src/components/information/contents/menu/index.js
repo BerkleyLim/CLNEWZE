@@ -6,16 +6,38 @@ import DropdownPaging from "./dropdown";
 import { faList, faTableCellsLarge } from "@fortawesome/free-solid-svg-icons";
 // import { faGrid2 } from "@fortawesome/free-regular-svg-icons";
 
-const ContentsMenu = () => {
+const ContentsMenu = ({ genre }) => {
+  const genreTitle = () => {
+    switch (genre) {
+      case null:
+        return "전체";
+      case "classical":
+        return "클래식";
+      case "newage":
+        return "뉴에이지";
+      case "jazz":
+        return "재즈";
+      case "kpop":
+        return "가요";
+      case "pop":
+        return "팝";
+      case "ost":
+        return "OST";
+      case "etc":
+        return "기타장르";
+      default:
+    }
+  };
+
   return (
     <Navbar className="listMenu">
-      <h2>전체 곡 목록</h2>
+      <h2>{genreTitle()} 곡 목록</h2>
       <div className="sub-menu">
         <div className="sort-list">
           <div className="view_mode">
             <Button
-              // className="feed-type fas fa-bars on"
-              // data-viewtype="3"
+            // className="feed-type fas fa-bars on"
+            // data-viewtype="3"
             >
               <FontAwesomeIcon
                 icon={faTableCellsLarge}

@@ -53,7 +53,7 @@ const Informations = (props) => {
       <Title genreList={genreList} />
 
       <div className="contain">
-        <Menu />
+        <Menu genre={selectGenre}/>
 
         <div className="contents">
           <Board boards={postsData(boards)} onClickView={onClickView} />
