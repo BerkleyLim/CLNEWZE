@@ -5,7 +5,9 @@
   <!-- <select id="selectList" resultType="java.util.List"> -->
   <select id="selectList" resultType="Information">
     select * from Information
-    <if test="genre!=null">where genre=#{genre}</if>
+    <if test="genre != 'null'">
+      where genre=#{genre}
+    </if>
   </select>
   
   
