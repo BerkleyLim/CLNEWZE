@@ -26,7 +26,7 @@ const TitleIndex = ({genreList}) => {
         <button type="button" onClick={() => genreList("classical")}>클래식</button>
         <button type="button" onClick={() => genreList("newage")}>뉴에이지</button>
         <button type="button" onClick={() => genreList("jazz")}>재즈</button>
-        <button type="button" onClick={() => genreList("Kpop")}>가요</button>
+        <button type="button" onClick={() => genreList("kpop")}>가요</button>
         <button type="button" onClick={() => genreList("pop")}>팝</button>
         <button type="button" onClick={() => genreList("ost")}>OST</button>
         <button type="button" onClick={() => genreList("etc")}>기타장르</button>
