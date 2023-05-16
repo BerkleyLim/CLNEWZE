@@ -10,9 +10,9 @@ import "./information.scss";
 import URI from "../util/URI";
 import { Modal } from "reactstrap";
 
-
 const Informations = (props) => {
   const [boards, setBoards] = useState();
+  const [selectGenre, setSelectGenre] = useState(null);
   // Pagination 관련
   const [page, setPage] = useState(1); // 페이지
   const limit = 10;
@@ -28,35 +28,39 @@ const Informations = (props) => {
     }
   };
 
+  // 장르 설정 할때 마다
   useEffect(() => {
-    URI.get(process.env.REACT_APP_API_ROOT + "/api/information/selectList")
+    URI.get(process.env.REACT_APP_API_ROOT + "/api/information/selectList?genre="+selectGenre
+    )
       .then((res) => setBoards(res.data.data))
       .catch((e) => console.error(e));
-  }, [setBoards]);
+  }, [selectGenre]);
+
+  const genreList = (genre) => {
+    setSelectGenre(genre);
+    console.log(selectGenre);
+  };
 
   const onClickView = (board) => {
     setModalData(board);
     setIsModal(!isModal);
   };
 
-  const toggle = () => setIsModal(!isModal)
+  const toggle = () => setIsModal(!isModal);
 
   return (
     <div>
-      <Title />
+      <Title genreList={genreList} />
 
       <div className="contain">
         <Menu />
 
         <div className="contents">
-          <Board
-            boards={postsData(boards)}
-            onClickView={onClickView}
-          />
+          <Board boards={postsData(boards)} onClickView={onClickView} />
 
           {/* 모달 상세 출력 */}
           <Modal isOpen={isModal} toggle={toggle} centered={true} size="xl">
-            <BoardForm information={modalData}/>
+            <BoardForm information={modalData} />
           </Modal>
 
           <Paging
