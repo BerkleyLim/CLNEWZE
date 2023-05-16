@@ -1,0 +1,76 @@
+/* 공통 마이페이지 */
+.mypage-header {
+  background-color: #FFF3D4;
+  height:480px;
+  width:100%;
+
+  & .mypage-banner {
+    width:1200px;
+    height:300px;
+  }
+
+  & .profile-information {
+    width: 1200px;
+    display: flex;
+    margin: 0 auto;
+    margin-top: -60px;
+    margin-bottom: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+  
+    & .profile-img{
+      position:relative;
+      flex-wrap: wrap;
+      width:200px;
+      height:200px;
+      border-radius: 70%;
+      overflow: hidden;
+      
+      & .img-size {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  
+    & .profile-component1{
+      position: relative;
+      flex-wrap: wrap;
+      padding:20px 20px 20px 20px;
+      margin-top:60px;
+      margin-left:-180px;
+      width:700px;
+      height:250px;
+    }
+  
+    & .profile-component2{
+      text-align: right;
+      position: relative;
+      flex-wrap: wrap;
+      width: 300px;
+      height: 300px;
+      margin-top:70px;
+      margin-left:100px;
+    }
+  }
+}
+
+
+
+.mypage-container {
+  display:flex;
+  width:1200px;
+}
+
+.mypage-menu-container {
+  background:#eee;
+  text-align: center;
+}
+
+.mypage-menu-container > button {
+  width:200px;
+  height:50px;
+  margin:10px 10px 10px 10px;
+}
+
+/* 마이페이지 메뉴 결과물 */

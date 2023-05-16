@@ -11,14 +11,20 @@ import Media from "./components/media/index"
 import SheetMusic from "./components/sheetmusic/index"
 import Teacher from "./components/teacher/index"
 import Community from "./components/community/index"
+import Mypage from "./components/mypage/index"
+import MypageHeader from "./components/mypage/header"
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Header />
-        <div className="modal-container"></div>
-        <div className="container">
+        {
+          !window.location.href.includes("/mypage") ?
+          <Header /> :
+          <MypageHeader />
+        }
+        {/* <div className="modal-container"></div> */}
+        <div className={!window.location.href.includes("/mypage") ? "container" : "mypage-container"}>
           <Routes>
             <Route path="/"  element = {<MainView />}/>
             <Route path="/introduction"  element = {<Introduction />}/>
@@ -28,10 +34,13 @@ function App() {
             <Route path="/sheetmusic"  element = {<SheetMusic />}/>
             <Route path="/teacher"  element = {<Teacher />}/>
             <Route path="/community"  element = {<Community />}/>
+            <Route path="/mypage"  element = {<Mypage />}/>
           </Routes>
         </div>
-
-        <Footer />
+        {
+          !window.location.href.includes("/mypage") &&
+          <Footer />
+        }
       </Router>
     </div>
   );
