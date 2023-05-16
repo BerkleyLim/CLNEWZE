@@ -10,6 +10,5 @@ import com.clnewze.back.clnewzeback.domain.Information;
 @Repository
 @Mapper
 public interface InformationMapper {
-  // public Integer totSize(String findStr);
   public List<Information> selectList(String genre);
 }
