@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import "./login.scss"
-// import URI from "../util/URI";
+import URI from "../util/URI";
 
 const LoginComponent = () => {
   const [inputs, setInputs] = useState();
@@ -17,20 +17,19 @@ const LoginComponent = () => {
   };
   const loginButton = () => {
     // 입력 (차후 복잡한 권한을 부여 받을 예정 => jwt 도입 예정)
-    // URI.post(process.env.REACT_APP_API_ROOT + "/api/auth/simplelogin", {
-    //   id: inputs.id,
-    //   password: inputs.password,
-    // })
-    // .then((response) => {
-    //   if (response.data) {
-    //     alert("로그인 성공")
-    //     onClose();
-    //     dispatch({type:"setUser", isLogin:response.data, userId:"ad", role_admin:"admin"});
-    //   } else {
-    //     alert("로그인 실패")
-    //   }
-    // })
-    // .catch((e) => console.error(e));
+    URI.post(process.env.REACT_APP_API_ROOT + "/api/auth/simplelogin", {
+      id: inputs.id,
+      password: inputs.password,
+    })
+    .then((response) => {
+      if (response.data) {
+        alert("로그인 성공")
+        dispatch({type:"setUser", isLogin:response.data, userId:"admin", role_admin:"admin"});
+      } else {
+        alert("로그인 실패")
+      }
+    })
+    .catch((e) => console.error(e));
   };
 
   return (
