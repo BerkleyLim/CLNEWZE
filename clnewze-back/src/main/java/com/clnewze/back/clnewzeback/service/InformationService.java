@@ -13,7 +13,7 @@ public class InformationService {
   @Autowired
   InformationMapper informationMapper;
 
-  public List<Information> selectList() {
-    return informationMapper.selectList();
+  public List<Information> selectList(String genre) {
+    return informationMapper.selectList(genre);
   }
 }
