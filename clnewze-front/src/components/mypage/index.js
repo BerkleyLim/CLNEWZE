@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import {Routes, Route, useNavigate} from 'react-router-dom'; 
 
 import "./mypage.scss"
+import { Col, Row } from 'reactstrap'
+
+import MypageInfo from "./user/index"
 
 // // 여기는 바로 페이지 이동없이 바로 마이페이지로 이동 시킨다
 // function moveMypage() {
@@ -25,12 +29,16 @@ import "./mypage.scss"
 //   })
 // }
 const MypageMain = () => {
+  const navigate = useNavigate();
+  const moveMyPage = (menu) => {
+    navigate("/mypage/" + menu);
+  }
   return (
     <div>
         {/* <!-- 마이페이지 카테고리 --> */}
-        <div className="mypage-container">
-            <div className="col-sm-3 mypage-menu-container">
-                {/* <button className="btn" onClick="moveMyInformation()">기본정보</button> */}
+        <Row className="mypage-container">
+            <Col md={2} className="mypage-menu-container">
+                <button className="btn" onClick={() => moveMyPage("info")}>기본정보</button>
                 <button className="btn">회원정보 및 수정</button>
                 <button className="btn">환전 신청</button>
                 
@@ -51,13 +59,20 @@ const MypageMain = () => {
                 <hr/>
 
                 <h6>(관리자 기능)</h6>
-                <button className="btn">곡 정보 추가</button>
-            </div>
-            <div className="col-sm-9 mypage-target-container">
-                영역 출력
-                {/* <!-- 여기는 메뉴를 클릭시 바로 출력 영역 (jQuery 사용) --> */}
-            </div>
-        </div>
+                <button className="btn">회원정보 출력</button>
+                <button className="btn">매출액</button>
+                <button className="btn" onClick={() => window.location.href="/"}> 이전화면</button>
+                
+            </Col>
+                {/* 영역 출력 */}
+            <Col md={10} >
+              {/* 함수 써서 출력한다. */}
+              <Routes>
+                <Route path="/mypage/*"  element = {<MypageInfo />}/>
+                {/* <Route path="/mypage/info" elemet = {< MypageInfo/>} /> */}
+              </Routes>
+            </Col>
+        </Row>
     </div>
   )
 }
