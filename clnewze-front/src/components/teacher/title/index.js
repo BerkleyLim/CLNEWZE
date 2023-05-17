@@ -3,7 +3,7 @@ import { Button, Input, InputGroup, Navbar, Row } from "reactstrap";
 import DropdownForm from "./dropdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const TitleIndex = () => {
+const TitleIndex = ({majormenu}) => {
   return (
     <div className='title'>
       <Navbar className='titleArea'>
@@ -22,14 +22,13 @@ const TitleIndex = () => {
         </InputGroup>
       </Navbar>
       <Navbar className='items_wrap'>
-        <button type="button">전체</button>
-        <button type="button">피아노</button>
-        <button type="button">현악기</button>
-        <button type="button">관악기</button>
-        <button type="button">기타</button>
-        <button type="button">바이올린</button>
-        <button type="button">국악</button>
-        <button type="button">다른악기</button>
+        <button type="button" onClick={() => majormenu(null)}>전체</button>
+        <button type="button" onClick={() => majormenu("piano")}>피아노</button>
+        <button type="button" onClick={() => majormenu("string")}>현악기</button>
+        <button type="button" onClick={() => majormenu("wind")}>관악기</button>
+        <button type="button" onClick={() => majormenu("guitar")}>기타</button>
+        <button type="button" onClick={() => majormenu("gugak")}>국악</button>
+        <button type="button" onClick={() => majormenu("etc")}>다른악기</button>
       </Navbar>
     </div>
   );
