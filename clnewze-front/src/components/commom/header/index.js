@@ -94,9 +94,10 @@ const HeaderComponent = (props) => {
         <button type="button" onClick={() => movePage("information")}>
           곡정보
         </button>
-        <button type="button" onClick={() => movePage("media")}>
+        {/* 임시로 제거 - 차후 연구 필요 */}
+        {/* <button type="button" onClick={() => movePage("media")}>
           영상
-        </button>
+        </button> */}
         <button type="button" onClick={() => movePage("sheetmusic")}>
           악보
         </button>
