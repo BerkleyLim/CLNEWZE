@@ -62,7 +62,7 @@ const SheetMusics = (props) => {
 
           {/* 모달 상세 출력 */}
           <Modal isOpen={isModal} toggle={toggle} centered={true} size="xl">
-            <BoardForm information={modalData} />
+            <BoardForm sheetMusic={modalData} />
           </Modal>
 
           <Paging
