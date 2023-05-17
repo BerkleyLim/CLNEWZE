@@ -107,9 +107,10 @@ const HeaderComponent = (props) => {
         <button type="button" onClick={() => movePage("practiceRoom")}>
           연습실정보
         </button>
-        <button type="button" onClick={() => movePage("community")}>
+        {/* 커뮤니티 게시판 제거 */}
+        {/* <button type="button" onClick={() => movePage("community")}>
           커뮤니티
-        </button>
+        </button> */}
       </Nav>
     </div>
   );
