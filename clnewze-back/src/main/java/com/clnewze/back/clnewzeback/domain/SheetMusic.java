@@ -1,7 +1,6 @@
 package com.clnewze.back.clnewzeback.domain;
 
 import java.time.LocalDate;
-import java.time.Year;
 
 import lombok.Data;
 
@@ -13,7 +12,7 @@ public class SheetMusic {
   String img;
   String genre;
   Integer viewNumber;
-  Year releaseDate;
+  String releaseDate;
   String contents;
   String albumName;
   LocalDate upLoadDate;
