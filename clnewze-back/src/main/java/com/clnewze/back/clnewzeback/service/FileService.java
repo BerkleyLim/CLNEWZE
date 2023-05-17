@@ -1,24 +1,15 @@
 package com.clnewze.back.clnewzeback.service;
 
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.util.stream.Stream;
 
 import javax.imageio.ImageIO;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.rendering.ImageType;
 import org.apache.pdfbox.rendering.PDFRenderer;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.DefaultResourceLoader;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.support.ResourcePatternUtils;
 import org.springframework.stereotype.Service;
-import org.springframework.util.ResourceUtils;
 
 @Service
 public class FileService {
@@ -35,9 +26,8 @@ public class FileService {
         "C:/Users/user/git/CLNEWZE/clnewze-back/src/main/resources/static/sample/file/Glinka-Balakirev_-_The_Lark.pdf");
     try {
       PDDocument document = PDDocument.load(file2);// pdf문서 객체 생성
-      int pageCount = document.getNumberOfPages();// pdf의 페이지 수
+      // int pageCount = document.getNumberOfPages();// pdf의 페이지 수
       PDFRenderer pdfRenderer = new PDFRenderer(document);
-      // System.out.println(pageCount);
 
       // 0 페이지를 JPG파일로 저장
       BufferedImage imageObj = pdfRenderer.renderImageWithDPI(0, 100, ImageType.RGB);
