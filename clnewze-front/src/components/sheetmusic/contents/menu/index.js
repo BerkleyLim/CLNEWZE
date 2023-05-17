@@ -2,9 +2,7 @@ import React from "react";
 import { Button, Navbar } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DropdownPaging from "./dropdown";
-// import { faGrid2 } from "@fortawesome/free-regular-svg-icons";
 import { faList, faTableCellsLarge } from "@fortawesome/free-solid-svg-icons";
-// import { faGrid2 } from "@fortawesome/free-regular-svg-icons";
 
 const ContentsMenu = () => {
   return (
