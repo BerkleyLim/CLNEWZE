@@ -10,7 +10,7 @@ public class SheetMusic {
   Integer ino;
   String artist;
   String title;
-  String sheet;
+  String img;
   String genre;
   Integer viewNumber;
   Year releaseDate;
@@ -19,4 +19,5 @@ public class SheetMusic {
   LocalDate upLoadDate;
   String userName;
   String musicLink;
+  String sheetfile;
 }
