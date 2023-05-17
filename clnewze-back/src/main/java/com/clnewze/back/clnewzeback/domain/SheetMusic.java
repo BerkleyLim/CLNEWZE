@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Data
 public class SheetMusic {
-  Integer ino;
+  Integer sno;
   String artist;
   String title;
   String img;
