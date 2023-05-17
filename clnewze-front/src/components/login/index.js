@@ -24,7 +24,7 @@ const LoginComponent = () => {
     .then((response) => {
       if (response.data) {
         alert("로그인 성공")
-        dispatch({type:"setUser", isLogin:response.data, userId:"admin", role_admin:"admin"});
+        dispatch({type:"setUser", isLogin:response.data, userId:"admin", role_admin:"admin", userNm:"admin"});
       } else {
         alert("로그인 실패")
       }
