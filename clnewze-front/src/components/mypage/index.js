@@ -52,9 +52,9 @@ const MypageMain = () => {
                 <hr/>
                 
                 <h6>업로드 정보</h6>
-                <button className="btn">영상</button>
+                {/* <button className="btn">영상</button> */}
                 <button className="btn">연습실</button>
-                <button className="btn">음원</button>
+                {/* <button className="btn">음원</button> */}
                 <button className="btn">악보</button>
 
                 <hr/>
@@ -65,7 +65,7 @@ const MypageMain = () => {
 
                 <hr/>
 
-                <h6>(관리자 기능)</h6>
+                <h6>관리자 기능</h6>
                 <button className="btn">회원정보 출력</button>
                 <button className="btn">매출액</button>
                 <button className="btn" onClick={() => window.location.href="/"}> 이전화면</button>
