@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import "./login.scss"
 import URI from "../util/URI";
 
-const LoginComponent = () => {
+const LoginComponent = ({setLoginIsModal}) => {
   const [inputs, setInputs] = useState();
   const dispatch = useDispatch();
 
@@ -25,6 +25,7 @@ const LoginComponent = () => {
       if (response.data) {
         alert("로그인 성공")
         dispatch({type:"setUser", isLogin:response.data, userId:"admin", role_admin:"admin", userNm:"admin"});
+        setLoginIsModal(false);
       } else {
         alert("로그인 실패")
       }

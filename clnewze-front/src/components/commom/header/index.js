@@ -38,7 +38,7 @@ const HeaderComponent = (props) => {
     // < !--헤더 작성: 맴버, 소개, 곡목록, 악보, 커뮤니티, 다국어기능, 검색-- >
     <div className="header">
       <Modal isOpen={loginIsModal} toggle={toggle} centered={true} >
-        <LoginForm />
+        <LoginForm setLoginIsModal={setLoginIsModal} />
       </Modal>
       <Nav className="hd-content1 navbar">
         <div className="header_logo">
