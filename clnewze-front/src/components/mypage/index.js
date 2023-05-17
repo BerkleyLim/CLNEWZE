@@ -5,6 +5,8 @@ import "./mypage.scss"
 import { Col, Row } from 'reactstrap'
 
 import MypageInfo from "./user/index"
+import URI from "../util/URI"
+import { useDispatch } from 'react-redux';
 
 // // 여기는 바로 페이지 이동없이 바로 마이페이지로 이동 시킨다
 // function moveMypage() {
@@ -30,9 +32,14 @@ import MypageInfo from "./user/index"
 // }
 const MypageMain = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const moveMyPage = (menu) => {
     navigate("/mypage/" + menu);
   }
+  const toggleLogout = () => {
+    dispatch({ type: "logout" });
+    window.location.href="/";
+  };
   return (
     <div>
         {/* <!-- 마이페이지 카테고리 --> */}
@@ -62,6 +69,7 @@ const MypageMain = () => {
                 <button className="btn">회원정보 출력</button>
                 <button className="btn">매출액</button>
                 <button className="btn" onClick={() => window.location.href="/"}> 이전화면</button>
+                <button className="btn" onClick={toggleLogout}> 로그아웃</button>
                 
             </Col>
                 {/* 영역 출력 */}
