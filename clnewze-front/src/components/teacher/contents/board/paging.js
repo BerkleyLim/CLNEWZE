@@ -6,8 +6,6 @@ const BoardPagingnation = ({ totalPosts, limit, page, setPage }) => {
   const [currPage, setCurrPage] = useState(page);
   let firstNum = currPage - (currPage % 5) + 1;
   let lastNum = currPage - (currPage % 5) + 5;
-  // console.log({"currPage is":currPage, "firsNum is" : firstNum, "page is" : page})
-  // console.log(numPages);
   return (
     <Pagination className="paging justify-content-center">
       {/* <div className={`page-item ${page === 1 && "disabled"}`}> */}

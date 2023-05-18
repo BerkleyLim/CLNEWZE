@@ -1,5 +1,10 @@
-import React, { useState } from 'react'
-import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
+import React, { useState } from "react";
+import {
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+} from "reactstrap";
 
 const DropdownPaging = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -9,7 +14,9 @@ const DropdownPaging = () => {
   return (
     <div className="selectBox">
       <Dropdown isOpen={dropdownOpen} toggle={toggle} direction="down">
-        <DropdownToggle className="selected" caret>10</DropdownToggle>
+        <DropdownToggle className="selected" caret>
+          10
+        </DropdownToggle>
         <DropdownMenu className="select-layer">
           <DropdownItem className="select_item">10</DropdownItem>
           <DropdownItem className="select_item">20</DropdownItem>
@@ -18,7 +25,7 @@ const DropdownPaging = () => {
         </DropdownMenu>
       </Dropdown>
     </div>
-  )
-}
+  );
+};
 
-export default DropdownPaging
+export default DropdownPaging;

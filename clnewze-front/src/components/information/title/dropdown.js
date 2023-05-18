@@ -12,8 +12,16 @@ const InformationTitleDropdown = () => {
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
   return (
-    <ButtonDropdown isOpen={dropdownOpen} toggle={toggle} direction="down" className="dropdown selectBox">
-      <Button className="dropdownTitle" outline> 전체장르</Button>
+    <ButtonDropdown
+      isOpen={dropdownOpen}
+      toggle={toggle}
+      direction="down"
+      className="dropdown selectBox"
+    >
+      <Button className="dropdownTitle" outline>
+        {" "}
+        전체장르
+      </Button>
       <DropdownToggle className="dropdownToggle" caret color="primary">
         {/* 전체 */}
       </DropdownToggle>

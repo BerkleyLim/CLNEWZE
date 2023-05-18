@@ -11,7 +11,6 @@ import "./sheetmusic.scss";
 import URI from "../util/URI";
 import { Modal } from "reactstrap";
 
-
 const SheetMusics = (props) => {
   const [boards, setBoards] = useState();
   const [selectGenre, setSelectGenre] = useState(null);
@@ -19,9 +18,9 @@ const SheetMusics = (props) => {
   const [page, setPage] = useState(1); // 페이지
   const limit = 10;
   const offset = (page - 1) * 10; // 시작점, 끝점 구하는 offset
-    // Pagination 관련 끝
-    const [isModal, setIsModal] = useState(false);
-    const [modalData, setModalData] = useState();
+  // Pagination 관련 끝
+  const [isModal, setIsModal] = useState(false);
+  const [modalData, setModalData] = useState();
 
   const postsData = (posts) => {
     if (!!posts) {
@@ -30,10 +29,12 @@ const SheetMusics = (props) => {
     }
   };
 
-
   // 장르 설정 할때 마다
   useEffect(() => {
-    URI.get(process.env.REACT_APP_API_ROOT + "/api/sheetmusic/selectList?genre="+selectGenre
+    URI.get(
+      process.env.REACT_APP_API_ROOT +
+        "/api/sheetmusic/selectList?genre=" +
+        selectGenre
     )
       .then((res) => setBoards(res.data.data))
       .catch((e) => console.error(e));
@@ -55,7 +56,7 @@ const SheetMusics = (props) => {
       <Title genreList={genreList} />
 
       <div className="contain">
-        <Menu genre={selectGenre}/>
+        <Menu genre={selectGenre} />
 
         <div className="sheetmusic-contents">
           <Board boards={postsData(boards)} onClickView={onClickView} />

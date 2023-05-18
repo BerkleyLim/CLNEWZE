@@ -1,13 +1,11 @@
 import React from "react";
 import { Nav, Navbar } from "reactstrap";
 
-const BoardForm = ({teacher}) => {
+const BoardForm = ({ teacher }) => {
   return (
     <div className="teacherDetail">
       <h3>상세정보</h3>
-      <h5 className="teacherDetailTitle">
-        {teacher?.title}
-      </h5>
+      <h5 className="teacherDetailTitle">{teacher?.title}</h5>
       {/* <div style={{fontSize:"9px", color: "#555", float:"right"}}>
         조회수 : {information.view}{" "}
       </div> */}
@@ -20,9 +18,10 @@ const BoardForm = ({teacher}) => {
         </div>
       </Nav>
 
-
       {/* <!-- 내용 작성 --> */}
-      <div style={{paddingTop: "100px",  minHeight:"80%"}}>{teacher?.contents}</div>
+      <div style={{ paddingTop: "100px", minHeight: "80%" }}>
+        {teacher?.contents}
+      </div>
 
       {/* <!-- 여기는 하단에 놓는다 --> */}
       <Navbar className="information-button-event">

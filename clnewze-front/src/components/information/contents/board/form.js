@@ -1,14 +1,14 @@
 import React from "react";
 import { Nav, Navbar } from "reactstrap";
 
-const InformationForm = ({information}) => {
+const InformationForm = ({ information }) => {
   return (
     <div className="informationDetail">
       <h5 className="informationDetailTitle">
         {information?.artist} - {information?.title}
       </h5>
       <h3>상세정보</h3>
-      <div style={{fontSize:"9px", color: "#555", float:"right"}}>
+      <div style={{ fontSize: "9px", color: "#555", float: "right" }}>
         조회수 : {information?.viewNumber}{" "}
       </div>
       <Nav className="common-content-detail-container">
@@ -21,9 +21,10 @@ const InformationForm = ({information}) => {
         </div>
       </Nav>
 
-
       {/* <!-- 내용 작성 --> */}
-      <div style={{paddingTop: "100px",  minHeight:"80%"}}>{information?.contents}</div>
+      <div style={{ paddingTop: "100px", minHeight: "80%" }}>
+        {information?.contents}
+      </div>
 
       {/* <!-- 여기는 하단에 놓는다 --> */}
       <Navbar className="information-button-event">

@@ -12,8 +12,8 @@ const ContentsMenu = () => {
         <div className="sort-list">
           <div className="view_mode">
             <Button
-              // className="feed-type fas fa-bars on"
-              // data-viewtype="3"
+            // className="feed-type fas fa-bars on"
+            // data-viewtype="3"
             >
               <FontAwesomeIcon
                 icon={faTableCellsLarge}

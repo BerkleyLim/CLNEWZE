@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card, CardBody, CardHeader, Col, Row } from "reactstrap";
 
 const BoardIndex = ({ boards, onClickView }) => {
