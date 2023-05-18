@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import { Navbar } from "reactstrap";
 
 import Title from "./title/index";
 import Menu from "./contents/menu/index";
@@ -18,9 +17,9 @@ const Teachers = (props) => {
   const [page, setPage] = useState(1); // 페이지
   const limit = 10;
   const offset = (page - 1) * 10; // 시작점, 끝점 구하는 offset
-    // Pagination 관련 끝
-    const [isModal, setIsModal] = useState(false);
-    const [modalData, setModalData] = useState();
+  // Pagination 관련 끝
+  const [isModal, setIsModal] = useState(false);
+  const [modalData, setModalData] = useState();
 
   const postsData = (posts) => {
     if (!!posts) {
@@ -29,10 +28,12 @@ const Teachers = (props) => {
     }
   };
 
-
   // 장르 설정 할때 마다
   useEffect(() => {
-    URI.get(process.env.REACT_APP_API_ROOT + "/api/teacher/selectList?major="+selectMajor
+    URI.get(
+      process.env.REACT_APP_API_ROOT +
+        "/api/teacher/selectList?major=" +
+        selectMajor
     )
       .then((res) => setBoards(res.data.data))
       .catch((e) => console.error(e));
@@ -40,7 +41,6 @@ const Teachers = (props) => {
 
   const majormenu = (major) => {
     setSelectMajor(major);
-    // console.log(selectGenre);
   };
 
   const onClickView = (board) => {
@@ -54,7 +54,7 @@ const Teachers = (props) => {
       <Title majormenu={majormenu} />
 
       <div className="contain">
-        <Menu major={selectMajor}/>
+        <Menu major={selectMajor} />
 
         <div className="teacher-contents">
           <Board boards={postsData(boards)} onClickView={onClickView} />

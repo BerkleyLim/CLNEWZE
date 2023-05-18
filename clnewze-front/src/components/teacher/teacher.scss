@@ -178,7 +178,7 @@ h2 {
     opacity: 0.2;
   }
 
-  & .information-title {
+  & .teacher-title {
     padding: .75rem 1.25rem;
     margin-bottom: 0;
     color: inherit;
@@ -186,7 +186,7 @@ h2 {
     border-bottom: 1px solid rgba(0, 0, 0, .125);
   }
 
-  & .information-title:first-child {
+  & .teacher-title:first-child {
     border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
   }
 
@@ -210,10 +210,10 @@ h2 {
 
 
 
-/* 곡 상세 정보 */
+/* 선생님 정보 */
 /* 상세 정보 폼*/
 // 모달용
-.boardDetail {
+.teacherDetail {
   width: 100%;
   height: 800px;
   z-index: 9999;
@@ -223,13 +223,14 @@ h2 {
   background: white;
   overflow: scroll;
 
-  & .DetailTitle {
+  & .teacherDetailTitle {
     top: 65px;
     background: #eee;
     padding: 15px 15px 15px 15px;
     border-bottom-right-radius: 3px;
     margin-bottom: 50px;
-    width: 900px;
+    // width: 900px;
+    width: 100%;
   }
 }
 
