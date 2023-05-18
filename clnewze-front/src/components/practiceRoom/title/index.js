@@ -22,14 +22,14 @@ const TitleIndex = () => {
         </InputGroup>
       </Navbar>
       <Navbar className='items_wrap'>
-        <button type="button">전체</button>
+        {/* <button type="button">전체</button>
         <button type="button">피아노</button>
         <button type="button">현악기</button>
         <button type="button">관악기</button>
         <button type="button">기타</button>
         <button type="button">바이올린</button>
         <button type="button">국악</button>
-        <button type="button">다른악기</button>
+        <button type="button">다른악기</button> */}
       </Navbar>
     </div>
   );
