@@ -56,7 +56,7 @@ const Teachers = (props) => {
       <div className="contain">
         <Menu major={selectMajor}/>
 
-        <div className="contents">
+        <div className="teacher-contents">
           <Board boards={postsData(boards)} onClickView={onClickView} />
 
           {/* 모달 상세 출력 */}

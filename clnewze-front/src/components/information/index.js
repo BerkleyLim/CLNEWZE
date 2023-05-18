@@ -55,7 +55,7 @@ const Informations = (props) => {
       <div className="contain">
         <Menu genre={selectGenre}/>
 
-        <div className="contents">
+        <div className="information-contents">
           <Board boards={postsData(boards)} onClickView={onClickView} />
 
           {/* 모달 상세 출력 */}

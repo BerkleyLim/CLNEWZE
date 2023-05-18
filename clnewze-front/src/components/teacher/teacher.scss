@@ -155,10 +155,10 @@ h2 {
 }
 
 /* 게시판 (bootstrap 활용)*/
-.contents {
+.teacher-contents {
   display: flex;
   flex-wrap: wrap;
-  width: 1200px;
+  width: 100%;
   margin: 0 auto;
 
   & .autor_wrap {
