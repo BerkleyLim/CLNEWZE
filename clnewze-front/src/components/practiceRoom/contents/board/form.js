@@ -1,29 +1,27 @@
 import React from "react";
 import { Nav, Navbar } from "reactstrap";
 
-const BoardForm = (information) => {
+const BoardForm = ({ practiceRoom }) => {
   return (
-    <div className="boardDetail">
-      <h5 className="DetailTitle">
-        {information.artist} - {information.title}
-      </h5>
-      <div style={{fontSize:"9px", color: "#555", float:"right"}}>
+    <div className="teacherDetail">
+      <h3>상세정보</h3>
+      <h5 className="teacherDetailTitle">{practiceRoom?.title}</h5>
+      {/* <div style={{fontSize:"9px", color: "#555", float:"right"}}>
         조회수 : {information.view}{" "}
-      </div>
+      </div> */}
       <Nav className="common-content-detail-container">
-        <img src="{{img}}" className="album" />
+        <img src={practiceRoom?.img} className="album" />
         <div className="detail-container">
-          <div className="">장르 : {information.genre}</div>
-          <div className="">발매날짜 : {information.releaseDate}년</div>
-          <div className="">앨범명 : {information.albumName}</div>
-          <div className="">음원 듣기 : {information.musicLink}</div>
+          <div className="">성함 : {practiceRoom?.username}</div>
+          <div className="">위치 : {practiceRoom?.place}</div>
+          <div className="">문의 번호 : {practiceRoom?.phone}</div>
         </div>
       </Nav>
 
-      <h3>상세정보</h3>
-
       {/* <!-- 내용 작성 --> */}
-      <div style={{height:"80%"}}>{information.content}</div>
+      <div style={{ paddingTop: "100px", minHeight: "80%" }}>
+        {practiceRoom?.contents}
+      </div>
 
       {/* <!-- 여기는 하단에 놓는다 --> */}
       <Navbar className="information-button-event">

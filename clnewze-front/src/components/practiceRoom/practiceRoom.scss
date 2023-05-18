@@ -155,10 +155,10 @@ h2 {
 }
 
 /* 게시판 (bootstrap 활용)*/
-.contents {
+.practiceRoom-contents {
   display: flex;
   flex-wrap: wrap;
-  width: 1200px;
+  width: 100%;
   margin: 0 auto;
 
   & .autor_wrap {
@@ -178,7 +178,7 @@ h2 {
     opacity: 0.2;
   }
 
-  & .information-title {
+  & .practiceRoom-title {
     padding: .75rem 1.25rem;
     margin-bottom: 0;
     color: inherit;
@@ -186,7 +186,7 @@ h2 {
     border-bottom: 1px solid rgba(0, 0, 0, .125);
   }
 
-  & .information-title:first-child {
+  & .practiceRoom-title:first-child {
     border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
   }
 
@@ -210,12 +210,12 @@ h2 {
 
 
 
-/* 곡 상세 정보 */
+/* 선생님 정보 */
 /* 상세 정보 폼*/
 // 모달용
-.boardDetail {
-  width: 1000px;
-  height: 700px;
+.practiceRoomDetail {
+  width: 100%;
+  height: 800px;
   z-index: 9999;
   border: 1px solid;
   padding: 40px 40px 40px 40px;
@@ -223,13 +223,14 @@ h2 {
   background: white;
   overflow: scroll;
 
-  & .DetailTitle {
+  & .practiceRoomDetailTitle {
     top: 65px;
     background: #eee;
     padding: 15px 15px 15px 15px;
     border-bottom-right-radius: 3px;
     margin-bottom: 50px;
-    width: 900px;
+    // width: 900px;
+    width: 100%;
   }
 }
 
