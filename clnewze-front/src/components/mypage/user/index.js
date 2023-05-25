@@ -1,44 +1,38 @@
 import React from "react";
+import { Col, Form, FormGroup, Input, Label } from "reactstrap";
 
 const UserInfomation = () => {
   return (
-    <div>
-      <form>
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">
-            Email address
-          </label>
-          <input
-            type="email"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-          />
-          <div id="emailHelp" class="form-text">
-            We'll never share your email with anyone else.
-          </div>
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">
-            Password
-          </label>
-          <input
-            type="password"
-            class="form-control"
-            id="exampleInputPassword1"
-          />
-        </div>
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-          <label class="form-check-label" for="exampleCheck1">
-            Check me out
-          </label>
-        </div>
-        <button type="submit" class="btn btn-primary">
-          Submit
-        </button>
-      </form>
-    </div>
+    <>
+      <Form>
+        <FormGroup row>
+          <Col md={2}>
+            <Label for="exampleEmail">Email</Label>
+          </Col>
+          <Col md={10}>
+            <Input
+              id="exampleEmail"
+              name="email"
+              placeholder="with a placeholder"
+              type="email"
+            />
+          </Col>
+        </FormGroup>
+        <FormGroup row>
+          <Col md={2}>
+            <Label for="examplePassword">Password</Label>
+          </Col>
+          <Col md={10}>
+            <Input
+              id="examplePassword"
+              name="password"
+              placeholder="password placeholder"
+              type="password"
+            />
+          </Col>
+        </FormGroup>
+      </Form>
+    </>
   );
 };
 
