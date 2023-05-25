@@ -1,6 +1,6 @@
 import React from "react";
 
-const UserInfomation = () => {
+const MypageLogin = () => {
   return (
     <div>
       <form>
@@ -42,4 +42,4 @@ const UserInfomation = () => {
   );
 };
 
-export default UserInfomation;
+export default MypageLogin;
