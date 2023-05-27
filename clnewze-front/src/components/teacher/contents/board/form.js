@@ -6,9 +6,6 @@ const BoardForm = ({ teacher }) => {
     <div className="teacherDetail">
       <h3>상세정보</h3>
       <h5 className="teacherDetailTitle">{teacher?.title}</h5>
-      {/* <div style={{fontSize:"9px", color: "#555", float:"right"}}>
-        조회수 : {information.view}{" "}
-      </div> */}
       <Nav className="common-content-detail-container">
         <img src={teacher?.img} className="album" />
         <div className="detail-container">

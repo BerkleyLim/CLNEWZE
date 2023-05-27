@@ -13,11 +13,6 @@ function Footer() {
           <a href="#">고객의소리</a>&nbsp;&nbsp;|&nbsp;&nbsp;
           <a href="#">제휴/광고문의</a>&nbsp;&nbsp;
         </p>
-        {/* <address className="ft-address">
-                  상호명 : (주)뮤직스타일&nbsp;&nbsp;|&nbsp;&nbsp;대표이사 : 임현식&nbsp;&nbsp;|&nbsp;&nbsp;이메일 : berkleylim16@gmail.com&nbsp;&nbsp;|&nbsp;&nbsp;사업자등록번호 : 111-11-11111&nbsp;&nbsp;|&nbsp;&nbsp;통신판매업신고번호 : 제1111-서울관악-0000호&nbsp;&nbsp;<br>
-                  주소 : 서울시 서초구 서초동 1327-15 (샘플)&nbsp;&nbsp;|&nbsp;&nbsp;연락처 : 02-1111-1111<br>
-                  <strong>NAVERPAY</strong>&nbsp;&nbsp;|&nbsp;&nbsp; 안전거래 서비스 : 고객님의 안전거래를 위해 현금 결제 시, 저희 사이트에서 가입한 구매안전 서비스를 이용할 수 있습니다.
-          </address> */}
         <span className="ft-copy">
           Copyright (c) 2023 CLNEWZE., Ltd, All Rights Reserved
         </span>

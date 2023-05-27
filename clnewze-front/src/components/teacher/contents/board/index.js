@@ -45,16 +45,6 @@ const BoardIndex = ({ boards, onClickView }) => {
                     <Col md={1} />● 상세정보 : {board?.contents}
                   </Row> */}
 
-                  {/* <p class="card-text">
-                              ● 성함 : {board?.name} <br />
-                              ● 위치 : {board?.place} <br />
-                              ● 문의 번호 : {board?.phone}<br />
-                              ● 대여가격 : {board?.price}
-                              ● 상세정보 : {board?.content}
-                            </p>
-                            <p class="card-text">
-                              <small class="text-muted">{board?.updateDate}</small>
-                            </p> */}
                   <div className="card-text">
                     <small className="text-muted">{board?.upLoadDate}</small>
                   </div>

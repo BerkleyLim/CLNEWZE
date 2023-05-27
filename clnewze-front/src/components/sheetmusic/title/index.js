@@ -11,10 +11,8 @@ const TitleIndex = ({ genreList }) => {
         <InputGroup className="searchBox">
           <DropdownForm />
           <Input
-            // type="text"
             className="form-control"
             title="검색어 입력"
-            // value=""
           />
           <Button className="inputGroupSearch">
             <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />

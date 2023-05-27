@@ -11,21 +11,14 @@ const ContentsMenu = () => {
       <div className="sub-menu">
         <div className="sort-list">
           <div className="view_mode">
-            <Button
-            // className="feed-type fas fa-bars on"
-            // data-viewtype="3"
-            >
+            <Button>
               <FontAwesomeIcon
                 icon={faTableCellsLarge}
                 // style={{ padding: "-10px 0 0 -10px" }}
               />
               {/* <!-- <span>카드형</span> --> */}
             </Button>
-            <Button
-            // className="list-type fas fa-th-large"
-            // data-viewtype="1"
-            // style={{backgroundColor:"#fff"}}
-            >
+            <Button>
               {/* <FontAwesomeIcon icon="fa-solid fa-list" /> */}
               <FontAwesomeIcon icon={faList} />
               {/* <!-- <span>게시판형</span> --> */}

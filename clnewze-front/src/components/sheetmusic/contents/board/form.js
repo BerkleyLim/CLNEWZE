@@ -21,12 +21,10 @@ const SheetMusicForm = ({ sheetMusic }) => {
         </div>
       </Nav>
 
-      {/* <!-- 내용 작성 --> */}
       <div style={{ paddingTop: "100px", minHeight: "80%" }}>
         {sheetMusic?.contents}
       </div>
 
-      {/* <!-- 여기는 하단에 놓는다 --> */}
       <Navbar className="sheetMusic-button-event">
         <div>이전 상세목록</div>
         <div>곡 정보 더보기</div>
