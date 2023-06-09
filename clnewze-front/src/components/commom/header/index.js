@@ -91,9 +91,9 @@ const HeaderComponent = (props) => {
           {" "}
           소개
         </button>
-        <button type="button" onClick={() => movePage("information")}>
+        {/* <button type="button" onClick={() => movePage("information")}>
           곡정보
-        </button>
+        </button> */}
         {/* 임시로 제거 - 차후 연구 필요 */}
         {/* <button type="button" onClick={() => movePage("media")}>
           영상
