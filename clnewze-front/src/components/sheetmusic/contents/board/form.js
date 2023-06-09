@@ -7,7 +7,8 @@ const SheetMusicForm = ({ sheetMusic }) => {
       <h5 className="sheetMusicDetailTitle">
         {sheetMusic?.artist} - {sheetMusic?.title}
       </h5>
-      <h3>상세정보</h3>
+      {/* <h3>상세정보</h3> */}
+      <h3>곡 정보</h3>
       <div style={{ fontSize: "9px", color: "#555", float: "right" }}>
         조회수 : {sheetMusic?.viewNumber}{" "}
       </div>
