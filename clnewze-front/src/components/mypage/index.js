@@ -48,6 +48,7 @@ const MypageMain = () => {
                 <button className="btn">매출액</button>
                 <button className="btn" onClick={() => window.location.href="/"}> 이전화면</button>
                 <button className="btn" onClick={toggleLogout}> 로그아웃</button>
+                <button className="btn"> 회원탈퇴</button>
                 
             </Col>
                 {/* 영역 출력 */}
