@@ -1,6 +1,7 @@
 import React from "react";
 
 import "./mypage.scss";
+import { Button } from "reactstrap";
 
 const MypageHeader = () => {
   return (
@@ -23,6 +24,7 @@ const MypageHeader = () => {
           </div>
         </div>
         <div className="profile-component2">
+          <div className=""><Button>충전하기</Button></div>
           <div className="profile-return">환전 포인트 : 100000 p</div>
           <div className="profile-cache">보유 캐쉬 : 100000 p</div>
         </div>
