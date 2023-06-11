@@ -9,3 +9,8 @@
     -  메뉴에 회원탈퇴 추가
 4) Header
     - 드롭다운 : 언어 "Korean" 에서 "한국어"로 변경, UI 변경
+
+11일
+1) index.html
+    - html 버전 : ko로 변경
+    
