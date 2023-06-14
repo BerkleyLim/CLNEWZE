@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Input, InputGroup } from "reactstrap";
 import SelectMenuDropdown from "./dropdown";
 
-const index = () => {
+const SelectMenuIndex = () => {
   return (
     <div className="header_search">
       <InputGroup>
@@ -14,4 +14,4 @@ const index = () => {
   );
 }
 
-export default index;
+export default SelectMenuIndex;
