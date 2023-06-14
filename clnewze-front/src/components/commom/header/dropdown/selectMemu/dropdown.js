@@ -9,29 +9,34 @@ import {
 } from "reactstrap";
 
 const SelectManuDropdown = () => {
+  const [dropdownMenu, setDropdownMenu] = useState("전체");
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
+  const dropdownMenuChange = (menu) => {
+    setDropdownMenu(menu)
+  }
   return (
     <ButtonDropdown isOpen={dropdownOpen} direction="down" toggle={toggle}>
         <Button outline>
-          Split Button
+          {dropdownMenu}
         </Button>
         <DropdownToggle caret color="primary">
           {/* 전체 */}
         </DropdownToggle>
         {/* <DropdownMenu container="body"> */}
         <DropdownMenu>
-          <DropdownItem onClick={function noRefCheck() {}}>곡목록</DropdownItem>
-          <DropdownItem onClick={function noRefCheck() {}}>영상</DropdownItem>
-          <DropdownItem onClick={function noRefCheck() {}}>악보</DropdownItem>
-          <DropdownItem onClick={function noRefCheck() {}}>
+          <DropdownItem onClick={() => dropdownMenuChange("전체")}>전체</DropdownItem>
+          {/* <DropdownItem onClick={() => dropdownMenuChange("곡목록")}>곡목록</DropdownItem> */}
+          {/* <DropdownItem onClick={() => dropdownMenuChange("영상")}>영상</DropdownItem> */}
+          <DropdownItem onClick={() => dropdownMenuChange("악보")}>악보</DropdownItem>
+          {/* <DropdownItem onClick={() => dropdownMenuChange("커뮤니티")}>
             커뮤니티
-          </DropdownItem>
-          <DropdownItem onClick={function noRefCheck() {}}>
+          </DropdownItem> */}
+          <DropdownItem onClick={() => dropdownMenuChange("레슨샘 찾기")}>
             레슨샘 찾기
           </DropdownItem>
-          <DropdownItem onClick={function noRefCheck() {}}>
+          <DropdownItem onClick={() => dropdownMenuChange("연습실 정보")}>
             연습실 정보
           </DropdownItem>
         </DropdownMenu>
