@@ -2,9 +2,9 @@ server:
   shutdown: graceful
 
 spring:
-  h2:
-    console:
-      enabled: true
+  # h2:
+  #   console:
+  #     enabled: true
 
   # 데이터베이스 죽는 현상 참조 : https://kakaocommerce.tistory.com/45
   # 데이터베이스 누수 현상 해결하기 : https://do-study.tistory.com/97
