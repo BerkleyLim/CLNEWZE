@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./header.scss";
 // import styled from "styled-components";
 import {
+  Button,
   Modal,
   Nav,
   // Dropdown,
@@ -15,6 +16,7 @@ import SelectMenuIndex from "./dropdown/selectMemu/index";
 import SelectLanguageIndex from "./dropdown/language/index";
 import LoginForm from "../../login/index";
 import { useSelector } from "react-redux";
+import { Alarm, PersonCircle } from "react-bootstrap-icons";
 
 const HeaderComponent = (props) => {
   let navigate = useNavigate();
@@ -73,8 +75,10 @@ const HeaderComponent = (props) => {
         <i className="fas fa-list header-icon"></i>
 
         <div className="header_mymenu">
-          <button type="button" onClick={userMenu}>
-            <i className="fas fa-user-circle"></i>
+          <Button size="lg" onClick={userMenu}>
+            <span className="header-nickname">
+              <PersonCircle/>
+            </span>
             <span className="header-nickname">
               {
                 user?.isLogin?
@@ -82,7 +86,8 @@ const HeaderComponent = (props) => {
                 "로그인"
               }
             </span>
-          </button>
+          </Button>
+          <Button size="lg"><Alarm/></Button>
         </div>
       </Nav>
 
