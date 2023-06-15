@@ -2,14 +2,16 @@ import React from "react";
 import { ChevronLeft, ChevronRight } from "react-bootstrap-icons";
 import { Col, Row, Table } from "reactstrap";
 import "./main.scss";
+import { useNavigate } from "react-router-dom";
 
 const Main = () => {
+  const navigate = useNavigate();
   return (
     <div>
       {/* <!-- 이미지 메인 --> */}
       <nav className="nav justify-content-center event-main-container">
         <div className="event-icon-prev">
-            <ChevronLeft />
+          <ChevronLeft />
         </div>
         <div className="event-banner-cover">
           <img
@@ -18,16 +20,39 @@ const Main = () => {
           />
         </div>
         <div className="event-icon-next">
-            <ChevronRight />
+          <ChevronRight />
         </div>
       </nav>
 
       {/* <!-- 오늘의 소식 --> */}
       <div className="main-common-header">
         <h1>오늘의 소식</h1>
-        <p>&gt; 더보기</p>
+        <p>
+          <ChevronRight /> 더보기
+        </p>
       </div>
-      <div className="banner">다음은 베너로 추가</div>
+      <div className="event-main-board-card-container event-sheetmusic">
+        <div className="banner">다음은 베너로 추가</div>
+
+        {/* <button type="button" className="common-main-card">
+            1
+          </button>
+          <button type="button" className="common-main-card">
+            2
+          </button>
+          <button type="button" className="common-main-card">
+            3
+          </button>
+          <button type="button" className="common-main-card">
+            4
+          </button>
+          <button type="button" className="common-main-card">
+            5
+          </button>
+          <button type="button" className="common-main-card">
+            6
+          </button> */}
+      </div>
 
       {/* <!-- 공지사항 및 QnA --> */}
       <Row>
@@ -58,7 +83,9 @@ const Main = () => {
         <Col className="main-QnA">
           <div className="main-common-header">
             <h1>QnA</h1>
-            <p>&gt; 더보기</p>
+            <p>
+              <ChevronRight /> 더보기
+            </p>
           </div>
           <Table className="table-hover">
             <thead>
@@ -81,9 +108,9 @@ const Main = () => {
       </Row>
 
       {/* <!-- 곡정보 --> */}
-      <div className="main-common-header">
+      {/* <div className="main-common-header">
         <h1>곡 정보</h1>
-        <p onClick="movePage('information')">&gt; 더보기</p>
+        <p onClick={() => navigate("/information")}><ChevronRight /> 더보기</p>
       </div>
       <nav className="nav justify-content-center event-main-container">
         <div className="event-icon-prev">
@@ -112,7 +139,7 @@ const Main = () => {
         <div className="event-icon-next">
           <ChevronRight />
         </div>
-      </nav>
+      </nav> */}
 
       {/* <!-- 영상 --> */}
       {/* <div className="main-common-header">
@@ -161,7 +188,9 @@ const Main = () => {
       {/* <!-- 악보 --> */}
       <div className="main-common-header">
         <h1>악보</h1>
-        <p>&gt; 더보기</p>
+        <p onClick={() => navigate("/information")}>
+          <ChevronRight /> 더보기
+        </p>
       </div>
       <nav className="nav justify-content-center event-main-container">
         <div className="event-icon-prev">
@@ -195,7 +224,9 @@ const Main = () => {
       {/* <!-- 레스너 찾기 --> */}
       <div className="main-common-header">
         <h1>레스너 찾기</h1>
-        <p>&gt; 더보기</p>
+        <p onClick={() => navigate("/teacher")}>
+          <ChevronRight /> 더보기
+        </p>
       </div>
       <nav className="nav justify-content-center event-main-container">
         <div className="event-icon-prev">
@@ -229,7 +260,9 @@ const Main = () => {
       {/* <!-- 연습실 정보 --> */}
       <div className="main-common-header">
         <h1>연습실 정보</h1>
-        <p>&gt; 더보기</p>
+        <p onClick={() => navigate("/practiceroom")}>
+          <ChevronRight /> 더보기
+        </p>
       </div>
       <nav className="nav justify-content-center event-main-container">
         <div className="event-icon-prev">
