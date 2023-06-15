@@ -1,7 +1,7 @@
 import React from "react";
 import { ChevronLeft, ChevronRight } from "react-bootstrap-icons";
 import { Col, Row, Table } from "reactstrap";
-import "./main.scss"
+import "./main.scss";
 
 const Main = () => {
   return (
@@ -9,7 +9,7 @@ const Main = () => {
       {/* <!-- 이미지 메인 --> */}
       <nav className="nav justify-content-center event-main-container">
         <div className="event-icon-prev">
-          <i className="fas fa-angle-left"></i>
+            <ChevronLeft />
         </div>
         <div className="event-banner-cover">
           <img
@@ -18,7 +18,7 @@ const Main = () => {
           />
         </div>
         <div className="event-icon-next">
-          <i className="fas fa-angle-right"></i>
+            <ChevronRight />
         </div>
       </nav>
 
@@ -29,8 +29,8 @@ const Main = () => {
       </div>
       <div className="banner">다음은 베너로 추가</div>
 
-            {/* <!-- 공지사항 및 QnA --> */}
-            <Row>
+      {/* <!-- 공지사항 및 QnA --> */}
+      <Row>
         <Col className="main-notice">
           <div className="main-common-header">
             <h1>공지사항</h1>
@@ -80,43 +80,42 @@ const Main = () => {
         </Col>
       </Row>
 
+      {/* <!-- 곡정보 --> */}
+      <div className="main-common-header">
+        <h1>곡 정보</h1>
+        <p onClick="movePage('information')">&gt; 더보기</p>
+      </div>
+      <nav className="nav justify-content-center event-main-container">
+        <div className="event-icon-prev">
+          <ChevronLeft />
+        </div>
+        <div className="event-main-board-card-container event-information">
+          <button type="button" className="common-main-card">
+            1
+          </button>
+          <button type="button" className="common-main-card">
+            2
+          </button>
+          <button type="button" className="common-main-card">
+            3
+          </button>
+          <button type="button" className="common-main-card">
+            4
+          </button>
+          <button type="button" className="common-main-card">
+            5
+          </button>
+          <button type="button" className="common-main-card">
+            6
+          </button>
+        </div>
+        <div className="event-icon-next">
+          <ChevronRight />
+        </div>
+      </nav>
 
-        {/* <!-- 곡정보 --> */}
-          <div className="main-common-header">
-            <h1>곡 정보</h1>
-            <p onClick="movePage('information')">&gt; 더보기</p>
-          </div>
-          <nav className="nav justify-content-center event-main-container">
-            <div className="event-icon-prev">
-                <ChevronLeft/>
-            </div>
-            <div className="event-main-board-card-container event-information">
-              <button type="button" className="common-main-card">
-                1
-              </button>
-              <button type="button" className="common-main-card">
-                2
-              </button>
-              <button type="button" className="common-main-card">
-                3
-              </button>
-              <button type="button" className="common-main-card">
-                4
-              </button>
-              <button type="button" className="common-main-card">
-                5
-              </button>
-              <button type="button" className="common-main-card">
-                6
-              </button>
-            </div>
-            <div className="event-icon-next">
-                <ChevronRight/>
-            </div>
-          </nav>
-
-        {/* <!-- 영상 --> */}
-          {/* <div className="main-common-header">
+      {/* <!-- 영상 --> */}
+      {/* <div className="main-common-header">
             <h1>영상</h1>
             <p>&gt; 더보기</p>
           </div>
@@ -166,18 +165,30 @@ const Main = () => {
       </div>
       <nav className="nav justify-content-center event-main-container">
         <div className="event-icon-prev">
-            <ChevronLeft/>
+          <ChevronLeft />
         </div>
         <div className="event-main-board-card-container event-sheetmusic">
-          <button type="button" className="common-main-card">1</button>
-          <button type="button" className="common-main-card">2</button>
-          <button type="button" className="common-main-card">3</button>
-          <button type="button" className="common-main-card">4</button>
-          <button type="button" className="common-main-card">5</button>
-          <button type="button" className="common-main-card">6</button>
+          <button type="button" className="common-main-card">
+            1
+          </button>
+          <button type="button" className="common-main-card">
+            2
+          </button>
+          <button type="button" className="common-main-card">
+            3
+          </button>
+          <button type="button" className="common-main-card">
+            4
+          </button>
+          <button type="button" className="common-main-card">
+            5
+          </button>
+          <button type="button" className="common-main-card">
+            6
+          </button>
         </div>
         <div className="event-icon-next">
-            <ChevronRight/>
+          <ChevronRight />
         </div>
       </nav>
 
@@ -188,18 +199,30 @@ const Main = () => {
       </div>
       <nav className="nav justify-content-center event-main-container">
         <div className="event-icon-prev">
-            <ChevronLeft/>
+          <ChevronLeft />
         </div>
         <div className="event-main-board-card-container event-teacher">
-          <button type="button" className="common-main-card">1</button>
-          <button type="button" className="common-main-card">2</button>
-          <button type="button" className="common-main-card">3</button>
-          <button type="button" className="common-main-card">4</button>
-          <button type="button" className="common-main-card">5</button>
-          <button type="button" className="common-main-card">6</button>
+          <button type="button" className="common-main-card">
+            1
+          </button>
+          <button type="button" className="common-main-card">
+            2
+          </button>
+          <button type="button" className="common-main-card">
+            3
+          </button>
+          <button type="button" className="common-main-card">
+            4
+          </button>
+          <button type="button" className="common-main-card">
+            5
+          </button>
+          <button type="button" className="common-main-card">
+            6
+          </button>
         </div>
         <div className="event-icon-next">
-            <ChevronRight/>
+          <ChevronRight />
         </div>
       </nav>
 
@@ -210,18 +233,30 @@ const Main = () => {
       </div>
       <nav className="nav justify-content-center event-main-container">
         <div className="event-icon-prev">
-            <ChevronLeft/>
+          <ChevronLeft />
         </div>
         <div className="event-main-board-card-container event-practiceRoom">
-          <button type="button" className="common-main-card">1</button>
-          <button type="button" className="common-main-card">2</button>
-          <button type="button" className="common-main-card">3</button>
-          <button type="button" className="common-main-card">4</button>
-          <button type="button" className="common-main-card">5</button>
-          <button type="button" className="common-main-card">6</button>
+          <button type="button" className="common-main-card">
+            1
+          </button>
+          <button type="button" className="common-main-card">
+            2
+          </button>
+          <button type="button" className="common-main-card">
+            3
+          </button>
+          <button type="button" className="common-main-card">
+            4
+          </button>
+          <button type="button" className="common-main-card">
+            5
+          </button>
+          <button type="button" className="common-main-card">
+            6
+          </button>
         </div>
         <div className="event-icon-next">
-            <ChevronRight/>
+          <ChevronRight />
         </div>
       </nav>
 
