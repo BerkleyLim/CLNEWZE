@@ -1,11 +1,12 @@
 import React from "react";
 import { ChevronRight } from "react-bootstrap-icons";
 import { Col, Table } from "reactstrap";
+import styles from "../main.module.scss";
 
 const MainCommunity = () => {
   return (
-    <Col className="main-QnA">
-      <div className="main-common-header">
+    <Col className={`${styles?.mainQnA}`}>
+      <div className={`${styles?.mainCommonHeader}`}>
         <h1>커뮤니티</h1>
         <p>
           <ChevronRight /> 더보기

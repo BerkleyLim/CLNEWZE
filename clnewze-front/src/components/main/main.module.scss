@@ -1,4 +1,4 @@
-.event-main-container {
+.eventMainContainer {
   display:flex;
   align-items: center;
   justify-items: center;
@@ -7,7 +7,7 @@
 }
 
 
-.event-icon-prev {
+.eventIconPrev {
   position:relative;
   width: 50px;
   height: 50px;
@@ -16,7 +16,7 @@
   margin-bottom: 100px;
 }
 
-.event-icon-next {
+.eventIconNext {
   position: relative;
   width: 50px;
   height: 50px;
@@ -25,7 +25,7 @@
   margin-bottom: 100px;
 }
 
-.event-banner-cover {
+.eventBannerCover {
   position: relative;
   width: 900px;
   height: 200px;
@@ -33,16 +33,16 @@
 }
 
 
-.main-common-header {
+.mainCommonHeader {
   display: grid;
   padding: 20px, 20px, 20px, 20px;
 }
 
-.main-common-header h1 {
+.mainCommonHeader h1 {
   position: absolute;
 }
 
-.main-common-header p {
+.mainCommonHeader p {
   position: relative;
   text-align: right;
   margin:20px;
@@ -50,7 +50,7 @@
 }
 
 
-.event-main-board-card-container {
+.eventMainBoardCardContainer {
   display:flex;
   align-items: center;
   justify-items: center;
@@ -58,15 +58,18 @@
   height: 300px;
   border: 1px solid;
   margin:0 auto;
-}
 
-/* 공통 곡작업, 영상, 음원, 악보, 레슨샘 찾기, 연습실 정보 카드형 설정 */
-.event-main-board-card-container .common-main-card {
-  position:relative;
-  margin: 10px 10px 10px 10px;
-  width:200px;
-  height:250px;
-  border:1px solid;
-  align-items: center;
-  justify-items: center;
+  /* 공통 곡작업, 영상, 음원, 악보, 레슨샘 찾기, 연습실 정보 카드형 설정 */
+  & {
+    .commonMainCard {
+      position:relative;
+      margin: 10px 10px 10px 10px;
+      width:200px;
+      height:250px;
+      border:1px solid;
+      align-items: center;
+      justify-items: center;
+    }
+
+  }
 }

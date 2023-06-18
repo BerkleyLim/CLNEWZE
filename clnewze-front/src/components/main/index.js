@@ -1,6 +1,5 @@
 import React from "react";
 import { Row } from "reactstrap";
-import "./main.scss";
 
 import MainBanner from "./item/banner";
 import MainTodayIssue from "./item/today";
