@@ -79,7 +79,7 @@ li {
 }
 
 .ft-content {
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
   padding-top: 3.125em;
 }
