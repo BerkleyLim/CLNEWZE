@@ -18,12 +18,13 @@ const ContentsMenu = () => {
               {/* <!-- <span>카드형</span> --> */}
             </Button>
             <Button>
-              {/* <FontAwesomeIcon icon="fa-solid fa-list" /> */}
               <FontAwesomeIcon icon={faList} />
               {/* <!-- <span>게시판형</span> --> */}
             </Button>
+            <Button>
+              <DropdownPaging />
+            </Button>
           </div>
-          <DropdownPaging />
         </div>
       </div>
     </Navbar>
