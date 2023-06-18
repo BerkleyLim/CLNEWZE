@@ -3,14 +3,14 @@ import { Button, Navbar } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DropdownPaging from "./dropdown";
 import { faList, faTableCellsLarge } from "@fortawesome/free-solid-svg-icons";
-
+import styles from "../../practiceRoom.module.scss";
 const ContentsMenu = () => {
   return (
-    <Navbar className="listMenu">
+    <Navbar className={`${styles?.listMenu}`}>
       <h2>전체 연습실</h2>
-      <div className="sub-menu">
-        <div className="sort-list">
-          <div className="view_mode">
+      <div className={`${styles?.subMenu}`}>
+        <div className={`${styles?.sortList}`}>
+          <div className={`${styles?.view_mode}`}>
             <Button>
               <FontAwesomeIcon
                 icon={faTableCellsLarge}

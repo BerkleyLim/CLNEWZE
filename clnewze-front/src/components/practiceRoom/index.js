@@ -5,7 +5,7 @@ import Menu from "./contents/menu/index";
 import Board from "./contents/board/index";
 import BoardForm from "./contents/board/form";
 import Paging from "./contents/board/paging";
-import "./practiceRoom.scss";
+import styles from "./practiceRoom.module.scss";
 
 import URI from "../util/URI";
 import { Modal } from "reactstrap";
@@ -53,10 +53,10 @@ const PracticeRoom = (props) => {
     <div>
       <Title categorieMenu={categorieMenu} />
 
-      <div className="contain">
+      <div className={`${styles?.contain}`}>
         <Menu categories={selectCategories} />
 
-        <div className="practiceRoom-contents">
+        <div className={`${styles?.practiceRoomContents}`}>
           <Board boards={postsData(boards)} onClickView={onClickView} />
 
           {/* 모달 상세 출력 */}

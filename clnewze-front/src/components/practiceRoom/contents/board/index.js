@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, CardBody, CardHeader, Col, Row } from "reactstrap";
+import styles from "../../practiceRoom.module.scss";
 
 const BoardIndex = ({ boards, onClickView }) => {
   return (
@@ -8,12 +9,12 @@ const BoardIndex = ({ boards, onClickView }) => {
         <Card
           key={index}
           mb={3}
-          className="autor_wrap"
+          className={`${styles?.autor_wrap}`}
           onClick={() => onClickView(board)}
         >
           <CardHeader className="board-title">{board?.title}</CardHeader>
           <CardBody>
-            <Card mb={3} className="content">
+            <Card mb={3} className={`${styles?.content}`}>
               <Row className="no-gutters">
                 <Col md={1}>
                   <img
@@ -24,14 +25,6 @@ const BoardIndex = ({ boards, onClickView }) => {
                   />
                 </Col>
                 <Col md={11}>
-                  {/* <Row style={{ verticalAlign: "bottom" }}>
-                    <h5 className="card-title col-md-4 align-self-center">
-                      장르 : {board?.genre}
-                    </h5>
-                    <div className="display col-md-8 align-self-center justify-content-end">
-                      조회수 : {board?.viewNumber}
-                    </div>
-                  </Row> */}
                   <Row className="card-text">
                     <Col md={1} />● 성함 : {board?.name}
                   </Row>

@@ -6,14 +6,15 @@ import {
   ButtonDropdown,
   Button,
 } from "reactstrap";
+import styles from "../practiceRoom.module.scss";
 
-const InformationTitleDropdown = () => {
+const PracticeRoomTitleDropdown = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
   return (
-    <ButtonDropdown isOpen={dropdownOpen} toggle={toggle} direction="down" className="dropdown selectBox">
-      <Button className="dropdownTitle" outline> 전체</Button>
+    <ButtonDropdown isOpen={dropdownOpen} toggle={toggle} direction="down" className={`${styles?.selectBox} " dropdown"`}>
+      <Button className={`${styles?.dropdownTitle}`} outline> 전체</Button>
       <DropdownToggle className="dropdownToggle" caret color="primary">
         {/* 전체 */}
       </DropdownToggle>
@@ -31,4 +32,4 @@ const InformationTitleDropdown = () => {
   );
 };
 
-export default InformationTitleDropdown;
+export default PracticeRoomTitleDropdown;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
+import styles from "../../practiceRoom.module.scss";
 
 const DropdownPaging = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -7,14 +8,14 @@ const DropdownPaging = () => {
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
   return (
-    <div className="selectBox">
+    <div className={`${styles?.selectBox}`}>
       <Dropdown isOpen={dropdownOpen} toggle={toggle} direction="down">
-        <DropdownToggle className="selected" caret>10</DropdownToggle>
-        <DropdownMenu className="select-layer">
-          <DropdownItem className="select_item">10</DropdownItem>
-          <DropdownItem className="select_item">20</DropdownItem>
-          <DropdownItem className="select_item">30</DropdownItem>
-          <DropdownItem className="select_item">40</DropdownItem>
+        <DropdownToggle className={`${styles?.selected}`} caret>10</DropdownToggle>
+        <DropdownMenu className={`${styles?.selectLayer}`}>
+          <DropdownItem className={`${styles?.select_item}`}>10</DropdownItem>
+          <DropdownItem className={`${styles?.select_item}`}>20</DropdownItem>
+          <DropdownItem className={`${styles?.select_item}`}>30</DropdownItem>
+          <DropdownItem className={`${styles?.select_item}`}>40</DropdownItem>
         </DropdownMenu>
       </Dropdown>
     </div>
