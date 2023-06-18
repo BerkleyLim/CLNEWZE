@@ -24,15 +24,9 @@ const SelectManuDropdown = () => {
         <DropdownToggle caret color="primary">
           {/* 전체 */}
         </DropdownToggle>
-        {/* <DropdownMenu container="body"> */}
         <DropdownMenu>
           <DropdownItem onClick={() => dropdownMenuChange("전체")}>전체</DropdownItem>
-          {/* <DropdownItem onClick={() => dropdownMenuChange("곡목록")}>곡목록</DropdownItem> */}
-          {/* <DropdownItem onClick={() => dropdownMenuChange("영상")}>영상</DropdownItem> */}
           <DropdownItem onClick={() => dropdownMenuChange("악보")}>악보</DropdownItem>
-          {/* <DropdownItem onClick={() => dropdownMenuChange("커뮤니티")}>
-            커뮤니티
-          </DropdownItem> */}
           <DropdownItem onClick={() => dropdownMenuChange("레슨샘 찾기")}>
             레슨샘 찾기
           </DropdownItem>
@@ -44,27 +38,6 @@ const SelectManuDropdown = () => {
   );
 };
 {
-  /* <div className="header_search">
-  <div className="input-group">
-    <div className="input-group-prepend">
-      <button id="hd-search-menu" className="btn hd-dropdown-color dropdown-toggle"
-        type="button" data-target="#" data-toggle="dropdown"
-        aria-haspopup="true" role="button" aria-expanded="false" style="width:140px">전체</button>
-      <div className="dropdown-menu" role="menu" aria-labelledby="hd-search-menu">
-        <button id="hd-search-all" className="dropdown-item" type="button">전체</button>
-        <button id="hd-search-information" className="dropdown-item" type="button">곡목록</button>
-        <button id="hd-search-media" className="dropdown-item" type="button">영상</button>
-        <button id="hd-search-sheetmusic" className="dropdown-item" type="button">악보</button>
-        <button id="hd-search-community" className="dropdown-item" type="button">커뮤니티</button>
-        <button id="hd-search-teacher" className="dropdown-item" type="button">레슨샘찾기</button>
-        <button id="hd-search-practiceRoom" className="dropdown-item" type="button">연습실정보</button>
-      </div>
-    </div>
-    <input id="hd-search" type="text" className="form-control header-search-input"
-      aria-label="Text input with dropdown button" />
-    <i className="fas fa-search header-icon" onClick=""></i>
-  </div>
-</div> */
 }
 
 export default SelectManuDropdown;
