@@ -11,7 +11,7 @@ const MainBanner = () => {
     <div className={`${styles?.eventBannerCover}`}>
       <img
         src="image/sample-banner.jpg"
-        style={{ width: "800px", height: "200px" }}
+        style={{ maxWidth: "800px", height: "200px" }}
       />
     </div>
     <div className={`${styles?.eventIconNext}`}>

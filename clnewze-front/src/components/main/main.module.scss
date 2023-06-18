@@ -27,7 +27,7 @@
 
 .eventBannerCover {
   position: relative;
-  width: 900px;
+  max-width: 900px;
   height: 200px;
   text-align:center;
 }
@@ -54,7 +54,7 @@
   display:flex;
   align-items: center;
   justify-items: center;
-  width: 900px;
+  max-width: 900px;
   height: 300px;
   border: 1px solid;
   margin:0 auto;
@@ -64,7 +64,7 @@
     .commonMainCard {
       position:relative;
       margin: 10px 10px 10px 10px;
-      width:200px;
+      max-width:200px;
       height:250px;
       border:1px solid;
       align-items: center;
