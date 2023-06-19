@@ -13,7 +13,7 @@ const DropdownPaging = () => {
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
   return (
-    <div className={`${styles?.selectBox}`} size="lg">
+    <div className={`${styles?.selectBox}`}>
       <Dropdown isOpen={dropdownOpen} toggle={toggle} direction="down">
         <DropdownToggle className={`${styles?.selected}`} caret>
           10
