@@ -48,11 +48,11 @@
     margin-top: 50px;
     margin-bottom: 50px;
 
-    & .sub-menu {
-      & .sort-list {
+    & .subMenu {
+      & .sortList {
         float: right;
 
-        & .chk-box {
+        & .chkBox {
           margin: 10px 18px 0 0;
         }
 
@@ -76,11 +76,11 @@
             }
           }
 
-          & .feed-type.on span {
+          & .feedType.on span {
             background-position: -95px -140px;
           }
 
-          & .list-type span {
+          & .listType span {
             background-position: -115px -160px;
           }
         }
@@ -104,7 +104,7 @@
             line-height: 34px;
           }
 
-          & .select-layer {
+          & .selectLayer {
             position: absolute;
             top: 33px;
             background: #fff;
@@ -129,14 +129,14 @@
 
             // }
 
-            & .select-layer[data-align="left"] {
+            & .selectLayer[data-align="left"] {
               left: 0;
             }
           }
         }
       }
 
-      & .sort-list>* {
+      & .sortList>* {
         float: left;
       }
     }
@@ -155,7 +155,7 @@ h2 {
 }
 
 /* 게시판 (bootstrap 활용)*/
-.sheetmusic-contents {
+.sheetmusicContents {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -178,7 +178,7 @@ h2 {
     opacity: 0.2;
   }
 
-  & .sheetMusic-title {
+  & .sheetMusicTitle {
     padding: .75rem 1.25rem;
     margin-bottom: 0;
     color: inherit;
@@ -186,7 +186,7 @@ h2 {
     border-bottom: 1px solid rgba(0, 0, 0, .125);
   }
 
-  & .sheetMusic-title:first-child {
+  & .sheetMusicTitle:first-child {
     border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
   }
 
@@ -235,7 +235,7 @@ h2 {
 }
 
 /* 장르 정보 관련 */
-.common-content-detail-container {
+.commonContentDetailContainer {
   height: 20%;
   margin-bottom: 150px;
   align-items: center;
@@ -248,7 +248,7 @@ h2 {
 }
 
 /* 장르 정보 관련 컨테이너 */
-.detail-container {
+.detailContainer {
   margin-left: 50px;
 }
 

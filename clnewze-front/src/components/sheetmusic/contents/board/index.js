@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, CardBody, CardHeader, Col, Row } from "reactstrap";
+import styles from "../../sheetmusic.module.scss";
 
 const BoardIndex = ({ boards, onClickView }) => {
   return (
@@ -8,14 +9,14 @@ const BoardIndex = ({ boards, onClickView }) => {
         <Card
           key={index}
           mb={3}
-          className="autor_wrap"
+          className={`${styles?.autor_wrap}`}
           onClick={() => onClickView(board)}
         >
-          <CardHeader className="board-title">
+          <CardHeader className={`${styles?.boardTitle}`}>
             {board?.artist} - {board?.title}
           </CardHeader>
           <CardBody>
-            <Card mb={3} className="content">
+            <Card mb={3} className={`${styles?.content}`}>
               <Row className="no-gutters">
                 <Col md={1}>
                   <img

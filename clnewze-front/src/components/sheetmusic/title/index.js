@@ -1,25 +1,26 @@
 import React from "react";
-import { Button, Input, InputGroup, Navbar, Row } from "reactstrap";
+import { Button, Input, InputGroup, Navbar } from "reactstrap";
 import DropdownForm from "./dropdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styles from "../sheetmusic.module.scss";
 
 const TitleIndex = ({ genreList }) => {
   return (
-    <div className="title">
-      <Navbar className="titleArea">
+    <div className={`${styles?.title}`}>
+      <Navbar className={`${styles?.titleArea}`}>
         <h1>악보모음</h1>
-        <InputGroup className="searchBox">
+        <InputGroup className={`${styles?.searchBox}`}>
           <DropdownForm />
           <Input
             className="form-control"
             title="검색어 입력"
           />
-          <Button className="inputGroupSearch">
+          <Button className={`${styles?.inputGroupSearch}`}>
             <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
           </Button>
         </InputGroup>
       </Navbar>
-      <Navbar className="items_wrap">
+      <Navbar className={`${styles?.items_wrap}`}>
         <button type="button" onClick={() => genreList(null)}>
           전체
         </button>

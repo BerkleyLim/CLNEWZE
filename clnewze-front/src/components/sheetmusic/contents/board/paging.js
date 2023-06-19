@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
+import styles from "../../sheetmusic.module.scss";
 
 const BoardPagingnation = ({ totalPosts, limit, page, setPage }) => {
   const numPages = Math.ceil(totalPosts / limit);
@@ -7,7 +8,7 @@ const BoardPagingnation = ({ totalPosts, limit, page, setPage }) => {
   let firstNum = currPage - (currPage % 5) + 1;
   let lastNum = currPage - (currPage % 5) + 5;
   return (
-    <Pagination className="paging justify-content-center">
+    <Pagination className={`${styles?.paging} justify-content-center`}>
       <PaginationItem className={`${page === 1 && "disabled"}`}>
         <PaginationLink
           onClick={() => {

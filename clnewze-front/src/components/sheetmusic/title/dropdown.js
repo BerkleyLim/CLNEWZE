@@ -6,6 +6,7 @@ import {
   ButtonDropdown,
   Button,
 } from "reactstrap";
+import styles from "../sheetmusic.module.scss";
 
 const InformationTitleDropdown = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -16,9 +17,9 @@ const InformationTitleDropdown = () => {
       isOpen={dropdownOpen}
       toggle={toggle}
       direction="down"
-      className="dropdown selectBox"
+      className={`dropdown ${styles?.selectBox}`}
     >
-      <Button className="dropdownTitle" outline>
+      <Button className={`${styles?.dropdownTitle}`} outline>
         {" "}
         전체장르
       </Button>

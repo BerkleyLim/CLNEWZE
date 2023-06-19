@@ -6,7 +6,7 @@ import Menu from "./contents/menu/index";
 import Board from "./contents/board/index";
 import BoardForm from "./contents/board/form";
 import Paging from "./contents/board/paging";
-import "./sheetmusic.scss";
+import styles from "./sheetmusic.module.scss";
 
 import URI from "../util/URI";
 import { Modal } from "reactstrap";
@@ -55,10 +55,10 @@ const SheetMusics = (props) => {
     <div>
       <Title genreList={genreList} />
 
-      <div className="contain">
+      <div className={`${styles?.contain}`}>
         <Menu genre={selectGenre} />
 
-        <div className="sheetmusic-contents">
+        <div className={`${styles?.sheetmusicContents}`}>
           <Board boards={postsData(boards)} onClickView={onClickView} />
 
           {/* 모달 상세 출력 */}
