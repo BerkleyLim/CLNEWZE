@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {Routes, Route, useNavigate} from 'react-router-dom'; 
 
-import "./mypage.scss"
+import styles from "./mypage.module.scss"
 import { Col, Row } from 'reactstrap'
 
 import MypageInfo from "./user/index"
@@ -21,8 +21,8 @@ const MypageMain = () => {
   return (
     <div>
         {/* <!-- 마이페이지 카테고리 --> */}
-        <Row className="mypage-container">
-            <Col md={2} className="mypage-menu-container">
+        <Row className={`${styles?.mypageContainer}`}>
+            <Col md={2} className={`${styles?.mypageMenuContainer}`}>
                 <button className="btn" onClick={() => moveMyPage("info")}>기본정보</button>
                 <button className="btn">회원정보 및 수정</button>
                 <button className="btn">환전 신청</button>
@@ -30,9 +30,7 @@ const MypageMain = () => {
                 <hr/>
                 
                 <h6>업로드 정보</h6>
-                {/* <button className="btn">영상</button> */}
                 <button className="btn">연습실</button>
-                {/* <button className="btn">음원</button> */}
                 <button className="btn">악보</button>
 
                 <hr/>

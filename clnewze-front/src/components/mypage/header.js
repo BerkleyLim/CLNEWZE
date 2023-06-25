@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import "./mypage.scss";
+import styles from "./mypage.module.scss";
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 
 const MypageHeader = () => {
@@ -13,34 +13,34 @@ const MypageHeader = () => {
   }
 
   return (
-    <div className="mypage-header">
+    <div className={`${styles?.MypageHeader}`}>
       {/* <!-- 사진 --> */}
       <img
-        className="mypage-banner"
+        className={`${styles?.mypageBanner}`}
         src="/image/file/mypage/defalut-my-profile.png"
       />
 
       {/* <!-- 마이페이지 정보 (커버랑 같이 겹치기) --> */}
-      <div className="profile-information">
-        <div className="profile-img">
+      <div className={`${styles?.profileInformation}`}>
+        <div className={`${styles?.profileImg}`}>
           <img
             src="/image/file/mypage/defalut-my-profile.png"
-            className="img-size"
+            className={`${styles?.imgSize}`}
           />
         </div>
-        <div className="profile-component1">
-          <div className="profile-name">홍길동</div>
-          <div className="profile-introduction">
+        <div className={`${styles?.profileComponent1}`}>
+          <div className={`${styles?.profileName}`}>홍길동</div>
+          <div className={`${styles?.profileIntroduction}`}>
             홍길동님의 마이페이지 입니다
           </div>
         </div>
-        <div className="profile-component2">
+        <div className={`${styles?.profileComponent2}`}>
           <div className="">
             <Button>충전하기</Button>
             <Button onClick={() => subscriptViewModal()}>구독하기</Button>
           </div>
-          <div className="profile-return">환전 포인트 : 100000 p</div>
-          <div className="profile-cache">보유 캐쉬 : 100000 p</div>
+          <div className={`${styles?.profileReturn}`}>환전 포인트 : 100000 p</div>
+          <div className={`${styles?.profileCache}`}>보유 캐쉬 : 100000 p</div>
         </div>
       </div>
       {isModal &&
