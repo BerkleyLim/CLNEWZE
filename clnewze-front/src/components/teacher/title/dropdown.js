@@ -6,6 +6,7 @@ import {
   ButtonDropdown,
   Button,
 } from "reactstrap";
+import styles from "../teacher.module.scss";
 
 const InformationTitleDropdown = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -16,7 +17,7 @@ const InformationTitleDropdown = () => {
       isOpen={dropdownOpen}
       toggle={toggle}
       direction="down"
-      className="dropdown selectBox"
+      className={`dropdown ${styles?.searchBox}`}
     >
       <Button className="dropdownTitle" outline>
         {" "}

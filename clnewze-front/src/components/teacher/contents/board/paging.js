@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
+import styles from "../../teacher.module.scss";
+import { ChevronLeft, ChevronRight } from "react-bootstrap-icons";
 
 const BoardPagingnation = ({ totalPosts, limit, page, setPage }) => {
   const numPages = Math.ceil(totalPosts / limit);
@@ -7,7 +9,7 @@ const BoardPagingnation = ({ totalPosts, limit, page, setPage }) => {
   let firstNum = currPage - (currPage % 5) + 1;
   let lastNum = currPage - (currPage % 5) + 5;
   return (
-    <Pagination className="paging justify-content-center">
+    <Pagination className={`${styles?.paging} " justify-content-center"`}>
       <PaginationItem className={`${page === 1 && "disabled"}`}>
         <PaginationLink
           onClick={() => {
@@ -17,7 +19,7 @@ const BoardPagingnation = ({ totalPosts, limit, page, setPage }) => {
           disabled={page === 1}
           tabIndex="-1"
         >
-          Previous
+          <ChevronLeft />
         </PaginationLink>
       </PaginationItem>
       {Array(5)
@@ -39,6 +41,7 @@ const BoardPagingnation = ({ totalPosts, limit, page, setPage }) => {
                           i > 4 일때
                         */
                   <PaginationLink
+                    // className="page-link"
                     onClick={() => setPage(lastNum)}
                     aria-current={page === lastNum ? "page" : null}
                   >
@@ -51,15 +54,13 @@ const BoardPagingnation = ({ totalPosts, limit, page, setPage }) => {
         ))}
       <PaginationItem className={`${page === numPages && "disabled"}`}>
         <PaginationLink
-          // className={`page-link`}
           onClick={() => {
             setPage(page + 1);
             setCurrPage(page + 1);
           }}
           disabled={page === numPages}
-          // tabindex="-1"
         >
-          Next
+          <ChevronRight />
         </PaginationLink>
       </PaginationItem>
     </Pagination>

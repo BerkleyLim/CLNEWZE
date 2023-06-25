@@ -5,7 +5,7 @@ import Menu from "./contents/menu/index";
 import Board from "./contents/board/index";
 import BoardForm from "./contents/board/form";
 import Paging from "./contents/board/paging";
-import "./teacher.scss";
+import styles from "./teacher.module.scss";
 
 import URI from "../util/URI";
 import { Modal } from "reactstrap";
@@ -53,10 +53,11 @@ const Teachers = (props) => {
     <div>
       <Title majormenu={majormenu} />
 
-      <div className="contain">
+      <div className={`${styles?.contain}`}>
         <Menu major={selectMajor} />
 
-        <div className="teacher-contents">
+        {/* <div className={`${styles?.teacherContents}`}> */}
+        <div>
           <Board boards={postsData(boards)} onClickView={onClickView} />
 
           {/* 모달 상세 출력 */}

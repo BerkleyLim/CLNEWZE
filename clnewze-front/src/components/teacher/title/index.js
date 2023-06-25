@@ -2,13 +2,14 @@ import React from "react";
 import { Button, Input, InputGroup, Navbar, Row } from "reactstrap";
 import DropdownForm from "./dropdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styles from "../teacher.module.scss";
 
 const TitleIndex = ({ majormenu }) => {
   return (
-    <div className="title">
-      <Navbar className="titleArea">
+    <div className={`${styles?.title}`}>
+      <Navbar className={`${styles?.titleArea}`}>
         <h1>선생님 정보</h1>
-        <InputGroup className="searchBox">
+        <InputGroup className={`${styles?.searchBox}`}>
           <DropdownForm />
           <Input
             // type="text"
@@ -16,12 +17,12 @@ const TitleIndex = ({ majormenu }) => {
             title="검색어 입력"
             // value=""
           />
-          <Button className="inputGroupSearch">
+          <Button className={`${styles?.InputGroupSearch}`}>
             <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
           </Button>
         </InputGroup>
       </Navbar>
-      <Navbar className="items_wrap">
+      <Navbar className={`${styles?.items_wrap}`}>
         <button type="button" onClick={() => majormenu(null)}>
           전체
         </button>
