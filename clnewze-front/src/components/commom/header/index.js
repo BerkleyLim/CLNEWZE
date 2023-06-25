@@ -90,6 +90,7 @@ const HeaderComponent = (props) => {
         <DropdownItem onClick={() => movePage("sheetmusic")}>악보</DropdownItem>
         <DropdownItem onClick={() => movePage("teacher")}>레스너 찾기</DropdownItem>
         <DropdownItem onClick={() => movePage("practiceRoom")}>연습실 정보</DropdownItem>
+        <DropdownItem onClick={() => movePage("blog")}>블로그</DropdownItem>
         {/* <DropdownItem>etc..</DropdownItem> */}
       </DropdownMenu>
     </ButtonDropdown>
@@ -111,6 +112,9 @@ const HeaderComponent = (props) => {
           </button>
           <button type="button" onClick={() => movePage("practiceRoom")}>
             연습실정보
+          </button>
+          <button type="button" onClick={() => movePage("blog")}>
+            블로그
           </button>
         </Navbar>
       )}

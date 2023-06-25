@@ -4,12 +4,11 @@ import MainView from "./components/main/index";
 import Header from "./components/commom/header/index";
 import Footer from "./components/commom/footer/index";
 
-import Information from "./components/information/index";
 import Introduction from "./components/introduction/index";
 import PracticeRoom from "./components/practiceRoom/index";
 import SheetMusic from "./components/sheetmusic/index";
 import Teacher from "./components/teacher/index";
-import Community from "./components/community/index";
+import Blog from "./components/blog/index";
 
 import MypageHeader from "./components/mypage/header";
 import Mypage from "./components/mypage/index";
@@ -29,11 +28,10 @@ function App() {
             <Routes>
               <Route path="/" element={<MainView />} />
               <Route path="/introduction" element={<Introduction />} />
-              <Route path="/information" element={<Information />} />
               <Route path="/practiceRoom" element={<PracticeRoom />} />
               <Route path="/sheetmusic" element={<SheetMusic />} />
               <Route path="/teacher" element={<Teacher />} />
-              <Route path="/community" element={<Community />} />
+              <Route path="/blog" element={<Blog />} />
             </Routes>
           </div>
         ) : (
