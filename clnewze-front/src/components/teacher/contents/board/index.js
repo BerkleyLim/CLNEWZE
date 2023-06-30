@@ -34,54 +34,6 @@ const BoardIndex = ({ boards, onClickView }) => {
             <CardFooter>{board?.upLoadDate}</CardFooter>
           </Card>
         </Col>
-        // <Card
-        //   key={index}
-        //   mb={3}
-        //   className={`${styles?.autor_wrap}`}
-        //   onClick={() => onClickView(board)}
-        // >
-        //   <CardHeader className={`${styles?.boardTitle}`}>{board?.title}</CardHeader>
-        //   <CardBody>
-        //     <Card mb={3} className="content">
-        //       <Row className="no-gutters">
-        //         <Col md={1}>
-        //           <img
-        //             src={board?.img}
-        //             className="card-img"
-        //             alt="..."
-        //             style={{ width: "150px", height: "150px" }}
-        //           />
-        //         </Col>
-        //         <Col md={11}>
-        //           {/* <Row style={{ verticalAlign: "bottom" }}>
-        //             <h5 className="card-title col-md-4 align-self-center">
-        //               장르 : {board?.genre}
-        //             </h5>
-        //             <div className="display col-md-8 align-self-center justify-content-end">
-        //               조회수 : {board?.viewNumber}
-        //             </div>
-        //           </Row> */}
-        //           <Row className="card-text">
-        //             <Col md={1} />● 성함 : {board?.name}
-        //           </Row>
-        //           <Row className="card-text">
-        //             <Col md={1} />● 전공 : {board?.major}
-        //           </Row>
-        //           <Row className="card-text">
-        //             <Col md={1} />● 위치 : {board?.place}
-        //           </Row>
-        //           {/* <Row className="card-text">
-        //             <Col md={1} />● 상세정보 : {board?.contents}
-        //           </Row> */}
-
-        //           <div className="card-text">
-        //             <small className={`${styles?.textMuted}`}>{board?.upLoadDate}</small>
-        //           </div>
-        //         </Col>
-        //       </Row>
-        //     </Card>
-        //   </CardBody>
-        // </Card>
       ))}
     </Row>
   );

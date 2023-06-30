@@ -56,7 +56,6 @@ const Teachers = (props) => {
       <div className={`${styles?.contain}`}>
         <Menu major={selectMajor} />
 
-        {/* <div className={`${styles?.teacherContents}`}> */}
         <div>
           <Board boards={postsData(boards)} onClickView={onClickView} />
 
