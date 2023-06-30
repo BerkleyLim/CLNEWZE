@@ -117,7 +117,7 @@ const MainTeacher = () => {
         />
       </Carousel>
 
-      <nav
+      {/* <nav
         className={`nav justify-content-center ${styles?.eventMainContainer}`}
       >
         <div className={`${styles?.eventIconPrev}`}>
@@ -149,7 +149,7 @@ const MainTeacher = () => {
         <div className={`${styles?.eventIconNext}`}>
           <ChevronRight />
         </div>
-      </nav>
+      </nav> */}
     </>
   );
 };
