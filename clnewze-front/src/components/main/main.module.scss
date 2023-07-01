@@ -46,30 +46,4 @@
   position: relative;
   text-align: right;
   margin:20px;
-  
-}
-
-
-.eventMainBoardCardContainer {
-  display:flex;
-  align-items: center;
-  justify-items: center;
-  max-width: 900px;
-  height: 300px;
-  border: 1px solid;
-  margin:0 auto;
-
-  /* 공통 곡작업, 영상, 음원, 악보, 레슨샘 찾기, 연습실 정보 카드형 설정 */
-  & {
-    .commonMainCard {
-      position:relative;
-      margin: 10px 10px 10px 10px;
-      max-width:200px;
-      height:250px;
-      border:1px solid;
-      align-items: center;
-      justify-items: center;
-    }
-
-  }
 }

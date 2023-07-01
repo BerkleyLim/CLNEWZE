@@ -1,7 +1,6 @@
 import React from "react";
 import { Row } from "reactstrap";
 
-import MainBanner from "./item/banner";
 import MainTodayIssue from "./item/today";
 import MainNotice from "./item/notice";
 import MainQna from "./item/qna";
@@ -13,14 +12,6 @@ import MainPracticeRoom from "./item/practceroom";
 const Main = () => {
   return (
     <div>
-      <br />
-      <br />
-      <br />
-      {/* <!-- 이미지 메인 - banner --> */}
-      <MainBanner />
-      <br />
-      <br />
-      <br />
       {/* <!-- 오늘의 소식 --> */}
       <MainTodayIssue />
 

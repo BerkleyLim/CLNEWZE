@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight } from "react-bootstrap-icons";
+import { ChevronRight } from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
 import styles from "../main.module.scss";
 import {
