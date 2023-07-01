@@ -1,5 +1,11 @@
 import React, { useState } from 'react'
-import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
+import {
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  ButtonDropdown,
+  Button,
+} from "reactstrap";
 import styles from "../../practiceRoom.module.scss";
 
 const DropdownPaging = () => {
@@ -8,17 +14,30 @@ const DropdownPaging = () => {
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
   return (
-    <div className={`${styles?.selectBox}`}>
-      <Dropdown isOpen={dropdownOpen} toggle={toggle} direction="down">
-        <DropdownToggle className={`${styles?.selected}`} caret>10</DropdownToggle>
-        <DropdownMenu className={`${styles?.selectLayer}`}>
-          <DropdownItem className={`${styles?.select_item}`}>10</DropdownItem>
-          <DropdownItem className={`${styles?.select_item}`}>20</DropdownItem>
-          <DropdownItem className={`${styles?.select_item}`}>30</DropdownItem>
-          <DropdownItem className={`${styles?.select_item}`}>40</DropdownItem>
-        </DropdownMenu>
-      </Dropdown>
-    </div>
+    <ButtonDropdown
+    isOpen={dropdownOpen}
+    toggle={toggle}
+    direction="down"
+    className={`dropdown ${styles?.searchBox}`}
+  >
+    <Button className="dropdownTitle" outline>
+      {" "}
+      전체
+    </Button>
+    <DropdownToggle className="dropdownToggle" caret color="primary">
+      {/* 전체 */}
+    </DropdownToggle>
+    <DropdownMenu>
+      <DropdownItem>전체장르</DropdownItem>
+      <DropdownItem>피아노</DropdownItem>
+      <DropdownItem>현악기</DropdownItem>
+      <DropdownItem>관악기</DropdownItem>
+      <DropdownItem>기타</DropdownItem>
+      <DropdownItem>바이올린</DropdownItem>
+      <DropdownItem>국악</DropdownItem>
+      <DropdownItem>다른악기</DropdownItem>
+    </DropdownMenu>
+  </ButtonDropdown>
   )
 }
 

@@ -56,7 +56,8 @@ const PracticeRoom = (props) => {
       <div className={`${styles?.contain}`}>
         <Menu categories={selectCategories} />
 
-        <div className={`${styles?.practiceRoomContents}`}>
+        {/* <div className={`${styles?.practiceRoomContents}`}> */}
+        <div>
           <Board boards={postsData(boards)} onClickView={onClickView} />
 
           {/* 모달 상세 출력 */}
