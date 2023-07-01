@@ -1,7 +1,5 @@
 import React from "react";
-import { Button, Input, InputGroup, Navbar } from "reactstrap";
-import DropdownForm from "./dropdown";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Navbar } from "reactstrap";
 import styles from "../sheetmusic.module.scss";
 
 const TitleIndex = ({ genreList }) => {
@@ -9,16 +7,6 @@ const TitleIndex = ({ genreList }) => {
     <div className={`${styles?.title}`}>
       <Navbar className={`${styles?.titleArea}`}>
         <h1>악보모음</h1>
-        <InputGroup className={`${styles?.searchBox}`}>
-          <DropdownForm />
-          <Input
-            className="form-control"
-            title="검색어 입력"
-          />
-          <Button className={`${styles?.inputGroupSearch}`}>
-            <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
-          </Button>
-        </InputGroup>
       </Navbar>
       <Navbar className={`${styles?.items_wrap}`}>
         <button type="button" onClick={() => genreList(null)}>

@@ -58,7 +58,7 @@ const SheetMusics = (props) => {
       <div className={`${styles?.contain}`}>
         <Menu genre={selectGenre} />
 
-        <div className={`${styles?.sheetmusicContents}`}>
+        <div>
           <Board boards={postsData(boards)} onClickView={onClickView} />
 
           {/* 모달 상세 출력 */}
