@@ -11,23 +11,6 @@ import {
 } from "reactstrap";
 import URI from "../../util/URI";
 import Teacher from '../../teacher/contents/board/index';
-// const items = [
-//   {
-//     id: 1,
-//     altText: "Slide 1",
-//     caption: "Slide 1",
-//   },
-//   {
-//     id: 2,
-//     altText: "Slide 2",
-//     caption: "Slide 2",
-//   },
-//   {
-//     id: 3,
-//     altText: "Slide 3",
-//     caption: "Slide 3",
-//   },
-// ];
 
 const MainTeacher = () => {
   const navigate = useNavigate();
@@ -116,40 +99,6 @@ const MainTeacher = () => {
           onClickHandler={next}
         />
       </Carousel>
-
-      {/* <nav
-        className={`nav justify-content-center ${styles?.eventMainContainer}`}
-      >
-        <div className={`${styles?.eventIconPrev}`}>
-          <ChevronLeft />
-        </div>
-        <div className={`${styles?.eventMainBoardCardContainer}`}>
-          <button type="button" className={`${styles?.commonMainCard}`}>
-            1
-          </button>
-          <button type="button" className={`${styles?.commonMainCard}`}>
-            1
-          </button>
-          <button type="button" className={`${styles?.commonMainCard}`}>
-            1
-          </button>
-          <button type="button" className={`${styles?.commonMainCard}`}>
-            1
-          </button>
-          <button type="button" className={`${styles?.commonMainCard}`}>
-            1
-          </button>
-          <button type="button" className={`${styles?.commonMainCard}`}>
-            1
-          </button>
-          <button type="button" className={`${styles?.commonMainCard}`}>
-            1
-          </button>
-        </div>
-        <div className={`${styles?.eventIconNext}`}>
-          <ChevronRight />
-        </div>
-      </nav> */}
     </>
   );
 };
