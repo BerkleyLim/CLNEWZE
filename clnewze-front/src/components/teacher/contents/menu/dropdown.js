@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   DropdownToggle,
   DropdownMenu,
@@ -8,11 +8,15 @@ import {
 } from "reactstrap";
 import styles from "../../teacher.module.scss";
 
-const InformationTitleDropdown = ({ menuData, majormenu }) => {
+const DrowdownFunction = ({ menuData, majormenu }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [selectData, setSelectData] = useState(menuData[0]);
+  const [selectData, setSelectData] = useState();
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
+
+  useEffect(() => {
+    setSelectData({name:"전체"});
+  }, [])
 
   const selectToggleButton = (data) => {
     setSelectData(data);
@@ -42,4 +46,4 @@ const InformationTitleDropdown = ({ menuData, majormenu }) => {
   );
 };
 
-export default InformationTitleDropdown;
+export default DrowdownFunction;
