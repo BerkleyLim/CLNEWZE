@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import Title from "./title/index";
 import Menu from "./contents/menu/index";
 import Board from "./contents/board/index";
 import BoardForm from "./contents/board/form";
@@ -8,7 +7,7 @@ import Paging from "./contents/board/paging";
 import styles from "./teacher.module.scss";
 
 import URI from "../util/URI";
-import { Modal } from "reactstrap";
+import { Modal, Navbar } from "reactstrap";
 
 const Teachers = (props) => {
   const [boards, setBoards] = useState();
@@ -51,10 +50,8 @@ const Teachers = (props) => {
   const toggle = () => setIsModal(!isModal);
   return (
     <div>
-      <Title majormenu={majormenu} />
-
       <div className={`${styles?.contain}`}>
-        <Menu major={selectMajor} />
+        <Menu major={selectMajor} majormenu={majormenu} />
 
         <div>
           <Board boards={postsData(boards)} onClickView={onClickView} />

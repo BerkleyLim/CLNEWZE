@@ -8,7 +8,7 @@ import {
 } from "reactstrap";
 import styles from "../../teacher.module.scss";
 
-const InformationTitleDropdown = () => {
+const InformationTitleDropdown = ({menuData}) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
