@@ -7,6 +7,7 @@ import { Col, Row } from 'reactstrap'
 import MypageInfo from "./user/index"
 import URI from "../util/URI"
 import { useDispatch } from 'react-redux';
+import AdminTeacher from './admin/teacher';
 
 const MypageMain = () => {
   const navigate = useNavigate();
@@ -41,12 +42,20 @@ const MypageMain = () => {
 
                 <hr/>
 
-                <h6>관리자 기능</h6>
-                <button className="btn">회원정보 출력</button>
-                <button className="btn">매출액</button>
+                <h6>마이페이지</h6>
                 <button className="btn" onClick={() => window.location.href="/"}> 이전화면</button>
                 <button className="btn" onClick={toggleLogout}> 로그아웃</button>
                 <button className="btn"> 회원탈퇴</button>
+
+                <hr/>
+
+                <h6>관리자 기능 - 차후 숨길 예정</h6>
+                <button className="btn">회원정보 출력</button>
+                <button className="btn">매출액</button>
+                <button className="btn">악보 페이지 관리</button>
+                <button className="btn">연습실 페이지 관리</button>
+                <button className="btn" onClick={() => moveMyPage("admin/teacher")}>레스너찾기 페이지 관리</button>
+                <button className="btn">블로그 페이지 관리</button>
                 
             </Col>
                 {/* 영역 출력 */}
@@ -54,7 +63,7 @@ const MypageMain = () => {
               {/* 함수 써서 출력한다. */}
               <Routes>
                 <Route path="/mypage/*"  element = {<MypageInfo />}/>
-                {/* <Route path="/mypage/info" elemet = {< MypageInfo/>} /> */}
+                <Route path="/mypage/admin/teacher"  element = {<AdminTeacher />}/>
               </Routes>
             </Col>
         </Row>
