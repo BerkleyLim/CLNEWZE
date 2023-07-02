@@ -30,7 +30,7 @@ const ContentsMenu = ({ major, majormenu }) => {
             <Form>
               <FormGroup check inline>
                 <Input type="checkbox" />
-                <Label check>Some input</Label>
+                <Label check>상세보기</Label>
               </FormGroup>
             </Form>
           </Col>
