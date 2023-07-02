@@ -8,10 +8,16 @@ import {
 } from "reactstrap";
 import styles from "../../teacher.module.scss";
 
-const InformationTitleDropdown = ({menuData}) => {
+const InformationTitleDropdown = ({ menuData, majormenu }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [selectData, setSelectData] = useState(menuData[0]);
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
+
+  const selectToggleButton = (data) => {
+    setSelectData(data);
+    majormenu(data?.category)
+  }
   return (
     <ButtonDropdown
       isOpen={dropdownOpen}
@@ -21,20 +27,16 @@ const InformationTitleDropdown = ({menuData}) => {
     >
       <Button className="dropdownTitle" outline>
         {" "}
-        전체
+        {selectData?.name}
       </Button>
       <DropdownToggle className="dropdownToggle" caret color="primary">
-        {/* 전체 */}
       </DropdownToggle>
       <DropdownMenu>
-        <DropdownItem>전체장르</DropdownItem>
-        <DropdownItem>피아노</DropdownItem>
-        <DropdownItem>현악기</DropdownItem>
-        <DropdownItem>관악기</DropdownItem>
-        <DropdownItem>기타</DropdownItem>
-        <DropdownItem>바이올린</DropdownItem>
-        <DropdownItem>국악</DropdownItem>
-        <DropdownItem>다른악기</DropdownItem>
+        {menuData?.map((data, index) => (
+          <DropdownItem key={index} onClick={() => selectToggleButton(data)}>
+            {data?.name}
+          </DropdownItem>
+        ))}
       </DropdownMenu>
     </ButtonDropdown>
   );

@@ -7,6 +7,7 @@ import { Search } from "react-bootstrap-icons";
 
 const ContentsMenu = ({ major, majormenu }) => {
   const [menuData, setMenuData] = useState();
+  const [isDetail, setIsDetail] = useState(false);
 
   useEffect(() => {
     URI.get(
@@ -35,7 +36,7 @@ const ContentsMenu = ({ major, majormenu }) => {
           </Col>
           <Col>
             <InputGroup className={`${styles?.searchBox}`}>
-              <DropdownForm menuData={menuData} />
+              <DropdownForm menuData={menuData} majormenu={majormenu}/>
               <Input className="form-control" title="검색어 입력" />
               <Button className={`${styles?.InputGroupSearch}`}>
                 <Search />
@@ -43,6 +44,12 @@ const ContentsMenu = ({ major, majormenu }) => {
             </InputGroup>
           </Col>
         </Row>
+        {isDetail && 
+        <Row>
+          <Col>
+          </Col>
+        </Row>
+        }
       </div>
       <Navbar className={`${styles?.listMenu}`}>
         <h2>선생님 조회</h2>
