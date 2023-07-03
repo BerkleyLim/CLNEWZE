@@ -9,7 +9,20 @@ import URI from "../../../util/URI";
 function AdminTeacher() {
   const [menuData, setMenuData] = useState();
   const [isStateUpdate, setIsStateUpdate] = useState(false);
-  const [createMenuData, setCreateMenuData] = useState({ id: 1, pas: 23 });
+  const [createMenuData, setCreateMenuData] = useState({
+    orderby: menuData?.length,
+    name: "",
+    category: "",
+  });
+
+  const createOnChange = (e) => {
+    const { name, value } = e.target;
+    setCreateMenuData({
+      ...createMenuData,
+      [name]: value,
+    });
+  };
+
   useEffect(() => {
     URI.get(
       process.env.REACT_APP_API_ROOT + "/api/teacher/master/menu/category"
@@ -54,13 +67,17 @@ function AdminTeacher() {
   };
 
   const deleteMenu = (index, data) => {
-    setMenuData(update(menuData, {
-      // $splice: [data, 1]
-      $splice: [index]
-    }));
+    setMenuData(
+      update(menuData, {
+        // $splice: [data, 1]
+        $splice: [
+          [index, 1],
+        ]
+      })
+    );
     setIsStateUpdate(!isStateUpdate);
   };
-  
+
   const updateMenu = (data) => {
     setMenuData(update(menuData, {}));
   };
@@ -94,10 +111,10 @@ function AdminTeacher() {
           <th scope="row"></th>
           <th scope="row"></th>
           <td>
-            <Input />
+            <Input name="name" defaultValue={createMenuData?.name} onChange={createOnChange} />
           </td>
           <td>
-            <Input />
+            <Input name="category" defaultValue={createMenuData?.category} onChange={createOnChange} />
           </td>
           <td>
             <Button onClick={() => addMenu()}>추가</Button>
