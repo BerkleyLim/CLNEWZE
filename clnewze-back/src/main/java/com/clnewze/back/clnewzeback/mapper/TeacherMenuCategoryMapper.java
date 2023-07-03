@@ -18,7 +18,7 @@ public interface TeacherMenuCategoryMapper {
 
   Integer orderbyChangeTeacherMenu(Long mtno, Long changeOrder);
 
-  Integer updateTeacherMenu(TeacherMenuCategory teacherMenuCategory);
+  Integer updateTeacherMenu(Long mtno, String name, String category);
 
   Integer deleteTeacherMenu(Long mtno);
 

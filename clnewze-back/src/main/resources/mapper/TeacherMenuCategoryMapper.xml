@@ -18,18 +18,18 @@
 
 <!-- orderby 갱신, 테이블 추가시 orderby 부여 -->
   <update id="orderbyChangeTeacherMenu">
-    update master_menu_teacher set orderby=#{changeOrder} where mtno = #{mtno};
+    update master_menu_teacher set orderby=#{changeOrder} where mtno = #{mtno}
   </update>
 
 <!-- TeacherMenu 내용물 수정 -->
   <update id="updateTeacherMenu">
     update master_menu_teacher set
-      name=#{name} 
+      name=#{name} ,
       category=#{category} 
-    where mtno = #{mtno};
+    where mtno = #{mtno}
   </update>
 
-  <delete id="deleteTeachermenu">
+  <delete id="deleteTeacherMenu">
     delete from master_menu_teacher where mtno = #{mtno}
   </delete>
   <!-- 

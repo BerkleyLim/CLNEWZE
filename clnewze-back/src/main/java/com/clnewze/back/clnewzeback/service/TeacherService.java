@@ -47,9 +47,10 @@ public class TeacherService {
     return teacherMenuCategoryMapper.orderbyChangeTeacherMenu(mtno, changeOrder);
   }
 
-  public Integer updateTeacherMenu(TeacherMenuCategory teacherMenuCategory) {
+  public Integer updateTeacherMenu(Long mtno, String name, String category) {
     log.info("Service : TeacherMenu : update() 호출 성공");
-    return teacherMenuCategoryMapper.updateTeacherMenu(teacherMenuCategory);
+    return teacherMenuCategoryMapper.updateTeacherMenu(mtno, name,
+        category);
   }
 
   public Integer deleteTeacherMenu(Long mtno) {

@@ -18,7 +18,10 @@ import com.clnewze.back.clnewzeback.domain.model.ResponseObject;
 import com.clnewze.back.clnewzeback.service.FileService;
 import com.clnewze.back.clnewzeback.service.TeacherService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
+@Slf4j
 @RequestMapping("/api/teacher")
 public class TeacherController {
 
@@ -58,6 +61,7 @@ public class TeacherController {
 
   @PostMapping("/master/menu/create")
   public Integer createTeacherMenu(@RequestBody TeacherMenuCategory teacherMenuCategory) {
+    log.info(teacherMenuCategory.toString());
     Integer createSuccess = teacherService.createTeacherMenu(teacherMenuCategory.getName(),
         teacherMenuCategory.getCategory());
     Long count = teacherService.categoryCountTeacherMenu();
@@ -73,12 +77,13 @@ public class TeacherController {
 
   @PostMapping("/master/menu/update")
   public Integer updateTeacherMenu(@RequestBody TeacherMenuCategory teacherMenuCategory) {
-    return teacherService.updateTeacherMenu(teacherMenuCategory);
+    return teacherService.updateTeacherMenu(teacherMenuCategory.getMtno(), teacherMenuCategory.getName(),
+        teacherMenuCategory.getCategory());
   }
 
   @PostMapping("/master/menu/delete")
-  public Integer deleteTeacherMenu(@RequestBody Long mtno) {
-    return teacherService.deleteTeacherMenu(mtno);
+  public Integer deleteTeacherMenu(@RequestBody TeacherMenuCategory teacherMenuCategory) {
+    return teacherService.deleteTeacherMenu(teacherMenuCategory.getMtno());
   }
 
 }
