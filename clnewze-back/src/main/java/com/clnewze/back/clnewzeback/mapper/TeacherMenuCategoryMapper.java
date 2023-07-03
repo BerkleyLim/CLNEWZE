@@ -12,8 +12,14 @@ import com.clnewze.back.clnewzeback.domain.TeacherMenuCategory;
 public interface TeacherMenuCategoryMapper {
   List<TeacherMenuCategory> category();
 
-  void createTeacherMenu(String name, String category);
+  Long categoryCountTeacherMenu();
 
-  void orderbyChangeTeacherMenu(Long changeOrder);
+  Integer createTeacherMenu(String name, String category);
+
+  Integer orderbyChangeTeacherMenu(Long mtno, Long changeOrder);
+
+  Integer updateTeacherMenu(TeacherMenuCategory teacherMenuCategory);
+
+  Integer deleteTeacherMenu(Long mtno);
 
 }

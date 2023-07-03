@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,6 +48,37 @@ public class TeacherController {
     ResponseObject<List<TeacherMenuCategory>> ro = new ResponseObject<>("성공");
     ro.setData(result);
     return new ResponseEntity<>(ro, HttpStatus.OK);
+  }
+
+  @GetMapping("/master/menu/table/count")
+  public Long categoryCountTeacherMenu() {
+    Long result = teacherService.categoryCountTeacherMenu();
+    return result;
+  }
+
+  @PostMapping("/master/menu/create")
+  public Integer createTeacherMenu(@RequestBody TeacherMenuCategory teacherMenuCategory) {
+    Integer createSuccess = teacherService.createTeacherMenu(teacherMenuCategory.getName(),
+        teacherMenuCategory.getCategory());
+    Long count = teacherService.categoryCountTeacherMenu();
+    teacherService.orderbyChangeTeacherMenu(count, count);
+    return createSuccess;
+  };
+
+  @PostMapping("/master/menu/change/orderby")
+  public Integer orderbyChangeTeacherMenu(@RequestBody TeacherMenuCategory teacherMenuCategory) {
+    return teacherService.orderbyChangeTeacherMenu(teacherMenuCategory.getMtno(),
+        teacherMenuCategory.getOrderby());
+  }
+
+  @PostMapping("/master/menu/update")
+  public Integer updateTeacherMenu(@RequestBody TeacherMenuCategory teacherMenuCategory) {
+    return teacherService.updateTeacherMenu(teacherMenuCategory);
+  }
+
+  @PostMapping("/master/menu/delete")
+  public Integer deleteTeacherMenu(@RequestBody Long mtno) {
+    return teacherService.deleteTeacherMenu(mtno);
   }
 
 }

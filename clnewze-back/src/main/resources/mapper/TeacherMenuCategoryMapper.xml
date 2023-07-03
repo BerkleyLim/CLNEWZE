@@ -6,14 +6,36 @@
   <select id="category" resultType="TeacherMenuCategory">
     select * from master_menu_teacher order by orderby asc;
   </select>
+
+  <select id="categoryCountTeacherMenu" resultType="Long">
+    select count(*) from master_menu_teacher;
+  </select>
   
   <!-- TeacherMenu 생성 -->
   <insert id="createTeacherMenu">
-    INSERT INTO music.master_menu_teacher  (name, category) value (#{name},#{category})
+    INSERT INTO master_menu_teacher  (name, category) value (#{name},#{category})
   </insert>
 
 <!-- orderby 갱신, 테이블 추가시 orderby 부여 -->
   <update id="orderbyChangeTeacherMenu">
-    update music.master_menu_teacher set orderby=#{changeOrder} where mtno = #{changeOrder};
+    update master_menu_teacher set orderby=#{changeOrder} where mtno = #{mtno};
   </update>
+
+<!-- TeacherMenu 내용물 수정 -->
+  <update id="updateTeacherMenu">
+    update master_menu_teacher set
+      name=#{name} 
+      category=#{category} 
+    where mtno = #{mtno};
+  </update>
+
+  <delete id="deleteTeachermenu">
+    delete from master_menu_teacher where mtno = #{mtno}
+  </delete>
+  <!-- 
+    void createTeacherMenu(String name, String category);
+  void orderbyChangeTeacherMenu(Long changeOrder);
+  void updateTeacherMenu(TeacherMenuCategory teacherMenuCategory);
+  void deleteTeacherMenu(Long mtno); 
+  -->
 </mapper>

@@ -4,8 +4,8 @@ import lombok.Data;
 
 @Data
 public class TeacherMenuCategory {
-  int mtno;
-  int orderby;
+  Long mtno;
+  Long orderby;
   String name;
   String category;
 }

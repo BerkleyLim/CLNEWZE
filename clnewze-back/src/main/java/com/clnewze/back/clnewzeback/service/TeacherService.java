@@ -28,7 +28,32 @@ public class TeacherService {
    * 
    */
   public List<TeacherMenuCategory> category() {
-    log.info("Service : category() 호출 성공");
+    log.info("Service : TeacherMenu : category() 호출 성공");
     return teacherMenuCategoryMapper.category();
+  }
+
+  public Long categoryCountTeacherMenu() {
+    log.info("Service : TeacherMenu : categoryCount() 호출 성공");
+    return teacherMenuCategoryMapper.categoryCountTeacherMenu();
+  }
+
+  public Integer createTeacherMenu(String name, String category) {
+    log.info("Service : TeacherMenu : create() 호출 성공");
+    return teacherMenuCategoryMapper.createTeacherMenu(name, category);
+  };
+
+  public Integer orderbyChangeTeacherMenu(Long mtno, Long changeOrder) {
+    log.info("Service : TeacherMenu : orderby Change() 호출 성공");
+    return teacherMenuCategoryMapper.orderbyChangeTeacherMenu(mtno, changeOrder);
+  }
+
+  public Integer updateTeacherMenu(TeacherMenuCategory teacherMenuCategory) {
+    log.info("Service : TeacherMenu : update() 호출 성공");
+    return teacherMenuCategoryMapper.updateTeacherMenu(teacherMenuCategory);
+  }
+
+  public Integer deleteTeacherMenu(Long mtno) {
+    log.info("Service : TeacherMenu : delete() 호출 성공");
+    return teacherMenuCategoryMapper.deleteTeacherMenu(mtno);
   }
 }
