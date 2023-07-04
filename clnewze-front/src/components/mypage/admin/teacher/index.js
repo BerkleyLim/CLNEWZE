@@ -15,17 +15,6 @@ function AdminTeacher() {
     category: "",
   });
 
-  
-    
-  const createOnChange = (e) => {
-    const { name, value } = e.target;
-    setCreateMenuData({
-      ...createMenuData,
-      [name]: value,
-      // orderby: (menuData)?.length +1,
-    });
-  };
-
   // 추가 및 제어시 오더바이 조정
   useEffect(() => {
     setCreateMenuData({
@@ -46,6 +35,15 @@ function AdminTeacher() {
       })
       .catch((e) => console.error(e));
   }, []);
+
+  const createOnChange = (e) => {
+    const { name, value } = e.target;
+    setCreateMenuData({
+      ...createMenuData,
+      [name]: value,
+      // orderby: (menuData)?.length +1,
+    });
+  };
 
   // MenuData 드래그앤 드롭 기능 추가
   const MenuDataDndMove = useCallback(
@@ -68,42 +66,86 @@ function AdminTeacher() {
     [menuData]
   );
 
+  // Teacher Menu 삽입 기능 추가
   const addMenu = () => {
     setMenuData(
       update(menuData, {
         $push: [createMenuData],
       })
     );
+    URI.post(
+      process.env.REACT_APP_API_ROOT + "/master/menu/create",
+      createMenuData
+    )
+      .then((res) => {
+        console.log("성공!" + res)
+      })
+      .catch((e) => console.error(e));
   };
 
+  // Teacher Menu orderby 변경 - 다시 볼것
   const changeOrderby = () => {
     menuData?.map((data, index) => {
         data.orderby = index + 1;
     });
 
+
+    menuData?.map((data) => {
+        URI.post(
+          process.env.REACT_APP_API_ROOT + "/master/menu/change/orderby",
+          data
+        )
+          .then((res) => {
+            console.log("성공!" + res)
+          })
+          .catch((e) => console.error(e));
+    });
+
+
     // 여기서 전체 리스트 update API 오더바이 수정
     setIsStateUpdate(!isStateUpdate);
   };
 
+  // Teacher Menu 삭제
   const deleteMenu = (index) => {
+    let deleteData = menuData[index];
     setMenuData(
       update(menuData, {
         $splice: [[index, 1]],
       })
     );
 
+    URI.post(
+      process.env.REACT_APP_API_ROOT + "/master/menu/delete",
+      deleteData
+    )
+      .then((res) => {
+        console.log("성공!" + res)
+      })
+      .catch((e) => console.error(e));
+
     setIsStateUpdate(!isStateUpdate);
   };
 
+
+  // Teacher Menu 수정
   const updateMenu = (data, index) => {
     setMenuData(update(menuData, {
       $merge: {[index]:
         data
       }
     }));
+
+    URI.post(
+      process.env.REACT_APP_API_ROOT + "/master/menu/update",
+      data
+    )
+      .then((res) => {
+        console.log("성공!" + res)
+      })
+      .catch((e) => console.error(e));
     setIsStateUpdate(!isStateUpdate);
   };
-  console.log(menuData);
   return (
     <>
       <h1>메뉴 관리</h1>
