@@ -78,7 +78,7 @@ function AdminTeacher() {
       createMenuData
     )
       .then((res) => {
-        console.log("성공!" + res)
+        console.log("성공!" + res);
       })
       .catch((e) => console.error(e));
   };
@@ -86,21 +86,19 @@ function AdminTeacher() {
   // Teacher Menu orderby 변경 - 다시 볼것
   const changeOrderby = () => {
     menuData?.map((data, index) => {
-        data.orderby = index + 1;
+      data.orderby = index + 1;
     });
-
 
     menuData?.map((data) => {
-        URI.post(
-          process.env.REACT_APP_API_ROOT + "/master/menu/change/orderby",
-          data
-        )
-          .then((res) => {
-            console.log("성공!" + res)
-          })
-          .catch((e) => console.error(e));
+      URI.post(
+        process.env.REACT_APP_API_ROOT + "/master/menu/change/orderby",
+        data
+      )
+        .then((res) => {
+          console.log("성공!" + res);
+        })
+        .catch((e) => console.error(e));
     });
-
 
     // 여기서 전체 리스트 update API 오더바이 수정
     setIsStateUpdate(!isStateUpdate);
@@ -115,33 +113,26 @@ function AdminTeacher() {
       })
     );
 
-    URI.post(
-      process.env.REACT_APP_API_ROOT + "/master/menu/delete",
-      deleteData
-    )
+    URI.post(process.env.REACT_APP_API_ROOT + "/master/menu/delete", deleteData)
       .then((res) => {
-        console.log("성공!" + res)
+        console.log("성공!" + res);
       })
       .catch((e) => console.error(e));
 
     setIsStateUpdate(!isStateUpdate);
   };
 
-
   // Teacher Menu 수정
   const updateMenu = (data, index) => {
-    setMenuData(update(menuData, {
-      $merge: {[index]:
-        data
-      }
-    }));
+    setMenuData(
+      update(menuData, {
+        $merge: { [index]: data },
+      })
+    );
 
-    URI.post(
-      process.env.REACT_APP_API_ROOT + "/master/menu/update",
-      data
-    )
+    URI.post(process.env.REACT_APP_API_ROOT + "/master/menu/update", data)
       .then((res) => {
-        console.log("성공!" + res)
+        console.log("성공!" + res);
       })
       .catch((e) => console.error(e));
     setIsStateUpdate(!isStateUpdate);
