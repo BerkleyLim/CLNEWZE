@@ -15,13 +15,24 @@ function AdminTeacher() {
     category: "",
   });
 
+  
+    
   const createOnChange = (e) => {
     const { name, value } = e.target;
     setCreateMenuData({
       ...createMenuData,
       [name]: value,
+      // orderby: (menuData)?.length +1,
     });
   };
+
+  // 추가 및 제어시 오더바이 조정
+  useEffect(() => {
+    setCreateMenuData({
+      ...createMenuData,
+      orderby: menuData?.length + 1,
+    });
+  }, [menuData]);
 
   useEffect(() => {
     URI.get(
@@ -29,6 +40,9 @@ function AdminTeacher() {
     )
       .then((res) => {
         setMenuData(res.data.data);
+        setCreateMenuData({
+          ...createMenuData,
+        });
       })
       .catch((e) => console.error(e));
   }, []);
@@ -63,23 +77,31 @@ function AdminTeacher() {
   };
 
   const changeOrderby = () => {
-    setMenuData(update(menuData, {}));
-  };
+    menuData?.map((data, index) => {
+        data.orderby = index + 1;
+    });
 
-  const deleteMenu = (index, data) => {
-    setMenuData(
-      update(menuData, {
-        // $splice: [data, 1]
-        $splice: [
-          [index, 1],
-        ]
-      })
-    );
+    // 여기서 전체 리스트 update API 오더바이 수정
     setIsStateUpdate(!isStateUpdate);
   };
 
-  const updateMenu = (data) => {
-    setMenuData(update(menuData, {}));
+  const deleteMenu = (index) => {
+    setMenuData(
+      update(menuData, {
+        $splice: [[index, 1]],
+      })
+    );
+
+    setIsStateUpdate(!isStateUpdate);
+  };
+
+  const updateMenu = (data, index) => {
+    setMenuData(update(menuData, {
+      $merge: {[index]:
+        data
+      }
+    }));
+    setIsStateUpdate(!isStateUpdate);
   };
   console.log(menuData);
   return (
@@ -111,10 +133,18 @@ function AdminTeacher() {
           <th scope="row"></th>
           <th scope="row"></th>
           <td>
-            <Input name="name" defaultValue={createMenuData?.name} onChange={createOnChange} />
+            <Input
+              name="name"
+              defaultValue={createMenuData?.name}
+              onChange={createOnChange}
+            />
           </td>
           <td>
-            <Input name="category" defaultValue={createMenuData?.category} onChange={createOnChange} />
+            <Input
+              name="category"
+              defaultValue={createMenuData?.category}
+              onChange={createOnChange}
+            />
           </td>
           <td>
             <Button onClick={() => addMenu()}>추가</Button>
