@@ -14,9 +14,13 @@
     "textColor": "black"
   },
   {
-    "title"  : "event2",
-    "start"  : "2023-07-05",
-    "end"    : "2023-07-07"
+    "url"   : "https://www.sac.or.kr/site/main/show/show_view?SN=46475",
+    "method": "GET",
+    "title"  : "뮤지컬 <그날들> 10주년 기념 공연",
+    "start"  : "2023-07-12",
+    "end"    : "2023-09-03",
+    "color"  : "green",
+    "textColor": "pink"
   },
   {
     "title"  : "event3",
