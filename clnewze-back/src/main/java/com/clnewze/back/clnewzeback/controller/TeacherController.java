@@ -47,6 +47,7 @@ public class TeacherController {
    */
   @GetMapping("/master/menu/category")
   public ResponseEntity<ResponseObject<List<TeacherMenuCategory>>> category() {
+    log.info("controller : SheetMusicMenu : category() 호출 성공");
     List<TeacherMenuCategory> result = teacherService.category();
     ResponseObject<List<TeacherMenuCategory>> ro = new ResponseObject<>("성공");
     ro.setData(result);
@@ -55,17 +56,17 @@ public class TeacherController {
 
   @GetMapping("/master/menu/table/count")
   public Long categoryCountTeacherMenu() {
+    log.info("controller : SheetMusicMenu : categoryCountTeacherMenu() 호출 성공");
     Long result = teacherService.categoryCountTeacherMenu();
     return result;
   }
 
   @PostMapping("/master/menu/create")
   public Integer createTeacherMenu(@RequestBody TeacherMenuCategory teacherMenuCategory) {
-    log.info(teacherMenuCategory.toString());
+    log.info("controller : SheetMusicMenu : createTeacherMenu() 호출 성공");
     Integer createSuccess = teacherService.createTeacherMenu(teacherMenuCategory.getName(),
         teacherMenuCategory.getCategory());
     Long count = teacherService.categoryCountTeacherMenu();
-    System.out.println("테이블 수 :" + count);
     TeacherMenuCategory lastTeacherMenuTable = teacherService.lastTeacherMenuTable();
     teacherService.orderbyChangeTeacherMenu(lastTeacherMenuTable.getMtno(), count);
     return createSuccess;
@@ -73,19 +74,21 @@ public class TeacherController {
 
   @PostMapping("/master/menu/change/orderby")
   public Integer orderbyChangeTeacherMenu(@RequestBody TeacherMenuCategory teacherMenuCategory) {
-    System.out.println("Master Menu Teacher 오더바이 변경");
+    log.info("controller : SheetMusicMenu : orderbyChangeTeacherMenu() 호출 성공");
     return teacherService.orderbyChangeTeacherMenu(teacherMenuCategory.getMtno(),
         teacherMenuCategory.getOrderby());
   }
 
   @PostMapping("/master/menu/update")
   public Integer updateTeacherMenu(@RequestBody TeacherMenuCategory teacherMenuCategory) {
+    log.info("controller : SheetMusicMenu : updateTeacherMenu() 호출 성공");
     return teacherService.updateTeacherMenu(teacherMenuCategory.getMtno(), teacherMenuCategory.getName(),
         teacherMenuCategory.getCategory());
   }
 
   @PostMapping("/master/menu/delete")
   public Integer deleteTeacherMenu(@RequestBody TeacherMenuCategory teacherMenuCategory) {
+    log.info("controller : SheetMusicMenu : deleteTeacherMenu() 호출 성공");
     return teacherService.deleteTeacherMenu(teacherMenuCategory.getMtno());
   }
 
