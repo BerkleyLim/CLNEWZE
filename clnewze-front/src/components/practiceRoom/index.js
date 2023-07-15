@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import Title from "./title/index";
 import Menu from "./contents/menu/index";
 import Board from "./contents/board/index";
 import BoardForm from "./contents/board/form";
@@ -51,10 +50,8 @@ const PracticeRoom = (props) => {
   const toggle = () => setIsModal(!isModal);
   return (
     <div>
-      <Title categorieMenu={categorieMenu} />
-
       <div className={`${styles?.contain}`}>
-        <Menu categories={selectCategories} />
+        <Menu categories={selectCategories} categorieMenu={categorieMenu} />
 
         {/* <div className={`${styles?.practiceRoomContents}`}> */}
         <div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from "react";
 import {
   DropdownToggle,
   DropdownMenu,
@@ -8,37 +8,42 @@ import {
 } from "reactstrap";
 import styles from "../../practiceRoom.module.scss";
 
-const DropdownPaging = () => {
+const DrowdownFunction = ({ menuData, categorieMenu }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [selectData, setSelectData] = useState();
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
+  useEffect(() => {
+    setSelectData({ name: "전체" });
+  }, []);
+
+  const selectToggleButton = (data) => {
+    setSelectData(data);
+    categorieMenu(data?.category);
+  };
   return (
     <ButtonDropdown
-    isOpen={dropdownOpen}
-    toggle={toggle}
-    direction="down"
-    className={`dropdown ${styles?.searchBox}`}
-  >
-    <Button className="dropdownTitle" outline>
-      {" "}
-      전체
-    </Button>
-    <DropdownToggle className="dropdownToggle" caret color="primary">
-      {/* 전체 */}
-    </DropdownToggle>
-    <DropdownMenu>
-      <DropdownItem>전체장르</DropdownItem>
-      <DropdownItem>피아노</DropdownItem>
-      <DropdownItem>현악기</DropdownItem>
-      <DropdownItem>관악기</DropdownItem>
-      <DropdownItem>기타</DropdownItem>
-      <DropdownItem>바이올린</DropdownItem>
-      <DropdownItem>국악</DropdownItem>
-      <DropdownItem>다른악기</DropdownItem>
-    </DropdownMenu>
-  </ButtonDropdown>
-  )
-}
+      isOpen={dropdownOpen}
+      toggle={toggle}
+      direction="down"
+      className={`dropdown ${styles?.searchBox}`}
+    >
+      <Button className="dropdownTitle" outline>
+        {" "}
+        {selectData?.name}
+      </Button>
+      <DropdownToggle className="dropdownToggle" caret color="primary">
+      </DropdownToggle>
+      <DropdownMenu>
+        {menuData?.map((data, index) => (
+          <DropdownItem key={index} onClick={() => selectToggleButton(data)}>
+            {data?.name}
+          </DropdownItem>
+        ))}
+      </DropdownMenu>
+    </ButtonDropdown>
+  );
+};
 
-export default DropdownPaging
+export default DrowdownFunction;
