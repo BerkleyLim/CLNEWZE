@@ -3,45 +3,45 @@
 <mapper namespace="com.clnewze.back.clnewzeback.mapper.PracticeRoomMenuCategoryMapper">
   
   <!-- 사용 Menu 리스트 출력 -->
-  <select id="category" resultType="SheetMusicMenuCategory">
+  <select id="category" resultType="PracticeRoomMenuCategory">
     select * from master_menu_practiceroom order by orderby asc;
   </select>
 
-  <!-- SheetMusicMenu 전체 수 조회 -->
-  <select id="categoryCountSheetMusicMenu" resultType="Long">
+  <!-- PracticeRoomMenu 전체 수 조회 -->
+  <select id="categoryCountPracticeRoomMenu" resultType="Long">
     select count(*) from master_menu_practiceroom;
   </select>
 
-  <!-- SheetMusicMenu 마지막 행 출력 -->
-  <select id="lastSheetMusicMenuTable" resultType="SheetMusicMenuCategory">
+  <!-- PracticeRoomMenu 마지막 행 출력 -->
+  <select id="lastPracticeRoomMenuTable" resultType="PracticeRoomMenuCategory">
     select * from master_menu_practiceroom mmt order by ptno desc limit 1;
   </select>
   
-  <!-- SheetMusicMenu 생성 -->
-  <insert id="createSheetMusicMenu">
+  <!-- PracticeRoomMenu 생성 -->
+  <insert id="createPracticeRoomMenu">
     INSERT INTO master_menu_practiceroom  (name, category) value (#{name},#{category})
   </insert>
 
 <!-- orderby 갱신, 테이블 추가시 orderby 부여 -->
-  <update id="orderbyChangeSheetMusicMenu">
+  <update id="orderbyChangePracticeRoomMenu">
     update master_menu_practiceroom set orderby=#{changeOrder} where ptno = #{ptno}
   </update>
 
-<!-- SheetMusicMenu 내용물 수정 -->
-  <update id="updateSheetMusicMenu">
+<!-- PracticeRoomMenu 내용물 수정 -->
+  <update id="updatePracticeRoomMenu">
     update master_menu_practiceroom set
       name=#{name} ,
       category=#{category} 
     where ptno = #{ptno}
   </update>
 
-  <delete id="deleteSheetMusicMenu">
+  <delete id="deletePracticeRoomMenu">
     delete from master_menu_practiceroom where ptno = #{ptno}
   </delete>
   <!-- 
-    void createSheetMusicMenu(String name, String category);
-  void orderbyChangeSheetMusicMenu(Long changeOrder);
-  void updateSheetMusicMenu(SheetMusicMenuCategory teacherMenuCategory);
-  void deleteSheetMusicMenu(Long mtno); 
+    void createPracticeRoomMenu(String name, String category);
+  void orderbyChangePracticeRoomMenu(Long changeOrder);
+  void updatePracticeRoomMenu(PracticeRoomMenuCategory teacherMenuCategory);
+  void deletePracticeRoomMenu(Long mtno); 
   -->
 </mapper>
