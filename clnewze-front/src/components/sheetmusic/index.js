@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 // import { Navbar } from "reactstrap";
 
-import Title from "./title/index";
 import Menu from "./contents/menu/index";
 import Board from "./contents/board/index";
 import BoardForm from "./contents/board/form";
@@ -53,10 +52,9 @@ const SheetMusics = (props) => {
   const toggle = () => setIsModal(!isModal);
   return (
     <div>
-      <Title genreList={genreList} />
 
       <div className={`${styles?.contain}`}>
-        <Menu genre={selectGenre} />
+        <Menu genre={selectGenre} genreList={genreList} />
 
         <div>
           <Board boards={postsData(boards)} onClickView={onClickView} />

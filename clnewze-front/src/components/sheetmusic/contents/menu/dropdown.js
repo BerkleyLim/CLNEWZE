@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   DropdownToggle,
   DropdownMenu,
@@ -8,14 +8,22 @@ import {
 } from "reactstrap";
 import styles from "../../sheetmusic.module.scss";
 
-const DropdownPaging = () => {
+const DrowdownFunction = ({ menuData, genreList }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [selectData, setSelectData] = useState();
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
+  useEffect(() => {
+    setSelectData({ name: "전체" });
+  }, []);
+  const selectToggleButton = (data) => {
+    setSelectData(data);
+    genreList(data?.category);
+  };
+
   return (
-    <div className={`${styles?.selectBox}`}>
-      <ButtonDropdown
+    <ButtonDropdown
       isOpen={dropdownOpen}
       toggle={toggle}
       direction="down"
@@ -23,24 +31,19 @@ const DropdownPaging = () => {
     >
       <Button className="dropdownTitle" outline>
         {" "}
-        전체
+        {selectData?.name}
       </Button>
       <DropdownToggle className="dropdownToggle" caret color="primary">
-        {/* 전체 */}
       </DropdownToggle>
       <DropdownMenu>
-        <DropdownItem>전체</DropdownItem>
-        <DropdownItem>클래식</DropdownItem>
-        <DropdownItem>뉴에이지</DropdownItem>
-        <DropdownItem>재즈</DropdownItem>
-        <DropdownItem>가요</DropdownItem>
-        <DropdownItem>팝</DropdownItem>
-        <DropdownItem>OST</DropdownItem>
-        <DropdownItem>기타장르</DropdownItem>
+        {menuData?.map((data, index) => (
+          <DropdownItem key={index} onClick={() => selectToggleButton(data)}>
+            {data?.name}
+          </DropdownItem>
+        ))}
       </DropdownMenu>
     </ButtonDropdown>
-    </div>
   );
 };
 
-export default DropdownPaging;
+export default DrowdownFunction;
