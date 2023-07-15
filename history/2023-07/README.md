@@ -40,3 +40,4 @@
    - Front-end : 악보 모음 화면 개편 및 관리자 페이지의 마스터 테이블 추가
 3) 레스너 찾기 관련
    - Front-end : 서식 정리
+   - Back-end : 생성 시 orderby 자동 반영 안됨 수정, orderby 부분 개편
