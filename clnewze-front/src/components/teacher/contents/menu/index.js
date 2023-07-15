@@ -1,5 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Button, Col, Form, FormGroup, Input, InputGroup, Label, Navbar, Row } from "reactstrap";
+import {
+  Button,
+  Col,
+  Form,
+  FormGroup,
+  Input,
+  InputGroup,
+  Label,
+  Navbar,
+  Row,
+} from "reactstrap";
 import styles from "../../teacher.module.scss";
 import DropdownForm from "./dropdown";
 import URI from "../../../util/URI";
@@ -36,7 +46,7 @@ const ContentsMenu = ({ major, majormenu }) => {
           </Col>
           <Col>
             <InputGroup className={`${styles?.searchBox}`}>
-              <DropdownForm menuData={menuData} majormenu={majormenu}/>
+              <DropdownForm menuData={menuData} majormenu={majormenu} />
               <Input className="form-control" title="검색어 입력" />
               <Button className={`${styles?.InputGroupSearch}`}>
                 <Search />
@@ -44,12 +54,11 @@ const ContentsMenu = ({ major, majormenu }) => {
             </InputGroup>
           </Col>
         </Row>
-        {isDetail && 
-        <Row>
-          <Col>
-          </Col>
-        </Row>
-        }
+        {isDetail && (
+          <Row>
+            <Col></Col>
+          </Row>
+        )}
       </div>
       <Navbar className={`${styles?.listMenu}`}>
         <h2>선생님 조회</h2>
