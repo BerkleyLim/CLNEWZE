@@ -186,7 +186,7 @@ function AdminSheetmusic() {
           </td>
         </tbody>
       </Table>
-      <h1>악보 순서 관리</h1>
+      <h1>연습실 정보 순서 관리</h1>
     </>
   );
 }
