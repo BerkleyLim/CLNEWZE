@@ -8,6 +8,7 @@ import MypageInfo from "./user/index"
 import URI from "../util/URI"
 import { useDispatch } from 'react-redux';
 import AdminTeacher from './admin/teacher';
+import AdminPracticeRoom from './admin/practiceroom';
 import AdminSheetMusic from './admin/sheetmusic';
 
 const MypageMain = () => {
@@ -54,7 +55,7 @@ const MypageMain = () => {
                 <button className="btn">회원정보 출력</button>
                 <button className="btn">매출액</button>
                 <button className="btn" onClick={() => moveMyPage("admin/sheetmusic")}>악보 페이지 관리</button>
-                <button className="btn">연습실 페이지 관리</button>
+                <button className="btn" onClick={() => moveMyPage("admin/practiceroom")}>연습실 페이지 관리</button>
                 <button className="btn" onClick={() => moveMyPage("admin/teacher")}>레스너찾기 페이지 관리</button>
                 <button className="btn">블로그 페이지 관리</button>
                 
@@ -65,6 +66,7 @@ const MypageMain = () => {
               <Routes>
                 <Route path="/mypage/*"  element = {<MypageInfo />}/>
                 <Route path="/mypage/admin/teacher"  element = {<AdminTeacher />}/>
+                <Route path="/mypage/admin/practiceroom"  element = {<AdminPracticeRoom />}/>
                 <Route path="/mypage/admin/sheetmusic"  element = {<AdminSheetMusic />}/>
               </Routes>
             </Col>
