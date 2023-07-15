@@ -34,4 +34,7 @@
 1) Spring 설정 관련
    - DBconnection.java 제거
    - 현재 spring 에서는 필요하지만, spring boot에서는 application.yml로 환경설정 하므로 굳이 필요 없음
-   
+2) 악보 관련
+   - 관리자 페이지 : 악보 관련 장르 메뉴 추가
+   - Back-end : 악보 관련 메뉴 설계 및 구현 완료
+   - Front-end : 악보 모음 화면 개편 및 관리자 페이지의 마스터 테이블 추가
