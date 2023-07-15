@@ -65,12 +65,15 @@ public class TeacherController {
     Integer createSuccess = teacherService.createTeacherMenu(teacherMenuCategory.getName(),
         teacherMenuCategory.getCategory());
     Long count = teacherService.categoryCountTeacherMenu();
-    teacherService.orderbyChangeTeacherMenu(count, count);
+    System.out.println("테이블 수 :" + count);
+    TeacherMenuCategory lastTeacherMenuTable = teacherService.lastTeacherMenuTable();
+    teacherService.orderbyChangeTeacherMenu(lastTeacherMenuTable.getMtno(), count);
     return createSuccess;
   };
 
   @PostMapping("/master/menu/change/orderby")
   public Integer orderbyChangeTeacherMenu(@RequestBody TeacherMenuCategory teacherMenuCategory) {
+    System.out.println("Master Menu Teacher 오더바이 변경");
     return teacherService.orderbyChangeTeacherMenu(teacherMenuCategory.getMtno(),
         teacherMenuCategory.getOrderby());
   }

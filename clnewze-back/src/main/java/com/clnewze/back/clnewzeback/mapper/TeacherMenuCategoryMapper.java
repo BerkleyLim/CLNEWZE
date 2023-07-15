@@ -14,6 +14,9 @@ public interface TeacherMenuCategoryMapper {
 
   Long categoryCountTeacherMenu();
 
+  // 마지막행 조회 (orderby 지정용으로 사용)
+  public TeacherMenuCategory lastTeacherMenuTable();
+
   Integer createTeacherMenu(String name, String category);
 
   Integer orderbyChangeTeacherMenu(Long mtno, Long changeOrder);

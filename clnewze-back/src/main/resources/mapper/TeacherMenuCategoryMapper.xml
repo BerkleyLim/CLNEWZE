@@ -7,8 +7,14 @@
     select * from master_menu_teacher order by orderby asc;
   </select>
 
+  <!-- TeacherMenu 전체 수 조회 -->
   <select id="categoryCountTeacherMenu" resultType="Long">
     select count(*) from master_menu_teacher;
+  </select>
+
+  <!-- TeacherMenu 마지막 행 출력 -->
+  <select id="lastTeacherMenuTable" resultType="TeacherMenuCategory">
+    select * from master_menu_teacher mmt order by mtno desc limit 1;
   </select>
   
   <!-- TeacherMenu 생성 -->

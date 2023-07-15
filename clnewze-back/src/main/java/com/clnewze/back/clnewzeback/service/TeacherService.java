@@ -32,6 +32,11 @@ public class TeacherService {
     return teacherMenuCategoryMapper.category();
   }
 
+  // 마지막 행 테이블 출력 (생성시 orderby 지정용으로)
+  public TeacherMenuCategory lastTeacherMenuTable() {
+    return teacherMenuCategoryMapper.lastTeacherMenuTable();
+  }
+
   public Long categoryCountTeacherMenu() {
     log.info("Service : TeacherMenu : categoryCount() 호출 성공");
     return teacherMenuCategoryMapper.categoryCountTeacherMenu();
