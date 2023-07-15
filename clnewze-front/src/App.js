@@ -5,6 +5,7 @@ import Header from "./components/commom/header/index";
 import Footer from "./components/commom/footer/index";
 
 import Introduction from "./components/introduction/index";
+import Performance from "./components/performance/index";
 import PracticeRoom from "./components/practiceRoom/index";
 import SheetMusic from "./components/sheetmusic/index";
 import Teacher from "./components/teacher/index";
@@ -28,6 +29,7 @@ function App() {
             <Routes>
               <Route path="/" element={<MainView />} />
               <Route path="/introduction" element={<Introduction />} />
+              <Route path="/performance" element={<Performance />} />
               <Route path="/practiceRoom" element={<PracticeRoom />} />
               <Route path="/sheetmusic" element={<SheetMusic />} />
               <Route path="/teacher" element={<Teacher />} />
