@@ -29,6 +29,7 @@ const MypageMain = () => {
                 <button className="btn" onClick={() => moveMyPage("info")}>기본정보</button>
                 <button className="btn">회원정보 및 수정</button>
                 <button className="btn">환전 신청</button>
+                <button className="btn">선생님 관리</button>
                 
                 <hr/>
                 
@@ -38,9 +39,9 @@ const MypageMain = () => {
 
                 <hr/>
 
-                <h6>구매 정보</h6>
-                <button className="btn">구입음원</button>
+                <h6>***님 매출 정보</h6>
                 <button className="btn">구입악보</button>
+                <button className="btn">판매악보</button>
 
                 <hr/>
 
