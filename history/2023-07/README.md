@@ -29,3 +29,9 @@
         - 순서 변경 및 편집 기능 추가 (Front)
         - Front와 Back Restful API를 이용하여 메뉴 데이터 연동 
         - 테스트 완료 x, 차후 테스트 할 예정
+
+15일
+1) Spring 설정 관련
+   - DBconnection.java 제거
+   - 현재 spring 에서는 필요하지만, spring boot에서는 application.yml로 환경설정 하므로 굳이 필요 없음
+   
