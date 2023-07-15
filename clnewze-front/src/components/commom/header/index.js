@@ -9,6 +9,8 @@ import LoginForm from "../../login/index";
 import { useSelector } from "react-redux";
 import { Alarm, CardList, PersonCircle } from "react-bootstrap-icons";
 
+import headerData from "./sampledata/data.json"
+
 const HeaderComponent = (props) => {
   let navigate = useNavigate();
   const [loginIsModal, setLoginIsModal] = useState(false);
@@ -86,11 +88,16 @@ const HeaderComponent = (props) => {
       <DropdownToggle caret size="lg"><CardList /></DropdownToggle>
       <DropdownMenu>
         <DropdownItem onClick={() => userMenu()}>{user?.isLogin ? user.userNm : "로그인"}</DropdownItem>
-        <DropdownItem onClick={() => movePage("introduction")}>소개</DropdownItem>
+        {
+          headerData?.map((data,index) => 
+            <DropdownItem key={index} onClick={() => movePage(data?.category)}>{data?.menuName}</DropdownItem>
+          )
+        }
+        {/* <DropdownItem onClick={() => movePage("introduction")}>소개</DropdownItem>
         <DropdownItem onClick={() => movePage("sheetmusic")}>악보</DropdownItem>
         <DropdownItem onClick={() => movePage("teacher")}>레스너 찾기</DropdownItem>
         <DropdownItem onClick={() => movePage("practiceRoom")}>연습실 정보</DropdownItem>
-        <DropdownItem onClick={() => movePage("blog")}>블로그</DropdownItem>
+        <DropdownItem onClick={() => movePage("blog")}>블로그</DropdownItem> */}
         {/* <DropdownItem>etc..</DropdownItem> */}
       </DropdownMenu>
     </ButtonDropdown>
@@ -100,8 +107,14 @@ const HeaderComponent = (props) => {
 
       {innerWidth >= 860 && (
         <Navbar className={`${styles?.hdContent2}`}>
-          <button type="button" onClick={() => movePage("introduction")}>
-            {" "}
+          {
+            headerData?.map((data, index) => 
+              <button key={index} type="button" onClick={() => movePage(data?.category)}>
+                {data?.menuName}
+              </button>
+            )
+          }
+          {/* <button type="button" onClick={() => movePage("introduction")}>
             소개
           </button>
           <button type="button" onClick={() => movePage("sheetmusic")}>
@@ -115,7 +128,7 @@ const HeaderComponent = (props) => {
           </button>
           <button type="button" onClick={() => movePage("blog")}>
             블로그
-          </button>
+          </button> */}
         </Navbar>
       )}
     </div>
