@@ -44,59 +44,6 @@ h2 {
   font-weight: normal;
 }
 
-/* 게시판 (bootstrap 활용)*/
-.teacherContents {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  margin: 0 auto;
-
-  & .autor_wrap {
-    /* display: flex; */
-    display: table;
-    position: relative;
-    // max-width: 34.5rem;
-    max-height: 15.625rem;
-    width: 95%;
-    height: 100%;
-    padding-right: 0px;
-    padding-left: 0px;
-  }
-
-  & .autor_wrap:hover {
-    background: gray;
-    opacity: 0.2;
-  }
-
-  & .teacherTitle {
-    padding: .75rem 1.25rem;
-    margin-bottom: 0;
-    color: inherit;
-    background-color: rgba(0, 0, 0, .03);
-    border-bottom: 1px solid rgba(0, 0, 0, .125);
-  }
-
-  & .teacherTitle:first-child {
-    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
-  }
-
-  & .content {
-    max-height: 14rem;
-    border: 0px;
-  }
-
-  // paging 부분
-  // paing 추가
-  // 이부분 삽입
-  // & .paging {
-  //   margin: 1.5rem auto !important;
-  //   // padding: 10px auto !important;
-  //   text-align: center;
-  // }
-  // pagingnation 끝
-}
-
-
 
 /* 선생님 정보 */
 /* 상세 정보 폼*/
