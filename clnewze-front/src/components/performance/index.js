@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
+
+import URI from "../util/URI"
+import data from "./sample/event.json"
+
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
@@ -17,23 +21,36 @@ const Performance = () => {
 
   const themeSystem = 'bootstrap5';
 
-  const event = [
-    {
-      title: 'Event1',
-      start: '2023-07-14',
-      end: '2023-07-18',
-    },
-    {
-      title: 'Event1',
-      start: '2023-07-14',
-      end: '2023-07-31',
-    }
-  ]
-  
-  const color = 'yellow';
+  const aspectRatio = 1.5;
 
-  const textColor = 'black';
+  const scrollTime = "08:00";
+
+  const events = data;
   // 리액트 방식 - fullCalendar 끝
+
+  // 참조 : https://www.culture.go.kr/data/openapi/openapiView.do?id=317&keyword=%EC%A0%84%EC%8B%9C%EC%A0%95%EB%B3%B4&searchField=all&gubun=A#/default
+  // c1730169-2f2a-4eb3-abd6-929daec4e232
+  // useEffect(()=> {
+  //   URI.get("http://api.kcisa.kr/openapi/service/rest/convergence/conver6?serviceKey=c1730169-2f2a-4eb3-abd6-929daec4e232"
+  //       + "&numOfRows=30&keyword=예술"
+  //   )
+  //     .then((res) => {
+  //       console.log(res.data)
+  //     })
+  //     .catch((e) => console.error(e))
+  // },[])
+
+
+  // 예술의 전당 API
+  // http://infuser.odcloud.kr/oas/docs?namespace=3076480/v1
+  // useEffect(() => {
+  //   URI.get("http://infuser.odcloud.kr/oas/docs?namespace=3076480/v1"
+  //   )
+  //     .then((res) => {
+  //       console.log(res.data)
+  //     })
+  //     .catch((e) => console.error(e))
+  // })
 
   return (
     <div>
@@ -43,9 +60,9 @@ const Performance = () => {
         initialView="dayGridMonth"
         headerToolbar={headerToolbar}
         themeSystem={themeSystem}
-        event={event}
-        color={color}
-        textColor={textColor}
+        aspectRatio={aspectRatio}
+        scrollTime={scrollTime}
+        events={events}
       />
     </div>
   );
