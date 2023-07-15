@@ -24,6 +24,7 @@ const MainNotice = () => {
             <td>2</td>
             <td>경고 및 제재사항</td>
           </tr>
+          <tr></tr>
         </tbody>
       </Table>
     </Col>

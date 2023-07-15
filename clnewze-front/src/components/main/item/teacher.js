@@ -45,12 +45,12 @@ const MainTeacher = () => {
     setActiveIndex(newIndex);
   };
 
-  const slides = items?.map((item) => {
+  const slides = items?.map((item, index) => {
     return (
       <CarouselItem
         className="custom-tag"
         tag="div"
-        key={item?.id}
+        key={index}
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
       >
