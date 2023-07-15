@@ -12,8 +12,10 @@ const MypageHeader = () => {
     setIsModal(!isModal);
   }
 
+  console.log(styles)
+
   return (
-    <div className={`${styles?.MypageHeader}`}>
+    <div className={`${styles?.mypageHeader}`}>
       {/* <!-- 사진 --> */}
       <img
         className={`${styles?.mypageBanner}`}
