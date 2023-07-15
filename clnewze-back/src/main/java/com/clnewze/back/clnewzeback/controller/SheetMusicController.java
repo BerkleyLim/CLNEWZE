@@ -74,28 +74,28 @@ public class SheetMusicController {
         sheetMusicMenuCategory.getCategory());
     Long count = sheetMusicService.categoryCountSheetMusicMenu();
     SheetMusicMenuCategory lastSheetMusicMenuTable = sheetMusicService.lastSheetMusicMenuTable();
-    sheetMusicService.orderbyChangeSheetMusicMenu(lastSheetMusicMenuTable.getMtno(), count);
+    sheetMusicService.orderbyChangeSheetMusicMenu(lastSheetMusicMenuTable.getSmtno(), count);
     return createSuccess;
   };
 
   @PostMapping("/master/menu/change/orderby")
   public Integer orderbyChangeSheetMusicMenu(@RequestBody SheetMusicMenuCategory sheetMusicMenuCategory) {
     log.info("controller : SheetMusicMenu : orderbyChangeMusicMenu() 호출 성공");
-    return sheetMusicService.orderbyChangeSheetMusicMenu(sheetMusicMenuCategory.getMtno(),
+    return sheetMusicService.orderbyChangeSheetMusicMenu(sheetMusicMenuCategory.getSmtno(),
         sheetMusicMenuCategory.getOrderby());
   }
 
   @PostMapping("/master/menu/update")
   public Integer updateSheetMusicMenu(@RequestBody SheetMusicMenuCategory sheetMusicMenuCategory) {
     log.info("controller : SheetMusicMenu : updateSheetMusicMenu() 호출 성공");
-    return sheetMusicService.updateSheetMusicMenu(sheetMusicMenuCategory.getMtno(), sheetMusicMenuCategory.getName(),
+    return sheetMusicService.updateSheetMusicMenu(sheetMusicMenuCategory.getSmtno(), sheetMusicMenuCategory.getName(),
         sheetMusicMenuCategory.getCategory());
   }
 
   @PostMapping("/master/menu/delete")
   public Integer deleteSheetMusicMenu(@RequestBody SheetMusicMenuCategory sheetMusicMenuCategory) {
     log.info("controller : SheetMusicMenu : deleteSheetMusicMenu() 호출 성공");
-    return sheetMusicService.deleteSheetMusicMenu(sheetMusicMenuCategory.getMtno());
+    return sheetMusicService.deleteSheetMusicMenu(sheetMusicMenuCategory.getSmtno());
   }
 
 }

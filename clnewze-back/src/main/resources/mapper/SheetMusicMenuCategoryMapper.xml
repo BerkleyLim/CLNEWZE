@@ -14,7 +14,7 @@
 
   <!-- SheetMusicMenu 마지막 행 출력 -->
   <select id="lastSheetMusicMenuTable" resultType="SheetMusicMenuCategory">
-    select * from master_menu_sheetmusic mmt order by mtno desc limit 1;
+    select * from master_menu_sheetmusic mmt order by smtno desc limit 1;
   </select>
   
   <!-- SheetMusicMenu 생성 -->
@@ -24,7 +24,7 @@
 
 <!-- orderby 갱신, 테이블 추가시 orderby 부여 -->
   <update id="orderbyChangeSheetMusicMenu">
-    update master_menu_sheetmusic set orderby=#{changeOrder} where mtno = #{smtno}
+    update master_menu_sheetmusic set orderby=#{changeOrder} where smtno = #{smtno}
   </update>
 
 <!-- SheetMusicMenu 내용물 수정 -->
@@ -32,11 +32,11 @@
     update master_menu_sheetmusic set
       name=#{name} ,
       category=#{category} 
-    where mtno = #{smtno}
+    where smtno = #{smtno}
   </update>
 
   <delete id="deleteSheetMusicMenu">
-    delete from master_menu_sheetmusic where mtno = #{smtno}
+    delete from master_menu_sheetmusic where smtno = #{smtno}
   </delete>
   <!-- 
     void createSheetMusicMenu(String name, String category);

@@ -45,20 +45,20 @@ public class SheetMusicService {
     return sheetMusicMenuCategoryMapper.createSheetMusicMenu(name, category);
   };
 
-  public Integer orderbyChangeSheetMusicMenu(Long mtno, Long changeOrder) {
+  public Integer orderbyChangeSheetMusicMenu(Long smtno, Long changeOrder) {
     log.info("Service : SheetMusicMenu : orderby Change() 호출 성공");
-    return sheetMusicMenuCategoryMapper.orderbyChangeSheetMusicMenu(mtno, changeOrder);
+    return sheetMusicMenuCategoryMapper.orderbyChangeSheetMusicMenu(smtno, changeOrder);
   }
 
-  public Integer updateSheetMusicMenu(Long mtno, String name, String category) {
+  public Integer updateSheetMusicMenu(Long smtno, String name, String category) {
     log.info("Service : SheetMusicMenu : update() 호출 성공");
-    return sheetMusicMenuCategoryMapper.updateSheetMusicMenu(mtno, name,
+    return sheetMusicMenuCategoryMapper.updateSheetMusicMenu(smtno, name,
         category);
   }
 
-  public Integer deleteSheetMusicMenu(Long mtno) {
+  public Integer deleteSheetMusicMenu(Long smtno) {
     log.info("Service : SheetMusicMenu : delete() 호출 성공");
-    return sheetMusicMenuCategoryMapper.deleteSheetMusicMenu(mtno);
+    return sheetMusicMenuCategoryMapper.deleteSheetMusicMenu(smtno);
   }
 
 }

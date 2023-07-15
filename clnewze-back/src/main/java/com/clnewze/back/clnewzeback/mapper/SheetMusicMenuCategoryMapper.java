@@ -19,10 +19,10 @@ public interface SheetMusicMenuCategoryMapper {
 
   Integer createSheetMusicMenu(String name, String category);
 
-  Integer orderbyChangeSheetMusicMenu(Long mtno, Long changeOrder);
+  Integer orderbyChangeSheetMusicMenu(Long smtno, Long changeOrder);
 
-  Integer updateSheetMusicMenu(Long mtno, String name, String category);
+  Integer updateSheetMusicMenu(Long smtno, String name, String category);
 
-  Integer deleteSheetMusicMenu(Long mtno);
+  Integer deleteSheetMusicMenu(Long smtno);
 
 }

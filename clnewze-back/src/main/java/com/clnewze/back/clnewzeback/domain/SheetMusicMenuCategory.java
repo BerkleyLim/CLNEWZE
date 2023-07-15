@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SheetMusicMenuCategory {
-  Long mtno;
+  Long smtno;
   Long orderby;
   String name;
   String category;
