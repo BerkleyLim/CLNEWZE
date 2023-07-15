@@ -41,7 +41,6 @@ function AdminTeacher() {
     setCreateMenuData({
       ...createMenuData,
       [name]: value,
-      // orderby: (menuData)?.length +1,
     });
   };
 
@@ -68,17 +67,18 @@ function AdminTeacher() {
 
   // Teacher Menu 삽입 기능 추가
   const addMenu = () => {
-    setMenuData(
-      update(menuData, {
-        $push: [createMenuData],
-      })
-    );
     URI.post(
-      process.env.REACT_APP_API_ROOT + "/master/menu/create",
+      process.env.REACT_APP_API_ROOT + "/api/teacher/master/menu/create",
       createMenuData
-    )
+      )
       .then((res) => {
+        setMenuData(
+          update(menuData, {
+            $push: [createMenuData],
+          })
+        );
         console.log("성공!" + res);
+        alert("성공!" + res);
       })
       .catch((e) => console.error(e));
   };
@@ -91,11 +91,12 @@ function AdminTeacher() {
 
     menuData?.map((data) => {
       URI.post(
-        process.env.REACT_APP_API_ROOT + "/master/menu/change/orderby",
+        process.env.REACT_APP_API_ROOT + "/api/teacher/master/menu/change/orderby",
         data
       )
         .then((res) => {
           console.log("성공!" + res);
+          // alert("성공!" + res);
         })
         .catch((e) => console.error(e));
     });
@@ -107,15 +108,16 @@ function AdminTeacher() {
   // Teacher Menu 삭제
   const deleteMenu = (index) => {
     let deleteData = menuData[index];
-    setMenuData(
-      update(menuData, {
-        $splice: [[index, 1]],
-      })
-    );
-
-    URI.post(process.env.REACT_APP_API_ROOT + "/master/menu/delete", deleteData)
-      .then((res) => {
-        console.log("성공!" + res);
+    
+    URI.post(process.env.REACT_APP_API_ROOT + "/api/teacher/master/menu/delete", deleteData)
+    .then((res) => {
+      setMenuData(
+        update(menuData, {
+          $splice: [[index, 1]],
+        })
+      );
+      console.log("성공!" + res);
+      alert("성공!" + res);
       })
       .catch((e) => console.error(e));
 
@@ -124,15 +126,15 @@ function AdminTeacher() {
 
   // Teacher Menu 수정
   const updateMenu = (data, index) => {
-    setMenuData(
-      update(menuData, {
-        $merge: { [index]: data },
-      })
-    );
-
-    URI.post(process.env.REACT_APP_API_ROOT + "/master/menu/update", data)
-      .then((res) => {
+    URI.post(process.env.REACT_APP_API_ROOT + "/api/teacher/master/menu/update", data)
+    .then((res) => {
+        setMenuData(
+          update(menuData, {
+            $merge: {[index]: data},
+          })
+        );
         console.log("성공!" + res);
+        alert("성공!" + res);
       })
       .catch((e) => console.error(e));
     setIsStateUpdate(!isStateUpdate);
