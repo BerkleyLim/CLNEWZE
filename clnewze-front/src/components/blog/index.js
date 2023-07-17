@@ -19,7 +19,7 @@ const CommunityIndex = () => {
       <div>이 게시글은 음악 전문가들을 위한 커뮤니티 컨텐츠로 개발 예정입니다.</div>
       <div>현재 좋은 아이디어를 가지고 계시면 언제든지 피드백 환영합니다.</div>
       <div>이메일 문의 : berkleylim16@gmail.com.</div>
-      <div>오픈채팅 : https://open.kakao.com/me/clnewze</div>
+      <div>오픈채팅 : https://open.kakao.com/me/clnewzedeveloper</div>
       <Row className={"d-flex"}>
         <Col xl={2} className="align-self-center">
           <Button>
