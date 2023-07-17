@@ -1,0 +1,18 @@
+.blogCard {
+  align-self: start;
+  max-width:100%
+}
+
+.blogCardTitle {
+  text-align: left;
+}
+
+.blogCardBody {
+  text-align: left;
+  font-size:16px;
+
+  & .blogCardImg {
+    width:340.66px;
+    height:340.66px;
+  }
+}
