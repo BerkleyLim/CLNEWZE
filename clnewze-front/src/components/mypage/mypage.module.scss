@@ -9,15 +9,10 @@
     height:300px;
   }
 
-  & .profileInformation {
-    width: 1200px;
-    display: flex;
+  & .profileHeader {
+    max-width: 1200px;
     margin: 0 auto;
-    margin-top: -60px;
-    margin-bottom: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
-  
+
     & .profileImg{
       position:relative;
       flex-wrap: wrap;
@@ -25,6 +20,7 @@
       height:200px;
       border-radius: 70%;
       overflow: hidden;
+      margin-top: -60px;
       
       & .imgSize {
         width: 100%;
@@ -32,28 +28,10 @@
         object-fit: cover;
       }
     }
-  
-    & .profileComponent1{
-      position: relative;
-      flex-wrap: wrap;
-      padding:20px 20px 20px 20px;
-      margin-top:60px;
-      margin-left:-180px;
-      width:700px;
-      height:250px;
-    }
-  
-    & .profileComponent2{
-      text-align: right;
-      position: relative;
-      flex-wrap: wrap;
-      width: 300px;
-      height: 300px;
-      margin-top:70px;
-      margin-left:100px;
-    }
   }
 }
+
+
 
 
 
