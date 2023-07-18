@@ -26,20 +26,24 @@ const MypageMain = () => {
         {/* <!-- 마이페이지 카테고리 --> */}
         <Row className={`${styles?.mypageContainer}`}>
             <Col md={2} className={`${styles?.mypageMenuContainer}`}>
-                <button className="btn" onClick={() => moveMyPage("info")}>기본정보</button>
-                <button className="btn">회원정보 및 수정</button>
+                <hr/>
+                <h6>회원 정보</h6>
+                <button className="btn" onClick={() => moveMyPage("info")}>회원정보 및 수정</button>
                 <button className="btn">환전 신청</button>
                 <button className="btn">선생님 관리</button>
                 
                 <hr/>
                 
                 <h6>업로드 정보</h6>
+                {/* 각 음악 전공자 별로 공연 정보를 등록하여 사용자에게 공유한다. */}
+                <button className="btn">공연정보</button>
                 <button className="btn">연습실</button>
                 <button className="btn">악보</button>
+                <button className="btn">블로그</button>
 
                 <hr/>
 
-                <h6>***님 매출 정보</h6>
+                <h6>매출 정보</h6>
                 <button className="btn">구입악보</button>
                 <button className="btn">판매악보</button>
 
