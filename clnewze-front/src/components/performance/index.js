@@ -1,13 +1,22 @@
 import React, { useEffect } from "react";
 
-import URI from "../util/URI"
-import data from "./sample/event.json"
+import URI from "../util/URI";
+import data from "./sample/event.json";
 
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
 import FullCalendar from "@fullcalendar/react";
-import bootstrap5Plugin from "@fullcalendar/bootstrap5"
+import bootstrap5Plugin from "@fullcalendar/bootstrap5";
+import ReactSearchBox from "react-search-box";
+
+import {
+  Button,
+  Col,
+  Input,
+  InputGroup,
+  Row,
+} from "reactstrap";
 
 const Performance = () => {
   // 리액트 방식 - fullCalendar 시작
@@ -19,7 +28,7 @@ const Performance = () => {
     right: "dayGridMonth,timeGridWeek,listWeek",
   };
 
-  const themeSystem = 'bootstrap5';
+  const themeSystem = "bootstrap5";
 
   const aspectRatio = 1.5;
 
@@ -28,49 +37,41 @@ const Performance = () => {
   const events = data;
   // 리액트 방식 - fullCalendar 끝
 
-  // 참조 : https://www.culture.go.kr/data/openapi/openapiView.do?id=317&keyword=%EC%A0%84%EC%8B%9C%EC%A0%95%EB%B3%B4&searchField=all&gubun=A#/default
-  // c1730169-2f2a-4eb3-abd6-929daec4e232
-  // useEffect(()=> {
-  //   URI.get("http://api.kcisa.kr/openapi/service/rest/convergence/conver6?serviceKey=c1730169-2f2a-4eb3-abd6-929daec4e232"
-  //       + "&numOfRows=30&keyword=예술"
-  //   )
-  //     .then((res) => {
-  //       console.log(res.data)
-  //     })
-  //     .catch((e) => console.error(e))
-  // },[])
-
-
-  // 예술의 전당 API
-  // http://infuser.odcloud.kr/oas/docs?namespace=3076480/v1
-  // useEffect(() => {
-  //   URI.get("http://infuser.odcloud.kr/oas/docs?namespace=3076480/v1"
-  //   )
-  //     .then((res) => {
-  //       console.log(res.data)
-  //     })
-  //     .catch((e) => console.error(e))
-  // })
-
   return (
     <div>
-      <h1>공연 정보</h1>
-      <FullCalendar
-        plugins={plugins}
-        initialView="dayGridMonth"
-        headerToolbar={headerToolbar}
-        themeSystem={themeSystem}
-        aspectRatio={aspectRatio}
-        scrollTime={scrollTime}
-        events={events}
-      />
+      <h1 style={{ textAlign: "left" }}>공연 정보</h1>
+      <Row className="m-3">
+        <Col md={8}></Col>
+        <Col md={4}>
+          <InputGroup>
+            <Button outline="primary">전체</Button>
+            <Input />
+            {/* <ReactSearchBox
+              placeholder="Placeholder"
+              value="Doe"
+              data={"연주"}
+              callback={(record) => console.log(record)}
+            /> */}
+            <Button color="primary" outline>검색</Button>
+          </InputGroup>
+        </Col>
+      </Row>
+      <Row className="m-3">
+        <FullCalendar
+          plugins={plugins}
+          initialView="dayGridMonth"
+          headerToolbar={headerToolbar}
+          themeSystem={themeSystem}
+          aspectRatio={aspectRatio}
+          scrollTime={scrollTime}
+          events={events}
+        />
+      </Row>
     </div>
   );
 };
 
 export default Performance;
-
-
 
 // Javascript 방식
 // const calendarEl = document.getElementById("calender")
