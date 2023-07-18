@@ -3,16 +3,35 @@
   max-width:100%
 }
 
-.blogCardTitle {
-  text-align: left;
-}
-
 .blogCardBody {
   text-align: left;
   font-size:16px;
 
-  & .blogCardImg {
-    width:340.66px;
-    height:340.66px;
+  & .blogCardTitle {
+    font-size:25px;
+    text-align: left;
+    font-weight: bold;
+    display: -webkit-box;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+
+  & .blogCardText {
+    display: -webkit-box;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  & .blogBadgeTag {
+    font-size:16px;
+    font-weight: bold;
   }
 }
+
+
