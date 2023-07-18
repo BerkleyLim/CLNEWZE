@@ -14,8 +14,9 @@ import styles from "../../teacher.module.scss";
 import DropdownForm from "./dropdown";
 import URI from "../../../util/URI";
 import { Search } from "react-bootstrap-icons";
+import SearchBox from "react-search-box";
 
-const ContentsMenu = ({ major, majormenu }) => {
+const ContentsMenu = ({ boards, majormenu }) => {
   const [menuData, setMenuData] = useState();
   const [isDetail, setIsDetail] = useState(false);
 
@@ -47,7 +48,18 @@ const ContentsMenu = ({ major, majormenu }) => {
           <Col>
             <InputGroup className={`${styles?.searchBox}`}>
               <DropdownForm menuData={menuData} majormenu={majormenu} />
-              <Input className="form-control" title="검색어 입력" />
+              {/* <Input className="form-control" title="검색어 입력" /> */}
+              {/* https://www.npmjs.com/package/react-search-box */}
+              <SearchBox 
+                type="search"
+                placeholder="Placeholder"
+                value="Doe"
+                className="form-control"
+                style={{width:"100%"}}
+                data={boards}
+                callback={(record) => console.log(record)}
+              />
+              {/* <Input className="form-control" title="검색어 입력" /> */}
               <Button className={`${styles?.InputGroupSearch}`}>
                 <Search />
               </Button>

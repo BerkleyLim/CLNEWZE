@@ -9,6 +9,7 @@ import styles from "./teacher.module.scss";
 import URI from "../util/URI";
 import { Modal, Navbar } from "reactstrap";
 
+
 const Teachers = (props) => {
   const [boards, setBoards] = useState();
   const [selectMajor, setSelectMajor] = useState(null);
@@ -51,7 +52,7 @@ const Teachers = (props) => {
   return (
     <div>
       <div className={`${styles?.contain}`}>
-        <Menu major={selectMajor} majormenu={majormenu} />
+        <Menu boards={boards} major={selectMajor} majormenu={majormenu} />
 
         <div>
           <Board boards={postsData(boards)} onClickView={onClickView} />
