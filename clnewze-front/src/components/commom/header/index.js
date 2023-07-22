@@ -69,15 +69,15 @@ const HeaderComponent = (props) => {
             <i className="fas fa-list header-icon"></i>
 
             <div className={`${styles?.header_mymenu}`}>
-              <Button size="lg" onClick={userMenu}>
+              <Button color="blank" size="lg" onClick={userMenu}>
                 <span className={`${styles?.headerNickname}`}>
                   <PersonCircle />
                 </span>
                 <span className={`${styles?.headerNickname}`}>
-                  {user?.isLogin ? user.userNm : "로그인"}
+                  {user?.isLogin ? user.userNm : " 로그인"}
                 </span>
               </Button>
-              <Button size="lg">
+              <Button color="blank" size="lg">
                 <Alarm />
               </Button>
             </div>
@@ -85,7 +85,7 @@ const HeaderComponent = (props) => {
         ) : (
           <>
           <ButtonDropdown isOpen={mobileIsDropDown} direction="down" toggle={mobileIsDropDownToggle}>
-      <DropdownToggle caret size="lg"><CardList /></DropdownToggle>
+      <DropdownToggle color="blank" caret size="lg"><CardList /></DropdownToggle>
       <DropdownMenu>
         <DropdownItem onClick={() => userMenu()}>{user?.isLogin ? user.userNm : "로그인"}</DropdownItem>
         {

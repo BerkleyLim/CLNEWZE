@@ -16,7 +16,7 @@ const LanguageDropdown = () => {
 
   return (
     <ButtonDropdown isOpen={dropdownOpen} direction="down" toggle={toggle}>
-      <DropdownToggle caret size="lg">한국어</DropdownToggle>
+      <DropdownToggle color="blank" caret size="lg">한국어</DropdownToggle>
       <DropdownMenu>
         <DropdownItem onClick={() => onLanguageChange("ko")}>한국어</DropdownItem>
         <DropdownItem onClick={() => onLanguageChange("ja")}>Japanese</DropdownItem>
