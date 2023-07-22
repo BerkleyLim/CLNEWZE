@@ -50,12 +50,11 @@ const ContentsMenu = ({ boards, majormenu }) => {
               <DropdownForm menuData={menuData} majormenu={majormenu} />
               {/* <Input className="form-control" title="검색어 입력" /> */}
               {/* https://www.npmjs.com/package/react-search-box */}
-              <SearchBox 
+              <Input 
                 type="search"
                 placeholder="Placeholder"
-                value="Doe"
+                // value="Doe"
                 className="form-control"
-                style={{width:"100%"}}
                 data={boards}
                 callback={(record) => console.log(record)}
               />
