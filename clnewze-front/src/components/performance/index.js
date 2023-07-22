@@ -46,12 +46,6 @@ const Performance = () => {
           <InputGroup>
             <Button outline="primary">전체</Button>
             <Input />
-            {/* <ReactSearchBox
-              placeholder="Placeholder"
-              value="Doe"
-              data={"연주"}
-              callback={(record) => console.log(record)}
-            /> */}
             <Button color="primary" outline>검색</Button>
           </InputGroup>
         </Col>

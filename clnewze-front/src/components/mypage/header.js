@@ -31,6 +31,7 @@ const MypageHeader = () => {
       <img
         className={`${styles?.mypageBanner}`}
         src="/image/file/mypage/defalut-my-profile.png"
+        alt=""
       />
 
       {/* <!-- 마이페이지 정보 (커버랑 같이 겹치기) --> */}

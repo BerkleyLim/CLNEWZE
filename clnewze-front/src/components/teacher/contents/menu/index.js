@@ -49,7 +49,6 @@ const ContentsMenu = ({ boards, majormenu }) => {
             <InputGroup className={`${styles?.searchBox}`}>
               <DropdownForm menuData={menuData} majormenu={majormenu} />
               {/* <Input className="form-control" title="검색어 입력" /> */}
-              {/* https://www.npmjs.com/package/react-search-box */}
               <Input 
                 type="search"
                 placeholder="Placeholder"
