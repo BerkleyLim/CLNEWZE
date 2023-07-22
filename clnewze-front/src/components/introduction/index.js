@@ -12,6 +12,10 @@ const IntroductionComponent = (props) => {
         각 회원들마다 구독자 해택을 이용하여 악보 다운로드, 레스너 및 공연 서비스 등 해택 기능을 제공하고자 합니다.<br/>
         마지막으로 각각 음악가들 및 개발자들분 께서 아이디어를 제공해 주시면 적극적으로 수용 예정입니다.<br/>
         감사합니다.<br/>
+        이에 문의사항은 <br/>
+        이메일 : berkleylim16@gmail.com <br/>
+        오픈채팅 : https://open.kakao.com/me/clnewzedeveloper <br/>
+        을 통해 피드백 부탁드립니다.<br/>
       </div>
     )
 }
