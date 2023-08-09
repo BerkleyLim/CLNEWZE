@@ -28,12 +28,12 @@ function App() {
           <div className="container">
             <Routes>
               <Route path="/" element={<MainView />} />
-              <Route path="/introduction" element={<Introduction />} />
-              <Route path="/performance" element={<Performance />} />
-              <Route path="/practiceRoom" element={<PracticeRoom />} />
-              <Route path="/sheetmusic" element={<SheetMusic />} />
-              <Route path="/teacher" element={<Teacher />} />
-              <Route path="/blog" element={<Blog />} />
+              <Route path="/introduction/:pageNo" element={<Introduction />} />
+              <Route path="/performance/:pageNo" element={<Performance />} />
+              <Route path="/practiceRoom/:pageNo" element={<PracticeRoom />} />
+              <Route path="/sheetmusic/:pageNo" element={<SheetMusic />} />
+              <Route path="/teacher/:pageNo" element={<Teacher />} />
+              <Route path="/blog/:pageNo" element={<Blog />} />
             </Routes>
           </div>
         ) : (
