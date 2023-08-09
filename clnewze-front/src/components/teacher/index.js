@@ -8,13 +8,15 @@ import styles from "./teacher.module.scss";
 
 import URI from "../util/URI";
 import { Modal, Navbar } from "reactstrap";
+import { useParams } from "react-router-dom";
 
 
 const Teachers = (props) => {
+  const { pageNo } = useParams();
   const [boards, setBoards] = useState();
   const [selectMajor, setSelectMajor] = useState(null);
   // Pagination 관련
-  const [page, setPage] = useState(1); // 페이지
+  const [page, setPage] = useState(pageNo); // 페이지
   const limit = 10;
   const offset = (page - 1) * 10; // 시작점, 끝점 구하는 offset
   // Pagination 관련 끝
@@ -28,6 +30,11 @@ const Teachers = (props) => {
     }
   };
 
+  console.log(pageNo)
+  // useNavigate를 이용하여 페이지 이동
+
+
+  
   // 장르 설정 할때 마다
   useEffect(() => {
     URI.get(
