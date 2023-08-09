@@ -8,31 +8,31 @@
   {
     "index": 1
     ,"menuName": "공연정보"
-    ,"category": "performance/:pageNo"
+    ,"category": "performance"
     ,"orderby": 1
   },
   {
     "index": 2
     ,"menuName": "악보"
-    ,"category": "sheetmusic/:pageNo"
+    ,"category": "sheetmusic/1"
     ,"orderby": 2
   },
   {
     "index": 3
     ,"menuName": "레스너 찾기"
-    ,"category": "teacher/:pageNo"
+    ,"category": "teacher/1"
     ,"orderby": 3
   },
   {
     "index": 4
     ,"menuName": "연습실 정보"
-    ,"category": "practiceRoom/:pageNo"
+    ,"category": "practiceRoom/1"
     ,"orderby": 4
   },
   {
     "index": 5
     ,"menuName": "블로그"
-    ,"category": "blog/:pageNo"
+    ,"category": "blog/1"
     ,"orderby": 5
   }
 ]
