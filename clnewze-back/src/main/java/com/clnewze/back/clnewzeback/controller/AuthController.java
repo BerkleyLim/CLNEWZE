@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.clnewze.back.clnewzeback.domain.T_user;
+import com.clnewze.back.clnewzeback.entity.dao.T_user;
 import com.clnewze.back.clnewzeback.service.UserService;
 
 import jakarta.servlet.http.HttpSession;

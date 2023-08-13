@@ -1,4 +1,4 @@
-package com.clnewze.back.clnewzeback.domain.model;
+package com.clnewze.back.clnewzeback.entity.model;
 
 import com.clnewze.back.clnewzeback.util.error.code.ErrorCode;
 import com.fasterxml.jackson.annotation.JsonInclude;

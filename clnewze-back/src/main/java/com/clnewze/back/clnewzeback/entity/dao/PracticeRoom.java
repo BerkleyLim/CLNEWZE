@@ -1,6 +1,4 @@
-package com.clnewze.back.clnewzeback.domain;
-
-import java.time.LocalDate;
+package com.clnewze.back.clnewzeback.entity.dao;
 
 import lombok.Data;
 
@@ -13,7 +11,6 @@ public class PracticeRoom {
   String name;
   String place;
   String contents;
-  LocalDate upLoadDate;
   Integer price;
   String categories;
 }

@@ -1,6 +1,6 @@
 package com.clnewze.back.clnewzeback.util;
 
-import com.clnewze.back.clnewzeback.domain.model.ResponseObject;
+import com.clnewze.back.clnewzeback.entity.model.ResponseObject;
 import com.clnewze.back.clnewzeback.util.error.code.ErrorCode;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

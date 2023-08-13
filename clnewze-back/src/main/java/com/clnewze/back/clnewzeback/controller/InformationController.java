@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.clnewze.back.clnewzeback.domain.Information;
-import com.clnewze.back.clnewzeback.domain.model.ResponseObject;
+import com.clnewze.back.clnewzeback.entity.dao.Information;
+import com.clnewze.back.clnewzeback.entity.model.ResponseObject;
 import com.clnewze.back.clnewzeback.service.InformationService;
 
 @RestController

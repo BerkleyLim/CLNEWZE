@@ -1,4 +1,4 @@
-package com.clnewze.back.clnewzeback.domain;
+package com.clnewze.back.clnewzeback.entity.dao;
 
 import lombok.Data;
 
