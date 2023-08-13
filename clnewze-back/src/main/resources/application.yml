@@ -2,9 +2,9 @@ server:
   shutdown: graceful
 
 spring:
-  # h2:
-  #   console:
-  #     enabled: true
+  h2:
+    console:
+      enabled: true
 
   # 데이터베이스 죽는 현상 참조 : https://kakaocommerce.tistory.com/45
   # 데이터베이스 누수 현상 해결하기 : https://do-study.tistory.com/97
@@ -24,19 +24,19 @@ spring:
     # 근본적인 문제 : HikariPool-1에 무수히 많은 사용자 연결 후 해제 안됨 Added connection com.mysql.cj.jdbc.ConnectionImpl@5e9~~
     # hikari에 대해 알아보기 : https://brunch.co.kr/@jehovah/24
     # 해결 소스 참조 : https://hyunsoori.tistory.com/2
-    hikari:
-      data-source-properties:
-        cachePrepStmts: true
-        prepStmtCacheSize: 250 # 연결당 캐쉬가 준비할 명령문의 수 지정
-        prepStmtCacheSqlLimit: 2048
-        useServerPrepStmts: true # 서버측 준비된 명령문 지원, 성능 향상 도움됨
-      connectionTimeout: 30000
-      maximumPoolSize: 10
-      max-lifetime: 1799995
-      # minimum-idle: 1000
-      # poolName : HikariCP
-      readOnly : false
-      # connectionTestQuery: SELECT 1 #활성 상태 확인, 참조 : https://bamdule.tistory.com/166
+    # hikari:
+    #   data-source-properties:
+    #     cachePrepStmts: true
+    #     prepStmtCacheSize: 250 # 연결당 캐쉬가 준비할 명령문의 수 지정
+    #     prepStmtCacheSqlLimit: 2048
+    #     useServerPrepStmts: true # 서버측 준비된 명령문 지원, 성능 향상 도움됨
+    #   connectionTimeout: 30000
+    #   maximumPoolSize: 10
+    #   max-lifetime: 1799995
+    #   # minimum-idle: 1000
+    #   # poolName : HikariCP
+    #   readOnly : false
+    #   # connectionTestQuery: SELECT 1 #활성 상태 확인, 참조 : https://bamdule.tistory.com/166
 
     # 기존 커넥션풀에서는 dbcp2에서 최적화 사용
     # Oracle에서는 SELECT 1 FROM DUAL 사용
@@ -48,30 +48,6 @@ spring:
     livereload:
       enabled: true
 
-#   jpa:
-#     database: mysql
-#     database-platform: org.hibernate.dialect.MySQLInnoDBDialect # maria-db MySQL5InnoDBDialect
-#     hibernate:
-#       ddl-auto: none
-# #      ddl-auto: create # 이것은 개발 초기에 테이블 생성할때 주로 쓰기, 단 문법이 오류떠서 생략 가능
-# #      ddl-auto: update # 이미 생성된 Table에 변경 가능
-# #      ddl-auto: validate # 조건 검사
-#       naming:
-#         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-#     open-in-view: false
-#     generate-ddl: false
-#     properties:
-#       hibernate:
-#         dialect: org.hibernate.dialect.MySQLInnoDBDialect
-#         show_sql: true
-#         format_sql: true
-#         use_sql_comments: true
-#         temp:
-#           use_jdbc_metadata_defaults: false
-#         jdbc:
-#           lob:
-#             non_contextual_creation: true
-#     show-sql: true
   # 파일 관련 메소드
   thymeleaf:
     cache: false
@@ -96,7 +72,7 @@ jwt:
 # 참조 : https://jydlove.tistory.com/49
 # xml 대신 속성값으로 설정한다
 mybatis:
-  type-aliases-package: com.clnewze.back.clnewzeback.domain
+  type-aliases-package: com.clnewze.back.clnewzeback.entity.dao
   configuration:
     cache-enabled: true
     use-column-label: true
