@@ -1,20 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Badge,
-  Button,
   Card,
   CardBody,
-  CardFooter,
-  CardHeader,
   CardText,
   CardTitle,
-  Col,
   Row,
 } from "reactstrap";
 import styles from "./blog.module.scss";
-// import { ChevronLeft, ChevronRight } from "react-bootstrap-icons";
+import URI from "../util/URI";
 
 const BlogIndex = () => {
+  const [blogData, setBlogData] = useState();
+
+  const BadgeColor = ['primary', 'secondary', 'success', 'danger', 'info'];
+
+  useEffect(() => {
+    URI.get(
+      process.env.REACT_APP_API_ROOT +
+        "/api/blog/selectList"
+    )
+      .then((res) => setBlogData(res.data.data))
+      .catch((e) => console.error(e));
+  }, [])
+
+  console.log(blogData)
+
   return (
     <div>
       <h2 style={{ textAlign: "left" }}>블로그</h2>
@@ -24,8 +35,37 @@ const BlogIndex = () => {
       <div>현재 좋은 아이디어를 가지고 계시면 언제든지 피드백 환영합니다.</div>
       <div>이메일 문의 : berkleylim16@gmail.com.</div>
       <div>오픈채팅 : https://open.kakao.com/me/clnewzedeveloper</div>
-      <Row className={"d-flex mb-3 mt-3"}>
-        {/* <Col className="mb-3 mt-3"> */}
+      {
+        blogData?.map((blog, index) => 
+          <Row key={index} className={"d-flex mb-3 mt-3"}>
+            <Card className={`${styles?.blogCard}`}>
+              <CardBody className={`${styles?.blogCardBody}`}>
+                <CardTitle className={`${styles?.blogCardTitle}`}>
+                  제목 : {blog?.title}
+                </CardTitle>
+                <CardText className={`${styles?.blogCardText}`}>
+                  내용 : {blog?.contents}
+                </CardText>
+                <CardText>
+                  {
+                    blog?.tag?.map((t,tIndex) => 
+                      <Badge
+                        key={tIndex}
+                        color={`${BadgeColor[tIndex%5]}`}
+                        pill={true}
+                        className={`m-2 ${styles?.blogBadgeTag}`}
+                      >
+                        {"# " + t}
+                      </Badge>
+                    )
+                  }
+                </CardText>
+              </CardBody>
+            </Card>
+          </Row>
+        )
+      }
+      {/* <Row className={"d-flex mb-3 mt-3"}>
         <Card className={`${styles?.blogCard}`}>
           <CardBody className={`${styles?.blogCardBody}`}>
             <CardTitle className={`${styles?.blogCardTitle}`}>
@@ -82,8 +122,7 @@ const BlogIndex = () => {
             </CardText>
           </CardBody>
         </Card>
-        {/* </Col> */}
-      </Row>
+      </Row> */}
     </div>
   );
 };
