@@ -26,10 +26,11 @@ public class BlogService {
       blogVo.setViewNumber(blog.get(i).getViewNumber());
 
       List<String> strPush = new ArrayList<>();
-      for (int tagArr = 0; tagArr < blog.get(i).getTag().length(); tagArr++) {
+      for (int tagArr = 0; tagArr < blog.get(i).getTag().split(" ").length; tagArr++) {
         strPush.add(blog.get(i).getTag().split(" ")[tagArr]);
       }
       blogVo.setTag(strPush);
+      blogVoList.add(blogVo);
     }
     return blogVoList;
   }
