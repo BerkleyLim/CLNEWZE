@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.clnewze.back.clnewzeback.entity.dao.Blog;
 import com.clnewze.back.clnewzeback.entity.model.ResponseObject;
+import com.clnewze.back.clnewzeback.entity.vo.BlogVo;
 import com.clnewze.back.clnewzeback.service.BlogService;
 
 @RestController
@@ -21,13 +22,14 @@ public class BlogController {
   @Autowired
   BlogService blogService;
 
+  /**
+   * @return
+   */
   @GetMapping("/selectList")
-  public ResponseEntity<ResponseObject<List<Blog>>> selectList(
-  // @RequestParam(required = false) String genre) {
-  ) {
+  public ResponseEntity<ResponseObject<List<BlogVo>>> selectList() throws Exception {
 
-    List<Blog> result = blogService.selectList();
-    ResponseObject<List<Blog>> ro = new ResponseObject<>("성공");
+    List<BlogVo> result = blogService.selectList();
+    ResponseObject<List<BlogVo>> ro = new ResponseObject<>("성공");
     ro.setData(result);
     return new ResponseEntity<>(ro, HttpStatus.OK);
   }
