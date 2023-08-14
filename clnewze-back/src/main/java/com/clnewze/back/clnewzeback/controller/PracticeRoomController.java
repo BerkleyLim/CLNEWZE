@@ -33,10 +33,20 @@ public class PracticeRoomController {
 
   @GetMapping("/selectList")
   public ResponseEntity<ResponseObject<List<PracticeRoom>>> selectList(
-      @RequestParam(required = false) String categories) {
+      @RequestParam(required = false) String categories,
+      @RequestParam int pageNo,
+      @RequestParam int limit) {
 
-    List<PracticeRoom> result = practiceRoomService.selectList(categories);
+    List<PracticeRoom> result = practiceRoomService.selectList(categories, pageNo, limit);
     ResponseObject<List<PracticeRoom>> ro = new ResponseObject<>("성공");
+    ro.setData(result);
+    return new ResponseEntity<>(ro, HttpStatus.OK);
+  }
+
+  @GetMapping("selectListAllCount")
+  public ResponseEntity<ResponseObject<Integer>> selectListAllCount() {
+    Integer result = practiceRoomService.selectListAllCount();
+    ResponseObject<Integer> ro = new ResponseObject<>("성공");
     ro.setData(result);
     return new ResponseEntity<>(ro, HttpStatus.OK);
   }

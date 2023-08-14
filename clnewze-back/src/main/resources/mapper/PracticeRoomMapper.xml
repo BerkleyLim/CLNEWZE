@@ -8,6 +8,10 @@
     <if test="categories != 'null'">
       where categories=#{categories}
     </if>
+    limit #{limit} offset #{pageNo}
+  </select>
+  <select id="selectListAllCount" resultType="int">
+    select count(*) from practiceroom
   </select>
   
   

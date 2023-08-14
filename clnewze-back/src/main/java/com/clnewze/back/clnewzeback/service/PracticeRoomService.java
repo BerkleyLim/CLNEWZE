@@ -21,8 +21,12 @@ public class PracticeRoomService {
   @Autowired
   PracticeRoomMenuCategoryMapper practiceRoomMenuCategoryMapper;
 
-  public List<PracticeRoom> selectList(String categories) {
-    return practiceRoomMapper.selectList(categories);
+  public List<PracticeRoom> selectList(String categories, int pageNo, int limit) {
+    return practiceRoomMapper.selectList(categories, pageNo, limit);
+  }
+
+  public int selectListAllCount() {
+    return practiceRoomMapper.selectListAllCount();
   }
 
   // 여기서부터 메뉴 관리

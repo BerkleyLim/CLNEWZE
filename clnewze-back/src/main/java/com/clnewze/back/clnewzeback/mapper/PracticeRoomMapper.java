@@ -10,5 +10,7 @@ import com.clnewze.back.clnewzeback.entity.dao.PracticeRoom;
 @Repository
 @Mapper
 public interface PracticeRoomMapper {
-  public List<PracticeRoom> selectList(String categories);
+  public List<PracticeRoom> selectList(String categories, int pageNo, int limit);
+
+  public int selectListAllCount();
 }
