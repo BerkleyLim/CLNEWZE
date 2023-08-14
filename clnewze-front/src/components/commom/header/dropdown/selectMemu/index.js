@@ -9,7 +9,7 @@ const SelectMenuIndex = () => {
       <InputGroup>
         <SelectMenuDropdown />
         <Input className="form-control" />
-        <Button>검색</Button>
+        <Button color="info">검색</Button>
       </InputGroup>
     </div>
   );
