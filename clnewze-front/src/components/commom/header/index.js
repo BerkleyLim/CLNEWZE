@@ -53,7 +53,7 @@ const HeaderComponent = (props) => {
         <div className={`${styles?.header_logo}`}>
           <a href="/">
             로고(추가예정)
-            <img src="" />
+            <img src="" alt="" />
           </a>
         </div>
         {innerWidth >= 860 ? (

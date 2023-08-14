@@ -8,7 +8,7 @@ const BoardForm = ({ teacher }) => {
       <h3>상세정보</h3>
       <h5 className={`${styles?.teacherDetailTitle}`}>{teacher?.title}</h5>
       <Nav className={`${styles?.commonCententDetailContainer}`}>
-        <img src={teacher?.img} className="album" />
+        <img src={teacher?.img} className="album" alt="" />
         <div className={`${styles?.detailContainer}`}>
           <div className="">성함 : {teacher?.username}</div>
           <div className="">위치 : {teacher?.address}</div>
