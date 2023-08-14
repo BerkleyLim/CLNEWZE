@@ -10,5 +10,7 @@ import com.clnewze.back.clnewzeback.entity.dao.SheetMusic;
 @Repository
 @Mapper
 public interface SheetMusicMapper {
-  public List<SheetMusic> selectList(String genre);
+  public List<SheetMusic> selectList(String genre, int pageNo, int limit);
+
+  public int selectListAllCount();
 }

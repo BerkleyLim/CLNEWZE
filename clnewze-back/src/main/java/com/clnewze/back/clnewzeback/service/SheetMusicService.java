@@ -20,8 +20,12 @@ public class SheetMusicService {
   @Autowired
   SheetMusicMenuCategoryMapper sheetMusicMenuCategoryMapper;
 
-  public List<SheetMusic> selectList(String genre) {
-    return sheetMusicMapper.selectList(genre);
+  public List<SheetMusic> selectList(String genre, int pageNo, int limit) {
+    return sheetMusicMapper.selectList(genre, pageNo, limit);
+  }
+
+  public int selectListAllCount() {
+    return sheetMusicMapper.selectListAllCount();
   }
 
   // 여기서부터 메뉴 관리

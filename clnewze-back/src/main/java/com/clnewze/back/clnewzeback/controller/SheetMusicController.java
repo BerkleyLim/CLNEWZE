@@ -34,10 +34,20 @@ public class SheetMusicController {
 
   @GetMapping("/selectList")
   public ResponseEntity<ResponseObject<List<SheetMusic>>> selectList(
-      @RequestParam(required = false) String genre) {
+      @RequestParam(required = false) String genre,
+      @RequestParam int pageNo,
+      @RequestParam int limit) {
 
-    List<SheetMusic> result = sheetMusicService.selectList(genre);
+    List<SheetMusic> result = sheetMusicService.selectList(genre, pageNo, limit);
     ResponseObject<List<SheetMusic>> ro = new ResponseObject<>("성공");
+    ro.setData(result);
+    return new ResponseEntity<>(ro, HttpStatus.OK);
+  }
+
+  @GetMapping("selectListAllCount")
+  public ResponseEntity<ResponseObject<Integer>> selectListAllCount() {
+    Integer result = sheetMusicService.selectListAllCount();
+    ResponseObject<Integer> ro = new ResponseObject<>("성공");
     ro.setData(result);
     return new ResponseEntity<>(ro, HttpStatus.OK);
   }

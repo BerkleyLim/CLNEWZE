@@ -10,5 +10,7 @@ import com.clnewze.back.clnewzeback.entity.dao.Teacher;
 @Repository
 @Mapper
 public interface TeacherMapper {
-  public List<Teacher> selectList(String major);
+  public List<Teacher> selectList(String major, int pageNo, int limit);
+
+  public int selectListAllCount();
 }

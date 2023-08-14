@@ -20,8 +20,12 @@ public class TeacherService {
   @Autowired
   TeacherMenuCategoryMapper teacherMenuCategoryMapper;
 
-  public List<Teacher> selectList(String major) {
-    return teacherMapper.selectList(major);
+  public List<Teacher> selectList(String major, int pageNo, int limit) {
+    return teacherMapper.selectList(major, pageNo, limit);
+  }
+
+  public int selectListAllCount() {
+    return teacherMapper.selectListAllCount();
   }
 
   /**

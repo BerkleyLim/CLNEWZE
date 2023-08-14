@@ -7,7 +7,12 @@
     select * from sheetmusic
     <if test="genre != 'null'">
       where genre=#{genre}
+      limit #{limit} offset #{pageNo}
     </if>
+  </select>
+
+  <select id="selectListAllCount" resultType="int">
+    select count(*) from sheetmusic
   </select>
   
   

@@ -33,10 +33,20 @@ public class TeacherController {
 
   @GetMapping("/selectList")
   public ResponseEntity<ResponseObject<List<Teacher>>> selectList(
-      @RequestParam(required = false) String major) {
+      @RequestParam(required = false) String major,
+      @RequestParam int pageNo,
+      @RequestParam int limit) {
 
-    List<Teacher> result = teacherService.selectList(major);
+    List<Teacher> result = teacherService.selectList(major, pageNo, limit);
     ResponseObject<List<Teacher>> ro = new ResponseObject<>("성공");
+    ro.setData(result);
+    return new ResponseEntity<>(ro, HttpStatus.OK);
+  }
+
+  @GetMapping("selectListAllCount")
+  public ResponseEntity<ResponseObject<Integer>> selectListAllCount() {
+    Integer result = teacherService.selectListAllCount();
+    ResponseObject<Integer> ro = new ResponseObject<>("성공");
     ro.setData(result);
     return new ResponseEntity<>(ro, HttpStatus.OK);
   }

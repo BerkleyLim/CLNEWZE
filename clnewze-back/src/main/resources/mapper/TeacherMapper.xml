@@ -7,7 +7,12 @@
     select * from teacher
     <if test="major != 'null'">
       where major=#{major}
+      limit #{limit} offset #{pageNo}
     </if>
+  </select>
+
+  <select id="selectListAllCount" resultType="int">
+    select count(*) from teacher
   </select>
   
   
