@@ -165,6 +165,8 @@ function AdminSheetmusic() {
               />
             </DndProvider>
           ))}
+          <td></td>
+          <td></td>
           <td>
             <Input
               name="name"
