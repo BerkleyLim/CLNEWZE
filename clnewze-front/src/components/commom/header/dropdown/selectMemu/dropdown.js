@@ -18,10 +18,10 @@ const SelectManuDropdown = () => {
   }
   return (
     <ButtonDropdown isOpen={dropdownOpen} direction="down" toggle={toggle}>
-        <Button outline>
+        <Button outline color="info">
           {dropdownMenu}
         </Button>
-        <DropdownToggle caret color="primary">
+        <DropdownToggle caret color="info">
           {/* 전체 */}
         </DropdownToggle>
         <DropdownMenu>
