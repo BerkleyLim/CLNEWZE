@@ -10,5 +10,6 @@ public class BlogVo {
   String title;
   String contents;
   Long viewNumber;
+  String userName;
   List<String> tag;
 }

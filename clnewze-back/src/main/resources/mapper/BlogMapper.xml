@@ -3,6 +3,11 @@
 <mapper namespace="com.clnewze.back.clnewzeback.mapper.BlogMapper">
   <select id="selectList" resultType="Blog">
     select * from blog
+    limit #{limit} offset #{pageNo}
+  </select>
+
+  <select id="selectListAllCount" resultType="int">
+    select count(*) from blog
   </select>
   
   

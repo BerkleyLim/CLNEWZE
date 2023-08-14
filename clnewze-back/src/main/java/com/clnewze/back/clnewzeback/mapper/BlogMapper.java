@@ -10,5 +10,7 @@ import com.clnewze.back.clnewzeback.entity.dao.Blog;
 @Repository
 @Mapper
 public interface BlogMapper {
-  public List<Blog> selectList();
+  public List<Blog> selectList(int pageNo, int limit);
+
+  public int selectListAllCount();
 }

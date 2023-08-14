@@ -26,10 +26,20 @@ public class BlogController {
    * @return
    */
   @GetMapping("/selectList")
-  public ResponseEntity<ResponseObject<List<BlogVo>>> selectList() throws Exception {
+  public ResponseEntity<ResponseObject<List<BlogVo>>> selectList(
+      @RequestParam int pageNo,
+      @RequestParam int limit) throws Exception {
 
-    List<BlogVo> result = blogService.selectList();
+    List<BlogVo> result = blogService.selectList(pageNo, limit);
     ResponseObject<List<BlogVo>> ro = new ResponseObject<>("성공");
+    ro.setData(result);
+    return new ResponseEntity<>(ro, HttpStatus.OK);
+  }
+
+  @GetMapping("selectListAllCount")
+  public ResponseEntity<ResponseObject<Integer>> selectListAllCount() {
+    Integer result = blogService.selectListAllCount();
+    ResponseObject<Integer> ro = new ResponseObject<>("성공");
     ro.setData(result);
     return new ResponseEntity<>(ro, HttpStatus.OK);
   }
