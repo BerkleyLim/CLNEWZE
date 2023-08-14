@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
-import styles from "../../sheetmusic.module.scss";
+  import styles from "../../sheetmusic.module.scss";
+import { useNavigate } from "react-router-dom";
 
 const BoardPagingnation = ({ totalPosts, limit, page, setPage }) => {
+  const navigate = useNavigate();
   const numPages = Math.ceil(totalPosts / limit);
   const [currPage, setCurrPage] = useState(page);
   let firstNum = currPage - (currPage % 5) + 1;
@@ -30,17 +32,24 @@ const BoardPagingnation = ({ totalPosts, limit, page, setPage }) => {
                 {" "}
                 {i < 4 ? (
                   <PaginationLink
-                    onClick={() => setPage(firstNum + i)}
-                    aria-current={page === firstNum + 1 + i ? "page" : null}
-                  >
+                    onClick={() => 
+                      {
+                        setPage(firstNum + i);
+                        navigate('/sheetmusic/' + (firstNum + i));
+                      }}
+                      aria-current={page === firstNum + 1 + i ? "page" : null}
+                      >
                     {firstNum + i}
                   </PaginationLink>
                 ) : (
                   /*
-                          i > 4 일때
-                        */
-                  <PaginationLink
-                    onClick={() => setPage(lastNum)}
+                  i > 4 일때
+                  */
+                 <PaginationLink
+                 onClick={() => {
+                   setPage(lastNum)
+                   navigate('/sheetmusic/' + (lastNum));
+                    }}
                     aria-current={page === lastNum ? "page" : null}
                   >
                     {lastNum}
