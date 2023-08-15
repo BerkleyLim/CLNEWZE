@@ -38,3 +38,17 @@
 3) 관리자용 - 대쉬보드 추가 (front단)
 - - wijmo 라이브러리 활용
 - - 참조 : https://stackblitz.com/edit/react-wijmo-salesdash-udsdv7?file=package.json
+
+<br/>
+### 15일
+1) back-end>jwt 기능추가
+- - jwt 먼저 샘플로 개발
+- - 현재 jwt Token 생성 완료
+- - 차후, H2 Database를 활용하여 token 값 검사 여부 구현 예정
+2) dto 구성에 맞게 수정
+- dao : jdbc를 직접 database를 연결하여 사용하는 것 (현재 my-batis 사용으로 쓰이지 않음)
+- dto : 데이터베이스 entity 역할을 수행하는 것 (가변성 역할 수행)
+- vo : 불가변성으로, 값을 전달할 때 쓰는 back-end 버전 entity로 주로 프론트엔드 개발자에게 data 전달
+
+
+
