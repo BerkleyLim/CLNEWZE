@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import "./login.scss"
+import styles from "./login.module.scss"
 import URI from "../util/URI";
 
 const LoginComponent = ({setLoginIsModal}) => {
@@ -34,52 +34,47 @@ const LoginComponent = ({setLoginIsModal}) => {
   };
 
   return (
-    <div className="modal-login">
-      <div className="login-logo"></div>
-      <div className="login-title">로그인을 하여 주시기 바랍니다.</div>
-      <div className="login-form">
-        <div className="flex-input">
-          <label className="flex-label-left">id : </label>
+    <div className={`${styles?.modalLogin}`}>
+      <div className={`${styles?.loginLogo}`}></div>
+      <div className={`${styles?.loginTitle}`}>로그인을 하여 주시기 바랍니다.</div>
+      <div className={`${styles?.loginForm}`}>
+        <div className={`${styles?.flexInput}`}>
+          <label className={`${styles?.flexLabelLeft}`}>id : </label>
           <input
             id="exampleId"
             name="id"
             placeholder="id"
             type="id"
-            className="flex-label-right"
+            className={`${styles?.flexLabelRight}`}
             onChange={onChange}
           />
         </div>
-        <div className="flex-input">
-          <label className="flex-label-left">Password : </label>
+        <div className={`${styles?.flexInput}`}>
+          <label className={`${styles?.flexLabelLeft}`}>Password : </label>
           <input
             id="examplePassword"
             name="password"
             placeholder="Password"
             type="password"
-            className="flex-label-right"
+            className={`${styles?.flexLabelRight}`}
             onChange={onChange}
           />
         </div>
       </div>
-      <div className="login-button-component">
+      <div className={`${styles?.loginButtonComponent}`}>
         <button
-          className="primary common-button login-button"
+          className={`primary ${styles?.commonButton} ${styles?.loginButton}`}
           onClick={loginButton}
         >
           로그인
         </button>
-        <button className="secondary common-button sign-in-button">
+        <button className={`secondary ${styles?.commonButton} ${styles?.signInButton}`}>
           회원가입
         </button>
-        <button className="secondary common-button find-id-password-button">
+        <button className={`secondary ${styles?.commonButton} ${styles?.findIdPasswordButton}`}>
           아이디/비밀번호 찾기
         </button>
       </div>
-      {/* <div style={{padding:"20px 20px 20px 20px"}}>
-            <br></br>
-            <p># 다음은 로그인 폼 UI를 어떻게 할지, 또는 권한을 무엇으로 드려야 할지 고민중입니다.</p>
-            <p> berkleylim16@gmail.com 으로 아이디어를 제시해주시면 감사드립니다. </p>
-          </div> */}
     </div>
   );
 };
