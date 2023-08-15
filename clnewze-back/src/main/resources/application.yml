@@ -72,7 +72,7 @@ jwt:
 # 참조 : https://jydlove.tistory.com/49
 # xml 대신 속성값으로 설정한다
 mybatis:
-  type-aliases-package: com.clnewze.back.clnewzeback.entity.dao
+  type-aliases-package: com.clnewze.back.clnewzeback.entity.dto
   configuration:
     cache-enabled: true
     use-column-label: true

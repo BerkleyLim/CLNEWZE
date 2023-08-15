@@ -1,4 +1,4 @@
-package com.clnewze.back.clnewzeback.entity.dao;
+package com.clnewze.back.clnewzeback.entity.dto;
 
 import java.time.LocalDate;
 

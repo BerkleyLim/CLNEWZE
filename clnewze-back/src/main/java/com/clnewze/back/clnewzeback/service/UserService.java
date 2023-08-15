@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.clnewze.back.clnewzeback.entity.dao.T_user;
+import com.clnewze.back.clnewzeback.entity.dto.T_user;
 import com.clnewze.back.clnewzeback.mapper.TUserMapper;
 
 @Service
