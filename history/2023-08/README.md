@@ -49,6 +49,9 @@
 - dao : jdbc를 직접 database를 연결하여 사용하는 것 (현재 my-batis 사용으로 쓰이지 않음)
 - dto : 데이터베이스 entity 역할을 수행하는 것 (가변성 역할 수행)
 - vo : 불가변성으로, 값을 전달할 때 쓰는 back-end 버전 entity로 주로 프론트엔드 개발자에게 data 전달
+3) 로그인 부분
+- Front-end : css 형식을 scss 형식으로 변경
+- 회원가입 부분 폼 양식 추가 (수정작업은 더 필요함)
 
 
 
