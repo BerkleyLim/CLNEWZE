@@ -38,13 +38,11 @@ const HeaderComponent = (props) => {
       setInnerWidth(window.innerWidth);
     };
     window.addEventListener("resize", resizeListener);
-    // console.log(innerWidth);
   }, [innerWidth]);
 
   // console.log(styles)
   return (
     // < !--헤더 작성: 맴버, 소개, 곡목록, 악보, 커뮤니티, 다국어기능, 검색-- >
-    // <div className="header">
     <div className={`${styles?.header}`}>
       <Modal isOpen={loginIsModal} toggle={modalToggle} centered={true}>
         <LoginForm setLoginIsModal={setLoginIsModal} />
@@ -59,8 +57,6 @@ const HeaderComponent = (props) => {
         {innerWidth >= 860 ? (
           <>
             <SelectMenuIndex />
-            {/* <SelectMenuDropDown /> */}
-
             {/* <!-- 여기는 그냥 100px의 여백 두기 --> */}
             <div style={{ display: "flex", width: "100px" }}></div>
 
@@ -93,12 +89,6 @@ const HeaderComponent = (props) => {
             <DropdownItem key={index} onClick={() => movePage(data?.category)}>{data?.menuName}</DropdownItem>
           )
         }
-        {/* <DropdownItem onClick={() => movePage("introduction")}>소개</DropdownItem>
-        <DropdownItem onClick={() => movePage("sheetmusic")}>악보</DropdownItem>
-        <DropdownItem onClick={() => movePage("teacher")}>레스너 찾기</DropdownItem>
-        <DropdownItem onClick={() => movePage("practiceRoom")}>연습실 정보</DropdownItem>
-        <DropdownItem onClick={() => movePage("blog")}>블로그</DropdownItem> */}
-        {/* <DropdownItem>etc..</DropdownItem> */}
       </DropdownMenu>
     </ButtonDropdown>
           </>
@@ -114,21 +104,6 @@ const HeaderComponent = (props) => {
               </button>
             )
           }
-          {/* <button type="button" onClick={() => movePage("introduction")}>
-            소개
-          </button>
-          <button type="button" onClick={() => movePage("sheetmusic")}>
-            악보
-          </button>
-          <button type="button" onClick={() => movePage("teacher")}>
-            레스너찾기
-          </button>
-          <button type="button" onClick={() => movePage("practiceRoom")}>
-            연습실정보
-          </button>
-          <button type="button" onClick={() => movePage("blog")}>
-            블로그
-          </button> */}
         </Navbar>
       )}
     </div>
