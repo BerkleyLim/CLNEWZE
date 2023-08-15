@@ -3,13 +3,15 @@ package com.clnewze.back.clnewzeback.controller;
 import java.security.NoSuchAlgorithmException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.clnewze.back.clnewzeback.entity.dao.T_user;
+import com.clnewze.back.clnewzeback.entity.dto.T_user;
+import com.clnewze.back.clnewzeback.jwt.JwtService;
 import com.clnewze.back.clnewzeback.service.UserService;
 
 import jakarta.servlet.http.HttpSession;
@@ -19,6 +21,9 @@ import jakarta.servlet.http.HttpSession;
 public class AuthController {
   @Autowired
   UserService userService;
+
+  @Autowired
+  JwtService jwtService;
 
   @PostMapping("/simplelogin")
   public Boolean simpleLogin(@RequestBody T_user t_user) throws NoSuchAlgorithmException {
@@ -32,5 +37,14 @@ public class AuthController {
     status.setComplete();
     // 세션을 꺼내 무효화시킨다.
     session.invalidate();
+  }
+
+  @GetMapping("jwt/test")
+  public String jwtTest() {
+    int userIdx = 1;
+    String jwt = jwtService.createJwt(userIdx);
+    System.out.println(jwt);
+    return jwt;
+    // return jwtService.getJwt();
   }
 }
