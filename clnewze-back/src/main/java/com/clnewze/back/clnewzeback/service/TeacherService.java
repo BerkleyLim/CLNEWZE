@@ -10,10 +10,10 @@ import com.clnewze.back.clnewzeback.entity.dto.TeacherMenuCategory;
 import com.clnewze.back.clnewzeback.mapper.TeacherMapper;
 import com.clnewze.back.clnewzeback.mapper.TeacherMenuCategoryMapper;
 
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 
 @Service
-@Slf4j
+@Log4j2
 public class TeacherService {
   @Autowired
   TeacherMapper teacherMapper;

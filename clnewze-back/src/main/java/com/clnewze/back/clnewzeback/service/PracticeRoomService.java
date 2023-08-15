@@ -10,10 +10,10 @@ import com.clnewze.back.clnewzeback.entity.dto.PracticeRoomMenuCategory;
 import com.clnewze.back.clnewzeback.mapper.PracticeRoomMapper;
 import com.clnewze.back.clnewzeback.mapper.PracticeRoomMenuCategoryMapper;
 
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 
 @Service
-@Slf4j
+@Log4j2
 public class PracticeRoomService {
   @Autowired
   PracticeRoomMapper practiceRoomMapper;

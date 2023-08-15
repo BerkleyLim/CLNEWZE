@@ -10,7 +10,10 @@ import com.clnewze.back.clnewzeback.entity.dto.Blog;
 import com.clnewze.back.clnewzeback.entity.vo.BlogVo;
 import com.clnewze.back.clnewzeback.mapper.BlogMapper;
 
+import lombok.extern.log4j.Log4j2;
+
 @Service
+@Log4j2
 public class BlogService {
   @Autowired
   BlogMapper blogMapper;

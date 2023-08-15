@@ -10,6 +10,7 @@ import com.clnewze.back.clnewzeback.entity.dto.T_user;
 import com.clnewze.back.clnewzeback.mapper.TUserMapper;
 
 @Service
+// @Log4j2
 public class UserService {
   @Autowired
   TUserMapper userMapper;

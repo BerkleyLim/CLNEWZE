@@ -11,7 +11,10 @@ import org.apache.pdfbox.rendering.ImageType;
 import org.apache.pdfbox.rendering.PDFRenderer;
 import org.springframework.stereotype.Service;
 
+import lombok.extern.log4j.Log4j2;
+
 @Service
+@Log4j2
 public class FileService {
 
   // 파일 서비스 로직 구현 (테스트용 파일)

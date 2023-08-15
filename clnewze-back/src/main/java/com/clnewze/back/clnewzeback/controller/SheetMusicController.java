@@ -19,10 +19,10 @@ import com.clnewze.back.clnewzeback.entity.model.ResponseObject;
 import com.clnewze.back.clnewzeback.service.FileService;
 import com.clnewze.back.clnewzeback.service.SheetMusicService;
 
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 
 @RestController
-@Slf4j
+@Log4j2
 @RequestMapping("/api/sheetmusic")
 public class SheetMusicController {
 

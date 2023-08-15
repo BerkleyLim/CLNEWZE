@@ -18,11 +18,11 @@ import com.clnewze.back.clnewzeback.entity.model.ResponseObject;
 import com.clnewze.back.clnewzeback.service.FileService;
 import com.clnewze.back.clnewzeback.service.PracticeRoomService;
 
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 
-@Slf4j
 @RestController
 @RequestMapping("/api/practiceroom")
+@Log4j2
 public class PracticeRoomController {
 
   @Autowired
