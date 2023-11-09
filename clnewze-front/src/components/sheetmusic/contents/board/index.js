@@ -15,7 +15,7 @@ const BoardIndex = ({ boards, onClickView }) => {
   return (
     <Row className={`${styles?.bootstrapRowAndColCenter}`}>
       {boards?.map((board, index) => (
-        <Col key={index} className={`${styles?.bootstrapRowAndColCenter}`}>
+        <Col key={index} className={`${styles?.bootstrapRowAndColCenter} mb-5`}>
           <Card
             style={{
               width: "18rem",
