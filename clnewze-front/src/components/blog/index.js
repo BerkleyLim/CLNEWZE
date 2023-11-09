@@ -17,13 +17,6 @@ const BlogIndex = () => {
   const [isModal, setIsModal] = useState(false);
   const [modalData, setModalData] = useState();
 
-  // const postsData = (posts) => {
-  //   if (!!posts) {
-  //     let result = posts?.slice(offset, offset + limit);
-  //     return result;
-  //   }
-  // };
-
   useEffect(() => {
     URI.get(
       process.env.REACT_APP_API_ROOT +

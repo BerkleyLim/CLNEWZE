@@ -24,13 +24,6 @@ const SheetMusics = (props) => {
   const [isModal, setIsModal] = useState(false);
   const [modalData, setModalData] = useState();
 
-  // const postsData = (posts) => {
-  //   if (!!posts) {
-  //     let result = posts?.slice(offset, offset + limit);
-  //     return result;
-  //   }
-  // };
-
   // 장르 설정 할때 마다
   useEffect(() => {
     URI.get(
@@ -72,7 +65,6 @@ const SheetMusics = (props) => {
         <Menu genre={selectGenre} genreList={genreList} />
 
         <div>
-          {/* <Board boards={postsData(boards)} onClickView={onClickView} /> */}
           <Board boards={boards} onClickView={onClickView} />
 
           {/* 모달 상세 출력 */}
@@ -83,7 +75,6 @@ const SheetMusics = (props) => {
           <Paging
             limit={limit}
             page={page}
-            // totalPosts={boards?.length}
             totalPosts={pagingCount}
             setPage={setPage}
           />
