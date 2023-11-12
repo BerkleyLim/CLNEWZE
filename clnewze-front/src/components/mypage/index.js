@@ -1,25 +1,27 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import {Routes, Route, useNavigate} from 'react-router-dom'; 
 
 import styles from "./mypage.module.scss"
 import { Col, Row } from 'reactstrap'
 
 import MypageInfo from "./user/index"
-import URI from "../util/URI"
-import { useDispatch } from 'react-redux';
 import AdminTeacher from './admin/teacher';
 import AdminPracticeRoom from './admin/practiceroom';
 import AdminSheetMusic from './admin/sheetmusic';
 import AdminDashboard from './admin/dashboard';
+import { useResetRecoilState } from 'recoil';
+import { userState } from '../../recoil/state/user';
 
 const MypageMain = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const moveMyPage = (menu) => {
     navigate("/mypage/" + menu);
   }
+
+  const logout = useResetRecoilState(userState);
+
   const toggleLogout = () => {
-    dispatch({ type: "logout" });
+    logout();
     window.location.href="/";
   };
   return (

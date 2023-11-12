@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import styles from "./login.module.scss"
 import URI from "../util/URI";
+import { useRecoilState } from "recoil";
+import { userState } from "../../recoil/state/user";
 
 const SignIn = ({setLoginIsModal, changeView}) => {
   const [inputs, setInputs] = useState();
-  const dispatch = useDispatch();
+  const [user, setUser] = useRecoilState(userState);
 
   // 입력
   const onChange = (e) => {
@@ -24,7 +25,12 @@ const SignIn = ({setLoginIsModal, changeView}) => {
     .then((response) => {
       if (response.data) {
         alert("로그인 성공")
-        dispatch({type:"setUser", isLogin:response.data, userId:"admin", role_admin:"admin", userNm:"admin"});
+        setUser({
+          ...user,
+          userId: "admin",
+          role_admin: "admin",
+          userNm: "admin",
+        })
         setLoginIsModal(false);
       } else {
         alert("로그인 실패")

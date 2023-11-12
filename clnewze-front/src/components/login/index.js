@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import styles from "./login.module.scss"
-import URI from "../util/URI";
 
 import SignIn from "./SignIn";
 import SignOn from "./SignOn";

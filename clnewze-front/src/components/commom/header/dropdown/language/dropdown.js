@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
-// import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
 import { ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap'
+import { useRecoilState } from 'recoil';
+import { languageState } from '../../../../../recoil/state/language';
 
 const LanguageDropdown = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
-  const dispatch = useDispatch();
-  // const language = useSelector(state => state.language);
+  const [language, setLanguage] = useRecoilState(languageState)
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
-  const onLanguageChange = (language) => {
-    dispatch({type:"setLanguage", language:language});
+  const onLanguageChange = (lan) => {
+    setLanguage({
+      ...language,
+      language: lan
+    })
   }
 
   return (

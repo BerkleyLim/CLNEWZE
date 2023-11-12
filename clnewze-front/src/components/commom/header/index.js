@@ -6,10 +6,11 @@ import { Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Mod
 import SelectMenuIndex from "./dropdown/selectMemu/index";
 import SelectLanguageIndex from "./dropdown/language/index";
 import LoginForm from "../../login/index";
-import { useSelector } from "react-redux";
 import { Alarm, CardList, PersonCircle } from "react-bootstrap-icons";
 
 import headerData from "./sampledata/data.json"
+import { useRecoilValue } from "recoil";
+import { userState } from "../../../recoil/state/user";
 
 const HeaderComponent = (props) => {
   let navigate = useNavigate();
@@ -17,7 +18,7 @@ const HeaderComponent = (props) => {
   const [mobileIsDropDown, setMobileIsDropDown] = useState(false);
   const modalToggle = () => setLoginIsModal(!loginIsModal);
   const mobileIsDropDownToggle = () => setMobileIsDropDown(!mobileIsDropDown);
-  const user = useSelector((state) => state.user);
+  const user = useRecoilValue(userState);
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
 
   const movePage = (link) => {
