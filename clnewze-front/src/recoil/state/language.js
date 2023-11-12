@@ -11,8 +11,8 @@ const InitState = {
   language : "ko"
 }
 
-export const foodState = atom({
-  key: 'user',
+export const languageState = atom({
+  key: 'language',
   default: InitState,
   effects_UNSTABLE: [persistAtom]
 });

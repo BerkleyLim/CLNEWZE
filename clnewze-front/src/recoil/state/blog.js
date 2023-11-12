@@ -14,8 +14,8 @@ const { persistAtom } = recoilPersist({
 //   detail:undefined,
 // };
 
-export const foodState = atom({
-  key: 'user',
+export const blogState = atom({
+  key: 'blog',
   default: [],
   effects_UNSTABLE: [persistAtom]
 });
