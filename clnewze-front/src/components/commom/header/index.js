@@ -18,8 +18,10 @@ const HeaderComponent = (props) => {
   const [mobileIsDropDown, setMobileIsDropDown] = useState(false);
   const modalToggle = () => setLoginIsModal(!loginIsModal);
   const mobileIsDropDownToggle = () => setMobileIsDropDown(!mobileIsDropDown);
-  const user = useRecoilValue(userState);
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+  const user = useRecoilValue(userState);
+
+  console.log(user)
 
   const movePage = (link) => {
     navigate(link);

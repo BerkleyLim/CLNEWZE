@@ -30,6 +30,7 @@ const SignIn = ({setLoginIsModal, changeView}) => {
           userId: "admin",
           role_admin: "admin",
           userNm: "admin",
+          isLogin: true
         })
         setLoginIsModal(false);
       } else {

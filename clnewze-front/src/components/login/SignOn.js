@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import styles from "./login.module.scss"
-import URI from "../util/URI";
 
 const SignOn = ({setLoginIsModal, changeView}) => {
   const [inputs, setInputs] = useState();
-  const dispatch = useDispatch();
 
   // 입력
   const onChange = (e) => {
