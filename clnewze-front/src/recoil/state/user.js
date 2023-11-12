@@ -1,6 +1,10 @@
 import { atom } from "recoil";
 import { recoilPersist } from "recoil-persist";
 
+const sessionStorage = 
+      typeof window !== 'undefined' ? window.sessionStorage : undefined
+
+
 const { persistAtom } = recoilPersist({
   key: 'recoil-persist', // this key is using to store data in local storage
   storage: sessionStorage, // configure which storage will be used to store the data
@@ -8,6 +12,7 @@ const { persistAtom } = recoilPersist({
 });
 
 const InitState = {
+  uno: 0,
   userId: undefined,
   userNm: undefined,
   nickNm: undefined,
