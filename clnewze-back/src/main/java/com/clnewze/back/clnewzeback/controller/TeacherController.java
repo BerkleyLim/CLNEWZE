@@ -86,7 +86,7 @@ public class TeacherController {
   public Integer orderbyChangeTeacherMenu(@RequestBody TeacherMenuCategory teacherMenuCategory) {
     log.info("controller : SheetMusicMenu : orderbyChangeTeacherMenu() 호출 성공");
     return teacherService.orderbyChangeTeacherMenu(teacherMenuCategory.getMtno(),
-        teacherMenuCategory.getOrderby());
+        teacherMenuCategory.getOrderByNo());
   }
 
   @PostMapping("/master/menu/update")

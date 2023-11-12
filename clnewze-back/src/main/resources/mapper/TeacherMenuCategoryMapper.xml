@@ -4,7 +4,7 @@
   
   <!-- 사용 Menu 리스트 출력 -->
   <select id="category" resultType="TeacherMenuCategory">
-    select * from master_menu_teacher order by orderby asc;
+    select * from master_menu_teacher order by order_by_no asc;
   </select>
 
   <!-- TeacherMenu 전체 수 조회 -->

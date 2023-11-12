@@ -8,7 +8,7 @@ import lombok.Data;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TeacherMenuCategory {
   Long mtno;
-  Long orderby;
+  Long orderByNo;
   String name;
   String category;
 }
