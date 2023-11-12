@@ -17,7 +17,7 @@ const InitState = {
   validated: false // 이 값은 현재 로그인중인지 아닌지 한번 서버측에 검증했음을 의미
 }
 
-export const foodState = atom({
+export const userState = atom({
   key: 'user',
   default: InitState,
   effects_UNSTABLE: [persistAtom]
