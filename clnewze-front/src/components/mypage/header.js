@@ -40,6 +40,7 @@ const MypageHeader = () => {
           <div className={`${styles?.profileImg}`}>
             <img
               src="/image/file/mypage/defalut-my-profile.png"
+              alt="my-profile"
               className={`${styles?.imgSize}`}
             />
           </div>
