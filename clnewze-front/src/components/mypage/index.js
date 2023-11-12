@@ -9,7 +9,7 @@ import AdminTeacher from './admin/teacher';
 import AdminPracticeRoom from './admin/practiceroom';
 import AdminSheetMusic from './admin/sheetmusic';
 import AdminDashboard from './admin/dashboard';
-import { useResetRecoilState } from 'recoil';
+import { useRecoilValue, useResetRecoilState } from 'recoil';
 import { userState } from '../../recoil/state/user';
 
 const MypageMain = () => {
@@ -19,7 +19,8 @@ const MypageMain = () => {
   }
 
   const logout = useResetRecoilState(userState);
-
+  const user = useRecoilValue(userState)
+  
   const toggleLogout = () => {
     logout();
     window.location.href="/";
