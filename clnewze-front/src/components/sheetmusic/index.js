@@ -7,7 +7,7 @@ import BoardForm from "./contents/board/form";
 import Paging from "./contents/board/paging";
 import styles from "./sheetmusic.module.scss";
 
-import URI from "../util/URI";
+import URI from "../../util/URI";
 import { Modal } from "reactstrap";
 import { useParams } from "react-router-dom";
 

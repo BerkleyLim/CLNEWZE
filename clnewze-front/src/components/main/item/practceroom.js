@@ -9,7 +9,7 @@ import {
   CarouselIndicators,
   CarouselItem,
 } from "reactstrap";
-import URI from "../../util/URI";
+import URI from "../../../util/URI";
 import PracticeRoom from '../../practiceRoom/contents/board/index';
 
 const MainPracticeRoom = () => {

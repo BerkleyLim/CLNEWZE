@@ -12,7 +12,7 @@ import {
 } from "reactstrap";
 import styles from "../../practiceRoom.module.scss";
 import DropdownForm from "./dropdown";
-import URI from "../../../util/URI";
+import URI from "../../../../util/URI";
 import { Search } from "react-bootstrap-icons";
 
 const ContentsMenu = ({categorieMenu}) => {

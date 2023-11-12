@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./login.module.scss"
-import URI from "../util/URI";
+import URI from "../../util/URI";
 import { useRecoilState } from "recoil";
 import { userState } from "../../recoil/state/user";
 

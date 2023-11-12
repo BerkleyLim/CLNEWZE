@@ -4,7 +4,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import update from "immutability-helper";
 import { Table, Button, Input } from "reactstrap";
 import DataTable from "./menu/dataTable";
-import URI from "../../../util/URI";
+import URI from "../../../../util/URI";
 
 function AdminSheetmusic() {
   const [menuData, setMenuData] = useState();

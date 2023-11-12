@@ -12,7 +12,7 @@ import {
 } from "reactstrap";
 import DropdownForm from "./dropdown";
 import styles from "../../sheetmusic.module.scss";
-import URI from "../../../util/URI";
+import URI from "../../../../util/URI";
 import { Search } from "react-bootstrap-icons";
 
 const ContentsMenu = ({ genreList }) => {

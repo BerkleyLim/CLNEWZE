@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./blog.module.scss";
-import URI from "../util/URI";
+import URI from "../../util/URI";
 import BlogList from './contents/index'
 import BoardPagingnation from "./contents/paging";
 import { useParams } from "react-router-dom";

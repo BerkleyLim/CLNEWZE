@@ -9,7 +9,7 @@ import {
   CarouselIndicators,
   CarouselItem,
 } from "reactstrap";
-import URI from "../../util/URI";
+import URI from "../../../util/URI";
 import SheetMusic from '../../sheetmusic/contents/board/index';
 
 const MainSheetMusic = () => {
