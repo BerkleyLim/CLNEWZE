@@ -14,7 +14,6 @@ import styles from "../../teacher.module.scss";
 import DropdownForm from "./dropdown";
 import URI from "../../../../util/URI";
 import { Search } from "react-bootstrap-icons";
-import SearchBox from "react-search-box";
 
 const ContentsMenu = ({ boards, majormenu }) => {
   const [menuData, setMenuData] = useState();
