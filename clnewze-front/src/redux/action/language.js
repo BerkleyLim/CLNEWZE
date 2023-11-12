@@ -1,18 +1,19 @@
+import { atom } from "recoil";
+import { recoilPersist } from "recoil-persist";
+
+const { persistAtom } = recoilPersist({
+  key: 'recoil-persist', // this key is using to store data in local storage
+  storage: sessionStorage, // configure which storage will be used to store the data
+  converter: JSON // configure how values will be serialized/deserialized in storage
+});
+
 const InitState = {
   language : "ko"
 }
 
-const userReducer = (state = InitState, action) => {
-  switch (action.type) {
-    case "setLanguage": 
-      return {
-      language:(!!action.language) ? action.language : state.language,
-    };
-    case "getLanguage":
-      return { ...state };
-    default:
-      return state;
-  }
-}
+export const foodState = atom({
+  key: 'user',
+  default: InitState,
+  effects_UNSTABLE: [persistAtom]
+});
 
-export default userReducer;

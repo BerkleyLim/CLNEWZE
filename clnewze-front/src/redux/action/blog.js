@@ -1,24 +1,22 @@
-const InitState = {
-  bno:undefined,
-  startDate:undefined,
-  endDate:undefined,
-  detail:undefined,
-};
+import { atom } from "recoil";
+import { recoilPersist } from "recoil-persist";
 
-function blogReducer(state = InitState, action) {
-  switch (action.type) {
-    case "setBlog":
-      return { ...state, 
-        cno: (!!action.cno) ? state.cno : action.cno,
-        startDate:(!!action.startDate) ? state.startDate : action.startDate,
-        endDate:(!!action.endDate) ? state.endDate : action.endDate,
-        detail:(!!action.endDate) ? state.endDate : action.endDate,
-      };
-    case "getBlog":
-      return { ...state };
-    default:
-      return { state };
-  }
-}
+const { persistAtom } = recoilPersist({
+  key: 'recoil-persist', // this key is using to store data in local storage
+  storage: sessionStorage, // configure which storage will be used to store the data
+  converter: JSON // configure how values will be serialized/deserialized in storage
+});
 
-export default blogReducer;
+// const InitState = {
+//   bno:undefined,
+//   startDate:undefined,
+//   endDate:undefined,
+//   detail:undefined,
+// };
+
+export const foodState = atom({
+  key: 'user',
+  default: [],
+  effects_UNSTABLE: [persistAtom]
+});
+

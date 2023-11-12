@@ -1,3 +1,12 @@
+import { atom } from "recoil";
+import { recoilPersist } from "recoil-persist";
+
+const { persistAtom } = recoilPersist({
+  key: 'recoil-persist', // this key is using to store data in local storage
+  storage: sessionStorage, // configure which storage will be used to store the data
+  converter: JSON // configure how values will be serialized/deserialized in storage
+});
+
 const InitState = {
   userId: undefined,
   userNm: undefined,
@@ -8,25 +17,8 @@ const InitState = {
   validated: false // 이 값은 현재 로그인중인지 아닌지 한번 서버측에 검증했음을 의미
 }
 
-const userReducer = (state = InitState, action) => {
-  switch (action.type) {
-    case "setUser": 
-      return {
-      userId: (!!action.userId) ? action.userId : state.userId,
-      userNm:(!!action.userNm) ? action.userNm : state.userNm,
-      nickNm:(!!action.nickNm) ? action.nickNm : state.nickNm,
-      role_admin:(!!action.role_admin) ? action.role_admin : state.role_admin,
-      user_company:(!!action.user_company) ? action.user_company : state.user_company,
-      isLogin:(!!action.isLogin) ? action.isLogin : state.isLogin,
-      validated:(!!action.validated) ? action.validated : state.validated,
-    };
-    case "getUser":
-      return { ...state };
-    case "logout":
-      return InitState;
-    default:
-      return state;
-  }
-}
-
-export default userReducer;
+export const foodState = atom({
+  key: 'user',
+  default: InitState,
+  effects_UNSTABLE: [persistAtom]
+});
