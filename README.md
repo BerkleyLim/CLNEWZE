@@ -31,9 +31,14 @@ React, Redux Session, JavaScript, scss/sass, npm, webpack, html, css, java, spri
 
 ### 작업 진행 사항 (사용자용 UI 기준)
 - 메뉴 : 악보 정보, 연습실 정보, 선생님 정보
+- Redux -> Recoil 변경
+- Custom Hook 형식 리팩토링 후, 중복코드 및 재사용성은 util로 분리
+- Session Storage에 미리 state 값 저장 방식 사용 
+  - 해당 페이지에 잠시 사용하고 버릴경우 : useState()
+  - 접속 시 state 값 유지된 페이지로 사용할 경우 : recoil state 방식 사용
 
 ### 베타 테스트 전, 작업 예정 사항
-- Redux 활용 -> React-Query와 Recoil로 리팩토링, Presentation&Component 디자인 패턴으로 전환 예정
+- Redux 활용 -> React-Query와 Recoil로 리팩토링, custom hooks 디자인 패턴으로 전환 예정
 - 공연 정보 : 공공 데이터를 이용하여 작업 진행
 - 블로그 : 개발자 커뮤니티 사이트인 Okky 기반으로 활용하여 음악인들 전용 커뮤니티 사이트 설정
 - JWT 적용, CORS 정책에 맞게 허용 url만 API 사용 적용, AWS Route53으로 도메인 등록, SSL을 등록하여 서버 운용
