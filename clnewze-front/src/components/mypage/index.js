@@ -10,7 +10,7 @@ import AdminPracticeRoom from './admin/practiceroom';
 import AdminSheetMusic from './admin/sheetmusic';
 import AdminDashboard from './admin/dashboard';
 import { useRecoilValue, useResetRecoilState } from 'recoil';
-import { userState } from '../../recoil/state/user';
+import { userState } from '../../recoil/state/userState';
 
 const MypageMain = () => {
   const navigate = useNavigate();

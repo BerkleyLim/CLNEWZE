@@ -10,7 +10,7 @@ import { Alarm, CardList, PersonCircle } from "react-bootstrap-icons";
 
 import headerData from "./sampledata/data.json"
 import { useRecoilValue } from "recoil";
-import { userState } from "../../../recoil/state/user";
+import { userState } from "../../../recoil/state/userState";
 
 const HeaderComponent = (props) => {
   let navigate = useNavigate();

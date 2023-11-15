@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap'
 import { useRecoilState } from 'recoil';
-import { languageState } from '../../../../../recoil/state/language';
+import { languageState } from '../../../../../recoil/state/languageState';
 
 const LanguageDropdown = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
