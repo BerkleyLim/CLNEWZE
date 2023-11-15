@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import Menu from "./contents/menu/teacherIndex";
+import Menu from "./contents/menu/TeacherMenuIndex";
 import Board from "./contents/board/index";
 import BoardForm from "./contents/board/form";
 import Paging from "./contents/board/paging";
