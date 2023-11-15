@@ -9,12 +9,14 @@ import styles from "./teacher.module.scss";
 import URI from "../../util/URI";
 import { Modal, Navbar } from "reactstrap";
 import { useParams } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { teacherState } from "../../recoil/state/teacherState";
 
 
 const Teachers = (props) => {
   const param = useParams();
   const { pageNo } = useParams();
-  const [boards, setBoards] = useState();
+  const [boards, setBoards] = useRecoilState(teacherState);
   const [selectMajor, setSelectMajor] = useState(null);
   // Pagination 관련
   const [page, setPage] = useState(param?.pageNo); // 페이지
@@ -25,18 +27,6 @@ const Teachers = (props) => {
   const [isModal, setIsModal] = useState(false);
   const [modalData, setModalData] = useState();
 
-  // const postsData = (posts) => {
-  //   if (!!posts) {
-  //     let result = posts?.slice(offset, offset + limit);
-  //     return result;
-  //   }
-  // };
-
-  // console.log(pageNo)
-  // useNavigate를 이용하여 페이지 이동
-
-
-  
     // 장르 설정 할때 마다
     useEffect(() => {
       URI.get(

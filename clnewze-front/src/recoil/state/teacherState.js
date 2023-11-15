@@ -10,7 +10,7 @@ const { persistAtom } = recoilPersist({
   converter: JSON // configure how values will be serialized/deserialized in storage
 });
 
-export const TeacherState = atom({
+export const teacherState = atom({
   key: 'teacher',
   default: [],
   effects_UNSTABLE: [persistAtom]
