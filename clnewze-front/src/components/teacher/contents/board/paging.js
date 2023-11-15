@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
 import styles from "../../teacher.module.scss";
 import { useNavigate } from "react-router-dom";
+import TeacherContainer from "../../../../hooks/TeacherContainer";
 
-const BoardPagingnation = ({ totalPosts, limit, page, setPage }) => {
+const BoardPagingnation = () => {
+  const { totalPosts, limit, page, setPage } = TeacherContainer();
+
   const navigate = useNavigate();
   const numPages = Math.ceil(totalPosts / limit);
   const [currPage, setCurrPage] = useState(page);

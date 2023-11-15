@@ -10,8 +10,12 @@ import {
   Row,
 } from "reactstrap";
 import styles from "../../teacher.module.scss";
+import TeacherContainer from "../../../../hooks/TeacherContainer";
 
-const BoardIndex = ({ boards, onClickView }) => {
+const BoardIndex = () => {
+
+  const {boards, onClickView} = TeacherContainer();
+
   return (
     <Row className={`${styles?.bootstrapRowAndColCenter} `}>
       {boards?.map((board, index) => (
