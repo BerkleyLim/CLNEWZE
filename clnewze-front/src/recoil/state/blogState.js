@@ -10,13 +10,6 @@ const { persistAtom } = recoilPersist({
   converter: JSON // configure how values will be serialized/deserialized in storage
 });
 
-// const InitState = {
-//   bno:undefined,
-//   startDate:undefined,
-//   endDate:undefined,
-//   detail:undefined,
-// };
-
 export const blogState = atom({
   key: 'blog',
   default: [],
