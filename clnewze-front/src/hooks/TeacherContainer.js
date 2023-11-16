@@ -4,22 +4,24 @@ import URI from "../util/URI";
 import { teacherState } from "../recoil/state/teacherState";
 import { useRecoilState, useResetRecoilState } from "recoil";
 import { modalState } from "../recoil/state/modalState";
-
+import { pagingNationState } from "../recoil/state/pagingNationState";
 
 const TeacherContainer = () => {
-  const param = useParams();
-  const { pageNo } = useParams();
+
   const [boards, setBoards] = useRecoilState(teacherState);
   const [selectMajor, setSelectMajor] = useState(null);
   // Pagination 관련
-  const [page, setPage] = useState(param?.pageNo); // 페이지
+  const [page, setPage] = useRecoilState(pagingNationState); // 페이지
   const limit = 10;
   const offset = (page - 1) * 10; // 시작점, 끝점 구하는 offset
   const [pagingCount, setPagingCount] = useState();
   // Pagination 관련 끝
   const [isModal, setIsModal] = useRecoilState(modalState);
+  const resetModal = useResetRecoilState(modalState);
   const [modalData, setModalData] = useState();
 
+
+  console.log(isModal)
   // 장르 설정 할때 마다
   useEffect(() => {
     URI.get(
@@ -41,6 +43,7 @@ const TeacherContainer = () => {
       .then((res) => setPagingCount(res.data.data))
       .catch((e) => console.error(e));
 
+    resetModal()
   }, []);
 
   const majorMenu = (major) => {
@@ -49,7 +52,7 @@ const TeacherContainer = () => {
 
   const onClickView = (board) => {
     setModalData(board);
-    setIsModal(!isModal);
+    toggleModal();
   };
 
   const toggleModal = () => setIsModal(!isModal);
@@ -64,9 +67,7 @@ const TeacherContainer = () => {
     modalData,
     setModalData,
     limit,
-    page,
     pagingCount,
-    setPage,
     toggleModal,
   };
 };

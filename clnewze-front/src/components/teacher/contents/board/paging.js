@@ -1,14 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
 import styles from "../../teacher.module.scss";
 import { useNavigate } from "react-router-dom";
 import TeacherContainer from "../../../../hooks/TeacherContainer";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { pagingNationState } from "../../../../recoil/state/pagingNationState";
+import { modalState } from "../../../../recoil/state/modalState";
 
 const BoardPagingnation = () => {
-  const { totalPosts, limit, page, setPage } = TeacherContainer();
+  // const { totalPosts, limit, page, setPage } = TeacherContainer();
+  const { pagingCount, limit } = TeacherContainer();
+  const page = useRecoilValue(pagingNationState)
+  const setPage = useSetRecoilState(pagingNationState)
 
   const navigate = useNavigate();
-  const numPages = Math.ceil(totalPosts / limit);
+  // const numPages = Math.ceil(totalPosts / limit);
+  const numPages = Math.ceil(pagingCount / limit);
   const [currPage, setCurrPage] = useState(page);
   let firstNum = currPage - (currPage % 5) + 1;
   let lastNum = currPage - (currPage % 5) + 5;
