@@ -24,7 +24,7 @@ const TeacherListComponent = () => {
             style={{
               width: "18rem",
             }}
-            onClick={() => onClickView(board)}
+            onClick={() => onClickView(board, index)}
             className={`${styles?.bootstrapRowAndColCenter}`}
           >
             <img alt="Card" className={`${styles?.teacherCard}`} src={board?.img} />

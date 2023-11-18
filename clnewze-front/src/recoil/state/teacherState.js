@@ -16,3 +16,7 @@ export const teacherState = atom({
   effects_UNSTABLE: [persistAtom]
 });
 
+export const teacherModalDataState = atom({
+  key: 'teacherModal',
+  default: {}
+})

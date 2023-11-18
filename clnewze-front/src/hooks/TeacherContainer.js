@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import URI from "../util/URI";
-import { teacherState } from "../recoil/state/teacherState";
+import { teacherModalDataState, teacherState } from "../recoil/state/teacherState";
 import { useRecoilState, useResetRecoilState } from "recoil";
 import { modalState } from "../recoil/state/modalState";
 import { pagingNationState } from "../recoil/state/pagingNationState";
@@ -18,10 +18,9 @@ const TeacherContainer = () => {
   // Pagination 관련 끝
   const [isModal, setIsModal] = useRecoilState(modalState);
   const resetModal = useResetRecoilState(modalState);
-  const [modalData, setModalData] = useState();
+  const [modalData, setModalData] = useRecoilState(teacherModalDataState);
+  const resetModalData = useResetRecoilState(teacherModalDataState)
 
-
-  console.log(isModal)
   // 장르 설정 할때 마다
   useEffect(() => {
     URI.get(
@@ -44,14 +43,20 @@ const TeacherContainer = () => {
       .catch((e) => console.error(e));
 
     resetModal()
+    resetModalData()
   }, []);
 
   const majorMenu = (major) => {
     setSelectMajor(major);
   };
 
-  const onClickView = (board) => {
-    setModalData(board);
+  // 리스트 클릭시 모달 데이터 출력시키기
+  const onClickView = (board, index) => {
+    console.log(board)
+    setModalData({
+      ...board,
+      index:index
+    });
     toggleModal();
   };
 
@@ -64,7 +69,6 @@ const TeacherContainer = () => {
     selectMajor,
     majorMenu,
     onClickView,
-    modalData,
     setModalData,
     limit,
     pagingCount,
