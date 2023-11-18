@@ -10,7 +10,7 @@ import {
   CarouselItem,
 } from "reactstrap";
 import URI from "../../../util/URI";
-import Teacher from '../../teacher/contents/board/index';
+import Teacher from '../../teacher/contents/board/TeacherListComponent';
 
 const MainTeacher = () => {
   const navigate = useNavigate();

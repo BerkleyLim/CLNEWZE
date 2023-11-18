@@ -12,7 +12,7 @@ import {
 import styles from "../../teacher.module.scss";
 import TeacherContainer from "../../../../hooks/TeacherContainer";
 
-const BoardIndex = () => {
+const TeacherListComponent = () => {
 
   const {boards, onClickView} = TeacherContainer();
 
@@ -43,4 +43,4 @@ const BoardIndex = () => {
   );
 };
 
-export default BoardIndex;
+export default TeacherListComponent;
