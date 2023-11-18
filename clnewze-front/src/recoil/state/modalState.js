@@ -1,7 +1,7 @@
 import { atom } from "recoil";
 
 export const modalState = atom({
-  key: 'language',
+  key: 'modal',
   default: false
 });
 
