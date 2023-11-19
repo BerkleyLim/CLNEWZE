@@ -18,7 +18,7 @@ const TeacherViewComponent = () => {
         <h3>상세정보</h3>
         <h5 className={`${styles?.teacherDetailTitle}`}>{modalData?.title}</h5>
         <Nav className={`${styles?.commonCententDetailContainer}`}>
-          <img src={modalData?.img} className="album" alt="" />
+          <img src={modalData?.img} className="album" style={{maxWidth:"250px"}} alt="" />
           <div className={`${styles?.detailContainer}`}>
             <div className="">성함 : {modalData?.username}</div>
             <div className="">위치 : {modalData?.address}</div>
