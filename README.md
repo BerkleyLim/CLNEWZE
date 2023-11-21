@@ -47,7 +47,7 @@ React, React-Query, Recoil, JavaScript, scss/sass, npm, html, css, java, springB
 ### 운영 이후 계획
 - 기능 편의성 개편
 - 필요 기능은 개발 과정 사이클 처럼 진행 할것
-- 차후, 앱 프로젝트도 병행하여 개발 예정
+- 차후, React Native 기반으로 앱 개발
 
 
 ### 개발 히스토리
