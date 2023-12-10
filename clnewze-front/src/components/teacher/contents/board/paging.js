@@ -7,7 +7,7 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import { pagingNationState } from "../../../../recoil/state/pagingNationState";
 import { modalState } from "../../../../recoil/state/modalState";
 
-const BoardPagingnation = () => {
+const TeachersPagingnation = () => {
   // const { totalPosts, limit, page, setPage } = TeacherContainer();
   const { pagingCount, limit } = TeacherContainer();
   const page = useRecoilValue(pagingNationState)
@@ -84,4 +84,4 @@ const BoardPagingnation = () => {
   );
 };
 
-export default BoardPagingnation;
+export default TeachersPagingnation;
