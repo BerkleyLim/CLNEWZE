@@ -17,7 +17,7 @@ const InitState = {
 
 export const languageState = atom({
   key: 'language',
-  default: InitState,
+  default: {...InitState},
   effects_UNSTABLE: [persistAtom]
 });
 
