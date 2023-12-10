@@ -14,28 +14,28 @@ import TeacherContainer from "../../../../hooks/TeacherContainer";
 
 const TeacherListComponent = () => {
 
-  const {boards, onClickView} = TeacherContainer();
+  const {teachers, onClickView} = TeacherContainer();
 
   return (
     <Row className={`${styles?.bootstrapRowAndColCenter} `}>
-      {boards?.map((board, index) => (
+      {teachers?.map((teacher, index) => (
         <Col key={index} className={`${styles?.bootstrapRowAndColCenter} mb-5`}>
           <Card
             style={{
               width: "18rem",
             }}
-            onClick={() => onClickView(board, index)}
+            onClick={() => onClickView(teacher, index)}
             className={`${styles?.bootstrapRowAndColCenter}`}
           >
-            <img alt="Card" className={`${styles?.teacherCard}`} src={board?.img} />
-            {/* 조회수 : {board?.viewNumber} */}
+            <img alt="Card" className={`${styles?.teacherCard}`} src={teacher?.img} />
+            {/* 조회수 : {teacher?.viewNumber} */}
             <CardBody>
-              <CardTitle className={`${styles?.commonEllipsisTitle}`} tag="h5">{board?.title}</CardTitle>
-              <CardText className={`${styles?.commonEllipsisContent}`}>● 성함 : {board?.name}</CardText>
-              <CardText className={`${styles?.commonEllipsisContent}`}>● 전공 : {board?.major}</CardText>
-              <CardText className={`${styles?.commonEllipsisContent}`}>● 위치 : {board?.place}</CardText>
+              <CardTitle className={`${styles?.commonEllipsisTitle}`} tag="h5">{teacher?.title}</CardTitle>
+              <CardText className={`${styles?.commonEllipsisContent}`}>● 성함 : {teacher?.name}</CardText>
+              <CardText className={`${styles?.commonEllipsisContent}`}>● 전공 : {teacher?.major}</CardText>
+              <CardText className={`${styles?.commonEllipsisContent}`}>● 위치 : {teacher?.place}</CardText>
             </CardBody>
-            <CardFooter>{board?.upLoadDate}</CardFooter>
+            <CardFooter>{teacher?.upLoadDate}</CardFooter>
           </Card>
         </Col>
       ))}
