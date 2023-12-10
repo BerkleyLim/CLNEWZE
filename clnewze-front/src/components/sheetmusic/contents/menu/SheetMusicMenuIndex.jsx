@@ -21,7 +21,7 @@ const ContentsMenu = ({ genreList }) => {
 
   useEffect(() => {
     URI.get(
-      process.env.REACT_APP_API_ROOT + "/api/sheetmusic/master/menu/category"
+      process.env.REACT_APP_API_ROOT + "sheetmusic/master/menu/category"
     )
       .then((res) => {
         setMenuData(res.data.data);

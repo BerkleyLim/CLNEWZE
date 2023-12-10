@@ -22,7 +22,7 @@ const MainSheetMusic = () => {
   useEffect(() => {
     URI.get(
       process.env.REACT_APP_API_ROOT +
-        "/api/sheetmusic/selectList?genre=null"
+        "sheetmusic/selectList?genre=null"
     )
       .then((res) => setItems(res.data?.data))
       .catch((e) => console.error(e));

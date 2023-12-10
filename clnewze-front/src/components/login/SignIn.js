@@ -18,7 +18,7 @@ const SignIn = ({setLoginIsModal, changeView}) => {
   };
   const loginButton = () => {
     // 입력 (차후 복잡한 권한을 부여 받을 예정 => jwt 도입 예정)
-    URI.post(process.env.REACT_APP_API_ROOT + "/api/auth/simplelogin", {
+    URI.post(process.env.REACT_APP_API_ROOT + "auth/simplelogin", {
       id: inputs.id,
       password: inputs.password,
     })

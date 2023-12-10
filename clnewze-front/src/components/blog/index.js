@@ -20,7 +20,7 @@ const BlogIndex = () => {
   useEffect(() => {
     URI.get(
       process.env.REACT_APP_API_ROOT +
-        "/api/blog/selectList" 
+        "blog/selectList" 
           + "?pageNo=" + offset
           + "&limit=" + limit
     )
@@ -33,7 +33,7 @@ const BlogIndex = () => {
   useEffect(() => {
     URI.get(
       process.env.REACT_APP_API_ROOT + 
-        "/api/blog/selectListAllCount"
+        "blog/selectListAllCount"
     )
       .then((res) => setPagingCount(res.data.data))
       .catch((e) => console.error(e))

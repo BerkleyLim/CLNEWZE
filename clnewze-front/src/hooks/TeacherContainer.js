@@ -27,7 +27,7 @@ const TeacherContainer = () => {
   const selectTeacher = () => {
     URI.get(
       process.env.REACT_APP_API_ROOT +
-        "/api/teacher/selectList" +
+        "teacher/selectList" +
         "?major=" +
         selectMajor +
         "&pageNo=" +
@@ -54,7 +54,7 @@ const TeacherContainer = () => {
   }, [selectMajor, offset]);
 
   useEffect(() => {
-    URI.get(process.env.REACT_APP_API_ROOT + "/api/teacher/selectListAllCount")
+    URI.get(process.env.REACT_APP_API_ROOT + "teacher/selectListAllCount")
       .then((res) => setPagingCount(res.data.data))
       .catch((e) => console.error(e));
 

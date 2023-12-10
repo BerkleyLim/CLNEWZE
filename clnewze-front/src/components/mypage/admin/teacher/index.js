@@ -25,7 +25,7 @@ function AdminTeacher() {
 
   useEffect(() => {
     URI.get(
-      process.env.REACT_APP_API_ROOT + "/api/teacher/master/menu/category"
+      process.env.REACT_APP_API_ROOT + "teacher/master/menu/category"
     )
       .then((res) => {
         setMenuData(res.data.data);
@@ -68,7 +68,7 @@ function AdminTeacher() {
   // Teacher Menu 삽입 기능 추가
   const addMenu = () => {
     URI.post(
-      process.env.REACT_APP_API_ROOT + "/api/teacher/master/menu/create",
+      process.env.REACT_APP_API_ROOT + "teacher/master/menu/create",
       createMenuData
       )
       .then((res) => {
@@ -91,7 +91,7 @@ function AdminTeacher() {
 
     menuData?.map((data) => {
       URI.post(
-        process.env.REACT_APP_API_ROOT + "/api/teacher/master/menu/change/orderby",
+        process.env.REACT_APP_API_ROOT + "teacher/master/menu/change/orderby",
         data
       )
         .then((res) => {
@@ -109,7 +109,7 @@ function AdminTeacher() {
   const deleteMenu = (index) => {
     let deleteData = menuData[index];
     
-    URI.post(process.env.REACT_APP_API_ROOT + "/api/teacher/master/menu/delete", deleteData)
+    URI.post(process.env.REACT_APP_API_ROOT + "teacher/master/menu/delete", deleteData)
     .then((res) => {
       setMenuData(
         update(menuData, {
@@ -126,7 +126,7 @@ function AdminTeacher() {
 
   // Teacher Menu 수정
   const updateMenu = (data, index) => {
-    URI.post(process.env.REACT_APP_API_ROOT + "/api/teacher/master/menu/update", data)
+    URI.post(process.env.REACT_APP_API_ROOT + "teacher/master/menu/update", data)
     .then((res) => {
         setMenuData(
           update(menuData, {

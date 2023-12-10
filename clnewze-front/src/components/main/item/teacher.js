@@ -22,7 +22,7 @@ const MainTeacher = () => {
   useEffect(() => {
     URI.get(
       process.env.REACT_APP_API_ROOT +
-        "/api/teacher/selectList?major=null"
+        "teacher/selectList?major=null"
     )
       .then((res) => setItems(res.data?.data))
       .catch((e) => console.error(e));

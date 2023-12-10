@@ -25,7 +25,7 @@ function AdminSheetmusic() {
 
   useEffect(() => {
     URI.get(
-      process.env.REACT_APP_API_ROOT + "/api/sheetmusic/master/menu/category"
+      process.env.REACT_APP_API_ROOT + "sheetmusic/master/menu/category"
     )
       .then((res) => {
         setMenuData(res.data.data);
@@ -68,7 +68,7 @@ function AdminSheetmusic() {
   // SheetMusic Menu 삽입 기능 추가
   const addMenu = () => {
     URI.post(
-      process.env.REACT_APP_API_ROOT + "/api/sheetmusic/master/menu/create",
+      process.env.REACT_APP_API_ROOT + "sheetmusic/master/menu/create",
       createMenuData
       )
       .then((res) => {
@@ -91,7 +91,7 @@ function AdminSheetmusic() {
 
     menuData?.map((data) => {
       URI.post(
-        process.env.REACT_APP_API_ROOT + "/api/sheetmusic/master/menu/change/orderby",
+        process.env.REACT_APP_API_ROOT + "sheetmusic/master/menu/change/orderby",
         data
       )
         .then((res) => {
@@ -109,7 +109,7 @@ function AdminSheetmusic() {
   const deleteMenu = (index) => {
     let deleteData = menuData[index];
     
-    URI.post(process.env.REACT_APP_API_ROOT + "/api/sheetmusic/master/menu/delete", deleteData)
+    URI.post(process.env.REACT_APP_API_ROOT + "sheetmusic/master/menu/delete", deleteData)
     .then((res) => {
       setMenuData(
         update(menuData, {
@@ -126,7 +126,7 @@ function AdminSheetmusic() {
 
   // SheetMusic Menu 수정
   const updateMenu = (data, index) => {
-    URI.post(process.env.REACT_APP_API_ROOT + "/api/sheetmusic/master/menu/update", data)
+    URI.post(process.env.REACT_APP_API_ROOT + "sheetmusic/master/menu/update", data)
     .then((res) => {
         setMenuData(
           update(menuData, {

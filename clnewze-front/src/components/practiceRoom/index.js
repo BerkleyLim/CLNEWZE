@@ -35,7 +35,7 @@ const PracticeRoom = (props) => {
   useEffect(() => {
     URI.get(
       process.env.REACT_APP_API_ROOT +
-        "/api/practiceroom/selectList"
+        "practiceroom/selectList"
           + "?categories=" + selectCategories
           + "&pageNo=" + offset
           + "&limit=" + limit
@@ -48,7 +48,7 @@ const PracticeRoom = (props) => {
   useEffect(() => {
     URI.get(
       process.env.REACT_APP_API_ROOT + 
-        "/api/practiceroom/selectListAllCount"
+        "practiceroom/selectListAllCount"
     )
       .then((res) => setPagingCount(res.data.data))
       .catch((e) => console.error(e))

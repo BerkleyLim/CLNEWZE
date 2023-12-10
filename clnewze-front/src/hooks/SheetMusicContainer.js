@@ -29,7 +29,7 @@ const SheetMusicContainer = () => {
   const selectSheetMusic = () => {
     URI.get(
       process.env.REACT_APP_API_ROOT +
-        "/api/sheetmusic/selectList"
+        "sheetmusic/selectList"
           + "?genre=" + selectGenre
           + "&pageNo=" + offset
           + "&limit=" + limit
@@ -51,7 +51,7 @@ const SheetMusicContainer = () => {
 
   useEffect(() => {
     URI.get(
-      process.env.REACT_APP_API_ROOT + "/api/sheetmusic/selectListAllCount"
+      process.env.REACT_APP_API_ROOT + "sheetmusic/selectListAllCount"
     )
       .then((res) => setPagingCount(res.data.data))
       .catch((e) => console.error(e));

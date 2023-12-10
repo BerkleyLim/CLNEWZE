@@ -21,7 +21,7 @@ const ContentsMenu = ({ teachers, majormenu }) => {
 
   useEffect(() => {
     URI.get(
-      process.env.REACT_APP_API_ROOT + "/api/teacher/master/menu/category"
+      process.env.REACT_APP_API_ROOT + "teacher/master/menu/category"
     )
       .then((res) => {
         setMenuData(res.data.data);

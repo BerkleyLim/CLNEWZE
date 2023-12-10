@@ -21,7 +21,7 @@ const ContentsMenu = ({categorieMenu}) => {
 
   useEffect(() => {
     URI.get(
-      process.env.REACT_APP_API_ROOT + "/api/practiceroom/master/menu/category"
+      process.env.REACT_APP_API_ROOT + "practiceroom/master/menu/category"
     )
       .then((res) => {
         setMenuData(res.data.data);

@@ -22,7 +22,7 @@ const MainPracticeRoom = () => {
   useEffect(() => {
     URI.get(
       process.env.REACT_APP_API_ROOT +
-        "/api/practiceroom/selectList?categories=" +
+        "practiceroom/selectList?categories=" +
         null
     )
       .then((res) => setItems(res.data.data))
