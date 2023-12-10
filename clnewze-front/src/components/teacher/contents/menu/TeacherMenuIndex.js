@@ -15,7 +15,7 @@ import DropdownForm from "./dropdown";
 import URI from "../../../../util/URI";
 import { Search } from "react-bootstrap-icons";
 
-const ContentsMenu = ({ boards, majormenu }) => {
+const ContentsMenu = ({ teachers, majormenu }) => {
   const [menuData, setMenuData] = useState();
   const [isDetail, setIsDetail] = useState(false);
 
@@ -53,7 +53,7 @@ const ContentsMenu = ({ boards, majormenu }) => {
                 placeholder="Placeholder"
                 // value="Doe"
                 className="form-control"
-                data={boards}
+                data={teachers}
                 callback={(record) => console.log(record)}
               />
               {/* <Input className="form-control" title="검색어 입력" /> */}
