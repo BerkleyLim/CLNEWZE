@@ -25,3 +25,8 @@ export const teacherPagingNationState = atom({
   key: 'teacherPagingNation',
   default: 0
 });
+
+export const teacherModalState = atom({
+  key: 'teacherModal',
+  default: false
+});

@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import URI from "../util/URI";
 import {
   teacherModalDataState,
+  teacherModalState,
   teacherPagingNationState,
   teacherState,
 } from "../recoil/state/teacherState";
 import { useRecoilState, useResetRecoilState } from "recoil";
-import { modalState } from "../recoil/state/modalState";
 import { useQuery } from "react-query";
 
 const TeacherContainer = () => {
@@ -18,8 +18,8 @@ const TeacherContainer = () => {
   const offset = (page - 1) * 10; // 시작점, 끝점 구하는 offset
   const [pagingCount, setPagingCount] = useState();
   // Pagination 관련 끝
-  const [isModal, setIsModal] = useRecoilState(modalState);
-  const resetModal = useResetRecoilState(modalState);
+  const [isModal, setIsModal] = useRecoilState(teacherModalState);
+  const resetModal = useResetRecoilState(teacherModalState);
   const [modalData, setModalData] = useRecoilState(teacherModalDataState);
   const resetModalData = useResetRecoilState(teacherModalDataState);
 
