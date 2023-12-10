@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import Menu from "./contents/menu/TeacherMenuIndex";
 import TeacherListComponent from "./contents/board/TeacherListComponent";
@@ -20,13 +20,6 @@ const Teachers = (props) => {
           <TeacherViewComponent />
 
           <Paging />
-          {/* <Paging
-            limit={limit}
-            page={page}
-            // totalPosts={boards?.length}
-            totalPosts={pagingCount}
-            setPage={setPage}
-          /> */}
         </div>
       </div>
     </div>
