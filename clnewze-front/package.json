@@ -55,6 +55,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "dev": "env-cmd -f .env.development.local react-scripts build && set HTTPS=true SSL_CRT_FILE=./cert.pem SSL_KEY_FILE=./key.pem && nohub serve -s build &",
+    "prod": "env-cmd -f .env.production.local react-scripts build && set HTTPS=true SSL_CRT_FILE=./cert.pem SSL_KEY_FILE=./key.pem && nohup serve -s build &",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
