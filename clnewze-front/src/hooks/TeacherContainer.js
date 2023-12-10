@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import URI from "../util/URI";
 import {
   teacherModalDataState,
-  teacherModalState,
+  teacherModalIsOpenState,
   teacherPagingNationState,
   teacherState,
 } from "../recoil/state/teacherState";
@@ -18,8 +18,8 @@ const TeacherContainer = () => {
   const offset = (page - 1) * 10; // 시작점, 끝점 구하는 offset
   const [pagingCount, setPagingCount] = useState();
   // Pagination 관련 끝
-  const [isModal, setIsModal] = useRecoilState(teacherModalState);
-  const resetModal = useResetRecoilState(teacherModalState);
+  const [isModal, setIsModal] = useRecoilState(teacherModalIsOpenState);
+  const resetModal = useResetRecoilState(teacherModalIsOpenState);
   const [modalData, setModalData] = useRecoilState(teacherModalDataState);
   const resetModalData = useResetRecoilState(teacherModalDataState);
 
@@ -79,7 +79,6 @@ const TeacherContainer = () => {
 
   // 리스트 클릭시 모달 데이터 출력시키기
   const onClickView = (teacher, index) => {
-    console.log(teacher);
     setModalData({
       ...teacher,
       index: index,

@@ -17,7 +17,7 @@ export const teacherState = atom({
 });
 
 export const teacherModalDataState = atom({
-  key: 'teacherModal',
+  key: 'teacherModalData',
   default: {}
 })
 
@@ -26,7 +26,7 @@ export const teacherPagingNationState = atom({
   default: 0
 });
 
-export const teacherModalState = atom({
-  key: 'teacherModal',
+export const teacherModalIsOpenState = atom({
+  key: 'teacherModalIsOpen',
   default: false
 });

@@ -3,13 +3,15 @@ import { Modal, Nav, Navbar } from "reactstrap";
 import styles from "../../teacher.module.scss";
 import TeacherContainer from "../../../../hooks/TeacherContainer";
 import { useRecoilValue } from "recoil";
-import { teacherModalDataState, teacherModalState } from "../../../../recoil/state/teacherState";
+import { teacherModalDataState, teacherModalIsOpenState } from "../../../../recoil/state/teacherState";
 
 const TeacherViewComponent = () => {
   const { toggleModal } = TeacherContainer();
   const modalData = useRecoilValue(teacherModalDataState)
 
-  const isModal = useRecoilValue(teacherModalState)
+  const isModal = useRecoilValue(teacherModalIsOpenState)
+
+  console.log(modalData)
 
   return (
     <Modal isOpen={isModal} toggle={toggleModal} centered={true} size="xl">
