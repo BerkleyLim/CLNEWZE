@@ -20,3 +20,8 @@ export const teacherModalDataState = atom({
   key: 'teacherModal',
   default: {}
 })
+
+export const teacherPagingNationState = atom({
+  key: 'teacherPagingNation',
+  default: 0
+});
