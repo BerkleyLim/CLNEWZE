@@ -1,20 +1,19 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import URI from "../util/URI";
 import {
   teacherModalDataState,
+  teacherPagingNationState,
   teacherState,
 } from "../recoil/state/teacherState";
 import { useRecoilState, useResetRecoilState } from "recoil";
 import { modalState } from "../recoil/state/modalState";
-import { pagingNationState } from "../recoil/state/pagingNationState";
 import { useQuery } from "react-query";
 
 const TeacherContainer = () => {
   const [teachers, setTeachers] = useRecoilState(teacherState);
   const [selectMajor, setSelectMajor] = useState(null);
   // Pagination 관련
-  const [page, setPage] = useRecoilState(pagingNationState); // 페이지
+  const [page, setPage] = useRecoilState(teacherPagingNationState); // 페이지
   const limit = 10;
   const offset = (page - 1) * 10; // 시작점, 끝점 구하는 offset
   const [pagingCount, setPagingCount] = useState();
