@@ -2,10 +2,17 @@ import React, { useState } from "react";
 import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
   import styles from "../../sheetmusic.module.scss";
 import { useNavigate } from "react-router-dom";
+import SheetMusicContainer from "../../../../hooks/SheetMusicContainer";
+import { sheetMusicPagingNationState } from "../../../../recoil/state/sheetMusicState";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 
-const BoardPagingnation = ({ totalPosts, limit, page, setPage }) => {
+const SheetMusicPagingnation = () => {
+  const { pagingCount, limit } = SheetMusicContainer();
+  const page = useRecoilValue(sheetMusicPagingNationState)
+  const setPage = useSetRecoilState(sheetMusicPagingNationState)
+
   const navigate = useNavigate();
-  const numPages = Math.ceil(totalPosts / limit);
+  const numPages = Math.ceil(pagingCount / limit);
   const [currPage, setCurrPage] = useState(page);
   let firstNum = currPage - (currPage % 5) + 1;
   let lastNum = currPage - (currPage % 5) + 5;
@@ -74,4 +81,4 @@ const BoardPagingnation = ({ totalPosts, limit, page, setPage }) => {
   );
 };
 
-export default BoardPagingnation;
+export default SheetMusicPagingnation;

@@ -7,7 +7,7 @@ import Footer from "./components/commom/footer/index";
 import Introduction from "./components/introduction/index";
 import Performance from "./components/performance/index";
 import PracticeRoom from "./components/practiceRoom/index";
-import SheetMusic from "./components/sheetmusic/index";
+import SheetMusic from "./components/sheetmusic/SheetMusicComponent";
 import Teacher from "./components/teacher/TeachersComponent";
 import Blog from "./components/blog/index";
 

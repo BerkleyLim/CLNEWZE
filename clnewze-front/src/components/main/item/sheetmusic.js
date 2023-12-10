@@ -10,7 +10,7 @@ import {
   CarouselItem,
 } from "reactstrap";
 import URI from "../../../util/URI";
-import SheetMusic from '../../sheetmusic/contents/board/index';
+import SheetMusic from '../../sheetmusic/contents/board/SheetMusicListComponent';
 
 const MainSheetMusic = () => {
   const navigate = useNavigate();
