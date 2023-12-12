@@ -58,7 +58,7 @@ React, React-Query, Recoil, JavaScript, scss/sass, npm, html, css, java, springB
 ### 개발 후 기대 숙련도
 - 프론트엔드 화면단 : React 기반으로 state 관리 가능, React를 이용하는 프로젝트의 대해 누구보다도 더 잘할 수 있음
 - 백엔드 서버단 : Spring Boot 기반으로 API 및 비즈니스 로직 구현, API 개발 뿐만 아닌 인증, 보안 가능
-- 서버 & 인프라 개발 : AWS 기반으로 서버 런칭 가능, nginx로 이용하여 서버 포워딩 가능, 트래픽 제어 가능
+- 서버 & 인프라 개발 : AWS 기반으로 서버 런칭 가능, nginx로 이용하여 서버 포워딩 가능, 트래픽 제어 가능, SSL 연동 가능
 
 ### Gettings start
 
