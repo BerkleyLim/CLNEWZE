@@ -23,7 +23,7 @@
 - Spring boot
 - MySQL
 - Windows 11
-- AWS(운영서버)
+- AWS(운영서버) - 로드 밸런싱으로 서버 3대 배치 예정
 
 ### 사용 스택
 ```
@@ -45,8 +45,8 @@ React, React-Query, Recoil, JavaScript, scss/sass, npm, html, css, java, springB
 - JWT 적용, CORS 정책에 맞게 허용 url만 API 사용 적용, AWS Route53으로 도메인 등록, SSL을 등록하여 서버 운용
 - 관리자 페이지 : 헤더 정보 및 글정보 관리 등 활용, 공지사항, QnA 게시판 개발
 
-### 운영 이후 계획
-- 1년 동안 공부 목적으로 사용자 트래픽 확인
+### 베타테스트 종료 이후 운영 계획
+- 운영 하고 1년동안 실제 사용 경험을 통해 DevOps 능력까지 익혀본다.
 - 기능 편의성 개편
 - 필요 기능은 개발 과정 사이클 처럼 진행 할것
 - 차후, React Native 기반으로 앱 운영 예정 
