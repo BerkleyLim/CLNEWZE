@@ -17,13 +17,10 @@
 ### 개발 환경
 - Maven XX
 - VS code
-- Java
-- React
-- My-batis
-- Spring boot
+- Java 11 -> 17
+- Nodejs 16 -> 20
 - MySQL
 - Windows 11
-- AWS(운영서버) - 로드 밸런싱으로 서버 3대 배치 예정
 
 ### 사용 스택
 ```
