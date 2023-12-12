@@ -17,6 +17,7 @@
 ### 개발 환경
 - Maven XX
 - VS code
+- Java
 - React
 - My-batis
 - Spring boot
@@ -45,9 +46,12 @@ React, React-Query, Recoil, JavaScript, scss/sass, npm, html, css, java, springB
 - 관리자 페이지 : 헤더 정보 및 글정보 관리 등 활용, 공지사항, QnA 게시판 개발
 
 ### 운영 이후 계획
+- 1년 동안 공부 목적으로 사용자 트래픽 확인
 - 기능 편의성 개편
 - 필요 기능은 개발 과정 사이클 처럼 진행 할것
-- 차후, React Native 기반으로 앱 개발
+- 차후, React Native 기반으로 앱 운영 예정 
+- Java -> Kotlin 기반으로 전환 예정
+- SEO 기능을 탑재하여 서비스 홍보 작업 실시
 
 
 ### 개발 히스토리
