@@ -39,6 +39,7 @@ React, React-Query, Recoil, JavaScript, scss/sass, npm, html, css, java, springB
 ### 베타 테스트 전, 작업 예정 사항
 - Redux 활용 -> React-Query와 Recoil로 리팩토링, custom hooks 디자인 패턴으로 전환 예정
 - JWT 없이 test로 누구나 접속 할 수 있게 설정
+- test1, test2 사용자만 사용 할 수 있도록 설정하여 배포
 - 사용자 권한만 부여
 - 작은 버그를 몇개 놔두고 방치 예정 (무단 복제 및 배포 방지용)
 
