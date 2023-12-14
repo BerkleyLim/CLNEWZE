@@ -10,7 +10,7 @@ import {
   CarouselItem,
 } from "reactstrap";
 import URI from "../../../util/URI";
-import PracticeRoom from '../../practiceRoom/contents/board/index';
+import PracticeRoom from '../../practiceRoom/contents/board/PracticeRoomListComponent';
 
 const MainPracticeRoom = () => {
   const navigate = useNavigate();

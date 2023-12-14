@@ -7,7 +7,7 @@ import MainQna from "./item/qna";
 import MainCommunity from "./item/community";
 import MainSheetMusic from "./item/sheetmusic";
 import MainTeacher from "./item/teacher";
-import MainPracticeRoom from "./item/practceroom";
+import MainPracticeRoom from "./item/practiceRoom";
 
 const Main = () => {
   return (

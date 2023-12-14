@@ -2,10 +2,17 @@ import React, { useState } from "react";
 import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
 import styles from "../../practiceRoom.module.scss";
 import { useNavigate } from "react-router-dom";
+import PracticeRoomContainer from "../../../../hooks/PracticeRoomContainer";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { practiceRoomPagingNationState } from "../../../../recoil/state/practiceRoomState";
 
-const BoardPagingnation = ({ totalPosts, limit, page, setPage }) => {
+const BoardPagingnation = () => {
+  const { pagingCount, limit } = PracticeRoomContainer();
+  const page = useRecoilValue(practiceRoomPagingNationState)
+  const setPage = useSetRecoilState(practiceRoomPagingNationState)
+
   const navigate = useNavigate();
-  const numPages = Math.ceil(totalPosts / limit);
+  const numPages = Math.ceil(pagingCount / limit);
   const [currPage, setCurrPage] = useState(page);
   let firstNum = currPage - (currPage % 5) + 1;
   let lastNum = currPage - (currPage % 5) + 5;

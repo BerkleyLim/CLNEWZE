@@ -7,8 +7,8 @@
     select * from practiceroom
     <if test="categories != 'null'">
       where categories=#{categories}
+      limit #{limit} offset #{pageNo}
     </if>
-    limit #{limit} offset #{pageNo}
   </select>
   <select id="selectListAllCount" resultType="int">
     select count(*) from practiceroom
