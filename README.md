@@ -2,7 +2,7 @@
 - CLNEWZE 란 Classic, Newage, Jazz를 합친 말입니다.
 - 시작 계기는 코딩연습을 위해 하였으며, 클래식 음악을 좋아하고 피아노 연주를 좋아하는 사람 중 하나로 나만의 사이트를 만들기 위해 시작
 - 최종 목적으로는 풀스택 개발자(프론트엔드, 백엔드, DB, 서버 및 인프라) 능력을 향상 시키기 위해 진행
-- 음악 중계, ERP 등 음악과 관련된 서비스 개발을 하여 실제 트래픽 관리 경험 연습을 위해 목표로 진행한다.
+- 음악 중계, ERP 등 음악과 관련된 서비스 개발을 하여 사업이 아닌 실제 트래픽 관리 경험과 로직 구성을 깔끔히 하여 서버 트래픽 비용을 절감시키는 연습을 위해 목표로 진행한다.
 
 ### 프로젝트 기간
 
@@ -17,12 +17,10 @@
 ### 개발 환경
 - Maven XX
 - VS code
-- React
-- My-batis
-- Spring boot
+- Java 11 -> 17
+- Nodejs 16 -> 20
 - MySQL
 - Windows 11
-- AWS(운영서버)
 
 ### 사용 스택
 ```
@@ -44,10 +42,13 @@ React, React-Query, Recoil, JavaScript, scss/sass, npm, html, css, java, springB
 - JWT 적용, CORS 정책에 맞게 허용 url만 API 사용 적용, AWS Route53으로 도메인 등록, SSL을 등록하여 서버 운용
 - 관리자 페이지 : 헤더 정보 및 글정보 관리 등 활용, 공지사항, QnA 게시판 개발
 
-### 운영 이후 계획
+### 베타테스트 종료 이후 운영 계획
+- 운영 하고 1년동안 실제 사용 경험을 통해 DevOps 능력까지 간접적으로 익혀본다.
 - 기능 편의성 개편
 - 필요 기능은 개발 과정 사이클 처럼 진행 할것
-- 차후, React Native 기반으로 앱 개발
+- 차후, React Native 기반으로 앱 운영 예정 
+- Java -> Kotlin 기반으로 전환 예정
+- SEO 기능을 탑재하여 서비스 홍보 작업 실시
 
 
 ### 개발 히스토리
@@ -57,7 +58,7 @@ React, React-Query, Recoil, JavaScript, scss/sass, npm, html, css, java, springB
 ### 개발 후 기대 숙련도
 - 프론트엔드 화면단 : React 기반으로 state 관리 가능, React를 이용하는 프로젝트의 대해 누구보다도 더 잘할 수 있음
 - 백엔드 서버단 : Spring Boot 기반으로 API 및 비즈니스 로직 구현, API 개발 뿐만 아닌 인증, 보안 가능
-- 서버 & 인프라 개발 : AWS 기반으로 서버 런칭 가능, nginx로 이용하여 서버 포워딩 가능, 트래픽 제어 가능
+- 서버 & 인프라 개발 : AWS 기반으로 서버 런칭 가능, nginx로 이용하여 서버 포워딩 가능, 트래픽 제어 가능, SSL 연동 가능
 
 ### Gettings start
 
