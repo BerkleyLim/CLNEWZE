@@ -17,5 +17,7 @@
   - commom component를 이름 변경
   - User 관련 정보 업데이트
   - my-page 회원 정보 확인 부분 UI 로그인 창 수정
+  - index.js 파일로 된 부분 일부 수정 
+    - PracticeRoom, SheetMusic, Teacher, login, footer, header, mypage-userInfo
 
 
