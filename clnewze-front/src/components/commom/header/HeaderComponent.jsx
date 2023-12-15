@@ -5,7 +5,7 @@ import { Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Mod
 
 import SelectMenuIndex from "./dropdown/selectMemu/index";
 import SelectLanguageIndex from "./dropdown/language/index";
-import LoginForm from "../../login/index";
+import LoginForm from "../../login/LoginFormComponent";
 import { Alarm, CardList, PersonCircle } from "react-bootstrap-icons";
 
 import headerData from "./sampledata/data.json"
@@ -20,8 +20,6 @@ const HeaderComponent = (props) => {
   const mobileIsDropDownToggle = () => setMobileIsDropDown(!mobileIsDropDown);
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
   const user = useRecoilValue(userState);
-
-  console.log(user)
 
   const movePage = (link) => {
     navigate(link);

@@ -1,8 +1,8 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainView from "./components/main/index";
-import Header from "./components/commom/header/index";
-import Footer from "./components/commom/footer/index";
+import Header from "./components/commom/header/HeaderComponent";
+import Footer from "./components/commom/footer/FooterComponent";
 
 import Introduction from "./components/introduction/index";
 import Performance from "./components/performance/index";
