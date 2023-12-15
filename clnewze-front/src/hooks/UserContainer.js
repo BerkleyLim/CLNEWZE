@@ -13,7 +13,20 @@ const UserContainer = () => {
     // 입력 (차후 복잡한 권한을 부여 받을 예정 => jwt 도입 예정)
     // resolve 상태 : true 리턴 (모달 닫기, 사용자 페이지 회원 정보 접근 허용)
     // reject 상태 : false 리턴 (모달 유지, 사용자 페이지 회원 정보 접근 차단)
-    return await isExistUserService(inputs);
+    const data = await isExistUserService(inputs)
+    if (data) {
+      alert("로그인 성공")
+      setUser({
+        ...user,
+        userId: "admin",
+        role_admin: "admin",
+        userNm: "admin",
+        isLogin: true
+      })
+    } else {
+      alert("로그인 실패")
+    }
+    return data;
   }
 
   // 회원정보 다시 확인용 로그인 처리 함수 (API 호출은 필요 없다.)

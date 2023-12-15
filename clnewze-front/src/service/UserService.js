@@ -14,18 +14,6 @@ const UserService = () => {
       password: inputs.password,
     })
     .then((response) => {
-      if (response.data) {
-        alert("로그인 성공")
-        setUser({
-          ...user,
-          userId: "admin",
-          role_admin: "admin",
-          userNm: "admin",
-          isLogin: true
-        })
-      } else {
-        alert("로그인 실패")
-      }
       return response.data
     })
     .catch((e) => { 
