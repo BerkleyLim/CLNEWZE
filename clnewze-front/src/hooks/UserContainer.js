@@ -30,8 +30,14 @@ const UserContainer = () => {
   }
 
   // 회원정보 다시 확인용 로그인 처리 함수 (API 호출은 필요 없다.)
-  const handlerMyPageLogin = (inputs) => {
-    return isExistUserService(inputs);
+  const handlerMyPageLogin = async (inputs) => {
+    const data = await isExistUserService(inputs)
+    if (data) {
+      alert("로그인 성공")
+    } else {
+      alert("로그인 실패")
+    }
+    return data;
   }
 
 

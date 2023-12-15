@@ -16,8 +16,8 @@ const UserLoginForm = ({setIsView}) => {
   };
 
   // 상태 전환시켜주기
-  const toggleUserView = () => {
-    const isUserView = handlerMyPageLogin(inputs);
+  const toggleUserView = async () => {
+    const isUserView = await handlerMyPageLogin(inputs);
     setIsView(isUserView)
   }
   return (
