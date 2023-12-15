@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import UserLoginForm from "./login/UserLoginForm";
 import styles from "./user.module.scss";
+import UserInfoIndex from "./info/UserInfoIndex";
 
 const UserInfomation = () => {
   // state 부
@@ -11,7 +12,7 @@ const UserInfomation = () => {
       <br />
       <br />
       {isView ? (
-        <div>보유줌</div>
+        <UserInfoIndex />
       ) : (
         <div className={`${styles?.componentCenterAlign}`}>
           <UserLoginForm setIsView={setIsView}/>
