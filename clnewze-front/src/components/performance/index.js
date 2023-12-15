@@ -8,7 +8,6 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
 import FullCalendar from "@fullcalendar/react";
 import bootstrap5Plugin from "@fullcalendar/bootstrap5";
-import ReactSearchBox from "react-search-box";
 
 import {
   Button,
