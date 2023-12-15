@@ -4,7 +4,7 @@ import {Routes, Route, useNavigate} from 'react-router-dom';
 import styles from "./mypage.module.scss"
 import { Col, Row } from 'reactstrap'
 
-import MypageInfo from "./user/index"
+import MypageInfo from "./user/UserInformation"
 import AdminTeacher from './admin/teacher';
 import AdminPracticeRoom from './admin/practiceroom';
 import AdminSheetMusic from './admin/sheetmusic';
