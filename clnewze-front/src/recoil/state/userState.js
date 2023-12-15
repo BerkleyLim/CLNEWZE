@@ -12,7 +12,7 @@ const { persistAtom } = recoilPersist({
 });
 
 const InitState = {
-  uno: 0,
+  uno: -1,
   userId: undefined,
   userNm: undefined,
   nickNm: undefined,
