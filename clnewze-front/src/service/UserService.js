@@ -7,9 +7,9 @@ const UserService = () => {
   const [user, setUser] = useRecoilState(userState);
 
   // 1) 로그인 여부 설정
-  const isExistUserService = (inputs) => {
+  const isExistUserService = async (inputs) => {
     // 입력 (차후 복잡한 권한을 부여 받을 예정 => jwt 도입 예정)
-    URI.post(process.env.REACT_APP_API_ROOT + "auth/simplelogin", {
+    return await URI.post(process.env.REACT_APP_API_ROOT + "auth/simplelogin", {
       id: inputs.id,
       password: inputs.password,
     })
@@ -23,11 +23,10 @@ const UserService = () => {
           userNm: "admin",
           isLogin: true
         })
-        return true
       } else {
         alert("로그인 실패")
-        return false;
       }
+      return response.data
     })
     .catch((e) => { 
       console.error(e) 

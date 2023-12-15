@@ -20,8 +20,8 @@ const SignIn =  ({setLoginIsModal, changeView}) => {
   // 로그인 버튼 클릭 시
   const loginButton = async () => {
     // 입력 (차후 복잡한 권한을 부여 받을 예정 => jwt 도입 예정)
-    handlerLogin(inputs)
-    await setLoginIsModal(false) 
+    const isNotClose = await handlerLogin(inputs)
+    await setLoginIsModal(!isNotClose) 
   };
 
   return (
