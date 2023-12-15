@@ -3,10 +3,11 @@ import styles from "./login.module.scss"
 import URI from "../../util/URI";
 import { useRecoilState } from "recoil";
 import { userState } from "../../recoil/state/userState";
+import UserContainer from "../../hooks/UserContainer";
 
 const SignIn = ({setLoginIsModal, changeView}) => {
   const [inputs, setInputs] = useState();
-  const [user, setUser] = useRecoilState(userState);
+  const { handlerLogin } = UserContainer();
 
   // 입력
   const onChange = (e) => {
@@ -18,26 +19,8 @@ const SignIn = ({setLoginIsModal, changeView}) => {
   };
   const loginButton = () => {
     // 입력 (차후 복잡한 권한을 부여 받을 예정 => jwt 도입 예정)
-    URI.post(process.env.REACT_APP_API_ROOT + "auth/simplelogin", {
-      id: inputs.id,
-      password: inputs.password,
-    })
-    .then((response) => {
-      if (response.data) {
-        alert("로그인 성공")
-        setUser({
-          ...user,
-          userId: "admin",
-          role_admin: "admin",
-          userNm: "admin",
-          isLogin: true
-        })
-        setLoginIsModal(false);
-      } else {
-        alert("로그인 실패")
-      }
-    })
-    .catch((e) => console.error(e));
+    const isModal = handlerLogin(inputs);
+    setLoginIsModal(isModal)
   };
 
   return (
