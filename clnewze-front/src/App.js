@@ -11,7 +11,7 @@ import SheetMusic from "./components/sheetmusic/SheetMusicComponent";
 import Teacher from "./components/teacher/TeachersComponent";
 import Blog from "./components/blog/index";
 
-import MypageHeader from "./components/mypage/MyPageHeader";
+import MypageHeader from "./components/mypage/header/web/MyPageHeader";
 import Mypage from "./components/mypage/MyPageComponent";
 
 function App() {

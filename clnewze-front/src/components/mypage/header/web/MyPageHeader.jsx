@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import styles from "./mypage.module.scss";
+import styles from "../../mypage.module.scss";
 import {
   Button,
   Card,
@@ -13,6 +13,7 @@ import {
   ModalHeader,
   Row,
 } from "reactstrap";
+import CoverPicture from "./item/CoverPicture";
 
 const MypageHeader = () => {
   const [isModal, setIsModal] = useState(false);
@@ -27,12 +28,8 @@ const MypageHeader = () => {
 
   return (
     <div className={`${styles?.mypageHeader}`}>
-      {/* <!-- 사진 --> */}
-      <img
-        className={`${styles?.mypageBanner}`}
-        src="/image/file/mypage/defalut-my-profile.png"
-        alt=""
-      />
+      {/* <!-- 커버 사진 --> */}
+      <CoverPicture />
 
       {/* <!-- 마이페이지 정보 (커버랑 같이 겹치기) --> */}
       <Row className={`${styles?.profileHeader} d-flex`}>
