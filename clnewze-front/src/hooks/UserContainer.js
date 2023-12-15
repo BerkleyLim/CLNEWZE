@@ -5,7 +5,7 @@ import URI from '../util/URI'
 // container 부분
 const UserContainer = () => {
   const [user, setUser] = useRecoilState(userState);
-  const refreshUser = useResetRecoilState(userState);
+  const logout = useResetRecoilState(userState);
 
   // 로그인 처리 함수
   const handlerLogin = (inputs) => {
@@ -37,7 +37,13 @@ const UserContainer = () => {
     });
   };
 
-  return {handlerLogin}
+  // 로그아웃 함수
+  const handlerLogout = () => {
+    logout()
+    
+  }
+
+  return {handlerLogin, handlerLogout}
 }
 
 export default UserContainer

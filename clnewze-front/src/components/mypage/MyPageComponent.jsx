@@ -9,22 +9,19 @@ import AdminTeacher from './admin/teacher';
 import AdminPracticeRoom from './admin/practiceroom';
 import AdminSheetMusic from './admin/sheetmusic';
 import AdminDashboard from './admin/dashboard';
-import { useRecoilValue, useResetRecoilState } from 'recoil';
-import { userState } from '../../recoil/state/userState';
+import UserContainer from '../../hooks/UserContainer';
+import CommonContaier from '../../hooks/CommonContaier';
 
 const MypageMain = () => {
-  const navigate = useNavigate();
-  const moveMyPage = (menu) => {
-    navigate("/mypage/" + menu);
-  }
+  // 리액트 훅 정의
+  const { moveNavPage, moveHrefPage } = CommonContaier()
+  const { handlerLogout } = UserContainer()
 
-  const logout = useResetRecoilState(userState);
-  const user = useRecoilValue(userState)
+  const onClickLogout = () => {
+    handlerLogout()
+    moveHrefPage('/')
+  }
   
-  const toggleLogout = () => {
-    logout();
-    window.location.href="/";
-  };
   return (
     <div>
         {/* <!-- 마이페이지 카테고리 --> */}
@@ -32,7 +29,7 @@ const MypageMain = () => {
             <Col md={2} className={`${styles?.mypageMenuContainer}`}>
                 <hr/>
                 <h6>회원 정보</h6>
-                <button className="btn" onClick={() => moveMyPage("info")}>회원정보 및 수정</button>
+                <button className="btn" onClick={() => moveNavPage("/mypage/info")}>회원정보 및 수정</button>
                 <button className="btn">환전 신청</button>
                 <button className="btn">선생님 관리</button>
                 
@@ -55,17 +52,17 @@ const MypageMain = () => {
 
                 <h6>마이페이지</h6>
                 <button className="btn" onClick={() => window.location.href="/"}> 이전화면</button>
-                <button className="btn" onClick={toggleLogout}> 로그아웃</button>
+                <button className="btn" onClick={() => onClickLogout()}> 로그아웃</button>
                 <button className="btn"> 회원탈퇴</button>
 
                 <hr/>
 
                 <h6>관리자 기능 - 차후 숨길 예정</h6>
                 <button className="btn">회원정보 출력</button>
-                <button className="btn" onClick={() => moveMyPage("admin/dashboard")}>매출액</button>
-                <button className="btn" onClick={() => moveMyPage("admin/sheetmusic")}>악보 페이지 관리</button>
-                <button className="btn" onClick={() => moveMyPage("admin/practiceroom")}>연습실 페이지 관리</button>
-                <button className="btn" onClick={() => moveMyPage("admin/teacher")}>레스너찾기 페이지 관리</button>
+                <button className="btn" onClick={() => moveNavPage("/mypage/admin/dashboard")}>매출액</button>
+                <button className="btn" onClick={() => moveNavPage("/mypage/admin/sheetmusic")}>악보 페이지 관리</button>
+                <button className="btn" onClick={() => moveNavPage("/mypage/admin/practiceroom")}>연습실 페이지 관리</button>
+                <button className="btn" onClick={() => moveNavPage("/mypage/admin/teacher")}>레스너찾기 페이지 관리</button>
                 <button className="btn">블로그 페이지 관리</button>
                 
             </Col>
