@@ -1,18 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Col, Form, FormGroup, Input, Label } from "reactstrap";
+import UserContainer from "../../../../hooks/UserContainer";
 
-const UserLoginForm = () => {
+const UserLoginForm = ({setIsView}) => {
+  const [inputs, setInputs] = useState();
+  const { handlerMyPageLogin } = UserContainer();
+
+  // 입력
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
+  };
+
+  // 상태 전환시켜주기
+  const toggleUserView = () => {
+    const isUserView = handlerMyPageLogin(inputs);
+    setIsView(isUserView)
+  }
   return (
-    // <Form className={`p-5 w-50`}>
     <Form>
       <h2 style={{textAlign:"center"}}>로그인</h2>
       <br/>
       <FormGroup row>
         <Col md={2}>
-          <Label for="exampleEmail">Email</Label>
+          <Label for="id">id</Label>
         </Col>
         <Col md={10}>
-          <Input name="email" placeholder="with a placeholder" type="email" />
+          <Input name="id" placeholder="with a placeholder" type="text" onChange={onChange}/>
         </Col>
       </FormGroup>
       <FormGroup row>
@@ -24,10 +41,11 @@ const UserLoginForm = () => {
             name="password"
             placeholder="password placeholder"
             type="password"
+            onChange={onChange}
           />
         </Col>
         <br/><br/>
-        <Button>확인</Button>
+        <Button onClick={() => {toggleUserView()}}>확인</Button>
       </FormGroup>
     </Form>
   );

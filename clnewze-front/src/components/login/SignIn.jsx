@@ -5,7 +5,7 @@ import { useRecoilState } from "recoil";
 import { userState } from "../../recoil/state/userState";
 import UserContainer from "../../hooks/UserContainer";
 
-const SignIn = ({setLoginIsModal, changeView}) => {
+const SignIn =  ({setLoginIsModal, changeView}) => {
   const [inputs, setInputs] = useState();
   const { handlerLogin } = UserContainer();
 
@@ -17,10 +17,11 @@ const SignIn = ({setLoginIsModal, changeView}) => {
       [name]: value,
     });
   };
-  const loginButton = () => {
+  // 로그인 버튼 클릭 시
+  const loginButton = async () => {
     // 입력 (차후 복잡한 권한을 부여 받을 예정 => jwt 도입 예정)
-    const isModal = handlerLogin(inputs);
-    setLoginIsModal(isModal)
+    handlerLogin(inputs)
+    await setLoginIsModal(false) 
   };
 
   return (
