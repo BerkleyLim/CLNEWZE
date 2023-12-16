@@ -10,15 +10,14 @@ import com.clnewze.back.clnewzeback.domain.entity.PracticeRoomMenuCategory;
 import com.clnewze.back.clnewzeback.mapper.PracticeRoomMapper;
 import com.clnewze.back.clnewzeback.mapper.PracticeRoomMenuCategoryMapper;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 @Service
 @Log4j2
+@AllArgsConstructor
 public class PracticeRoomService {
-  @Autowired
   PracticeRoomMapper practiceRoomMapper;
-
-  @Autowired
   PracticeRoomMenuCategoryMapper practiceRoomMenuCategoryMapper;
 
   public List<PracticeRoom> selectList(String categories, int pageNo, int limit) {

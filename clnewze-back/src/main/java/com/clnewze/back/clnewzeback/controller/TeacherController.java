@@ -18,17 +18,15 @@ import com.clnewze.back.clnewzeback.domain.model.ResponseObject;
 import com.clnewze.back.clnewzeback.service.FileService;
 import com.clnewze.back.clnewzeback.service.TeacherService;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 @RestController
 @Log4j2
 @RequestMapping("/api/teacher")
+@AllArgsConstructor
 public class TeacherController {
-
-  @Autowired
   TeacherService teacherService;
-
-  @Autowired
   FileService fileService;
 
   @GetMapping("/selectList")

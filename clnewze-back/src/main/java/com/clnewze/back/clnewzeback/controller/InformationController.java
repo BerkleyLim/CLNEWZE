@@ -14,11 +14,12 @@ import com.clnewze.back.clnewzeback.domain.entity.Information;
 import com.clnewze.back.clnewzeback.domain.model.ResponseObject;
 import com.clnewze.back.clnewzeback.service.InformationService;
 
+import lombok.AllArgsConstructor;
+
 @RestController
 @RequestMapping("/api/information")
+@AllArgsConstructor
 public class InformationController {
-
-  @Autowired
   InformationService informationService;
 
   @GetMapping("/selectList")

@@ -9,10 +9,12 @@ import org.springframework.stereotype.Service;
 import com.clnewze.back.clnewzeback.domain.entity.T_user;
 import com.clnewze.back.clnewzeback.mapper.TUserMapper;
 
+import lombok.AllArgsConstructor;
+
 @Service
 // @Log4j2
+@AllArgsConstructor
 public class UserService {
-  @Autowired
   TUserMapper userMapper;
 
   // 회원 정보 검색

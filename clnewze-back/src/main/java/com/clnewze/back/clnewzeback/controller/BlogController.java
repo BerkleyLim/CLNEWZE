@@ -14,11 +14,12 @@ import com.clnewze.back.clnewzeback.domain.model.ResponseObject;
 import com.clnewze.back.clnewzeback.domain.vo.BlogVo;
 import com.clnewze.back.clnewzeback.service.BlogService;
 
+import lombok.AllArgsConstructor;
+
 @RestController
 @RequestMapping("/api/blog")
+@AllArgsConstructor
 public class BlogController {
-
-  @Autowired
   BlogService blogService;
 
   /**

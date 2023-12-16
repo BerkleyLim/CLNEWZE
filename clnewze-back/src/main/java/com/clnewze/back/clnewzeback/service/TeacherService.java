@@ -10,14 +10,14 @@ import com.clnewze.back.clnewzeback.domain.entity.TeacherMenuCategory;
 import com.clnewze.back.clnewzeback.mapper.TeacherMapper;
 import com.clnewze.back.clnewzeback.mapper.TeacherMenuCategoryMapper;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 @Service
 @Log4j2
+@AllArgsConstructor
 public class TeacherService {
-  @Autowired
   TeacherMapper teacherMapper;
-  @Autowired
   TeacherMenuCategoryMapper teacherMenuCategoryMapper;
 
   public List<Teacher> selectList(String major, int pageNo, int limit) {

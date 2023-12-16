@@ -18,17 +18,15 @@ import com.clnewze.back.clnewzeback.domain.model.ResponseObject;
 import com.clnewze.back.clnewzeback.service.FileService;
 import com.clnewze.back.clnewzeback.service.PracticeRoomService;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 @RestController
 @RequestMapping("/api/practiceroom")
 @Log4j2
+@AllArgsConstructor
 public class PracticeRoomController {
-
-  @Autowired
   PracticeRoomService practiceRoomService;
-
-  @Autowired
   FileService fileService;
 
   @GetMapping("/selectList")

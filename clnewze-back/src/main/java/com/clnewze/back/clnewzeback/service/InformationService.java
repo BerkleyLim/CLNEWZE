@@ -8,9 +8,11 @@ import org.springframework.stereotype.Service;
 import com.clnewze.back.clnewzeback.domain.entity.Information;
 import com.clnewze.back.clnewzeback.mapper.InformationMapper;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 public class InformationService {
-  @Autowired
   InformationMapper informationMapper;
 
   public List<Information> selectList(String genre) {

@@ -15,14 +15,13 @@ import com.clnewze.back.clnewzeback.jwt.JwtService;
 import com.clnewze.back.clnewzeback.service.UserService;
 
 import jakarta.servlet.http.HttpSession;
+import lombok.AllArgsConstructor;
 
 @RestController
 @RequestMapping("/api/auth")
+@AllArgsConstructor
 public class AuthController {
-  @Autowired
   UserService userService;
-
-  @Autowired
   JwtService jwtService;
 
   @PostMapping("/simplelogin")

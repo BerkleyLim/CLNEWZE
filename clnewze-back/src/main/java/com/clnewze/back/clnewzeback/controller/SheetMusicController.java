@@ -19,17 +19,15 @@ import com.clnewze.back.clnewzeback.domain.model.ResponseObject;
 import com.clnewze.back.clnewzeback.service.FileService;
 import com.clnewze.back.clnewzeback.service.SheetMusicService;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 @RestController
 @Log4j2
 @RequestMapping("/api/sheetmusic")
+@AllArgsConstructor
 public class SheetMusicController {
-
-  @Autowired
   SheetMusicService sheetMusicService;
-
-  @Autowired
   FileService fileService;
 
   @GetMapping("/selectList")

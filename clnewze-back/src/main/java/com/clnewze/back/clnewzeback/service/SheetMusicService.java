@@ -10,14 +10,14 @@ import com.clnewze.back.clnewzeback.domain.entity.SheetMusicMenuCategory;
 import com.clnewze.back.clnewzeback.mapper.SheetMusicMapper;
 import com.clnewze.back.clnewzeback.mapper.SheetMusicMenuCategoryMapper;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 @Service
 @Log4j2
+@AllArgsConstructor
 public class SheetMusicService {
-  @Autowired
   SheetMusicMapper sheetMusicMapper;
-  @Autowired
   SheetMusicMenuCategoryMapper sheetMusicMenuCategoryMapper;
 
   public List<SheetMusic> selectList(String genre, int pageNo, int limit) {

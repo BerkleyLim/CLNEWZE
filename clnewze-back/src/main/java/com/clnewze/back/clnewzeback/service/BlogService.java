@@ -10,12 +10,13 @@ import com.clnewze.back.clnewzeback.domain.entity.Blog;
 import com.clnewze.back.clnewzeback.domain.vo.BlogVo;
 import com.clnewze.back.clnewzeback.mapper.BlogMapper;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 @Service
 @Log4j2
+@AllArgsConstructor
 public class BlogService {
-  @Autowired
   BlogMapper blogMapper;
 
   public List<BlogVo> selectList(int pageNo, int limit) {
