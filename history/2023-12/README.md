@@ -1,8 +1,8 @@
 # 현재 작업사항 (12월)
 
-<br/>
+- 12월 기준
 
-### 10일
+## 10일
 
 - Front 
   - Teacher 사용자용 페이지 부분 Custom Hook 적용 완료, Recoil로 전역 State로 변환 완료
@@ -10,7 +10,7 @@
   - modal 및 pagingNation은 Teacher State에 한번에 리팩토링 작업 실시
   - SheetMusic도 Custom Hook과 React-Query와 Recoil 작업 실시
 
-### 15일
+## 15일
 
 - Front
   - PracticeRoom Custom Hook 리팩토링
@@ -23,7 +23,8 @@
     - 이부분은 API 호출 부분을 담당하는 서비스
     - user만 분리함
 
-### 16일
+## 16일
+
 - Front
   - Service 디렉토리 분리 이후, 비동기 함수 처리를 좀 더 효율적으로 연구
   - Promise와 SetTimeout을 반복적으로 사용시에도 해결되지 않는 문제 수정
