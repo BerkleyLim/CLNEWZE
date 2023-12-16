@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.clnewze.back.clnewzeback.entity.dto.SheetMusic;
-import com.clnewze.back.clnewzeback.entity.dto.SheetMusicMenuCategory;
+import com.clnewze.back.clnewzeback.domain.dto.SheetMusic;
+import com.clnewze.back.clnewzeback.domain.dto.SheetMusicMenuCategory;
 import com.clnewze.back.clnewzeback.mapper.SheetMusicMapper;
 import com.clnewze.back.clnewzeback.mapper.SheetMusicMenuCategoryMapper;
 

@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.clnewze.back.clnewzeback.entity.dto.Blog;
-import com.clnewze.back.clnewzeback.entity.vo.BlogVo;
+import com.clnewze.back.clnewzeback.domain.dto.Blog;
+import com.clnewze.back.clnewzeback.domain.vo.BlogVo;
 import com.clnewze.back.clnewzeback.mapper.BlogMapper;
 
 import lombok.extern.log4j.Log4j2;

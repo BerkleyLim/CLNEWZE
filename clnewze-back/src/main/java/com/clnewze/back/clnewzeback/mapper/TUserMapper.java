@@ -3,7 +3,7 @@ package com.clnewze.back.clnewzeback.mapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
-import com.clnewze.back.clnewzeback.entity.dto.T_user;
+import com.clnewze.back.clnewzeback.domain.dto.T_user;
 
 @Repository
 @Mapper

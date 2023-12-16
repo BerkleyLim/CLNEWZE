@@ -1,12 +1,12 @@
-package com.clnewze.back.clnewzeback.entity.dto;
+package com.clnewze.back.clnewzeback.domain.dto;
 
 import java.time.LocalDate;
 
 import lombok.Data;
 
 @Data
-public class SheetMusic {
-  Integer sno;
+public class Information {
+  Integer ino;
   String artist;
   String title;
   String img;
@@ -18,5 +18,4 @@ public class SheetMusic {
   LocalDate upLoadDate;
   String userName;
   String musicLink;
-  String sheetfile;
 }

@@ -1,4 +1,4 @@
-package com.clnewze.back.clnewzeback.entity.vo;
+package com.clnewze.back.clnewzeback.domain.vo;
 
 import java.util.List;
 
