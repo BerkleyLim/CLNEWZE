@@ -5,8 +5,8 @@ import java.time.LocalDate;
 import lombok.Data;
 
 @Data
-public class Information {
-  Integer ino;
+public class SheetMusicDto {
+  Integer sno;
   String artist;
   String title;
   String img;
@@ -18,4 +18,5 @@ public class Information {
   LocalDate upLoadDate;
   String userName;
   String musicLink;
+  String sheetfile;
 }

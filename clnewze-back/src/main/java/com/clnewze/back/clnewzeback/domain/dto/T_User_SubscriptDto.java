@@ -5,7 +5,7 @@ import java.time.ZonedDateTime;
 import lombok.Data;
 
 @Data
-public class T_User_Subscript {
+public class T_User_SubscriptDto {
   private int usno; // 구독정보 인덱스
   private int uno; // 사용자 인덱스
   private int sno; // 타켓 구독자 인덱스

@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.clnewze.back.clnewzeback.domain.dto.Blog;
+import com.clnewze.back.clnewzeback.domain.entity.Blog;
 import com.clnewze.back.clnewzeback.domain.vo.BlogVo;
 import com.clnewze.back.clnewzeback.mapper.BlogMapper;
 

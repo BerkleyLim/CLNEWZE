@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.clnewze.back.clnewzeback.domain.dto.Teacher;
-import com.clnewze.back.clnewzeback.domain.dto.TeacherMenuCategory;
+import com.clnewze.back.clnewzeback.domain.entity.Teacher;
+import com.clnewze.back.clnewzeback.domain.entity.TeacherMenuCategory;
 import com.clnewze.back.clnewzeback.domain.model.ResponseObject;
 import com.clnewze.back.clnewzeback.service.FileService;
 import com.clnewze.back.clnewzeback.service.TeacherService;

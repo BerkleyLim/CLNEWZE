@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.clnewze.back.clnewzeback.domain.dto.PracticeRoom;
-import com.clnewze.back.clnewzeback.domain.dto.PracticeRoomMenuCategory;
+import com.clnewze.back.clnewzeback.domain.entity.PracticeRoom;
+import com.clnewze.back.clnewzeback.domain.entity.PracticeRoomMenuCategory;
 import com.clnewze.back.clnewzeback.domain.model.ResponseObject;
 import com.clnewze.back.clnewzeback.service.FileService;
 import com.clnewze.back.clnewzeback.service.PracticeRoomService;

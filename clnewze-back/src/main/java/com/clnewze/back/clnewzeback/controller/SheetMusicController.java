@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.clnewze.back.clnewzeback.domain.dto.SheetMusic;
-import com.clnewze.back.clnewzeback.domain.dto.SheetMusicMenuCategory;
+import com.clnewze.back.clnewzeback.domain.entity.SheetMusic;
+import com.clnewze.back.clnewzeback.domain.entity.SheetMusicMenuCategory;
 import com.clnewze.back.clnewzeback.domain.model.ResponseObject;
 import com.clnewze.back.clnewzeback.service.FileService;
 import com.clnewze.back.clnewzeback.service.SheetMusicService;

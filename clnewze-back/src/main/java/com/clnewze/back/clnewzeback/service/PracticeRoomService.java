@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.clnewze.back.clnewzeback.domain.dto.PracticeRoom;
-import com.clnewze.back.clnewzeback.domain.dto.PracticeRoomMenuCategory;
+import com.clnewze.back.clnewzeback.domain.entity.PracticeRoom;
+import com.clnewze.back.clnewzeback.domain.entity.PracticeRoomMenuCategory;
 import com.clnewze.back.clnewzeback.mapper.PracticeRoomMapper;
 import com.clnewze.back.clnewzeback.mapper.PracticeRoomMenuCategoryMapper;
 

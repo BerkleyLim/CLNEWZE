@@ -5,14 +5,17 @@ import java.time.LocalDate;
 import lombok.Data;
 
 @Data
-public class Teacher {
-  Long tno;
-  String username;
+public class InformationDto {
+  Integer ino;
+  String artist;
   String title;
   String img;
-  String name;
-  String major;
-  String place;
+  String genre;
+  Integer viewNumber;
+  String releaseDate;
   String contents;
+  String albumName;
   LocalDate upLoadDate;
+  String userName;
+  String musicLink;
 }

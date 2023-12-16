@@ -1,4 +1,4 @@
-package com.clnewze.back.clnewzeback.domain.dto;
+package com.clnewze.back.clnewzeback.domain.entity;
 
 import java.time.LocalDate;
 
