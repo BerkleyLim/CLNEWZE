@@ -38,10 +38,4 @@
   <delete id="deleteSheetMusicMenu">
     delete from master_menu_sheetmusic where smtno = #{smtno}
   </delete>
-  <!-- 
-    void createSheetMusicMenu(String name, String category);
-  void orderbyChangeSheetMusicMenu(Long changeOrder);
-  void updateSheetMusicMenu(SheetMusicMenuCategory teacherMenuCategory);
-  void deleteSheetMusicMenu(Long mtno); 
-  -->
 </mapper>

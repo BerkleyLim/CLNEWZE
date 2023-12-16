@@ -38,10 +38,4 @@
   <delete id="deleteTeacherMenu">
     delete from master_menu_teacher where mtno = #{mtno}
   </delete>
-  <!-- 
-    void createTeacherMenu(String name, String category);
-  void orderbyChangeTeacherMenu(Long changeOrder);
-  void updateTeacherMenu(TeacherMenuCategory teacherMenuCategory);
-  void deleteTeacherMenu(Long mtno); 
-  -->
 </mapper>

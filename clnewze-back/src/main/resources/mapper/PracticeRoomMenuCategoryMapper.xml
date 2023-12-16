@@ -38,10 +38,4 @@
   <delete id="deletePracticeRoomMenu">
     delete from master_menu_practiceroom where ptno = #{ptno}
   </delete>
-  <!-- 
-    void createPracticeRoomMenu(String name, String category);
-  void orderbyChangePracticeRoomMenu(Long changeOrder);
-  void updatePracticeRoomMenu(PracticeRoomMenuCategory teacherMenuCategory);
-  void deletePracticeRoomMenu(Long mtno); 
-  -->
 </mapper>
