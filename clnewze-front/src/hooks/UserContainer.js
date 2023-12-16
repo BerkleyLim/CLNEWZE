@@ -1,12 +1,14 @@
 import { useRecoilState, useResetRecoilState } from "recoil";
 import { userState } from "../recoil/state/userState";
 import UserService from "../service/UserService";
+import { myPageMenuState } from "../recoil/state/myPageHeaderState";
 
 // container 부분
 const UserContainer = () => {
   const [user, setUser] = useRecoilState(userState);
   const logout = useResetRecoilState(userState);
-  const { isExistUserService } = UserService()
+  const myPageMenuRefresh = useResetRecoilState(myPageMenuState); // 마이페이지 번호 default로 변경
+  const { isExistUserService } = UserService();
 
   // 로그인 처리 함수
   const handlerLogin = async (inputs) => {
@@ -26,6 +28,7 @@ const UserContainer = () => {
     } else {
       alert("로그인 실패")
     }
+    myPageMenuRefresh(); // 로그인 시 myPage 메뉴 default 값으로 변경
     return data;
   }
 
@@ -44,8 +47,8 @@ const UserContainer = () => {
 
   // 로그아웃 함수
   const handlerLogout = () => {
-    logout()
-    
+    logout() // 로그아웃 시 state 값 초기화
+    myPageMenuRefresh(); // 로그 아웃 시 myPage 메뉴 default 값 변경
   }
 
   return {handlerLogin, handlerLogout, handlerMyPageLogin}
