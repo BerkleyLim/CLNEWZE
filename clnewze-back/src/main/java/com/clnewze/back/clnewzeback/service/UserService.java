@@ -3,7 +3,6 @@ package com.clnewze.back.clnewzeback.service;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.clnewze.back.clnewzeback.domain.entity.T_user;
