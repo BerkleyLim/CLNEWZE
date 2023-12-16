@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.clnewze.back.clnewzeback.mapper.TUserMapper">
   
+  <!-- 간편 로그인 -->
   <select id="findByIdAndPassword" resultType="T_user">
     select * from t_user
     where id=#{id} and password=#{password}
