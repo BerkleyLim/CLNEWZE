@@ -21,16 +21,11 @@
 
 ### 최종 사용 스택
 
-- 프론트 엔드
-  - React, React-Query, Recoil, JavaScript, scss/sass, html, css
-- 백엔드
-  - java, springBoot, My-batis, mariadb, mysql
-- DB
-  - mysql(로컬), mariadb(개발 및 운영)
-- App
-  - React Native (오픈 베타 이후 개발 예정)
-- Infra
-  - AWS, Route 53, SSL
+> - 프론트 엔드 : React, React-Query, Recoil, JavaScript, scss/sass, html, css
+> - 백엔드 : java, springBoot, My-batis, mariadb, mysql
+> - DB : mysql(로컬), mariadb(개발 및 운영)
+> - App : React Native (오픈 베타 이후 개발 예정)
+> - Infra : AWS, Route 53, SSL
 
 ### 오픈 베타 서비스 기간동안 운영될 컨텐츠
 
