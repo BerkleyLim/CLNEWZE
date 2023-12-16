@@ -17,12 +17,7 @@
 
 ### 개발 환경
 
-- Maven XX
-- VS code
-- Java 11 -> 17
-- Nodejs 16 -> 20
-- MySQL
-- Windows 11
+- Maven XX, VS code, Java 11 -> 17, Nodejs 16 -> 20, MySQL, Windows 11
 
 ### 최종 사용 스택
 
