@@ -2,10 +2,24 @@
 <!DOCTYPE mapper PUBLIC "//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.clnewze.back.clnewzeback.mapper.SubScriptMapper">
   <!-- 1) 내가 구독한 사람 조회 -->
-  <select id="SelectSubScriptMyList" resultType="SubScriptMyList">
-    select tu.name, tu.nick_name, tus.sno, tus.crt_time  from 
+  <select id="selectSubScriptMyList" resultType="SubScriptMyList">
+    select my_name, nick_name, user_name, sub_classify, crt_time from
+    (select tu.name as my_name, tu.nick_name, tus.sno, tus.crt_time, tus.sub_classify  from 
       music.t_user tu join music.t_user_subscript tus 
-    on tu.uno = tus.uno
-    where tu.uno=2;
+    on tu.uno = tus.sno
+    where tu.uno=#{uno}) a left join 
+    (select uno, name as user_name from t_user tu) b
+    on a.sno = b.uno;
+  </select>
+
+  <!-- 2) 나를 구독한 사람 조회 -->
+  <select id="selectSubScriptMeList" resultType="SubScriptMeList">
+    select my_name, nick_name, scriptor, sub_classify, crt_time from
+    (select tu.name as my_name, tu.nick_name, tus.uno, tus.crt_time, tus.sub_classify  from 
+      music.t_user tu join music.t_user_subscript tus 
+    on tu.uno = tus.sno
+    where tus.sno=#{uno}) a left join 
+    (select uno, name as scriptor from t_user tu) b
+    on a.uno = b.uno
   </select>
 </mapper>
