@@ -9,7 +9,7 @@ import {
   CarouselIndicators,
   CarouselItem,
 } from "reactstrap";
-import restApiUser from "../../../util/restApiUser";
+import restApiAllUser from "../../../util/restApiAllUser";
 import SheetMusic from '../../sheetmusic/contents/board/SheetMusicListComponent';
 
 const MainSheetMusic = () => {
@@ -20,7 +20,7 @@ const MainSheetMusic = () => {
 
   // 장르 설정 할때 마다
   useEffect(() => {
-    restApiUser.get(
+    restApiAllUser.get(
       process.env.REACT_APP_API_ROOT +
         "sheetmusic/selectList?genre=null"
     )

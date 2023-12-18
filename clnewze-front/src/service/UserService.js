@@ -1,10 +1,10 @@
-import restApiUser from '../util/restApiUser'
+import restApiAllUser from '../util/restApiAllUser'
 
 const UserService = () => {
   // 1) 로그인 여부 설정
   const isExistUserService = async (inputs) => {
     // 입력 (차후 복잡한 권한을 부여 받을 예정 => jwt 도입 예정)
-    return await restApiUser.post(process.env.REACT_APP_API_ROOT + "auth/simplelogin", {
+    return await restApiAllUser.post(process.env.REACT_APP_API_ROOT + "auth/simplelogin", {
       id: inputs.id,
       password: inputs.password,
     })

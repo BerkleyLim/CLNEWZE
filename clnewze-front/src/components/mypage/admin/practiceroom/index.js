@@ -4,7 +4,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import update from "immutability-helper";
 import { Table, Button, Input } from "reactstrap";
 import DataTable from "./menu/dataTable";
-import restApiUser from "../../../../util/restApiUser";
+import restApiAllUser from "../../../../util/restApiAllUser";
 
 function AdminSheetmusic() {
   const [menuData, setMenuData] = useState();
@@ -24,7 +24,7 @@ function AdminSheetmusic() {
   }, [menuData]);
 
   useEffect(() => {
-    restApiUser.get(
+    restApiAllUser.get(
       process.env.REACT_APP_API_ROOT + "practiceroom/master/menu/category"
     )
       .then((res) => {
@@ -67,7 +67,7 @@ function AdminSheetmusic() {
 
   // PracticeRoom Menu 삽입 기능 추가
   const addMenu = () => {
-    restApiUser.post(
+    restApiAllUser.post(
       process.env.REACT_APP_API_ROOT + "practiceroom/master/menu/create",
       createMenuData
       )
@@ -90,7 +90,7 @@ function AdminSheetmusic() {
     });
 
     menuData?.map((data) => {
-      restApiUser.post(
+      restApiAllUser.post(
         process.env.REACT_APP_API_ROOT + "practiceroom/master/menu/change/orderby",
         data
       )
@@ -109,7 +109,7 @@ function AdminSheetmusic() {
   const deleteMenu = (index) => {
     let deleteData = menuData[index];
     
-    restApiUser.post(process.env.REACT_APP_API_ROOT + "practiceroom/master/menu/delete", deleteData)
+    restApiAllUser.post(process.env.REACT_APP_API_ROOT + "practiceroom/master/menu/delete", deleteData)
     .then((res) => {
       setMenuData(
         update(menuData, {
@@ -126,7 +126,7 @@ function AdminSheetmusic() {
 
   // PracticeRoom Menu 수정
   const updateMenu = (data, index) => {
-    restApiUser.post(process.env.REACT_APP_API_ROOT + "practiceroom/master/menu/update", data)
+    restApiAllUser.post(process.env.REACT_APP_API_ROOT + "practiceroom/master/menu/update", data)
     .then((res) => {
         setMenuData(
           update(menuData, {

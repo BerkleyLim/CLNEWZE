@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import restApiUser from "../../util/restApiUser";
+import restApiAllUser from "../../util/restApiAllUser";
 import data from "./sample/event.json";
 
 import dayGridPlugin from "@fullcalendar/daygrid";

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./blog.module.scss";
-import restApiUser from "../../util/restApiUser";
+import restApiAllUser from "../../util/restApiAllUser";
 import BlogList from './contents/index'
 import BoardPagingnation from "./contents/paging";
 import { useParams } from "react-router-dom";
@@ -18,7 +18,7 @@ const BlogIndex = () => {
   const [modalData, setModalData] = useState();
 
   useEffect(() => {
-    restApiUser.get(
+    restApiAllUser.get(
       process.env.REACT_APP_API_ROOT +
         "blog/selectList" 
           + "?pageNo=" + offset
@@ -31,7 +31,7 @@ const BlogIndex = () => {
   console.log(offset)
 
   useEffect(() => {
-    restApiUser.get(
+    restApiAllUser.get(
       process.env.REACT_APP_API_ROOT + 
         "blog/selectListAllCount"
     )
