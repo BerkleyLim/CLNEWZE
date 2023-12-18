@@ -12,7 +12,7 @@ import {
 } from "reactstrap";
 import styles from "../../practiceRoom.module.scss";
 import DropdownForm from "./dropdown";
-import URI from "../../../../util/URI";
+import restApiUser from "../../../../util/restApiUser";
 import { Search } from "react-bootstrap-icons";
 
 const ContentsMenu = ({categorieMenu}) => {
@@ -20,7 +20,7 @@ const ContentsMenu = ({categorieMenu}) => {
   const [isDetail, setIsDetail] = useState(false);
 
   useEffect(() => {
-    URI.get(
+    restApiUser.get(
       process.env.REACT_APP_API_ROOT + "practiceroom/master/menu/category"
     )
       .then((res) => {

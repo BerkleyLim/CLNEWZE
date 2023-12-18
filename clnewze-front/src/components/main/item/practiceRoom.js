@@ -9,7 +9,7 @@ import {
   CarouselIndicators,
   CarouselItem,
 } from "reactstrap";
-import URI from "../../../util/URI";
+import restApiUser from "../../../util/restApiUser";
 import PracticeRoom from '../../practiceRoom/contents/board/PracticeRoomListComponent';
 
 const MainPracticeRoom = () => {
@@ -20,7 +20,7 @@ const MainPracticeRoom = () => {
 
   // 장르 설정 할때 마다
   useEffect(() => {
-    URI.get(
+    restApiUser.get(
       process.env.REACT_APP_API_ROOT +
         "practiceroom/selectList?categories=" +
         null

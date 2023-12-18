@@ -12,7 +12,7 @@ import {
 } from "reactstrap";
 import styles from "../../teacher.module.scss";
 import DropdownForm from "./dropdown";
-import URI from "../../../../util/URI";
+import restApiUser from "../../../../util/restApiUser";
 import { Search } from "react-bootstrap-icons";
 
 const ContentsMenu = ({ teachers, majormenu }) => {
@@ -20,7 +20,7 @@ const ContentsMenu = ({ teachers, majormenu }) => {
   const [isDetail, setIsDetail] = useState(false);
 
   useEffect(() => {
-    URI.get(
+    restApiUser.get(
       process.env.REACT_APP_API_ROOT + "teacher/master/menu/category"
     )
       .then((res) => {

@@ -4,7 +4,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import update from "immutability-helper";
 import { Table, Button, Input } from "reactstrap";
 import DataTable from "./menu/dataTable";
-import URI from "../../../../util/URI";
+import restApiUser from "../../../../util/restApiUser";
 
 function AdminTeacher() {
   const [menuData, setMenuData] = useState();
@@ -24,7 +24,7 @@ function AdminTeacher() {
   }, [menuData]);
 
   useEffect(() => {
-    URI.get(
+    restApiUser.get(
       process.env.REACT_APP_API_ROOT + "teacher/master/menu/category"
     )
       .then((res) => {
@@ -67,7 +67,7 @@ function AdminTeacher() {
 
   // Teacher Menu 삽입 기능 추가
   const addMenu = () => {
-    URI.post(
+    restApiUser.post(
       process.env.REACT_APP_API_ROOT + "teacher/master/menu/create",
       createMenuData
       )
@@ -90,7 +90,7 @@ function AdminTeacher() {
     });
 
     menuData?.map((data) => {
-      URI.post(
+      restApiUser.post(
         process.env.REACT_APP_API_ROOT + "teacher/master/menu/change/orderby",
         data
       )
@@ -109,7 +109,7 @@ function AdminTeacher() {
   const deleteMenu = (index) => {
     let deleteData = menuData[index];
     
-    URI.post(process.env.REACT_APP_API_ROOT + "teacher/master/menu/delete", deleteData)
+    restApiUser.post(process.env.REACT_APP_API_ROOT + "teacher/master/menu/delete", deleteData)
     .then((res) => {
       setMenuData(
         update(menuData, {
@@ -126,7 +126,7 @@ function AdminTeacher() {
 
   // Teacher Menu 수정
   const updateMenu = (data, index) => {
-    URI.post(process.env.REACT_APP_API_ROOT + "teacher/master/menu/update", data)
+    restApiUser.post(process.env.REACT_APP_API_ROOT + "teacher/master/menu/update", data)
     .then((res) => {
         setMenuData(
           update(menuData, {

@@ -12,7 +12,7 @@ import {
 } from "reactstrap";
 import DropdownForm from "./dropdown";
 import styles from "../../sheetmusic.module.scss";
-import URI from "../../../../util/URI";
+import restApiUser from "../../../../util/restApiUser";
 import { Search } from "react-bootstrap-icons";
 
 const ContentsMenu = ({ genreList }) => {
@@ -20,7 +20,7 @@ const ContentsMenu = ({ genreList }) => {
   const [isDetail, setIsDetail] = useState(false);
 
   useEffect(() => {
-    URI.get(
+    restApiUser.get(
       process.env.REACT_APP_API_ROOT + "sheetmusic/master/menu/category"
     )
       .then((res) => {

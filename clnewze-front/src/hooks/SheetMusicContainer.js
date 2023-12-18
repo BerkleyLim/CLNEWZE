@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import URI from "../util/URI";
+import restApiUser from "../util/restApiUser";
 import { useRecoilState, useResetRecoilState } from "recoil";
 import { useQuery } from "react-query";
 import {
@@ -27,7 +27,7 @@ const SheetMusicContainer = () => {
 
   // 조회 관련 api 호출 정의
   const selectSheetMusic = () => {
-    URI.get(
+    restApiUser.get(
       process.env.REACT_APP_API_ROOT +
         "sheetmusic/selectList"
           + "?genre=" + selectGenre
@@ -50,7 +50,7 @@ const SheetMusicContainer = () => {
   }, [selectGenre, offset]);
 
   useEffect(() => {
-    URI.get(
+    restApiUser.get(
       process.env.REACT_APP_API_ROOT + "sheetmusic/selectListAllCount"
     )
       .then((res) => setPagingCount(res.data.data))

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import URI from "../util/URI";
+import restApiUser from "../util/restApiUser";
 import {
   teacherModalDataState,
   teacherModalIsOpenState,
@@ -25,7 +25,7 @@ const TeacherContainer = () => {
 
   // 조회 관련 api 호출 정의
   const selectTeacher = () => {
-    URI.get(
+    restApiUser.get(
       process.env.REACT_APP_API_ROOT +
         "teacher/selectList" +
         "?major=" +
@@ -54,7 +54,7 @@ const TeacherContainer = () => {
   }, [selectMajor, offset]);
 
   useEffect(() => {
-    URI.get(process.env.REACT_APP_API_ROOT + "teacher/selectListAllCount")
+    restApiUser.get(process.env.REACT_APP_API_ROOT + "teacher/selectListAllCount")
       .then((res) => setPagingCount(res.data.data))
       .catch((e) => console.error(e));
 
