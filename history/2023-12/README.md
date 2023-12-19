@@ -44,3 +44,27 @@
     - 구독 등급 관리
       - 페이지 추가
       - 아직 작업해야함
+
+## 17일
+
+- Back
+  - entity 디렉토리 생성 후 경로 리팩토링
+  - 구독 API 추가
+    - 나를 구독한 리스트 추가
+    - 내가 구독한 리스트 추가
+
+## 18일
+
+- Front
+  - URI.js -> restApiAllUser.js 수정
+    - 이 파일은 user용 axios 호출하는 util형 파일
+    - 차후, restApiLoginUser.js로 jwt 호출
+
+## 19일
+
+- Front
+  - jwt restapi 구현 완료
+  - 추후 backend jwt restful api 구현 시 테스트 예정
+
+- Back
+  - jwt 인증 개발 중
