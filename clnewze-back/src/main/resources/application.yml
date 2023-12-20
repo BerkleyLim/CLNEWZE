@@ -10,6 +10,7 @@ spring:
   # 데이터베이스 죽는 현상 참조 : https://kakaocommerce.tistory.com/45
   # 데이터베이스 누수 현상 해결하기 : https://do-study.tistory.com/97
   datasource:
+    # type: org.apache.tomcat.jdbc.pool.DataSource
     url: jdbc:mysql://localhost:3306/music?useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true&autoReconnect=true
     # url: jdbc:log4jdbc:mysql://localhost:3306/music?useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true&autoReconnect=true
     # dataSourceClassName: com.mysql.cj.jdbc.Driver  #마리아 DB시 org.mariadb.jdbc.Driver
