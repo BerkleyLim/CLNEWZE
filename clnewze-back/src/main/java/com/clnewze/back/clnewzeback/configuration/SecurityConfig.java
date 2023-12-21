@@ -2,7 +2,6 @@ package com.clnewze.back.clnewzeback.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -76,7 +75,7 @@ public class SecurityConfig { // 추가적인 설정을 위해 WebSecurityConfig
 
         // 인증을 위한 확인을 위해 설정
         .authorizeHttpRequests(requests -> requests
-            .requestMatchers("/api/auth/authenticate", "/api/user/simplelogin", "/api/user/signup").permitAll())
+            .requestMatchers("/api/auth/authenticate", "/api/user/signup").permitAll())
 
         // JWT configration
         .apply(new JwtSecurityConfig(tokenProvider));
