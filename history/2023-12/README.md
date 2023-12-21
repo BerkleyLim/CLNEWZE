@@ -67,4 +67,11 @@
   - 추후 backend jwt restful api 구현 시 테스트 예정
 
 - Back
-  - jwt 인증 개발 중
+  - jwt 인증 개발 중 
+
+## 22일
+
+- Back
+  - jwt 1차 구현 완료
+    - 인증 받고 token 받아오는 것까지 완료
+    - 2차 테스트 진행 예정
