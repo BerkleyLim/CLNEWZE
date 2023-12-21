@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class ErrorResponse {
     // HTTP Response Status Code
-    private final HttpStatus status;
+    private final HttpStatus httpStatus;
 
     // General Error message
     private final String message;
@@ -17,20 +17,20 @@ public class ErrorResponse {
     private final Date timestamp;
 
     protected ErrorResponse(final String message, final ErrorCode errorCode,
-            HttpStatus status) {
+            HttpStatus httpStatus) {
         this.message = message;
         this.errorCode = errorCode;
-        this.status = status;
+        this.httpStatus = httpStatus;
         this.timestamp = new Date();
     }
 
     public static ErrorResponse of(final String message, final ErrorCode errorCode,
-            HttpStatus status) {
-        return new ErrorResponse(message, errorCode, status);
+            HttpStatus httpStatus) {
+        return new ErrorResponse(message, errorCode, httpStatus);
     }
 
     public Integer getStatus() {
-        return status.value();
+        return httpStatus.value();
     }
 
     public String getMessage() {

@@ -2,6 +2,9 @@ package com.clnewze.back.clnewzeback.util.error.code;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 public enum ErrorCode {
     GLOBAL(2),
     ABNORMAL_ACTION(3),
@@ -33,6 +36,8 @@ public enum ErrorCode {
     BUSINESSCARD_YOU_ALREADY_HAVE(301),
     INVALID_ORDER_STATE(302),
 
+    UNAUTHORIZED(401),
+    FORBIDDEN(403),
     NOT_FOUND(404),
     HOST_INVALID_API_CALL(409),
 
@@ -44,17 +49,6 @@ public enum ErrorCode {
     FAIL_TO_INSERT(502),
 
     //
-    VOTE_ERROR(601),
-    VOTE_SAME_ITEM_VOTED(602),
-    VOTE_ALREADY_VOTED(603),
-    VOTE_EDIT_FAIL_REPLY_EXIST(604),
-    VOTE_EDIT_FAIL_VOTING_EXIST(605),
-    VOTE_FORCE_ENDED(606),
-    VOTE_DELETED(607),
-    VOTE_OVER_DEADLINE(608),
-    VOTE_TOO_MANY_ITEM(609),
-    VOTE_NOT_FOUND(610),
-    VOTE_PERMISSION_DENIED(611),
 
     // Transaction Exception
     TRANSACTION_ROLLBACK_BY_EXCEPTION(701),
