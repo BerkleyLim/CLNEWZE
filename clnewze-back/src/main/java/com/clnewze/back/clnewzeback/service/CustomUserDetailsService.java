@@ -1,6 +1,5 @@
 package com.clnewze.back.clnewzeback.service;
 
-import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.clnewze.back.clnewzeback.domain.entity.Authority;
 import com.clnewze.back.clnewzeback.domain.entity.T_user;
 import com.clnewze.back.clnewzeback.mapper.TUserMapper;
-import com.google.gson.JsonArray;
 
 import lombok.AllArgsConstructor;
 
@@ -38,17 +36,16 @@ public class CustomUserDetailsService implements UserDetailsService {
     T_user tUser = oTUser.get();
 
     // 이 로직 시작 -> 수동으로 넣으면 authorities 누락이 안되고 성공한다.
-    String[] str = tUser.getTypeOfStringAuthorities().replace("\"", "").replace("[", "").replace("]", "")
+    String[] authorityName = tUser.getTypeOfStringAuthorities().replace("\"", "").replace("[", "").replace("]", "")
         .replace(" ", "").split(",");
-    Authority authority = new Authority();
+    Authority authority;
     Set<Authority> authorities = new HashSet<>();
-    for (int i = 0; i < str.length; i++) {
-      authority.setAuthorityName(str[i]);
+    for (int i = 0; i < authorityName.length; i++) {
+      authority = new Authority();
+      authority.setAuthorityName(authorityName[i]);
       authorities.add(authority);
     }
-
     tUser.setAuthorities(authorities);
-    oTUser.ifPresent(null);
 
     System.out.println("JWT 인증서 받아오기 테스트 결과 : " + tUser);
     // 로직 종료 : 수동으로 넣으면 authorities 누락 안됨, 이유는 알 수 없음
@@ -63,6 +60,7 @@ public class CustomUserDetailsService implements UserDetailsService {
       throw new RuntimeException(id + " -> 활성화되어 있지 않습니다.");
     }
 
+    System.out.println(user);
     List<GrantedAuthority> grantedAuthorities = user.getAuthorities().stream()
         .map(authority -> new SimpleGrantedAuthority(authority.getAuthorityName()))
         .collect(Collectors.toList());
