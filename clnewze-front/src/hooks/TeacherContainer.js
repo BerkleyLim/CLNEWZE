@@ -50,14 +50,17 @@ const TeacherContainer = () => {
   }, [selectMajor, offset]);
 
   // 초기 렌더링 기준 설정 시
-  useEffect(async () => {
+  useEffect(() => {
     // 선생님 전체 카운터
-    const data = await teacherSelectListAllCount();
-    if (!!data) {
-      setPagingCount(data)
+    const fetchData = async () => {
+      const data = await teacherSelectListAllCount();
+      if (!!data) {
+        setPagingCount(data)
+      }
+      resetModal();
+      resetModalData();
     }
-    resetModal();
-    resetModalData();
+    fetchData();
   }, []);
 
   // Query 실행 중일 때

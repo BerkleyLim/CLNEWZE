@@ -14,10 +14,13 @@ import styles from "../../../scss/teacher/teacher.module.scss";
 import TeacherDropdownItemComponent from "./TeacherDropdownItemComponent";
 import restApiAllUser from "../../../util/restApiAllUser";
 import { Search } from "react-bootstrap-icons";
+import TeacherContainer from "../../../hooks/TeacherContainer";
 
-const TeacherMenuComponent = ({ teachers, majormenu }) => {
+const TeacherMenuComponent = () => {
   const [menuData, setMenuData] = useState();
   const [isDetail, setIsDetail] = useState(false);
+
+  // const {teachers} = TeacherContainer();
 
   useEffect(() => {
     restApiAllUser.get(
@@ -46,14 +49,14 @@ const TeacherMenuComponent = ({ teachers, majormenu }) => {
           </Col>
           <Col>
             <InputGroup className={`${styles?.searchBox}`}>
-              <TeacherDropdownItemComponent menuData={menuData} majormenu={majormenu} />
+              <TeacherDropdownItemComponent menuData={menuData} />
               {/* <Input className="form-control" title="검색어 입력" /> */}
               <Input 
                 type="search"
                 placeholder="Placeholder"
                 // value="Doe"
                 className="form-control"
-                data={teachers}
+                // data={teachers}
                 callback={(record) => console.log(record)}
               />
               {/* <Input className="form-control" title="검색어 입력" /> */}

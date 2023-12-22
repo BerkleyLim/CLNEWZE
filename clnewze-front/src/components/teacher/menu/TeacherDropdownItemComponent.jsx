@@ -7,8 +7,10 @@ import {
   Button,
 } from "reactstrap";
 import styles from "../../../scss/teacher/teacher.module.scss";
+import TeacherContainer from "../../../hooks/TeacherContainer";
 
-const TeacherDropdownItemComponent = ({ menuData, majormenu }) => {
+const TeacherDropdownItemComponent = ({ menuData }) => {
+  const {majorMenu} = TeacherContainer();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [selectData, setSelectData] = useState();
 
@@ -20,7 +22,7 @@ const TeacherDropdownItemComponent = ({ menuData, majormenu }) => {
 
   const selectToggleButton = (data) => {
     setSelectData(data);
-    majormenu(data?.category)
+    majorMenu(data?.category)
   }
   return (
     <ButtonDropdown
