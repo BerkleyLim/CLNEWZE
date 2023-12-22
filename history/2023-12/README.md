@@ -69,9 +69,29 @@
 - Back
   - jwt 인증 개발 중 
 
-## 22일
+## 21일
 
 - Back
   - jwt 1차 구현 완료
     - 인증 받고 token 받아오는 것까지 완료
     - 2차 테스트 진행 예정
+
+## 22일
+
+- Back
+  - jwt 2차 구현 완료
+    - token 받아오는 것은 확인
+    - 모든 사용자가 자유롭게 api 사용 할 수 있게 설정 완료
+    - jwt의 대한 이해도를 습득
+  - Teacher, sheetmusic, practice room 등 모두 사용자로 묶고 진행 예정
+
+- front
+  - Back-End에서 jwt 구현한 것을 테스트 준비중
+    - 로그인 처리를 개발 중
+    - jwt 인증 토큰을 front 서버에서 저장은 Session storage로 저장 가능하나 in-memory 방식으로 활용하는 법의 대해 리팩토링 예정
+  - My-page 샘플본 추가
+    - 현재 개발 진행 예정인 페이지 추가
+      - 환전 신청
+      - 선생님 등록/관리
+      - 구독하기
+  - 페이지 index 부분은 page 폴더로 분할, 각 item별 component 단위로 끊고 진행
