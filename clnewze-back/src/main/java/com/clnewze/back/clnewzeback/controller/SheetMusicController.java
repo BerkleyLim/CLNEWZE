@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -68,6 +69,7 @@ public class SheetMusicController {
   }
 
   @GetMapping("/master/menu/table/count")
+  @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
   public Long categoryCountSheetMusicMenu() {
     log.info("controller : SheetMusicMenu : categoryCountSheetMusicMenu() 호출 성공");
     Long result = sheetMusicService.categoryCountSheetMusicMenu();
@@ -75,6 +77,7 @@ public class SheetMusicController {
   }
 
   @PostMapping("/master/menu/create")
+  @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
   public Integer createSheetMusicMenu(@RequestBody SheetMusicMenuCategory sheetMusicMenuCategory) {
     log.info("controller : SheetMusicMenu : create Sheet music MusicMenu() 호출 성공");
     Integer createSuccess = sheetMusicService.createSheetMusicMenu(sheetMusicMenuCategory.getName(),
@@ -86,6 +89,7 @@ public class SheetMusicController {
   };
 
   @PostMapping("/master/menu/change/orderby")
+  @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
   public Integer orderbyChangeSheetMusicMenu(@RequestBody SheetMusicMenuCategory sheetMusicMenuCategory) {
     log.info("controller : SheetMusicMenu : orderbyChangeMusicMenu() 호출 성공");
     return sheetMusicService.orderbyChangeSheetMusicMenu(sheetMusicMenuCategory.getSmtno(),
@@ -93,6 +97,7 @@ public class SheetMusicController {
   }
 
   @PostMapping("/master/menu/update")
+  @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
   public Integer updateSheetMusicMenu(@RequestBody SheetMusicMenuCategory sheetMusicMenuCategory) {
     log.info("controller : SheetMusicMenu : updateSheetMusicMenu() 호출 성공");
     return sheetMusicService.updateSheetMusicMenu(sheetMusicMenuCategory.getSmtno(), sheetMusicMenuCategory.getName(),
@@ -100,6 +105,7 @@ public class SheetMusicController {
   }
 
   @PostMapping("/master/menu/delete")
+  @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
   public Integer deleteSheetMusicMenu(@RequestBody SheetMusicMenuCategory sheetMusicMenuCategory) {
     log.info("controller : SheetMusicMenu : deleteSheetMusicMenu() 호출 성공");
     return sheetMusicService.deleteSheetMusicMenu(sheetMusicMenuCategory.getSmtno());

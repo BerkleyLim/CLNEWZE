@@ -2,7 +2,6 @@ package com.clnewze.back.clnewzeback.controller;
 
 import java.security.NoSuchAlgorithmException;
 
-import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -41,13 +40,13 @@ public class UserController {
 
   // 사용자 조회
   @GetMapping("/")
-  @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+  // @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
   public ResponseEntity<ResponseObject<T_user>> getMyUserInfo() {
     // T_user result = userService.getMyUserWithAuthorities().get();
     T_userDto t_userDto = userService.getMyUserWithAuthorities();
     T_user result = T_user.builder()
         .id(t_userDto.getId())
-        .password(t_userDto.getPassword())
+        // .password(t_userDto.getPassword())
         .userName(t_userDto.getUserName())
         .creTime(t_userDto.getCrtTime())
         .loginTime(t_userDto.getLoginTime())
