@@ -14,6 +14,7 @@ import CommonContaier from "../../../hooks/CommonContaier";
 import SubScriptIndex from "../subscript/SubScriptIndex";
 import { useRecoilState } from "recoil";
 import { myPageMenuState } from "../../../recoil/state/myPageHeaderState";
+import Career from "../career/CareerComponent";
 
 const MyPageWebComponent = () => {
   // state 정의
@@ -59,23 +60,32 @@ const MyPageWebComponent = () => {
               className={`${styles?.mypageListGroupItem} ${
                 menuInfo.index === 2 ? "active" : ""
               }`}
-              onClick={(e) => toggleMenuClick(e, "/mypage/subscript")}
+              onClick={(e) => toggleMenuClick(e, "/mypage/career")}
             >
-              구독 등급 관리
+              프로필 정보
             </ListGroupItem>
             <ListGroupItem
               value={3}
               className={`${styles?.mypageListGroupItem} ${
                 menuInfo.index === 3 ? "active" : ""
               }`}
-              onClick={(e) => toggleMenuClick(e, "/mypage/apply/return")}
+              onClick={(e) => toggleMenuClick(e, "/mypage/subscript")}
             >
-              환전 신청
+              구독 등급 관리
             </ListGroupItem>
             <ListGroupItem
               value={4}
               className={`${styles?.mypageListGroupItem} ${
                 menuInfo.index === 4 ? "active" : ""
+              }`}
+              onClick={(e) => toggleMenuClick(e, "/mypage/apply/return")}
+            >
+              환전 신청
+            </ListGroupItem>
+            <ListGroupItem
+              value={5}
+              className={`${styles?.mypageListGroupItem} ${
+                menuInfo.index === 5 ? "active" : ""
               }`}
               onClick={(e) => toggleMenuClick(e, "/mypage/teacher")}
             >
@@ -87,9 +97,9 @@ const MyPageWebComponent = () => {
           <ListGroup>
             <h6>업로드 정보</h6>
             <ListGroupItem
-              value={5}
+              value={6}
               className={`${styles?.mypageListGroupItem} ${
-                menuInfo.index === 5 ? "active" : ""
+                menuInfo.index === 6 ? "active" : ""
               }`}
               onClick={(e) => {
                 toggleMenuClick(e, "/mypage/performance/info");
@@ -98,27 +108,27 @@ const MyPageWebComponent = () => {
               공연정보
             </ListGroupItem>
             <ListGroupItem
-              value={6}
+              value={7}
               className={`${styles?.mypageListGroupItem} ${
-                menuInfo.index === 6 ? "active" : ""
+                menuInfo.index === 7 ? "active" : ""
               }`}
               onClick={(e) => toggleMenuClick(e, "/mypage/practiceroom/info")}
             >
               연습실
             </ListGroupItem>
             <ListGroupItem
-              value={7}
+              value={8}
               className={`${styles?.mypageListGroupItem} ${
-                menuInfo.index === 7 ? "active" : ""
+                menuInfo.index === 8 ? "active" : ""
               }`}
               onClick={(e) => toggleMenuClick(e, "/mypage/sheetmusic/info")}
             >
               악보
             </ListGroupItem>
             <ListGroupItem
-              value={8}
+              value={9}
               className={`${styles?.mypageListGroupItem} ${
-                menuInfo.index === 8 ? "active" : ""
+                menuInfo.index === 9 ? "active" : ""
               }`}
               onClick={(e) => toggleMenuClick(e, "/mypage/blog/info")}
             >
@@ -130,9 +140,9 @@ const MyPageWebComponent = () => {
           <ListGroup>
             <h6>매출 정보</h6>
             <ListGroupItem
-              value={9}
+              value={10}
               className={`${styles?.mypageListGroupItem} ${
-                menuInfo.index === 9 ? "active" : ""
+                menuInfo.index === 10 ? "active" : ""
               }`}
               onClick={(e) => {
                 toggleMenuClick(e, "/mypage/user/dashboard");
@@ -141,9 +151,9 @@ const MyPageWebComponent = () => {
               구입악보
             </ListGroupItem>
             <ListGroupItem
-              value={10}
+              value={11}
               className={`${styles?.mypageListGroupItem} ${
-                menuInfo.index === 10 ? "active" : ""
+                menuInfo.index === 11 ? "active" : ""
               }`}
               onClick={(e) =>
                 toggleMenuClick(e, "/mypage/user/sell/sheetmusic")
@@ -157,9 +167,9 @@ const MyPageWebComponent = () => {
           <ListGroup>
             <h6>마이페이지</h6>
             <ListGroupItem
-              value={11}
+              value={12}
               className={`${styles?.mypageListGroupItem} ${
-                menuInfo.index === 11 ? "active" : ""
+                menuInfo.index === 12 ? "active" : ""
               }`}
               onClick={(e) => {
                 // toggleMenuClick(e, "/mypage/user/dashboard")
@@ -169,9 +179,9 @@ const MyPageWebComponent = () => {
               이전화면
             </ListGroupItem>
             <ListGroupItem
-              value={12}
+              value={13}
               className={`${styles?.mypageListGroupItem} ${
-                menuInfo.index === 12 ? "active" : ""
+                menuInfo.index === 13 ? "active" : ""
               }`}
               onClick={(e) =>
                 // toggleMenuClick(e, "/mypage/user/sell/sheetmusic")
@@ -181,9 +191,9 @@ const MyPageWebComponent = () => {
               로그아웃
             </ListGroupItem>
             <ListGroupItem
-              value={13}
+              value={14}
               className={`${styles?.mypageListGroupItem} ${
-                menuInfo.index === 13 ? "active" : ""
+                menuInfo.index === 14 ? "active" : ""
               }`}
               onClick={(e) => toggleMenuClick(e, "/mypage/user/escape")}
             >
@@ -194,9 +204,9 @@ const MyPageWebComponent = () => {
           <ListGroup>
             <h6>관리자 기능 - 차후 숨길 예정</h6>
             <ListGroupItem
-              value={14}
+              value={15}
               className={`${styles?.mypageListGroupItem} ${
-                menuInfo.index === 14 ? "active" : ""
+                menuInfo.index === 15 ? "active" : ""
               }`}
               onClick={(e) => {
                 toggleMenuClick(e, "/mypage/admin/user");
@@ -205,9 +215,9 @@ const MyPageWebComponent = () => {
               회원정보 출력
             </ListGroupItem>
             <ListGroupItem
-              value={15}
+              value={16}
               className={`${styles?.mypageListGroupItem} ${
-                menuInfo.index === 15 ? "active" : ""
+                menuInfo.index === 16 ? "active" : ""
               }`}
               onClick={(e) => {
                 toggleMenuClick(e, "/mypage/admin/dashboard");
@@ -216,9 +226,9 @@ const MyPageWebComponent = () => {
               매출액
             </ListGroupItem>
             <ListGroupItem
-              value={16}
+              value={17}
               className={`${styles?.mypageListGroupItem} ${
-                menuInfo.index === 16 ? "active" : ""
+                menuInfo.index === 17 ? "active" : ""
               }`}
               onClick={(e) =>
                 toggleMenuClick(e, "/mypage/admin/sheetmusic")
@@ -227,9 +237,9 @@ const MyPageWebComponent = () => {
               악보 페이지 관리
             </ListGroupItem>
             <ListGroupItem
-              value={17}
+              value={18}
               className={`${styles?.mypageListGroupItem} ${
-                menuInfo.index === 17 ? "active" : ""
+                menuInfo.index === 18 ? "active" : ""
               }`}
               onClick={(e) =>
                 toggleMenuClick(e, "/mypage/admin/practiceroom")
@@ -238,9 +248,9 @@ const MyPageWebComponent = () => {
               연습실 페이지 관리
             </ListGroupItem>
             <ListGroupItem
-              value={18}
+              value={19}
               className={`${styles?.mypageListGroupItem} ${
-                menuInfo.index === 18 ? "active" : ""
+                menuInfo.index === 19 ? "active" : ""
               }`}
               onClick={(e) =>
                 toggleMenuClick(e, "/mypage/admin/teacher")
@@ -249,9 +259,9 @@ const MyPageWebComponent = () => {
               레스너찾기 페이지 관리
             </ListGroupItem>
             <ListGroupItem
-              value={19}
+              value={20}
               className={`${styles?.mypageListGroupItem} ${
-                menuInfo.index === 19 ? "active" : ""
+                menuInfo.index === 20 ? "active" : ""
               }`}
               onClick={(e) =>
                 toggleMenuClick(e, "/mypage/admin/blog")
@@ -266,6 +276,7 @@ const MyPageWebComponent = () => {
           {/* 함수 써서 출력한다. */}
           <Routes>
             <Route path="/mypage/*" element={<MypageInfo />} />
+            <Route path="/mypage/career" element={<Career />} />
             <Route path="/mypage/subscript" element={<SubScriptIndex />} />
             <Route path="/mypage/admin/teacher" element={<AdminTeacher />} />
             <Route
