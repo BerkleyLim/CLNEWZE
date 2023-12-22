@@ -44,6 +44,7 @@ public class SecurityConfig { // 추가적인 설정을 위해 WebSecurityConfig
   }
 
   // 스프링 시큐리티 룰을 무시하게 하는 Url 규칙(여기 등록하면 규칙 적용하지 않음)
+  // 로그인 하지 않을 경우 전체적으로 공개적으로 표시
   // public void configure(HttpSecurity http) throws Exception
   @Bean
   public WebSecurityCustomizer webSecurityCustomizer() {
@@ -53,7 +54,17 @@ public class SecurityConfig { // 추가적인 설정을 위해 WebSecurityConfig
         // .requestMatchers("/vendor/**")
         // .requestMatchers("/js/**")
         // .requestMatchers("/favicon*/**")
-        .requestMatchers("/api/**");
+        // .requestMatchers("/api/**"); // 개발 모드할 때만 임시로 풀기
+
+        .requestMatchers("/api/teacher/selectList")
+        .requestMatchers("/api/teacher/master/menu/category")
+        .requestMatchers("/api/teacher/selectListAllCount")
+        .requestMatchers("/api/sheetmusic/selectList")
+        .requestMatchers("/api/sheetmusic/selectListAllCount")
+        .requestMatchers("/api/sheetmusic/master/menu/category")
+        .requestMatchers("/api/practiceroom/selectList")
+        .requestMatchers("/api/practiceroom/master/menu/category")
+        .requestMatchers("/api/practiceroom/selectListAllCount");
   }
 
   // 스프링 시큐리티 규칙
@@ -75,7 +86,9 @@ public class SecurityConfig { // 추가적인 설정을 위해 WebSecurityConfig
 
         // 인증을 위한 확인을 위해 설정
         .authorizeHttpRequests(requests -> requests
-            .requestMatchers("/api/auth/authenticate", "/api/user/signup").permitAll())
+            .requestMatchers("/api/auth/authenticate", "/api/user/signup").permitAll()
+        // .requestMatchers("/api/teacher/selectList").hasAnyAuthority("ROLE_USER")
+        )
 
         // JWT configration
         .apply(new JwtSecurityConfig(tokenProvider));
