@@ -11,10 +11,11 @@ import AdminSheetMusic from "../admin/sheetmusic";
 import AdminDashboard from "../admin/dashboard";
 import UserContainer from "../../../hooks/UserContainer";
 import CommonContaier from "../../../hooks/CommonContaier";
-import SubScriptIndex from "../subscript/SubScriptIndex";
+import SubScriptIndex from "../subscript/SubScriptComponent";
 import { useRecoilState } from "recoil";
 import { myPageMenuState } from "../../../recoil/state/myPageHeaderState";
-import Career from "../career/CareerComponent";
+import MyCareer from "../career/CareerComponent";
+import MyTeacher from "../teacher/MyTeacherComponent";
 
 const MyPageWebComponent = () => {
   // state 정의
@@ -89,7 +90,7 @@ const MyPageWebComponent = () => {
               }`}
               onClick={(e) => toggleMenuClick(e, "/mypage/teacher")}
             >
-              선생님 관리
+              선생님 등록/관리
             </ListGroupItem>
           </ListGroup>
           <br />
@@ -276,7 +277,8 @@ const MyPageWebComponent = () => {
           {/* 함수 써서 출력한다. */}
           <Routes>
             <Route path="/mypage/*" element={<MypageInfo />} />
-            <Route path="/mypage/career" element={<Career />} />
+            <Route path="/mypage/career" element={<MyCareer />} />
+            <Route path="/mypage/teacher" element={<MyTeacher />} />
             <Route path="/mypage/subscript" element={<SubScriptIndex />} />
             <Route path="/mypage/admin/teacher" element={<AdminTeacher />} />
             <Route
