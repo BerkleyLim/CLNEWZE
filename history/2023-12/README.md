@@ -89,9 +89,18 @@
   - Back-End에서 jwt 구현한 것을 테스트 준비중
     - 로그인 처리를 개발 중
     - jwt 인증 토큰을 front 서버에서 저장은 Session storage로 저장 가능하나 in-memory 방식으로 활용하는 법의 대해 리팩토링 예정
-  - My-page 샘플본 추가
+  - My-page 샘플본 추가 및 수정
     - 현재 개발 진행 예정인 페이지 추가
       - 환전 신청
       - 선생님 등록/관리
       - 구독하기
+    - Menu 추가
+      - 공지사항
+      - QnA
   - 페이지 index 부분은 page 폴더로 분할, 각 item별 component 단위로 끊고 진행
+  - Header 일부 수정
+    - 다국어 선택, 검색 기능 숨김 처리
+  - main 페이지 일부 수정
+    - 오늘의 소식 숨김 처리
+    - 커뮤니티 숨김 처리
+  - react-horizontal-scrolling-menu 설치
