@@ -8,11 +8,11 @@ import Introduction from "./components/introduction/index";
 import Performance from "./components/performance/index";
 import PracticeRoom from "./components/practiceRoom/PracticeRoomComponent";
 import SheetMusic from "./components/sheetmusic/SheetMusicComponent";
-import Teacher from "./components/teacher/TeachersComponent";
 import Blog from "./components/blog/index";
 
 import MypageHeader from "./components/mypage/header/HeaderIndex";
 import Mypage from "./components/mypage/MyPageComponent";
+import TeacherPage from "./pages/teacher/TeacherPage";
 
 function App() {
   return (
@@ -32,7 +32,7 @@ function App() {
                   element={<PracticeRoom />}
                 />
                 <Route path="/sheetmusic/:pageNo" element={<SheetMusic />} />
-                <Route path="/teacher/:pageNo" element={<Teacher />} />
+                <Route path="/teacher/:pageNo" element={<TeacherPage />} />
                 <Route path="/blog/:pageNo" element={<Blog />} />
               </Routes>
             </div>

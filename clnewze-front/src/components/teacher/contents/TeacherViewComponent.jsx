@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import { Modal, Nav, Navbar } from "reactstrap";
-import styles from "../../teacher.module.scss";
-import TeacherContainer from "../../../../hooks/TeacherContainer";
+import styles from "../../../scss/teacher/teacher.module.scss";
+import TeacherContainer from "../../../hooks/TeacherContainer";
 import { useRecoilValue } from "recoil";
-import { teacherModalDataState, teacherModalIsOpenState } from "../../../../recoil/state/teacherState";
+import { teacherModalDataState, teacherModalIsOpenState } from "../../../recoil/state/teacherState";
 
 const TeacherViewComponent = () => {
   const { toggleModal } = TeacherContainer();

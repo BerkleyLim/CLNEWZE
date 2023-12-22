@@ -10,12 +10,12 @@ import {
   Navbar,
   Row,
 } from "reactstrap";
-import styles from "../../teacher.module.scss";
-import DropdownForm from "./dropdown";
-import restApiAllUser from "../../../../util/restApiAllUser";
+import styles from "../../../scss/teacher/teacher.module.scss";
+import TeacherDropdownItemComponent from "./TeacherDropdownItemComponent";
+import restApiAllUser from "../../../util/restApiAllUser";
 import { Search } from "react-bootstrap-icons";
 
-const ContentsMenu = ({ teachers, majormenu }) => {
+const TeacherMenuComponent = ({ teachers, majormenu }) => {
   const [menuData, setMenuData] = useState();
   const [isDetail, setIsDetail] = useState(false);
 
@@ -46,7 +46,7 @@ const ContentsMenu = ({ teachers, majormenu }) => {
           </Col>
           <Col>
             <InputGroup className={`${styles?.searchBox}`}>
-              <DropdownForm menuData={menuData} majormenu={majormenu} />
+              <TeacherDropdownItemComponent menuData={menuData} majormenu={majormenu} />
               {/* <Input className="form-control" title="검색어 입력" /> */}
               <Input 
                 type="search"
@@ -76,4 +76,4 @@ const ContentsMenu = ({ teachers, majormenu }) => {
   );
 };
 
-export default ContentsMenu;
+export default TeacherMenuComponent;

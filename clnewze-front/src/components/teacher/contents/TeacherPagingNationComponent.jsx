@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
-import styles from "../../teacher.module.scss";
+import styles from "../../../scss/teacher/teacher.module.scss";
 import { useNavigate } from "react-router-dom";
-import TeacherContainer from "../../../../hooks/TeacherContainer";
+import TeacherContainer from "../../../hooks/TeacherContainer";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { teacherPagingNationState } from "../../../../recoil/state/teacherState";
+import { teacherPagingNationState } from "../../../recoil/state/teacherState";
 
-const TeachersPagingnation = () => {
+const TeacherPagingNationComponent = () => {
   const { pagingCount, limit } = TeacherContainer();
   const page = useRecoilValue(teacherPagingNationState)
   const setPage = useSetRecoilState(teacherPagingNationState)
@@ -81,4 +81,4 @@ const TeachersPagingnation = () => {
   );
 };
 
-export default TeachersPagingnation;
+export default TeacherPagingNationComponent;

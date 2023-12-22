@@ -8,8 +8,8 @@ import {
   Col,
   Row,
 } from "reactstrap";
-import styles from "../../teacher.module.scss";
-import TeacherContainer from "../../../../hooks/TeacherContainer";
+import styles from "../../../scss/teacher/teacher.module.scss";
+import TeacherContainer from "../../../hooks/TeacherContainer";
 
 const TeacherListComponent = () => {
 

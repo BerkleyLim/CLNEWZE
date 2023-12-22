@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import restApiAllUser from "../util/restApiAllUser";
 import {
   teacherModalDataState,
   teacherModalIsOpenState,
@@ -8,6 +7,7 @@ import {
 } from "../recoil/state/teacherState";
 import { useRecoilState, useResetRecoilState } from "recoil";
 import { useQuery } from "react-query";
+import TeacherService from "../service/TeacherService";
 
 const TeacherContainer = () => {
   const [teachers, setTeachers] = useRecoilState(teacherState);
@@ -23,22 +23,18 @@ const TeacherContainer = () => {
   const [modalData, setModalData] = useRecoilState(teacherModalDataState);
   const resetModalData = useResetRecoilState(teacherModalDataState);
 
+  // 서비스 단에서 React Hooks으로 받아옴
+  const { teacherSelectList, teacherSelectListAllCount } = TeacherService();
+
   // 조회 관련 api 호출 정의
-  const selectTeacher = () => {
-    restApiAllUser.get(
-      process.env.REACT_APP_API_ROOT +
-        "teacher/selectList" +
-        "?major=" +
-        selectMajor +
-        "&pageNo=" +
-        offset +
-        "&limit=" +
-        limit
-    )
-      .then((res) => { 
-        setTeachers(res.data.data);
-      })
-      .catch((e) => console.error(e));
+  const selectTeacher = async () => {
+    // Service 디렉토리에서 API 호출
+    const data = await teacherSelectList(selectMajor, offset, limit);
+
+    // error 나면 null 값 표시
+    if (!!data) {
+      setTeachers(data)
+    }
   }
 
   // 리액트 Query를 이용하여 누군가 작업을 진행하면 자동으로 React-Query 실행하여 즉시 갱신
@@ -53,11 +49,13 @@ const TeacherContainer = () => {
     selectTeacher()
   }, [selectMajor, offset]);
 
-  useEffect(() => {
-    restApiAllUser.get(process.env.REACT_APP_API_ROOT + "teacher/selectListAllCount")
-      .then((res) => setPagingCount(res.data.data))
-      .catch((e) => console.error(e));
-
+  // 초기 렌더링 기준 설정 시
+  useEffect(async () => {
+    // 선생님 전체 카운터
+    const data = await teacherSelectListAllCount();
+    if (!!data) {
+      setPagingCount(data)
+    }
     resetModal();
     resetModalData();
   }, []);

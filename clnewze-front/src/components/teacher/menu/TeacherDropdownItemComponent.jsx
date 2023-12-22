@@ -6,9 +6,9 @@ import {
   ButtonDropdown,
   Button,
 } from "reactstrap";
-import styles from "../../teacher.module.scss";
+import styles from "../../../scss/teacher/teacher.module.scss";
 
-const DrowdownFunction = ({ menuData, majormenu }) => {
+const TeacherDropdownItemComponent = ({ menuData, majormenu }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [selectData, setSelectData] = useState();
 
@@ -46,4 +46,4 @@ const DrowdownFunction = ({ menuData, majormenu }) => {
   );
 };
 
-export default DrowdownFunction;
+export default TeacherDropdownItemComponent;
