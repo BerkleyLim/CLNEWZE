@@ -1,5 +1,5 @@
 import React from "react";
-import { Row } from "reactstrap";
+import { Col, Row } from "reactstrap";
 
 import MainTodayIssue from "./item/today";
 import MainNotice from "./item/notice";
@@ -20,9 +20,13 @@ const Main = () => {
       <br />
       {/* <!-- 공지사항 및 QnA, 커뮤니티 --> */}
       <Row>
-        <MainNotice />
+        <Col>
+          <MainNotice />
+        </Col>
 
-        <MainQna />
+        <Col>
+          <MainQna />
+        </Col>
 
         {/* <MainCommunity /> */}
       </Row>
