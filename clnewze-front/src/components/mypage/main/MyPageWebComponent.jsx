@@ -270,6 +270,28 @@ const MyPageWebComponent = () => {
             >
               블로그 페이지 관리
             </ListGroupItem>
+            <ListGroupItem
+              value={21}
+              className={`${styles?.mypageListGroupItem} ${
+                menuInfo.index === 21 ? "active" : ""
+              }`}
+              onClick={(e) =>
+                toggleMenuClick(e, "/mypage/admin/notice")
+              }
+            >
+              공지사항
+            </ListGroupItem>
+            <ListGroupItem
+              value={22}
+              className={`${styles?.mypageListGroupItem} ${
+                menuInfo.index === 22 ? "active" : ""
+              }`}
+              onClick={(e) =>
+                toggleMenuClick(e, "/mypage/admin/qna")
+              }
+            >
+              QnA
+            </ListGroupItem>
           </ListGroup>
         </Col>
         {/* 영역 출력 */}
