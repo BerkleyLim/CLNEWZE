@@ -42,11 +42,14 @@ const WebHeaderIndex = () => {
             <img src="" alt="" />
           </a>
         </div>
-        <SelectMenuIndex />
+
+        {/* 검색 박스 기능도 숨기기 */}
+        {/* <SelectMenuIndex /> */}
         {/* <!-- 여기는 그냥 100px의 여백 두기 --> */}
         <div style={{ display: "flex", width: "100px" }}></div>
 
-        <SelectLanguageIndex />
+        {/* 언어 선택 임시로 숨김 */}
+        {/* <SelectLanguageIndex /> */}
 
         <i className="fas fa-list header-icon"></i>
 
