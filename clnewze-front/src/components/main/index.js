@@ -18,13 +18,13 @@ const Main = () => {
       <br />
       <br />
       <br />
-      {/* <!-- 공지사항 및 QnA --> */}
+      {/* <!-- 공지사항 및 QnA, 커뮤니티 --> */}
       <Row>
         <MainNotice />
 
         <MainQna />
 
-        <MainCommunity />
+        {/* <MainCommunity /> */}
       </Row>
 
       <br />
