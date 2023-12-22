@@ -13,7 +13,7 @@ const Main = () => {
   return (
     <div>
       {/* <!-- 오늘의 소식 --> */}
-      <MainTodayIssue />
+      {/* <MainTodayIssue /> */}
 
       <br />
       <br />
