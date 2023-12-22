@@ -16,9 +16,14 @@ $header-color:#FFF3D4; // $ : 변수
       max-width: 1200px;
       height: 80px;
       margin: 0 auto;
+
+      & .headerLogo{
+        width: 180px;
+        height: 100px;
+        background-size: auto;
+        // background-image: url('./image/temp_logo.png');
+      }
     }
-
-
   }
 
   & {
