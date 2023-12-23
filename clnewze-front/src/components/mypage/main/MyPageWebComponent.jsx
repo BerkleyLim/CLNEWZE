@@ -15,7 +15,7 @@ import SubScriptIndex from "../subscript/SubScriptComponent";
 import { useRecoilState } from "recoil";
 import { myPageMenuState } from "../../../recoil/state/myPageHeaderState";
 import MyCareer from "../career/CareerComponent";
-import MyTeacher from "../teacher/MyTeacherComponent";
+import MyPageTeacherPage from "../../../pages/mypage/teacher/MyPageTeacherPage";
 
 const MyPageWebComponent = () => {
   // state 정의
@@ -300,7 +300,7 @@ const MyPageWebComponent = () => {
           <Routes>
             <Route path="/mypage/*" element={<MypageInfo />} />
             <Route path="/mypage/career" element={<MyCareer />} />
-            <Route path="/mypage/teacher" element={<MyTeacher />} />
+            <Route path="/mypage/teacher" element={<MyPageTeacherPage />} />
             <Route path="/mypage/subscript" element={<SubScriptIndex />} />
             <Route path="/mypage/admin/teacher" element={<AdminTeacher />} />
             <Route
