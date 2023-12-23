@@ -6,9 +6,11 @@ import {
   ButtonDropdown,
   Button,
 } from "reactstrap";
-import styles from "../../sheetmusic.module.scss";
+import styles from "../../../scss/sheetmusic/sheetmusic.module.scss";
+import SheetMusicContainer from "../../../hooks/SheetMusicContainer";
 
-const DrowdownFunction = ({ menuData, genreList }) => {
+const DrowdownFunction = ({ menuData }) => {
+  const {genreList} = SheetMusicContainer();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [selectData, setSelectData] = useState();
 

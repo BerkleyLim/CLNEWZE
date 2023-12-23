@@ -9,8 +9,8 @@ import {
   Col,
   Row,
 } from "reactstrap";
-import styles from "../../sheetmusic.module.scss";
-import SheetMusicContainer from "../../../../hooks/SheetMusicContainer";
+import styles from "../../../scss/sheetmusic/sheetmusic.module.scss";
+import SheetMusicContainer from "../../../hooks/SheetMusicContainer";
 
 const SheetMusicIndex = () => {
 

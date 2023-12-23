@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import restApiAllUser from "../util/restApiAllUser";
 import { useRecoilState, useResetRecoilState } from "recoil";
 import { useQuery } from "react-query";
 import {
@@ -9,6 +8,7 @@ import {
   sheetMusicPagingNationState,
   sheetMusicState,
 } from "../recoil/state/sheetMusicState";
+import SheetMusicService from "../service/SheetMusicService";
 
 const SheetMusicContainer = () => {
   const param = useParams();
@@ -25,17 +25,11 @@ const SheetMusicContainer = () => {
   const [modalData, setModalData] = useRecoilState(sheetMusicModalDataState);
   const resetModalData = useResetRecoilState(sheetMusicModalDataState);
 
+  const {sheetMusicSelectList, sheetMusicSelectListAllCount} = SheetMusicService();
+
   // 조회 관련 api 호출 정의
-  const selectSheetMusic = () => {
-    restApiAllUser.get(
-      process.env.REACT_APP_API_ROOT +
-        "sheetmusic/selectList"
-          + "?genre=" + selectGenre
-          + "&pageNo=" + offset
-          + "&limit=" + limit
-    )
-      .then((res) => setBoards(res.data.data))
-      .catch((e) => console.error(e));
+  const selectSheetMusic = async () => {
+    const data = await sheetMusicSelectList(selectGenre, offset, limit);
   };
 
   // 리액트 Query를 이용하여 누군가 작업을 진행하면 자동으로 React-Query 실행하여 즉시 갱신
@@ -50,11 +44,15 @@ const SheetMusicContainer = () => {
   }, [selectGenre, offset]);
 
   useEffect(() => {
-    restApiAllUser.get(
-      process.env.REACT_APP_API_ROOT + "sheetmusic/selectListAllCount"
-    )
-      .then((res) => setPagingCount(res.data.data))
-      .catch((e) => console.error(e));
+
+    const fetchData = async () => {
+      const data = await sheetMusicSelectListAllCount();
+
+      if (!!data)
+      setPagingCount(data);
+    }
+
+    fetchData();
 
     resetModal();
     resetModalData();

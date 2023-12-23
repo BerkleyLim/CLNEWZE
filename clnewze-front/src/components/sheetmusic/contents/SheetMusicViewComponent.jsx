@@ -1,9 +1,9 @@
 import React from "react";
 import { Modal, Nav, Navbar } from "reactstrap";
-import styles from "../../sheetmusic.module.scss";
-import SheetMusicContainer from "../../../../hooks/SheetMusicContainer";
+import styles from "../../../scss/sheetmusic/sheetmusic.module.scss";
+import SheetMusicContainer from "../../../hooks/SheetMusicContainer";
 import { useRecoilValue } from "recoil";
-import { sheetMusicModalDataState, sheetMusicModalIsOpenState } from "../../../../recoil/state/sheetMusicState";
+import { sheetMusicModalDataState, sheetMusicModalIsOpenState } from "../../../recoil/state/sheetMusicState";
 
 const SheetMusicComponent = () => {
   const { toggleModal } = SheetMusicContainer();

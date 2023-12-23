@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
-  import styles from "../../sheetmusic.module.scss";
+import styles from "../../../scss/sheetmusic/sheetmusic.module.scss";
 import { useNavigate } from "react-router-dom";
-import SheetMusicContainer from "../../../../hooks/SheetMusicContainer";
-import { sheetMusicPagingNationState } from "../../../../recoil/state/sheetMusicState";
+import SheetMusicContainer from "../../../hooks/SheetMusicContainer";
+import { sheetMusicPagingNationState } from "../../../recoil/state/sheetMusicState";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 
 const SheetMusicPagingnation = () => {

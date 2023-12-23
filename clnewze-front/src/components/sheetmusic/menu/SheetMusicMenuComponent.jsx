@@ -10,23 +10,27 @@ import {
   Navbar,
   Row,
 } from "reactstrap";
-import DropdownForm from "./dropdown";
-import styles from "../../sheetmusic.module.scss";
-import restApiAllUser from "../../../../util/restApiAllUser";
+import DropdownForm from "./SheetMusicDropdownItem";
+import styles from "../../../scss/sheetmusic/sheetmusic.module.scss";
+import restApiAllUser from "../../../util/restApiAllUser";
 import { Search } from "react-bootstrap-icons";
+import SheetMusicService from "../../../service/SheetMusicService";
 
 const ContentsMenu = ({ genreList }) => {
   const [menuData, setMenuData] = useState();
   const [isDetail, setIsDetail] = useState(false);
 
+  const {sheetMusicMasterMenuCategory} = SheetMusicService();
+
   useEffect(() => {
-    restApiAllUser.get(
-      process.env.REACT_APP_API_ROOT + "sheetmusic/master/menu/category"
-    )
-      .then((res) => {
-        setMenuData(res.data.data);
-      })
-      .catch((e) => console.error(e));
+    const fetchData = async () => {
+      const data = await sheetMusicMasterMenuCategory();
+
+      if (!!data) {
+        setMenuData(data);
+      }
+    }
+    fetchData();
   }, []);
 
   return (

@@ -16,7 +16,29 @@ const SheetMusicService = () => {
       .then((res) => { return res.data.data })
       .catch((e) => {console.error(e); return null});
   }
-  return {sheetMusicSelectList}
+
+  // 2) 악보 총 갯수 출력
+  //   
+  const sheetMusicSelectListAllCount = async () => {
+    return await restApiAllUser.get(
+      process.env.REACT_APP_API_ROOT + "sheetmusic/selectListAllCount"
+    )
+      .then((res) => {return res.data.data})
+      .catch((e) => { console.error(e); return null});
+  }
+
+  // 3) 드롭다운 및 장르별 메뉴 표시
+  const sheetMusicMasterMenuCategory = async () => {
+    return await restApiAllUser.get(
+      process.env.REACT_APP_API_ROOT + "sheetmusic/master/menu/category"
+    )
+      .then((res) => {
+        return res.data.data;
+      })
+      .catch((e) => {console.error(e); return null});
+  }
+
+  return {sheetMusicSelectList, sheetMusicSelectListAllCount, sheetMusicMasterMenuCategory}
 }
 
 export default SheetMusicService

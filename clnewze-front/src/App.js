@@ -7,12 +7,12 @@ import Footer from "./components/commom/footer/FooterComponent";
 import Introduction from "./components/introduction/index";
 import Performance from "./components/performance/index";
 import PracticeRoom from "./components/practiceRoom/PracticeRoomComponent";
-import SheetMusic from "./components/sheetmusic/SheetMusicComponent";
 import Blog from "./components/blog/index";
 
 import MypageHeader from "./components/mypage/header/HeaderIndex";
 import Mypage from "./components/mypage/MyPageComponent";
 import TeacherPage from "./pages/teacher/TeacherPage";
+import SheetMusicPage from "./pages/sheetmusic/SheetMusicPage";
 
 function App() {
   return (
@@ -31,7 +31,7 @@ function App() {
                   path="/practiceRoom/:pageNo"
                   element={<PracticeRoom />}
                 />
-                <Route path="/sheetmusic/:pageNo" element={<SheetMusic />} />
+                <Route path="/sheetmusic/:pageNo" element={<SheetMusicPage />} />
                 <Route path="/teacher/:pageNo" element={<TeacherPage />} />
                 <Route path="/blog/:pageNo" element={<Blog />} />
               </Routes>
