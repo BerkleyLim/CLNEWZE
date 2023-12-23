@@ -18,8 +18,8 @@ const UserService = () => {
       password: inputs.password,
     }, options)
     .then((response) => {
-      // console.log(response.data)
-      return response.data
+      console.log(response.data.data)
+      return response.data.data
     })
     .catch((e) => { 
       console.error(e) 

@@ -61,7 +61,7 @@ public class UserController {
 
   // 특정 사용자 조회
   @GetMapping("/{username}")
-  @PreAuthorize("hasAnyRole('ADMIN')")
+  // @PreAuthorize("hasAnyRole('ADMIN')")
   public ResponseEntity<ResponseObject<T_user>> getMyUserInfo(@RequestParam String id) {
     // T_user result = userService.getMyUserWithAuthorities(id).get();
     T_userDto t_userDto = userService.getMyUserWithAuthorities(id);
@@ -78,6 +78,13 @@ public class UserController {
     ResponseObject<T_user> ro = new ResponseObject<>("성공");
     ro.setData(result);
     return new ResponseEntity<>(ro, HttpStatus.OK);
+  }
+
+  // 인증 로그인
+  @PostMapping("/signin")
+  public Boolean signIn(@RequestBody T_user t_user) throws NoSuchAlgorithmException {
+    Boolean b = userService.userSearch(t_user);
+    return b;
   }
 
   // 간편 로그인 (인증 무시)
