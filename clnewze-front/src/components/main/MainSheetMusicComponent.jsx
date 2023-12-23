@@ -3,81 +3,85 @@ import { ChevronRight } from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
 import styles from "../../scss/main/main.module.scss";
 
-import styled from "styled-components";
 import SheetMusicService from "../../service/SheetMusicService";
 import { useRecoilState } from "recoil";
 import { sheetMusicState } from "../../recoil/state/sheetMusicState";
-import { ScrollMenu } from "react-horizontal-scrolling-menu";
-import { VisibilityContext } from "react-horizontal-scrolling-menu";
-import SheetMusicListComponent from "./item/SheetMusicListComponent"
-
-const Left = ({ children, onClick }) => {
-  const [show, setShow] = useState(false);
-  return show ? (
-    <Button onClick={onClick} onMouseLeave={setShow(false)}>
-      {children}
-    </Button>
-  ) : (
-    <Transparent onMouseEnter={() => {setShow(true)}} />
-  )
-}
-
-const LeftArrow = () => {
-  const {scrollPrev} = React.useContext(VisibilityContext);
-  return <Left onClick={() => scrollPrev()}>{"<-"}</Left>
-}
-
-const Right = ({ children, onClick }) => {
-  const [show, setShow] = useState(false);
-  return show ? (
-    <Button onClick={onClick} onMouseLeave={setShow(false)}>
-      {children}
-    </Button>
-  ) : (
-    <Transparent onMouseEnter={() => {setShow(true)}} />
-  )
-}
-
-const RightArrow = () => {
-  const {scrollNext} = React.useContext(VisibilityContext);
-  return <Right onClick={() => scrollNext()}>{"->"}</Right>
-}
-
-const Transparent = styled.div`
-  width: 10rem;
-  position: absolute;
-  z-index: 999;
-  height: 50rem;
-`;
-
-const Button = styled.button`
-  cursor: pointer;
-  color: white;
-  cursor: pointer;
-`;
+import CustomHorizonScroll from "./item/CustomHorizonScroll";
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  CardText,
+  CardTitle,
+  Col,
+  Row,
+} from "reactstrap";
 
 const MainSheetMusicComponent = () => {
   const navigate = useNavigate();
-  const {sheetMusicSelectList} = SheetMusicService();
+  const { sheetMusicSelectList } = SheetMusicService();
   const [sheetMusic, setSheetMusic] = useRecoilState(sheetMusicState);
 
   // 장르 설정 할때 마다
   useEffect(() => {
     const fetchData = async () => {
-      const data = await sheetMusicSelectList(null,0,10);
+      const data = await sheetMusicSelectList(null, 0, 10);
 
       // error 나면 null 값 표시
       if (!!data) {
-        setSheetMusic(data)
+        setSheetMusic(data);
       }
-    }
+    };
 
     fetchData();
-
   }, []);
 
+  // 가로 스크롤용 component 추가
+  const SheetMusicComponent = ({data}) => {
+    return (
+      <Row className={`${styles?.bootstrapRowAndColCenter}`}>
+        <Col className={`${styles?.bootstrapRowAndColCenter} mb-5`}>
+          <Card
+            style={{
+              width: "18rem",
+            }}
+            className={`${styles?.bootstrapRowAndColCenter}`}
+          >
+            <img
+              alt="Card"
+              className={`${styles?.imgCard}`}
+              src={data?.img}
+            />
+            {/* 조회수 : {data?.viewNumber} */}
+            <CardBody>
+              <CardTitle className={`${styles?.commonEllipsisTitle}`} tag="h5">
+                {data?.artist} - {data?.title}
+              </CardTitle>
+              <CardText className={`${styles?.commonEllipsisContent}`}>
+                ● 장르 : {data?.genre}
+              </CardText>
+              <CardText className={`${styles?.commonEllipsisContent}`}>
+                ● 조회수 : {data?.viewNumber}
+              </CardText>
+              <CardText className={`${styles?.commonEllipsisContent}`}>
+                ● 발매날짜 : {data?.releaseDate} 년
+              </CardText>
+              <CardText className={`${styles?.commonEllipsisContent}`}>
+                ● 앨범명 : {data?.albumName}
+              </CardText>
+              <CardText className={`${styles?.commonEllipsisContent}`}>
+                ● 상세정보 : {data?.contents}
+              </CardText>
+            </CardBody>
+            <CardFooter>{data?.upLoadDate}</CardFooter>
+          </Card>
+        </Col>
+      </Row>
+    );
+  };
+
   return (
-    <Container>
+    <div>
       {/* 참조 : https://velog.io/@071yoon/React-Horizontal-Scroll-%EA%B5%AC%ED%98%84 */}
       <div className={`${styles?.mainCommonHeader}`}>
         <h1>악보</h1>
@@ -85,28 +89,9 @@ const MainSheetMusicComponent = () => {
           <ChevronRight /> 더보기
         </p>
       </div>
-      <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
-            {sheetMusic?.map(
-                () => {
-                    return (
-                      <SheetMusicListComponent />
-                    );
-                },
-            )}
-        </ScrollMenu>
-    </Container>
+      <CustomHorizonScroll data={sheetMusic} Component={SheetMusicComponent} />
+    </div>
   );
 };
-
-const Container = styled.div`
-  overflow: hidden;
-  .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
-    display: none;
-  }
-  .react-horizontal-scrolling-menu--scroll-container {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-  }
-`;
 
 export default MainSheetMusicComponent;
