@@ -138,7 +138,7 @@ instance.interceptors.response.use(
 
               isTokenRefreshing = false;
 
-              window.alert("접근 권한이 만료되어 로그인 페이지로 이동합니다.");
+              window.alert("접근 권한이 만료되어 로그아웃 처리 되어 다시 로그인하여 주시기 바랍니다.");
               window.location.href = "/login";
             }
           })
@@ -150,7 +150,7 @@ instance.interceptors.response.use(
 
             isTokenRefreshing = false;
 
-            window.alert("접근 권한이 만료되어 로그인 페이지로 이동합니다.");
+            window.alert("접근 권한이 만료되어 로그아웃 처리 되어 다시 로그인하여 주시기 바랍니다.");
             window.location.href = "/login";
           });
       }
