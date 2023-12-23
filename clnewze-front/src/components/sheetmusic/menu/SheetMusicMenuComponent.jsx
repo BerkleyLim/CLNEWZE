@@ -12,7 +12,6 @@ import {
 } from "reactstrap";
 import DropdownForm from "./SheetMusicDropdownItem";
 import styles from "../../../scss/sheetmusic/sheetmusic.module.scss";
-import restApiAllUser from "../../../util/restApiAllUser";
 import { Search } from "react-bootstrap-icons";
 import SheetMusicService from "../../../service/SheetMusicService";
 
@@ -25,7 +24,6 @@ const ContentsMenu = ({ genreList }) => {
   useEffect(() => {
     const fetchData = async () => {
       const data = await sheetMusicMasterMenuCategory();
-
       if (!!data) {
         setMenuData(data);
       }

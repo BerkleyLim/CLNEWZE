@@ -8,8 +8,8 @@ import {
   Col,
   Row,
 } from "reactstrap";
-import styles from "../../practiceRoom.module.scss";
-import PracticeRoomContainer from "../../../../hooks/PracticeRoomContainer";
+import styles from "../../../scss/practiceroom/practiceRoom.module.scss";
+import PracticeRoomContainer from "../../../hooks/PracticeRoomContainer";
 
 const PracticeRoomListComponent = () => {
   const {practiceRooms, onClickView} = PracticeRoomContainer();

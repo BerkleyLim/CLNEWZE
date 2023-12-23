@@ -2,106 +2,83 @@ import React, { useEffect, useState } from "react";
 import { ChevronRight } from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
 import styles from "../../scss/main/main.module.scss";
-import {
-  Carousel,
-  CarouselCaption,
-  CarouselControl,
-  CarouselIndicators,
-  CarouselItem,
-} from "reactstrap";
-import restApiAllUser from "../../util/restApiAllUser";
-import PracticeRoom from '../practiceRoom/contents/board/PracticeRoomListComponent';
 
-const MainPracticeRoomComponent = () => {
+import { useRecoilState } from "recoil";
+import { sheetMusicState } from "../../recoil/state/sheetMusicState";
+import CustomHorizonScroll from "./item/CustomHorizonScroll";
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  CardText,
+  CardTitle,
+  Col,
+  Row,
+} from "reactstrap";
+import PracticeRoomService from "../../service/PracticeRoomService";
+
+const MainSheetMusicComponent = () => {
   const navigate = useNavigate();
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [animating, setAnimating] = useState(false);
-  const [items, setItems] = useState([]);
+  const { practiceRoomSelectList } = PracticeRoomService();
+  const [sheetMusic, setSheetMusic] = useRecoilState(sheetMusicState);
 
   // 장르 설정 할때 마다
   useEffect(() => {
-    restApiAllUser.get(
-      process.env.REACT_APP_API_ROOT +
-        "practiceroom/selectList?categories=" +
-        null
-    )
-      .then((res) => setItems(res.data.data))
-      .catch((e) => console.error(e));
+    const fetchData = async () => {
+      const data = await practiceRoomSelectList(null, 0, 10);
+
+      // error 나면 null 값 표시
+      if (!!data) {
+        setSheetMusic(data);
+      }
+    };
+
+    fetchData();
   }, []);
 
-  const next = () => {
-    if (animating) return;
-    const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
-    setActiveIndex(nextIndex);
-  };
-
-  const previous = () => {
-    if (animating) return;
-    const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
-    setActiveIndex(nextIndex);
-  };
-
-  const goToIndex = (newIndex) => {
-    if (animating) return;
-    setActiveIndex(newIndex);
-  };
-
-  const slides = items?.map((item, index) => {
+  // 가로 스크롤용 component 추가
+  const SheetMusicComponent = ({data}) => {
     return (
-      <CarouselItem
-        className="custom-tag"
-        tag="div"
-        key={index}
-        onExiting={() => setAnimating(true)}
-        onExited={() => setAnimating(false)}
-      >
-          {/* <button type="button" className={`${styles?.commonMainCard}`} style={{backgroundColor:"white"}}>
-            1
-          </button> */}
-          <PracticeRoom boards={items} />
-        <CarouselCaption
-          className="text-danger"
-          // captionText={item?.caption}
-          // captionHeader={item?.caption}
-        />
-      </CarouselItem>
+      <Row className={`${styles?.bootstrapRowAndColCenter}`}>
+        <Col className={`${styles?.bootstrapRowAndColCenter} mb-5`}>
+          <Card
+            style={{
+              width: "18rem",
+            }}
+            className={`${styles?.bootstrapRowAndColCenter}`}
+          >
+            <img
+              alt="Card"
+              className={`${styles?.imgCard}`}
+              src={data?.img}
+            />
+            {/* 조회수 : {data?.viewNumber} */}
+            <CardBody>
+            <CardTitle className={`${styles?.commonEllipsisTitle}`} tag="h5">{data?.title}</CardTitle>
+              <CardText className={`${styles?.commonEllipsisContent}`}>● 성함 : {data?.name}</CardText>
+              <CardText className={`${styles?.commonEllipsisContent}`}>● 위치 : {data?.place}</CardText>
+              <CardText className={`${styles?.commonEllipsisContent}`}>● 연습실 정보 : {data?.categories}</CardText>
+              <CardText className={`${styles?.commonEllipsisContent}`}>● 대여 가격 : {data?.price}</CardText>
+            </CardBody>
+            <CardFooter>{data?.upLoadDate}</CardFooter>
+          </Card>
+        </Col>
+      </Row>
     );
-  });
+  };
+
   return (
-    <>
+    <div>
+      {/* 참조 : https://velog.io/@071yoon/React-Horizontal-Scroll-%EA%B5%AC%ED%98%84 */}
       <div className={`${styles?.mainCommonHeader}`}>
-        <h1>연습실 정보</h1>
-        <p onClick={() => navigate("/practiceroom")}>
+        <h1>악보</h1>
+        <p onClick={() => navigate("/sheetmusic")}>
           <ChevronRight /> 더보기
         </p>
       </div>
-      <style>
-        {`.custom-tag {
-              max-width: 100%;
-              height: 500px;
-              background: black;
-            }`}
-      </style>
-      <Carousel activeIndex={activeIndex} next={next} previous={previous}>
-        {/* <CarouselIndicators
-          items={!!items}
-          activeIndex={activeIndex}
-          onClickHandler={goToIndex}
-        /> */}
-        {slides}
-        <CarouselControl
-          direction="prev"
-          directionText="Previous"
-          onClickHandler={previous}
-        />
-        <CarouselControl
-          direction="next"
-          directionText="Next"
-          onClickHandler={next}
-        />
-      </Carousel>
-    </>
+      <CustomHorizonScroll data={sheetMusic} Component={SheetMusicComponent} />
+    </div>
   );
 };
 
-export default MainPracticeRoomComponent;
+export default MainSheetMusicComponent;

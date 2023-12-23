@@ -10,23 +10,25 @@ import {
   Navbar,
   Row,
 } from "reactstrap";
-import styles from "../../practiceRoom.module.scss";
-import DropdownForm from "./dropdown";
-import restApiAllUser from "../../../../util/restApiAllUser";
+import styles from "../../../scss/practiceroom/practiceRoom.module.scss";
+import restApiAllUser from "../../../util/restApiAllUser";
 import { Search } from "react-bootstrap-icons";
+import PracticeRoomDropdownItem from "./PracticeRoomDropdownItem";
+import PracticeRoomService from "../../../service/PracticeRoomService";
 
-const ContentsMenu = ({categorieMenu}) => {
+const PracticeRoomMenuComponent = ({categoriesMenu}) => {
   const [menuData, setMenuData] = useState();
   const [isDetail, setIsDetail] = useState(false);
+  const {practiceRoomMasterMenuCategory} = PracticeRoomService();
 
   useEffect(() => {
-    restApiAllUser.get(
-      process.env.REACT_APP_API_ROOT + "practiceroom/master/menu/category"
-    )
-      .then((res) => {
-        setMenuData(res.data.data);
-      })
-      .catch((e) => console.error(e));
+    const fetchData = async () => {
+      const data = await practiceRoomMasterMenuCategory();
+      if (!!data) {
+        setMenuData(data)
+      }
+    }
+    fetchData();
   }, []);
   return (
     <>
@@ -46,7 +48,7 @@ const ContentsMenu = ({categorieMenu}) => {
         </Col>
         <Col>
           <InputGroup className={`${styles?.searchBox}`}>
-            <DropdownForm menuData={menuData} categorieMenu={categorieMenu} />
+            <PracticeRoomDropdownItem menuData={menuData} categoriesMenu={categoriesMenu} />
             <Input className="form-control" title="검색어 입력" />
             <Button className={`${styles?.InputGroupSearch}`}>
               <Search />
@@ -67,4 +69,4 @@ const ContentsMenu = ({categorieMenu}) => {
   );
 };
 
-export default ContentsMenu;
+export default PracticeRoomMenuComponent;

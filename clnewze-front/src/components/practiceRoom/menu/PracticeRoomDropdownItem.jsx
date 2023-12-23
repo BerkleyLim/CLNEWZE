@@ -6,9 +6,11 @@ import {
   ButtonDropdown,
   Button,
 } from "reactstrap";
-import styles from "../../practiceRoom.module.scss";
+import styles from "../../../scss/practiceroom/practiceRoom.module.scss";
+import PracticeRoomContainer from "../../../hooks/PracticeRoomContainer";
 
-const DrowdownFunction = ({ menuData, categorieMenu }) => {
+const PracticeRoomDropdownItem = ({ menuData }) => {
+  const {categoriesMenu} = PracticeRoomContainer();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [selectData, setSelectData] = useState();
 
@@ -20,7 +22,7 @@ const DrowdownFunction = ({ menuData, categorieMenu }) => {
 
   const selectToggleButton = (data) => {
     setSelectData(data);
-    categorieMenu(data?.category);
+    categoriesMenu(data?.category);
   };
   return (
     <ButtonDropdown
@@ -46,4 +48,4 @@ const DrowdownFunction = ({ menuData, categorieMenu }) => {
   );
 };
 
-export default DrowdownFunction;
+export default PracticeRoomDropdownItem;

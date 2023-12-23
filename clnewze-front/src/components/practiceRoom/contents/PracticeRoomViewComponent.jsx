@@ -1,9 +1,9 @@
 import React from "react";
 import { Modal, Nav, Navbar } from "reactstrap";
-import styles from "../../practiceRoom.module.scss";
-import PracticeRoomContainer from "../../../../hooks/PracticeRoomContainer";
+import styles from "../../../scss/practiceroom/practiceRoom.module.scss";
+import PracticeRoomContainer from "../../../hooks/PracticeRoomContainer";
 import { useRecoilValue } from "recoil";
-import { practiceRoomModalDataState, practiceRoomModalIsOpenState } from "../../../../recoil/state/practiceRoomState";
+import { practiceRoomModalDataState, practiceRoomModalIsOpenState } from "../../../recoil/state/practiceRoomState";
 
 const PracticeRoomViewComponent = () => {
   const { toggleModal } = PracticeRoomContainer();
