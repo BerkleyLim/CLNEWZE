@@ -1,13 +1,13 @@
 import React from "react";
 import { ChevronRight } from "react-bootstrap-icons";
 import { Col, Table } from "reactstrap";
-import styles from "../main.module.scss";
+import styles from "../../scss/main/main.module.scss";
 
-const MainQna = () => {
+const MainCommunityComponent = () => {
   return (
-    <Col className={`${styles?.mainNotice}`}>
+    <Col className={`${styles?.mainQnA}`}>
       <div className={`${styles?.mainCommonHeader}`}>
-        <h1>QnA</h1>
+        <h1>커뮤니티</h1>
         <p>
           <ChevronRight /> 더보기
         </p>
@@ -16,16 +16,16 @@ const MainQna = () => {
         <thead>
           <th>번호</th>
           <th>제목</th>
-          <th></th>
+          <th>{" "}</th>
         </thead>
         <tbody>
           <tr>
             <td>1</td>
-            <td>영상 올리는 방법이 궁금해여</td>
+            <td>안녕하세요?</td>
           </tr>
           <tr>
             <td>2</td>
-            <td>마이페이지 기능은 무엇인가요?</td>
+            <td>만나서 반가워요</td>
           </tr>
         </tbody>
       </Table>
@@ -33,4 +33,4 @@ const MainQna = () => {
   );
 };
 
-export default MainQna;
+export default MainCommunityComponent;

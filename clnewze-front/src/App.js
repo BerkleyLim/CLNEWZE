@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import MainView from "./components/main/index";
+import MainPage from "./pages/main/MainPage";
 import Header from "./components/commom/header/HeaderComponent";
 import Footer from "./components/commom/footer/FooterComponent";
 
@@ -24,7 +24,7 @@ function App() {
             <Header />
             <div className="container">
               <Routes>
-                <Route path="/" element={<MainView />} />
+                <Route path="/" element={<MainPage />} />
                 <Route path="/introduction" element={<Introduction />} />
                 <Route path="/performance" element={<Performance />} />
                 <Route

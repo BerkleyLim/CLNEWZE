@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ChevronRight } from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
-import styles from "../main.module.scss";
+import styles from "../../scss/main/main.module.scss";
 import {
   Carousel,
   CarouselCaption,
@@ -9,10 +9,10 @@ import {
   CarouselIndicators,
   CarouselItem,
 } from "reactstrap";
-import restApiAllUser from "../../../util/restApiAllUser";
-import Teacher from '../../teacher/contents/TeacherListComponent';
+import restApiAllUser from "../../util/restApiAllUser";
+import Teacher from '../teacher/contents/TeacherListComponent';
 
-const MainTeacher = () => {
+const MainTeacherComponent = () => {
   const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
@@ -103,4 +103,4 @@ const MainTeacher = () => {
   );
 };
 
-export default MainTeacher;
+export default MainTeacherComponent;

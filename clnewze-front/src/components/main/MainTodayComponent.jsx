@@ -1,4 +1,4 @@
-import styles from "../main.module.scss";
+import styles from "../../scss/main/main.module.scss";
 import React, { useState } from 'react';
 import {
   Carousel,
@@ -31,7 +31,7 @@ const items = [
     key: 3,
   },
 ];
-const MainTodayIssue = () => {
+const MainTodayComponent = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
@@ -107,4 +107,4 @@ const MainTodayIssue = () => {
   )
 }
 
-export default MainTodayIssue
+export default MainTodayComponent

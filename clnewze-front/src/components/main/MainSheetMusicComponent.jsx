@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ChevronRight } from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
-import styles from "../main.module.scss";
+import styles from "../../scss/main/main.module.scss";
 
 import {
   Carousel,
@@ -10,16 +10,16 @@ import {
   CarouselIndicators,
   CarouselItem,
 } from "reactstrap";
-import restApiAllUser from "../../../util/restApiAllUser";
-import SheetMusic from "../../sheetmusic/contents/board/SheetMusicListComponent";
+import restApiAllUser from "../../util/restApiAllUser";
+import SheetMusic from "../sheetmusic/contents/board/SheetMusicListComponent";
 import styled from "styled-components";
-import SheetMusicContainer from "../../../hooks/SheetMusicContainer";
-import SheetMusicService from "../../../service/SheetMusicService";
+import SheetMusicContainer from "../../hooks/SheetMusicContainer";
+import SheetMusicService from "../../service/SheetMusicService";
 import { useRecoilState } from "recoil";
-import { sheetMusicState } from "../../../recoil/state/sheetMusicState";
+import { sheetMusicState } from "../../recoil/state/sheetMusicState";
 import { ScrollMenu } from "react-horizontal-scrolling-menu";
 import { VisibilityContext } from "react-horizontal-scrolling-menu";
-import SheetMusicListComponent from "./SheetMusicListComponent"
+import SheetMusicListComponent from "./item/SheetMusicListComponent"
 
 const Left = ({ children, onClick }) => {
   const [show, setShow] = useState(false);
@@ -66,7 +66,7 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const MainSheetMusic = () => {
+const MainSheetMusicComponent = () => {
   const navigate = useNavigate();
   // const [activeIndex, setActiveIndex] = useState(0);
   // const [animating, setAnimating] = useState(false);
@@ -196,4 +196,4 @@ const Container = styled.div`
   }
 `;
 
-export default MainSheetMusic;
+export default MainSheetMusicComponent;

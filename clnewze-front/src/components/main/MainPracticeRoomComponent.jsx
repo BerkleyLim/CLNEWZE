@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ChevronRight } from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
-import styles from "../main.module.scss";
+import styles from "../../scss/main/main.module.scss";
 import {
   Carousel,
   CarouselCaption,
@@ -9,10 +9,10 @@ import {
   CarouselIndicators,
   CarouselItem,
 } from "reactstrap";
-import restApiAllUser from "../../../util/restApiAllUser";
-import PracticeRoom from '../../practiceRoom/contents/board/PracticeRoomListComponent';
+import restApiAllUser from "../../util/restApiAllUser";
+import PracticeRoom from '../practiceRoom/contents/board/PracticeRoomListComponent';
 
-const MainPracticeRoom = () => {
+const MainPracticeRoomComponent = () => {
   const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
@@ -104,4 +104,4 @@ const MainPracticeRoom = () => {
   );
 };
 
-export default MainPracticeRoom;
+export default MainPracticeRoomComponent;
