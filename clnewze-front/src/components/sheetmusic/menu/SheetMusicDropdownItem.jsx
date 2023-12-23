@@ -9,7 +9,7 @@ import {
 import styles from "../../../scss/sheetmusic/sheetmusic.module.scss";
 import SheetMusicContainer from "../../../hooks/SheetMusicContainer";
 
-const DrowdownFunction = ({ menuData }) => {
+const SheetMusicDropdownItem = ({ menuData }) => {
   const {genreList} = SheetMusicContainer();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [selectData, setSelectData] = useState();
@@ -48,4 +48,4 @@ const DrowdownFunction = ({ menuData }) => {
   );
 };
 
-export default DrowdownFunction;
+export default SheetMusicDropdownItem;
