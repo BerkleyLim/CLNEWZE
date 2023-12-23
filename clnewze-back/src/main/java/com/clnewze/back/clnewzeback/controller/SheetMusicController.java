@@ -42,9 +42,46 @@ public class SheetMusicController {
     return new ResponseEntity<>(ro, HttpStatus.OK);
   }
 
+  // 악보 카운터
   @GetMapping("selectListAllCount")
   public ResponseEntity<ResponseObject<Integer>> selectListAllCount() {
     Integer result = sheetMusicService.selectListAllCount();
+    ResponseObject<Integer> ro = new ResponseObject<>("성공");
+    ro.setData(result);
+    return new ResponseEntity<>(ro, HttpStatus.OK);
+  }
+
+  // 특정 유저만 악보 리스트 출력
+  public ResponseEntity<ResponseObject<List<SheetMusic>>> selectListUserSheetMusic(
+      @RequestParam(required = false) String genre,
+      @RequestParam Long uno,
+      @RequestParam int pageNo,
+      @RequestParam int limit) {
+    List<SheetMusic> result = sheetMusicService.selectList(genre, pageNo, limit);
+    ResponseObject<List<SheetMusic>> ro = new ResponseObject<>("성공");
+    ro.setData(result);
+    return new ResponseEntity<>(ro, HttpStatus.OK);
+  }
+
+  // 악보 삽입
+  public ResponseEntity<ResponseObject<Integer>> insertSheetMusic(SheetMusic sheetMusic) {
+    Integer result = sheetMusicService.insertSheetMusic(sheetMusic);
+    ResponseObject<Integer> ro = new ResponseObject<>("성공");
+    ro.setData(result);
+    return new ResponseEntity<>(ro, HttpStatus.OK);
+  }
+
+  // 악보 수정
+  public ResponseEntity<ResponseObject<Integer>> updateSheetMusic(SheetMusic sheetMusic) {
+    Integer result = sheetMusicService.updateSheetMusic(sheetMusic);
+    ResponseObject<Integer> ro = new ResponseObject<>("성공");
+    ro.setData(result);
+    return new ResponseEntity<>(ro, HttpStatus.OK);
+  }
+
+  // 악보 삭제
+  public ResponseEntity<ResponseObject<Integer>> deleteSheetMusic(SheetMusic sheetMusic) {
+    Integer result = sheetMusicService.deleteSheetMusic(sheetMusic);
     ResponseObject<Integer> ro = new ResponseObject<>("성공");
     ro.setData(result);
     return new ResponseEntity<>(ro, HttpStatus.OK);

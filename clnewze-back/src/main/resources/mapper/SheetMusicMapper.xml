@@ -5,15 +5,90 @@
   <!-- <select id="selectList" resultType="java.util.List"> -->
   <select id="selectList" resultType="SheetMusic">
     select * from sheetmusic
+    where 1=1
     <if test="genre != 'null'">
-      where genre=#{genre}
-      limit #{limit} offset #{pageNo}
+      and genre=#{genre}
     </if>
+    limit #{limit} offset #{pageNo}
   </select>
 
   <select id="selectListAllCount" resultType="int">
     select count(*) from sheetmusic
   </select>
-  
+
+  <!-- 유저별 업로드자만 악보 공개 - My Page 부분에 출력될 악보 -->
+  <select id="selectListUserSheetMusic">
+    select 
+      s.ino, 
+      tu.user_name,
+      s.title,
+      s.viewNumber,
+      s.artist,
+      s.img,
+      s.genre, 
+      s.releaseDate,
+      s.albumName,
+      s.musicLink,
+      s.contents,
+      s.uploadDate,
+      s.sheetFile
+    from sheetmusic s 
+      left join t_user tu 
+    on s.uno = tu.uno
+    where 1=1
+    <if test="uno != 'null'">
+      and s.uno=#{uno}
+    </if>
+    <if test="genre != 'null'">
+      and s.genre=#{genre}
+    </if>
+    limit #{limit} offset #{pageNo}
+  </select>
+
+  <!-- 악보 삽입 -->
+  <insert id="insertSheetMusic">
+    INSERT INTO music.sheetmusic
+    (username, title, viewNumber, artist, img, genre, releaseDate, albumName, musicLink, contents, uploadDate, sheetFile, uno)
+    VALUES(#{userName}, #{title} 0, #{artist} #{img} #{genre}, #{releaseDate} #{albumName}, #{musicLink}, #{contents}, #{uploadDate}, #{sheetFile}, #{uno})
+  </insert>
+
+  <!-- 악보 수정 -->
+  <update id="updateSheetMusic">
+    UPDATE music.sheetmusic
+      SET 
+      <if test="title != 'null'">
+        title='', 
+      </if>
+      <if test="artist != 'null'">
+        artist='', 
+      </if>
+      <if test="img != 'null'">
+        img='', 
+      </if>
+      <if test="genre != 'null'">
+        genre='', 
+      </if>
+      <if test="releaseDate != 'null'">
+        releaseDate='', 
+      </if>
+      <if test="albumName != 'null'">
+        albumName='', 
+      </if>
+      <if test="musicLink != 'null'">
+        musicLink='', 
+      </if>
+      <if test="contents != 'null'">
+        contents='', 
+      </if>
+      <if test="sheetFile != 'null'">
+        sheetFile='', 
+      </if>
+    WHERE ino=#{ino};
+  </update>
+
+  <delete id="deleteSheetMusic">
+    DELETE FROM music.sheetmusic
+    WHERE ino=#{ino};
+  </delete>
   
 </mapper>

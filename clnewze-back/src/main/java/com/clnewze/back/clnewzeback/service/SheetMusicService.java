@@ -19,12 +19,34 @@ public class SheetMusicService {
   SheetMusicMapper sheetMusicMapper;
   SheetMusicMenuCategoryMapper sheetMusicMenuCategoryMapper;
 
+  // 전체 악보 갯수 출력
   public List<SheetMusic> selectList(String genre, int pageNo, int limit) {
     return sheetMusicMapper.selectList(genre, pageNo, limit);
   }
 
+  // 악보 전체 갯수 보기
   public int selectListAllCount() {
     return sheetMusicMapper.selectListAllCount();
+  }
+
+  // 특정 유저만 악보 리스트 출력
+  public List<SheetMusic> selectListUserSheetMusic(String genre, Long uno, int pageNo, int limit) {
+    return sheetMusicMapper.selectListUserSheetMusic(genre, uno, pageNo, limit);
+  }
+
+  // 악보 삽입
+  public int insertSheetMusic(SheetMusic sheetMusic) {
+    return sheetMusicMapper.insertSheetMusic(sheetMusic);
+  }
+
+  // 악보 수정
+  public int updateSheetMusic(SheetMusic sheetMusic) {
+    return sheetMusicMapper.updateSheetMusic(sheetMusic);
+  }
+
+  // 악보 삭제
+  public int deleteSheetMusic(SheetMusic sheetMusic) {
+    return sheetMusicMapper.deleteSheetMusic(sheetMusic);
   }
 
   // 여기서부터 메뉴 관리
