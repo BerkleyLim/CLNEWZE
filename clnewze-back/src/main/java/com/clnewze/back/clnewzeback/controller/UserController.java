@@ -67,7 +67,6 @@ public class UserController {
     T_userDto t_userDto = userService.getMyUserWithAuthorities(id);
     T_user result = T_user.builder()
         .id(t_userDto.getId())
-        .password(t_userDto.getPassword())
         .userName(t_userDto.getUserName())
         .creTime(t_userDto.getCrtTime())
         .loginTime(t_userDto.getLoginTime())
