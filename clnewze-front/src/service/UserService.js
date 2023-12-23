@@ -13,13 +13,14 @@ const UserService = () => {
       }
     }
     // return await restApiAllUser.post(process.env.REACT_APP_API_ROOT + "user/singin", {
-    return await restApiAuthJwt.post(process.env.REACT_APP_API_ROOT + "user/singin", {
+    // return await restApiAuthJwt.post(process.env.REACT_APP_API_ROOT + "user/singin", {
+    return await restApiAuthJwt.post(process.env.REACT_APP_API_ROOT + "auth/authenticate", {
       id: inputs.id,
       password: inputs.password,
     }, options)
     .then((response) => {
-      console.log(response.data.data)
-      return response.data.data
+      console.log(response.data)
+      return response.data
     })
     .catch((e) => { 
       console.error(e) 

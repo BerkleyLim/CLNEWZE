@@ -54,17 +54,17 @@ public class SecurityConfig { // 추가적인 설정을 위해 WebSecurityConfig
         // .requestMatchers("/vendor/**")
         // .requestMatchers("/js/**")
         // .requestMatchers("/favicon*/**")
-        .requestMatchers("/api/**"); // 개발 모드할 때만 임시로 풀기
+        // .requestMatchers("/api/**"); // 개발 모드할 때만 임시로 풀기
 
-    // .requestMatchers("/api/teacher/selectList")
-    // .requestMatchers("/api/teacher/master/menu/category")
-    // .requestMatchers("/api/teacher/selectListAllCount")
-    // .requestMatchers("/api/sheetmusic/selectList")
-    // .requestMatchers("/api/sheetmusic/selectListAllCount")
-    // .requestMatchers("/api/sheetmusic/master/menu/category")
-    // .requestMatchers("/api/practiceroom/selectList")
-    // .requestMatchers("/api/practiceroom/master/menu/category")
-    // .requestMatchers("/api/practiceroom/selectListAllCount");
+        .requestMatchers("/api/teacher/selectList")
+        .requestMatchers("/api/teacher/master/menu/category")
+        .requestMatchers("/api/teacher/selectListAllCount")
+        .requestMatchers("/api/sheetmusic/selectList")
+        .requestMatchers("/api/sheetmusic/selectListAllCount")
+        .requestMatchers("/api/sheetmusic/master/menu/category")
+        .requestMatchers("/api/practiceroom/selectList")
+        .requestMatchers("/api/practiceroom/master/menu/category")
+        .requestMatchers("/api/practiceroom/selectListAllCount");
   }
 
   // 스프링 시큐리티 규칙
