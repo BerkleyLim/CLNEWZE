@@ -2,6 +2,7 @@ import { useRecoilState, useResetRecoilState } from "recoil";
 import { userState } from "../recoil/state/userState";
 import UserService from "../service/UserService";
 import { myPageMenuState } from "../recoil/state/myPageHeaderState";
+import restApiAuthJwt from "../util/restApiAuthJwt"
 
 // container 부분
 const UserContainer = () => {
@@ -47,6 +48,11 @@ const UserContainer = () => {
 
   // 로그아웃 함수
   const handlerLogout = () => {
+    delete restApiAuthJwt.defaults.headers['X-Authorization'];
+
+    // debugger;
+    sessionStorage.removeItem("token")
+    sessionStorage.removeItem("refresh_token");
     logout() // 로그아웃 시 state 값 초기화
     myPageMenuRefresh(); // 로그 아웃 시 myPage 메뉴 default 값 변경
   }

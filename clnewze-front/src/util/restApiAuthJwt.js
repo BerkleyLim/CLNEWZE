@@ -1,4 +1,6 @@
 import axios from "axios";
+import { useResetRecoilState } from "recoil";
+import { userState } from "../recoil/state/userState";
 
 // jwt에 필요한 토큰 가져오기
 let isTokenRefreshing = false;
@@ -97,10 +99,12 @@ instance.interceptors.response.use(
     const originalReq = config;
     // 401 에러 발생시
     if (status === 401 && config && !config.__isRetryRequest) {
+      const resetUser = useResetRecoilState(userState);
+      resetUser();
       if (!isTokenRefreshing) {
         isTokenRefreshing = true;
 
-        fetch(process.env.REACT_APP_API_ROOT + "/user/refresh", {
+        fetch(process.env.REACT_APP_API_ROOT + "auth/authenticate", {
           method: "GET",
           mode: "cors",
           cache: "no-cache",

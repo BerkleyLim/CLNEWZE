@@ -86,7 +86,7 @@ public class SecurityConfig { // 추가적인 설정을 위해 WebSecurityConfig
 
         // 인증을 위한 확인을 위해 설정
         .authorizeHttpRequests(requests -> requests
-            .requestMatchers("/api/auth/authenticate", "/api/user/signup").permitAll()
+            .requestMatchers("/api/auth/authenticate", "/api/user/signin", "/api/user/signup").permitAll()
         // .requestMatchers("/api/teacher/selectList").hasAnyAuthority("ROLE_USER")
         )
 
