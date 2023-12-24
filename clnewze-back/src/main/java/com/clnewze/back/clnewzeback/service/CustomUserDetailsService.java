@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.clnewze.back.clnewzeback.domain.entity.Authority;
-import com.clnewze.back.clnewzeback.domain.entity.T_user;
+import com.clnewze.back.clnewzeback.domain.entity.TUser;
 import com.clnewze.back.clnewzeback.mapper.TUserMapper;
 
 import lombok.AllArgsConstructor;
@@ -32,8 +32,8 @@ public class CustomUserDetailsService implements UserDetailsService {
   @Override
   @Transactional
   public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
-    Optional<T_user> oTUser = tUserMapper.findOneWithAuthoritiesById(id);
-    T_user tUser = oTUser.get();
+    Optional<TUser> oTUser = tUserMapper.findOneWithAuthoritiesById(id);
+    TUser tUser = oTUser.get();
 
     // 이 로직 시작 -> 수동으로 넣으면 authorities 누락이 안되고 성공한다.
     String[] authorityName = tUser.getTypeOfStringAuthorities().replace("\"", "").replace("[", "").replace("]", "")
@@ -55,7 +55,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         .orElseThrow(() -> new UsernameNotFoundException(id + " -> 데이터베이스에서 찾을 수 없습니다."));
   }
 
-  private org.springframework.security.core.userdetails.User createUser(String id, T_user user) {
+  private org.springframework.security.core.userdetails.User createUser(String id, TUser user) {
     if (!user.isActivated()) {
       throw new RuntimeException(id + " -> 활성화되어 있지 않습니다.");
     }

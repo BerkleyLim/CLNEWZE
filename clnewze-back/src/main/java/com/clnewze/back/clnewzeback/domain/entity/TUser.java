@@ -14,7 +14,7 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class T_user {
+public class TUser {
   Long uno;
   String id;
   String password;

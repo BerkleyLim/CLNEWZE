@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.clnewze.back.clnewzeback.domain.dto.AuthorityDto;
 import com.clnewze.back.clnewzeback.domain.dto.T_userDto;
 import com.clnewze.back.clnewzeback.domain.entity.Authority;
-import com.clnewze.back.clnewzeback.domain.entity.T_user;
+import com.clnewze.back.clnewzeback.domain.entity.TUser;
 import com.clnewze.back.clnewzeback.mapper.TUserMapper;
 import com.clnewze.back.clnewzeback.util.SecurityUtil;
 import com.clnewze.back.clnewzeback.util.error.code.NotFoundMemberException;
@@ -28,7 +28,7 @@ public class UserService {
 
   // 회원 가입 - jwt 를 이용한 인증까지 권한 부여
   @Transactional
-  public T_user signup(T_userDto t_userDto) {
+  public TUser signup(T_userDto t_userDto) {
     // username 검색 시 존재 하면 에러 발생
     if (userMapper.findOneWithAuthoritiesById(t_userDto.getId()).orElse(null) != null) {
       throw new RuntimeException("이미 가입된 유저입니다.");
@@ -39,7 +39,7 @@ public class UserService {
         .authorityName("ROLE_USER")
         .build();
 
-    T_user user = T_user.builder()
+    TUser user = TUser.builder()
         .id(t_userDto.getId())
         .userName(t_userDto.getUserName())
         .password(passwordEncoder.encode(t_userDto.getPassword()))
@@ -51,7 +51,7 @@ public class UserService {
 
   @Transactional(readOnly = true)
   public T_userDto getMyUserWithAuthorities(String userName) {
-    T_user user = userMapper.findOneWithAuthoritiesById(userName).orElse(null);
+    TUser user = userMapper.findOneWithAuthoritiesById(userName).orElse(null);
     if (user == null) {
       return null;
     }
@@ -67,7 +67,7 @@ public class UserService {
 
   @Transactional(readOnly = true)
   public T_userDto getMyUserWithAuthorities() {
-    T_user user = SecurityUtil.getCurrentUsername()
+    TUser user = SecurityUtil.getCurrentUsername()
         .flatMap(userMapper::findOneWithAuthoritiesById)
         .orElseThrow(() -> new NotFoundMemberException("Member not found"));
 
@@ -84,7 +84,7 @@ public class UserService {
   }
 
   // 회원 정보 검색 - simplelogin으로 임시로 로그인 처리용
-  public Boolean userSearch(T_user t_user) throws NoSuchAlgorithmException {
+  public Boolean userSearch(TUser t_user) throws NoSuchAlgorithmException {
     MessageDigest md = MessageDigest.getInstance("SHA-256");
     md.update(t_user.getPassword().getBytes());
 
@@ -98,7 +98,7 @@ public class UserService {
     t_user.setPassword(builder.toString());
     System.out.println(builder);
 
-    T_user user = userMapper.findByIdAndPassword(t_user.getId(), t_user.getPassword());
+    TUser user = userMapper.findByIdAndPassword(t_user.getId(), t_user.getPassword());
 
     // 검색 일치시
     if (user != null) {

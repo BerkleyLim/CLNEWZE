@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.clnewze.back.clnewzeback.domain.dto.T_userDto;
-import com.clnewze.back.clnewzeback.domain.entity.T_user;
+import com.clnewze.back.clnewzeback.domain.entity.TUser;
 import com.clnewze.back.clnewzeback.domain.model.ResponseObject;
 import com.clnewze.back.clnewzeback.service.UserService;
 
@@ -21,6 +21,7 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @RestController
 @RequestMapping("/api/user")
@@ -30,10 +31,10 @@ public class UserController {
 
   // 회원 가입
   @PostMapping("/signup")
-  public ResponseEntity<ResponseObject<T_user>> signup(@Valid @RequestBody T_userDto t_userDto)
+  public ResponseEntity<ResponseObject<TUser>> signup(@Valid @RequestBody T_userDto t_userDto)
       throws NoSuchAlgorithmException {
-    T_user result = userService.signup(t_userDto);
-    ResponseObject<T_user> ro = new ResponseObject<>("성공");
+    TUser result = userService.signup(t_userDto);
+    ResponseObject<TUser> ro = new ResponseObject<>("성공");
     ro.setData(result);
     return new ResponseEntity<>(ro, HttpStatus.OK);
   }
@@ -41,10 +42,10 @@ public class UserController {
   // 사용자 조회
   @GetMapping("/")
   // @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
-  public ResponseEntity<ResponseObject<T_user>> getMyUserInfo() {
+  public ResponseEntity<ResponseObject<TUser>> getMyUserInfo() {
     // T_user result = userService.getMyUserWithAuthorities().get();
     T_userDto t_userDto = userService.getMyUserWithAuthorities();
-    T_user result = T_user.builder()
+    TUser result = TUser.builder()
         .id(t_userDto.getId())
         // .password(t_userDto.getPassword())
         .userName(t_userDto.getUserName())
@@ -54,7 +55,7 @@ public class UserController {
         .birthday(t_userDto.getBirthday())
         .activated(t_userDto.getActivated())
         .build();
-    ResponseObject<T_user> ro = new ResponseObject<>("성공");
+    ResponseObject<TUser> ro = new ResponseObject<>("성공");
     ro.setData(result);
     return new ResponseEntity<>(ro, HttpStatus.OK);
   }
@@ -62,10 +63,10 @@ public class UserController {
   // 특정 사용자 조회
   @GetMapping("/{username}")
   // @PreAuthorize("hasAnyRole('ADMIN')")
-  public ResponseEntity<ResponseObject<T_user>> getMyUserInfo(@RequestParam String id) {
+  public ResponseEntity<ResponseObject<TUser>> getMyUserInfo(@RequestParam String id) {
     // T_user result = userService.getMyUserWithAuthorities(id).get();
     T_userDto t_userDto = userService.getMyUserWithAuthorities(id);
-    T_user result = T_user.builder()
+    TUser result = TUser.builder()
         .id(t_userDto.getId())
         .userName(t_userDto.getUserName())
         .creTime(t_userDto.getCrtTime())
@@ -74,21 +75,21 @@ public class UserController {
         .birthday(t_userDto.getBirthday())
         .activated(t_userDto.getActivated())
         .build();
-    ResponseObject<T_user> ro = new ResponseObject<>("성공");
+    ResponseObject<TUser> ro = new ResponseObject<>("성공");
     ro.setData(result);
     return new ResponseEntity<>(ro, HttpStatus.OK);
   }
 
   // 인증 로그인
   @PostMapping("/signin")
-  public Boolean signIn(@RequestBody T_user t_user) throws NoSuchAlgorithmException {
+  public Boolean signIn(@RequestBody TUser t_user) throws NoSuchAlgorithmException {
     Boolean b = userService.userSearch(t_user);
     return b;
   }
 
   // 간편 로그인 (인증 무시)
   @PostMapping("/simplelogin")
-  public Boolean simpleLogin(@RequestBody T_user t_user) throws NoSuchAlgorithmException {
+  public Boolean simpleLogin(@RequestBody TUser t_user) throws NoSuchAlgorithmException {
     Boolean b = userService.userSearch(t_user);
     return b;
   }
