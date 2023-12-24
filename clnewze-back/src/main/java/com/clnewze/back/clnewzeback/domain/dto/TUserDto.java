@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class T_userDto {
+public class TUserDto {
   String id;
   String password;
   String userName;

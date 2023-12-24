@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.clnewze.back.clnewzeback.domain.dto.AuthorityDto;
-import com.clnewze.back.clnewzeback.domain.dto.T_userDto;
+import com.clnewze.back.clnewzeback.domain.dto.TUserDto;
 import com.clnewze.back.clnewzeback.domain.entity.Authority;
 import com.clnewze.back.clnewzeback.domain.entity.TUser;
 import com.clnewze.back.clnewzeback.mapper.TUserMapper;
@@ -28,7 +28,7 @@ public class UserService {
 
   // 회원 가입 - jwt 를 이용한 인증까지 권한 부여
   @Transactional
-  public TUser signup(T_userDto t_userDto) {
+  public TUser signup(TUserDto t_userDto) {
     // username 검색 시 존재 하면 에러 발생
     if (userMapper.findOneWithAuthoritiesById(t_userDto.getId()).orElse(null) != null) {
       throw new RuntimeException("이미 가입된 유저입니다.");
@@ -50,13 +50,13 @@ public class UserService {
   }
 
   @Transactional(readOnly = true)
-  public T_userDto getMyUserWithAuthorities(String userName) {
+  public TUserDto getMyUserWithAuthorities(String userName) {
     TUser user = userMapper.findOneWithAuthoritiesById(userName).orElse(null);
     if (user == null) {
       return null;
     }
 
-    return T_userDto.builder()
+    return TUserDto.builder()
         .userName(user.getUserName())
         .nickName(user.getNickName())
         .authorityDtoSet(user.getAuthorities().stream()
@@ -66,7 +66,7 @@ public class UserService {
   }
 
   @Transactional(readOnly = true)
-  public T_userDto getMyUserWithAuthorities() {
+  public TUserDto getMyUserWithAuthorities() {
     TUser user = SecurityUtil.getCurrentUsername()
         .flatMap(userMapper::findOneWithAuthoritiesById)
         .orElseThrow(() -> new NotFoundMemberException("Member not found"));
@@ -74,7 +74,7 @@ public class UserService {
     if (user == null) {
       return null;
     }
-    return T_userDto.builder()
+    return TUserDto.builder()
         .userName(user.getUserName())
         .nickName(user.getNickName())
         .authorityDtoSet(user.getAuthorities().stream()

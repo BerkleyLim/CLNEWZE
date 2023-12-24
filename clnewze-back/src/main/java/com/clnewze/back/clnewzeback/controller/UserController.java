@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.clnewze.back.clnewzeback.domain.dto.T_userDto;
+import com.clnewze.back.clnewzeback.domain.dto.TUserDto;
 import com.clnewze.back.clnewzeback.domain.entity.TUser;
 import com.clnewze.back.clnewzeback.domain.model.ResponseObject;
 import com.clnewze.back.clnewzeback.service.UserService;
@@ -31,7 +31,7 @@ public class UserController {
 
   // 회원 가입
   @PostMapping("/signup")
-  public ResponseEntity<ResponseObject<TUser>> signup(@Valid @RequestBody T_userDto t_userDto)
+  public ResponseEntity<ResponseObject<TUser>> signup(@Valid @RequestBody TUserDto t_userDto)
       throws NoSuchAlgorithmException {
     TUser result = userService.signup(t_userDto);
     ResponseObject<TUser> ro = new ResponseObject<>("성공");
@@ -44,7 +44,7 @@ public class UserController {
   // @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
   public ResponseEntity<ResponseObject<TUser>> getMyUserInfo() {
     // T_user result = userService.getMyUserWithAuthorities().get();
-    T_userDto t_userDto = userService.getMyUserWithAuthorities();
+    TUserDto t_userDto = userService.getMyUserWithAuthorities();
     TUser result = TUser.builder()
         .id(t_userDto.getId())
         // .password(t_userDto.getPassword())
@@ -65,7 +65,7 @@ public class UserController {
   // @PreAuthorize("hasAnyRole('ADMIN')")
   public ResponseEntity<ResponseObject<TUser>> getMyUserInfo(@RequestParam String id) {
     // T_user result = userService.getMyUserWithAuthorities(id).get();
-    T_userDto t_userDto = userService.getMyUserWithAuthorities(id);
+    TUserDto t_userDto = userService.getMyUserWithAuthorities(id);
     TUser result = TUser.builder()
         .id(t_userDto.getId())
         .userName(t_userDto.getUserName())
