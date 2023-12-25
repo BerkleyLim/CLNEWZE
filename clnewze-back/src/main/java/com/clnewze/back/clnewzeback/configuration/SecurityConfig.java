@@ -54,6 +54,7 @@ public class SecurityConfig { // 추가적인 설정을 위해 WebSecurityConfig
         // .requestMatchers("/vendor/**")
         // .requestMatchers("/js/**")
         // .requestMatchers("/favicon*/**")
+        .requestMatchers("/swagger-ui/**")
         .requestMatchers("/api/**"); // 개발 모드할 때만 임시로 풀기
 
     // .requestMatchers("/api/teacher/selectList")
