@@ -106,7 +106,6 @@ public class SheetMusicController {
   }
 
   @GetMapping("/master/menu/table/count")
-  @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
   public Long categoryCountSheetMusicMenu() {
     log.info("controller : SheetMusicMenu : categoryCountSheetMusicMenu() 호출 성공");
     Long result = sheetMusicService.categoryCountSheetMusicMenu();

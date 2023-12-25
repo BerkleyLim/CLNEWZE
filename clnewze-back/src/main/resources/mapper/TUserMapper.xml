@@ -3,14 +3,14 @@
 <mapper namespace="com.clnewze.back.clnewzeback.mapper.TUserMapper">
   
   <!-- findAll 기준 count는 무시, JPA 유사형식으로 만듬 -->
-  <select id="selectUserById" >
+  <!-- <select id="selectUserById" >
     select
     u1_0.uno,
     u1_0.id,
     u1_0.activated,
     u1_0.user_name,
     json_arrayagg(a1_1.authority_name) as typeOfStringAuthorities,
-    -- concat('\'',json_arrayagg(concat('\'',json_object('\"authority_name\"', concat('\"',a1_1.authority_name,'\"')),'\'')),'\'') as authorities,
+    concat('\'',json_arrayagg(concat('\'',json_object('\"authority_name\"', concat('\"',a1_1.authority_name,'\"')),'\'')),'\'') as authorities,
     u1_0.nick_name,
     u1_0.password
     from
@@ -25,15 +25,17 @@
     <if test="id != 'null'">
       and u1_0.id=#{id};
     </if>
-  </select>
+  </select> -->
 
+  <!-- 회원가입1 -->
   <!-- insert 구문 user 테이블만 적용 -->
   <insert id="inserUser">
     INSERT INTO 
-      music.t_user (id, password, user_name, cre_time, login_time, nick_name, birthday, activated)
-        VALUES(#{id}, #{password}, #{userName}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, #{nickName}, #{birthday}, 1)
+    music.t_user (id, password, user_name, cre_time, login_time, nick_name, birthday, activated)
+    VALUES(#{id}, #{password}, #{userName}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, #{nickName}, #{birthday}, 1)
   </insert>
-
+  
+  <!-- 회원가입2 -->
   <!-- insert 구문 user 테이블 추가 이후, 사용 권한이 있는 유저 추가 -->
   <insert id="inserUserAuthority">
     INSERT into music.user_authority (uno, authority_name)
@@ -77,7 +79,7 @@
 
 
   <!-- 회원 가입 -->
-  <insert id="signUp">
+  <!-- <insert id="signUp">
     insert
     into
         "user"
@@ -91,6 +93,6 @@
         (user_id, authority_name)
     values
         (?, ?)   
-  </insert>
+  </insert> -->
   
 </mapper>

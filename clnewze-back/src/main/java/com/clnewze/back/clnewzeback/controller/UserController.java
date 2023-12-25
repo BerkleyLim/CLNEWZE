@@ -29,19 +29,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class UserController {
   UserService userService;
 
-  // 회원 가입
-  @PostMapping("/signup")
-  public ResponseEntity<ResponseObject<TUser>> signup(@Valid @RequestBody TUserDto t_userDto)
-      throws NoSuchAlgorithmException {
-    TUser result = userService.signup(t_userDto);
-    ResponseObject<TUser> ro = new ResponseObject<>("성공");
-    ro.setData(result);
-    return new ResponseEntity<>(ro, HttpStatus.OK);
-  }
+  // // 회원 가입
+  // @PostMapping("/signup")
+  // public ResponseEntity<ResponseObject<TUser>> signup(@Valid @RequestBody
+  // TUserDto t_userDto)
+  // throws NoSuchAlgorithmException {
+  // TUser result = userService.signup(t_userDto);
+  // ResponseObject<TUser> ro = new ResponseObject<>("성공");
+  // ro.setData(result);
+  // return new ResponseEntity<>(ro, HttpStatus.OK);
+  // }
 
-  // 사용자 조회
+  // 사용자 전체 조회
   @GetMapping("/")
-  // @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+  @PreAuthorize("hasAnyRole('ADMIN')")
   public ResponseEntity<ResponseObject<TUser>> getMyUserInfo() {
     // T_user result = userService.getMyUserWithAuthorities().get();
     TUserDto t_userDto = userService.getMyUserWithAuthorities();
@@ -62,7 +63,6 @@ public class UserController {
 
   // 특정 사용자 조회
   @GetMapping("/{username}")
-  // @PreAuthorize("hasAnyRole('ADMIN')")
   public ResponseEntity<ResponseObject<TUser>> getMyUserInfo(@RequestParam String id) {
     // T_user result = userService.getMyUserWithAuthorities(id).get();
     TUserDto t_userDto = userService.getMyUserWithAuthorities(id);
@@ -80,11 +80,15 @@ public class UserController {
     return new ResponseEntity<>(ro, HttpStatus.OK);
   }
 
-  // 인증 로그인
+  // 인증 로그인 -> 이부분을 JWT 로그인 인증 처리를 진행해야함
   @PostMapping("/signin")
   public Boolean signIn(@RequestBody TUser t_user) throws NoSuchAlgorithmException {
-    Boolean b = userService.userSearch(t_user);
-    return b;
+    //
+
+    // 아래는 그냥 임시로 true로 지정함
+    return true;
+    // Boolean b = userService.userSearch(t_user);
+    // return b;
   }
 
   // 간편 로그인 (인증 무시)
