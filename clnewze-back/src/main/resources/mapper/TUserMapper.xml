@@ -2,8 +2,49 @@
 <!DOCTYPE mapper PUBLIC "//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.clnewze.back.clnewzeback.mapper.TUserMapper">
   
+  <!-- findAll 기준 count는 무시, JPA 유사형식으로 만듬 -->
+  <select id="selectUserById" >
+    select
+    u1_0.uno,
+    u1_0.id,
+    u1_0.activated,
+    u1_0.user_name,
+    json_arrayagg(a1_1.authority_name) as typeOfStringAuthorities,
+    -- concat('\'',json_arrayagg(concat('\'',json_object('\"authority_name\"', concat('\"',a1_1.authority_name,'\"')),'\'')),'\'') as authorities,
+    u1_0.nick_name,
+    u1_0.password
+    from
+        t_user u1_0
+    left join
+        (user_authority a1_0
+    join
+        authority a1_1
+            on a1_1.authority_name=a1_0.authority_name)
+        on u1_0.uno=a1_0.uno
+    where 1=1
+    <if test="id != 'null'">
+      and u1_0.id=#{id};
+    </if>
+  </select>
+
+  <!-- insert 구문 user 테이블만 적용 -->
+  <insert id="inserUser">
+    INSERT INTO 
+      music.t_user (id, password, user_name, cre_time, login_time, nick_name, birthday, activated)
+        VALUES(#{id}, #{password}, #{userName}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, #{nickName}, #{birthday}, 1)
+  </insert>
+
+  <!-- insert 구문 user 테이블 추가 이후, 사용 권한이 있는 유저 추가 -->
+  <insert id="inserUserAuthority">
+    INSERT into music.user_authority (uno, authority_name)
+    VALUES((select uno from music.t_user order by uno desc limit 1), 'ROLE_USER')
+  </insert>
+
+
+
+  <!-- \\\\\\\\\\\\\\\\\\\\\ 구버전 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
   <!-- 간편 로그인 -->
-  <select id="findByIdAndPassword" resultType="T_user">
+  <select id="findByIdAndPassword" resultType="TUser">
     select * from t_user
     where id=#{id} and password=#{password}
   </select>
