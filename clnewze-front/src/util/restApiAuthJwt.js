@@ -1,6 +1,6 @@
 import axios from "axios";
-import { useResetRecoilState } from "recoil";
-import { userState } from "../recoil/state/userState";
+import { useRecoilValue, useResetRecoilState, useSetRecoilState } from "recoil";
+import { refreshTokenState, tokenState, userState } from "../recoil/state/userState";
 
 // jwt에 필요한 토큰 가져오기
 let isTokenRefreshing = false;
@@ -100,6 +100,12 @@ instance.interceptors.response.use(
     // 401 에러 발생시
     if (status === 401 && config && !config.__isRetryRequest) {
       const resetUser = useResetRecoilState(userState);
+      const token = useRecoilValue(tokenState);
+      const setToken = useSetRecoilState(tokenState);
+      const resetToken = useResetRecoilState(tokenState);
+      const refreshToken = useRecoilValue(refreshTokenState);
+      const setRefreshToken = useSetRecoilState(refreshTokenState);
+      const resetRefreshToken = useResetRecoilState(refreshTokenState);
       resetUser();
       if (!isTokenRefreshing) {
         isTokenRefreshing = true;
@@ -113,7 +119,7 @@ instance.interceptors.response.use(
             "Content-Type": "application/json",
             Device: "device",
             "X-Authorization":
-              "Bearer " + sessionStorage.getItem("refresh_token"),
+              "Bearer " + refreshToken,
           },
           redirect: "follow",
           referrer: "no-referrer",
@@ -121,8 +127,8 @@ instance.interceptors.response.use(
           .then((res) => res.json())
           .then((res) => {
             if (res.status !== 401 && res.status !== 417) {
-              sessionStorage.setItem("token", res.data.token);
-              sessionStorage.setItem("refresh_token", res.data.refreshToken);
+              setToken(res.data.data.token);
+              setRefreshToken(res.data.data.refreshToken);
 
               // Default Instance Header update
               instance.defaults.headers["X-Authorization"] =
@@ -137,8 +143,8 @@ instance.interceptors.response.use(
             } else {
               delete instance.defaults.headers["X-Authorization"];
 
-              sessionStorage.removeItem("token");
-              sessionStorage.removeItem("refresh_token");
+              resetToken();
+              resetRefreshToken();
 
               isTokenRefreshing = false;
 
@@ -149,8 +155,8 @@ instance.interceptors.response.use(
           .catch((e) => {
             delete instance.defaults.headers["X-Authorization"];
 
-            sessionStorage.removeItem("token");
-            sessionStorage.removeItem("refresh_token");
+            resetToken();
+            resetRefreshToken();
 
             isTokenRefreshing = false;
 

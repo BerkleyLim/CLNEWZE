@@ -35,3 +35,16 @@ export const userAdminListState = atom({
   key: 'userList',
   default: []
 })
+
+// jwt 토큰 발급된 것을 저장하기 위한 state 값
+export const tokenState = atom({
+  key: 'token',
+  default: ''
+})
+
+// jwt 토큰 발급된 것을 저장하기 위한 state 값
+export const refreshTokenState = atom({
+  key: 'refreshToken',
+  default: '',
+  effects_UNSTABLE: [persistAtom]
+})
