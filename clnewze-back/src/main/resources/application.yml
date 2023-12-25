@@ -7,6 +7,12 @@ spring:
       enabled: true  # H2 Console을 사용할지 여부 (H2 Console은 H2 Database를 UI로 제공해주는 기능)
       path: /h2-console  # H2 Console의 Path
 
+  # Swagger 사용 방식, 2.6부터 PathPatternParser가 기본 값
+  # 따라서 이전에는 ANT_PATH_MATCHER가 이전버전 기본값이므로 지정함
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+
   # 데이터베이스 죽는 현상 참조 : https://kakaocommerce.tistory.com/45
   # 데이터베이스 누수 현상 해결하기 : https://do-study.tistory.com/97
   datasource:
