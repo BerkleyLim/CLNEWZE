@@ -244,19 +244,19 @@ DROP TABLE IF EXISTS `sheetmusic`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sheetmusic` (
-  `sno` int NOT NULL AUTO_INCREMENT,
-  `title` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `view_number` int DEFAULT NULL,
-  `artist` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `img` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `genre` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `release_date` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `album_name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `music_link` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `contents` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `upload_date` datetime DEFAULT NULL,
-  `sheet_file` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `uno` int DEFAULT NULL,
+  `sno` int NOT NULL AUTO_INCREMENT COMMENT '악보 리스트 인덱스',
+  `title` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '악보 제목',
+  `view_number` int DEFAULT NULL COMMENT '조회수',
+  `artist` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '작곡가/아티스트명',
+  `img` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '미리보기 이미지 경로',
+  `genre` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '장르 키워드',
+  `release_date` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '발매년도',
+  `album_name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '앨범명',
+  `music_link` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '음악 링크',
+  `contents` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '내용',
+  `upload_date` datetime DEFAULT NULL COMMENT '업로드 날짜',
+  `sheet_file` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '악보 파일',
+  `uno` int DEFAULT NULL COMMENT '회원번호(외래키)',
   PRIMARY KEY (`sno`),
   KEY `sheetmusic_FK` (`uno`),
   CONSTRAINT `sheetmusic_FK` FOREIGN KEY (`uno`) REFERENCES `t_user` (`uno`)
@@ -291,7 +291,7 @@ CREATE TABLE `t_user` (
   `birthday` date DEFAULT NULL COMMENT '생년월일',
   `activated` tinyint NOT NULL DEFAULT '1' COMMENT '활동중인지 확인',
   PRIMARY KEY (`uno`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -373,8 +373,8 @@ DROP TABLE IF EXISTS `user_authority`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user_authority` (
-  `uno` int NOT NULL,
-  `authority_name` varchar(50) NOT NULL,
+  `uno` int NOT NULL COMMENT '회원 인덱스 번호',
+  `authority_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '회원 접근 권한 부여',
   PRIMARY KEY (`uno`,`authority_name`),
   CONSTRAINT `user_authority_FK` FOREIGN KEY (`uno`) REFERENCES `t_user` (`uno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -403,4 +403,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-25 20:32:29
+-- Dump completed on 2023-12-26  0:33:56
