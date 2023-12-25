@@ -22,6 +22,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestMethod;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/user")
@@ -45,6 +46,7 @@ public class UserController {
   @PreAuthorize("hasAnyRole('ADMIN')")
   public ResponseEntity<ResponseObject<TUser>> getMyUserInfo() {
     // T_user result = userService.getMyUserWithAuthorities().get();
+    System.out.println("전체 사용자 조회 완료");
     TUserDto t_userDto = userService.getMyUserWithAuthorities();
     TUser result = TUser.builder()
         .id(t_userDto.getId())
@@ -62,7 +64,7 @@ public class UserController {
   }
 
   // 특정 사용자 조회
-  @GetMapping("/{username}")
+  @GetMapping("/{id}")
   public ResponseEntity<ResponseObject<TUser>> getMyUserInfo(@RequestParam String id) {
     // T_user result = userService.getMyUserWithAuthorities(id).get();
     TUserDto t_userDto = userService.getMyUserWithAuthorities(id);
@@ -86,6 +88,7 @@ public class UserController {
   @PostMapping("/signin")
   public Boolean signIn(@RequestBody TUser t_user) throws NoSuchAlgorithmException {
     //
+    System.out.println("로그인 처리 완료");
 
     // 아래는 그냥 임시로 true로 지정함
     return true;
@@ -100,6 +103,7 @@ public class UserController {
     return b;
   }
 
+  // 로그아웃 처리 용도, 현재는 사용하지 않고 있으며, 개발 예정이다.
   @RequestMapping("/logout")
   public void logout(SessionStatus status, HttpSession session) throws Exception {
     // @SessionAttributes에서 관리하는 세션 데이터를 모두 제거한다.
