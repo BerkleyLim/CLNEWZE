@@ -46,7 +46,10 @@ public class UserService {
         .authorities(Collections.singleton(authority))
         .build();
 
-    return userMapper.signUp(user);
+    System.out.println(user);
+
+    // return userMapper.signUp(user); // 아직 구현이 안되어서 임시로 끊음
+    return null;
   }
 
   @Transactional(readOnly = true)

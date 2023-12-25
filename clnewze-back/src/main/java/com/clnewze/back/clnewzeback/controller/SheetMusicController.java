@@ -52,6 +52,7 @@ public class SheetMusicController {
   }
 
   // 특정 유저만 악보 리스트 출력
+  @GetMapping("selectListUserSheetMusic")
   public ResponseEntity<ResponseObject<List<SheetMusic>>> selectListUserSheetMusic(
       @RequestParam(required = false) String genre,
       @RequestParam Long uno,
@@ -64,6 +65,7 @@ public class SheetMusicController {
   }
 
   // 악보 삽입
+  @PostMapping("insertSheetMusic")
   public ResponseEntity<ResponseObject<Integer>> insertSheetMusic(SheetMusic sheetMusic) {
     Integer result = sheetMusicService.insertSheetMusic(sheetMusic);
     ResponseObject<Integer> ro = new ResponseObject<>("성공");
@@ -72,6 +74,7 @@ public class SheetMusicController {
   }
 
   // 악보 수정
+  @PostMapping("updateSheetMusic")
   public ResponseEntity<ResponseObject<Integer>> updateSheetMusic(SheetMusic sheetMusic) {
     Integer result = sheetMusicService.updateSheetMusic(sheetMusic);
     ResponseObject<Integer> ro = new ResponseObject<>("성공");
@@ -80,6 +83,7 @@ public class SheetMusicController {
   }
 
   // 악보 삭제
+  @PostMapping("deleteSheetMusic")
   public ResponseEntity<ResponseObject<Integer>> deleteSheetMusic(SheetMusic sheetMusic) {
     Integer result = sheetMusicService.deleteSheetMusic(sheetMusic);
     ResponseObject<Integer> ro = new ResponseObject<>("성공");

@@ -29,16 +29,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class UserController {
   UserService userService;
 
-  // // 회원 가입
-  // @PostMapping("/signup")
-  // public ResponseEntity<ResponseObject<TUser>> signup(@Valid @RequestBody
-  // TUserDto t_userDto)
-  // throws NoSuchAlgorithmException {
-  // TUser result = userService.signup(t_userDto);
-  // ResponseObject<TUser> ro = new ResponseObject<>("성공");
-  // ro.setData(result);
-  // return new ResponseEntity<>(ro, HttpStatus.OK);
-  // }
+  // 회원 가입
+  @PostMapping("/signup")
+  public ResponseEntity<ResponseObject<TUser>> signup(@Valid @RequestBody TUserDto t_userDto)
+      throws NoSuchAlgorithmException {
+    System.out.println("회원가입");
+    TUser result = userService.signup(t_userDto);
+    ResponseObject<TUser> ro = new ResponseObject<>("성공");
+    ro.setData(result);
+    return new ResponseEntity<>(ro, HttpStatus.OK);
+  }
 
   // 사용자 전체 조회
   @GetMapping("/")
@@ -81,6 +81,8 @@ public class UserController {
   }
 
   // 인증 로그인 -> 이부분을 JWT 로그인 인증 처리를 진행해야함
+  // 혹은 signin API 필요 없이 AuthController를 이용하여 token 값만 받은 것으로 끝내도 무방한지 여부를 알고
+  // 싶습니다.
   @PostMapping("/signin")
   public Boolean signIn(@RequestBody TUser t_user) throws NoSuchAlgorithmException {
     //
