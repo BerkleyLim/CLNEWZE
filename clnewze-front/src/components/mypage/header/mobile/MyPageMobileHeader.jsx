@@ -2,7 +2,10 @@ import React from "react";
 
 import styles from "../../mypage.module.scss";
 import {
+  Button,
   Col,
+  Nav,
+  Navbar,
   Row,
 } from "reactstrap";
 import CoverPicture from "./item/CoverPicture";
@@ -10,12 +13,21 @@ import HeaderTwoRightComponent from "./item/HeaderTwoRightComponent";
 import SubScriptModalComponet from "./item/SubScriptModalComponet";
 import { useRecoilValue } from "recoil";
 import { myPageHeaderSubScriptModalIsOpenState } from "../../../../recoil/state/myPageHeaderState";
+import { CardList } from "react-bootstrap-icons";
 
 const MyPageMobileHeader = () => {
   const isSubScriptModal = useRecoilValue(myPageHeaderSubScriptModalIsOpenState)
 
   return (
     <div className={`${styles?.mypageMobileHeader}`}>
+      <Navbar>
+        <Nav>로고추가</Nav>
+        <Nav>
+          <Button>
+            <CardList />
+          </Button>
+        </Nav>
+      </Navbar>
       {/* <!-- 커버 사진 --> */}
       <CoverPicture />
 
