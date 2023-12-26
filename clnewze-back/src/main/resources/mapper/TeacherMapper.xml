@@ -4,11 +4,24 @@
   
   <!-- <select id="selectList" resultType="java.util.List"> -->
   <select id="selectList" resultType="Teacher">
-    select * from teacher
+    select 
+      t.tno,
+      tu.user_name,
+      t.title,
+      t.img,
+      t.major,
+      t.place, 
+      t.contents, 
+      t.uploadDate, 
+      tu.id  
+    from teacher t
+    left join t_user tu
+    on t.uno = tu.uno
+    where 1=1
     <if test="major != 'null'">
-      where major=#{major}
-      limit #{limit} offset #{pageNo}
+      and major=#{major}
     </if>
+    limit #{limit} offset #{pageNo}
   </select>
 
   <select id="selectListAllCount" resultType="int">

@@ -17,21 +17,27 @@ const UserContainer = () => {
     // resolve 상태 : true 리턴 (모달 닫기, 사용자 페이지 회원 정보 접근 허용)
     // reject 상태 : false 리턴 (모달 유지, 사용자 페이지 회원 정보 접근 차단)
     
-    const data = await createToken(inputs)
-    if (data) {
+    // 아직 로그인 구현 중이니 순수 하드코딩으로만 로그인 처리 된 것처럼 만들기
+    // const data = await createToken(inputs)
+    // if (data) {
       alert("로그인 성공")
+      // 하드코딩으로 테스트 하기
       setUser({
         ...user,
-        userId: "admin",
-        role_admin: "admin",
-        userNm: "admin",
-        isLogin: true
+        uno: 2,
+        id: "test1",
+        role_admin: "ROLE_USER",
+        userName: "test1",
+        birthday: '1999-11-11',
+
+        isLogin: true // 순수 프론트엔드에서만 로그인 중인지만 확인
       })
-    } else {
-      alert("로그인 실패")
-    }
+    // } else {
+    //   alert("로그인 실패")
+    // }
     myPageMenuRefresh(); // 로그인 시 myPage 메뉴 default 값으로 변경
-    return data;
+    // return data;
+    return true;
   }
 
   // 회원정보 다시 확인용 로그인 처리 함수 (API 호출은 필요 없다.)

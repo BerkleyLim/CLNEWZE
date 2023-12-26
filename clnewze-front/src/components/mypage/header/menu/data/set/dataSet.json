@@ -1,0 +1,86 @@
+{
+  "userInfo": [
+    {
+      "title": "회원 정보 및 수정",
+      "link":"/mypage/info"
+    },
+    {
+      "title": "프로필 정보",
+      "link":"/mypage/career"
+    },
+    {
+      "title": "구독 등급 관리",
+      "link":"/mypage/subscript"
+    },
+    {
+      "title": "환전 신청",
+      "link":"/mypage/apply/return"
+    },
+    {
+      "title": "선생님 등록/관리",
+      "link":"/mypage/teacher"
+    }
+  ],
+  "uploadInfo": [
+    {
+      "title": "공연정보",
+      "link":"/mypage/performance/info"
+    },
+    {
+      "title": "연습실",
+      "link":"/mypage/practiceroom/info"
+    },
+    {
+      "title": "악보",
+      "link":"/mypage/sheetmusic/info"
+    },
+    {
+      "title": "블로그",
+      "link":"/mypage/blog/info"
+    }
+  ],
+  "salesInfo": [
+    {
+      "title": "구입악보",
+      "link":"/mypage/user/buy/sheetmusic"
+    },
+    {
+      "title": "판매악보",
+      "link":"/mypage/user/sell/sheetmusic"
+    }
+  ],
+  "adminMenu": [
+    {
+      "title": "회원 정보 출력",
+      "link":"/mypage/admin/user"
+    },
+    {
+      "title": "매출액",
+      "link":"/mypage/admin/dashboard"
+    },
+    {
+      "title": "악보 페이지 관리",
+      "link":"/mypage/admin/sheetmusic"
+    },
+    {
+      "title": "연습실 페이지 관리",
+      "link":"/mypage/admin/practiceroom"
+    },
+    {
+      "title": "레스너찾기 페이지 관리",
+      "link":"/mypage/admin/teacher"
+    },
+    {
+      "title": "블로그 페이지 관리",
+      "link":"/mypage/admin/blog"
+    },
+    {
+      "title": "공지사항",
+      "link":"/mypage/admin/notice"
+    },
+    {
+      "title": "QnA",
+      "link":"/mypage/admin/qna"
+    }
+  ]
+}

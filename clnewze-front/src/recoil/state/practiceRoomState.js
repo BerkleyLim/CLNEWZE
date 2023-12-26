@@ -23,7 +23,7 @@ export const practiceRoomModalDataState = atom({
 
 export const practiceRoomPagingNationState = atom({
   key: 'practiceRoomPagingNation',
-  default: 0
+  default: 1
 });
 
 export const practiceRoomModalIsOpenState = atom({

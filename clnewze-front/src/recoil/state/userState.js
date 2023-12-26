@@ -14,10 +14,11 @@ const { persistAtom } = recoilPersist({
 // 기본 값 - 로그인한 유저 정보
 const InitState = {
   uno: -1,
-  userId: undefined,
-  userNm: undefined,
-  nickNm: undefined,
+  id: undefined,
+  userName: undefined,
+  nickName: undefined,
   role_admin: undefined,
+  birthday: undefined,
   user_company: undefined,
   isLogin: false,  // 현재 로그인중인지 알려준다
   validated: false // 이 값은 현재 로그인중인지 아닌지 한번 서버측에 검증했음을 의미

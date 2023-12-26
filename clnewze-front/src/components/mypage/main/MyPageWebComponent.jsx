@@ -4,18 +4,11 @@ import { Routes, Route } from "react-router-dom";
 import styles from "./mypage.main.module.scss";
 import { Col, ListGroup, ListGroupItem, Row } from "reactstrap";
 
-import MypageInfo from "../user/UserInformation";
-import AdminTeacher from "../admin/teacher";
-import AdminPracticeRoom from "../admin/practiceroom";
-import AdminSheetMusic from "../admin/sheetmusic";
-import AdminDashboard from "../admin/dashboard";
 import UserContainer from "../../../hooks/UserContainer";
 import CommonContaier from "../../../hooks/CommonContaier";
-import SubScriptIndex from "../subscript/SubScriptComponent";
 import { useRecoilState } from "recoil";
 import { myPageMenuState } from "../../../recoil/state/myPageHeaderState";
-import MyCareer from "../career/CareerComponent";
-import MyPageTeacherPage from "../../../pages/mypage/teacher/MyPageTeacherPage";
+import MyPageRouter from "../router/MyPageRouter";
 
 const MyPageWebComponent = () => {
   // state 정의
@@ -24,6 +17,7 @@ const MyPageWebComponent = () => {
   const { moveNavPage, moveHrefPage } = CommonContaier();
   const { handlerLogout } = UserContainer();
 
+  // 로그아웃
   const onClickLogout = () => {
     handlerLogout();
     moveHrefPage("/");
@@ -146,7 +140,7 @@ const MyPageWebComponent = () => {
                 menuInfo.index === 10 ? "active" : ""
               }`}
               onClick={(e) => {
-                toggleMenuClick(e, "/mypage/user/dashboard");
+                toggleMenuClick(e, "/mypage/user/buy/sheetmusic");
               }}
             >
               구입악보
@@ -297,25 +291,7 @@ const MyPageWebComponent = () => {
         {/* 영역 출력 */}
         <Col md={10} className={`${styles?.MyPageWebComponent}`}>
           {/* 함수 써서 출력한다. */}
-          <Routes>
-            <Route path="/mypage/*" element={<MypageInfo />} />
-            <Route path="/mypage/career" element={<MyCareer />} />
-            <Route path="/mypage/teacher" element={<MyPageTeacherPage />} />
-            <Route path="/mypage/subscript" element={<SubScriptIndex />} />
-            <Route path="/mypage/admin/teacher" element={<AdminTeacher />} />
-            <Route
-              path="/mypage/admin/practiceroom"
-              element={<AdminPracticeRoom />}
-            />
-            <Route
-              path="/mypage/admin/sheetmusic"
-              element={<AdminSheetMusic />}
-            />
-            <Route
-              path="/mypage/admin/dashboard"
-              element={<AdminDashboard />}
-            />
-          </Routes>
+          <MyPageRouter />
         </Col>
       </Row>
     </div>
