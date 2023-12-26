@@ -2,6 +2,7 @@ package com.clnewze.back.clnewzeback.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -20,6 +21,7 @@ import lombok.RequiredArgsConstructor;
 
 // 참조 : https://jiurinie.tistory.com/70
 //        https://devuna.tistory.com/59 => 시큐리티 기초 참조
+@Profile("!customLogin")
 @Configuration
 @EnableWebSecurity // 기본적인 Web 보안을 활성화한다
 @RequiredArgsConstructor
@@ -54,8 +56,7 @@ public class SecurityConfig { // 추가적인 설정을 위해 WebSecurityConfig
         // .requestMatchers("/vendor/**")
         // .requestMatchers("/js/**")
         // .requestMatchers("/favicon*/**")
-        .requestMatchers("/swagger-ui/**")
-        .requestMatchers("/api/**"); // 개발 모드할 때만 임시로 풀기
+        .requestMatchers("/swagger-ui/**").requestMatchers("/api/**"); // 개발 모드할 때만 임시로 풀기
 
     // .requestMatchers("/api/teacher/selectList")
     // .requestMatchers("/api/teacher/master/menu/category")
@@ -77,17 +78,15 @@ public class SecurityConfig { // 추가적인 설정을 위해 WebSecurityConfig
         .csrf(csrf -> csrf.disable())
 
         /** 401, 403 에러 설정 */
-        .exceptionHandling(handling -> handling
-            .authenticationEntryPoint(jwtAtuthenticationEntryPoint)
+        .exceptionHandling(handling -> handling.authenticationEntryPoint(jwtAtuthenticationEntryPoint)
             .accessDeniedHandler(jwtAccessDeniedHandler))
 
         // 세션 비활성화
-        .sessionManagement(management -> management
-            .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+        .sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 
         // 인증을 위한 확인을 위해 설정
-        .authorizeHttpRequests(requests -> requests
-            .requestMatchers("/api/auth/authenticate", "/api/user/signup").permitAll()
+        .authorizeHttpRequests(
+            requests -> requests.requestMatchers("/api/auth/authenticate", "/api/user/signup").permitAll()
         // .requestMatchers("/api/teacher/selectList").hasAnyAuthority("ROLE_USER")
         )
 
