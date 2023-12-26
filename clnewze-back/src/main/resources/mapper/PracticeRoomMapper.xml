@@ -4,11 +4,22 @@
   
   <!-- <select id="selectList" resultType="java.util.List"> -->
   <select id="selectList" resultType="PracticeRoom">
-    select * from practiceroom
+    select 
+      p.pno, 
+      p.title,
+      tu.user_name, 
+      p.img, 
+      p.place,
+      p.contents, 
+      p.upload_date, 
+      p.price, 
+      p.categories 
+    from practiceroom p 
+    left join t_user tu on p.uno=tu.uno
     <if test="categories != 'null'">
       where categories=#{categories}
-      limit #{limit} offset #{pageNo}
     </if>
+    limit #{limit} offset #{pageNo}
   </select>
   <select id="selectListAllCount" resultType="int">
     select count(*) from practiceroom
