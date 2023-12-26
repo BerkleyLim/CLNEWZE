@@ -59,7 +59,7 @@ const WebHeaderIndex = () => {
               <PersonCircle />
             </span>
             <span className={`${styles?.headerNickname}`}>
-              {user?.isLogin ? user.userNm : " 로그인"}
+              {user?.isLogin ? user.userName : " 로그인"}
             </span>
           </Button>
           <Button color="blank" size="lg">
