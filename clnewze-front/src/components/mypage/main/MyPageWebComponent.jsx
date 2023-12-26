@@ -17,6 +17,7 @@ const MyPageWebComponent = () => {
   const { moveNavPage, moveHrefPage } = CommonContaier();
   const { handlerLogout } = UserContainer();
 
+  // 로그아웃
   const onClickLogout = () => {
     handlerLogout();
     moveHrefPage("/");
