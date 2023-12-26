@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -50,7 +49,7 @@ public class TeacherController {
   }
 
   /**
-   * 
+   *
    * @return 레스너 찾기 카테고리 출력 관련 메소드
    *         일반 사용자도 사용 할 수 있게 권한 부여
    */
@@ -64,7 +63,7 @@ public class TeacherController {
   }
 
   @GetMapping("/master/menu/table/count")
-  @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+//  @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
   public Long categoryCountTeacherMenu() {
     log.info("controller : SheetMusicMenu : categoryCountTeacherMenu() 호출 성공");
     Long result = teacherService.categoryCountTeacherMenu();
@@ -72,7 +71,7 @@ public class TeacherController {
   }
 
   @PostMapping("/master/menu/create")
-  @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+//  @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
   public Integer createTeacherMenu(@RequestBody TeacherMenuCategory teacherMenuCategory) {
     log.info("controller : SheetMusicMenu : createTeacherMenu() 호출 성공");
     Integer createSuccess = teacherService.createTeacherMenu(teacherMenuCategory.getName(),
@@ -84,7 +83,7 @@ public class TeacherController {
   };
 
   @PostMapping("/master/menu/change/orderby")
-  @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+//  @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
   public Integer orderbyChangeTeacherMenu(@RequestBody TeacherMenuCategory teacherMenuCategory) {
     log.info("controller : SheetMusicMenu : orderbyChangeTeacherMenu() 호출 성공");
     return teacherService.orderbyChangeTeacherMenu(teacherMenuCategory.getMtno(),
@@ -92,7 +91,7 @@ public class TeacherController {
   }
 
   @PostMapping("/master/menu/update")
-  @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+//  @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
   public Integer updateTeacherMenu(@RequestBody TeacherMenuCategory teacherMenuCategory) {
     log.info("controller : SheetMusicMenu : updateTeacherMenu() 호출 성공");
     return teacherService.updateTeacherMenu(teacherMenuCategory.getMtno(), teacherMenuCategory.getName(),
@@ -100,7 +99,7 @@ public class TeacherController {
   }
 
   @PostMapping("/master/menu/delete")
-  @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+//  @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
   public Integer deleteTeacherMenu(@RequestBody TeacherMenuCategory teacherMenuCategory) {
     log.info("controller : SheetMusicMenu : deleteTeacherMenu() 호출 성공");
     return teacherService.deleteTeacherMenu(teacherMenuCategory.getMtno());

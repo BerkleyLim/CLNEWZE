@@ -106,7 +106,7 @@ log4jdbc:
 logging:
   # config: classpath:log4j2.yaml
   level:
-    # root: INFO
+#    root: DEBUG
     # https://frozenpond.tistory.com/86
     jdbc:
       sqlonly: info          # SQL 문을 보여준다.

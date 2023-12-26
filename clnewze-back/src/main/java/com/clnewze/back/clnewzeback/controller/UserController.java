@@ -4,10 +4,11 @@ import java.security.NoSuchAlgorithmException;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -19,22 +20,20 @@ import com.clnewze.back.clnewzeback.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestMethod;
-import java.util.List;
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping("/api/user")
+@Slf4j
 @AllArgsConstructor
 public class UserController {
-  UserService userService;
+  private UserService userService;
 
   // 회원 가입
   @PostMapping("/signup")
   public ResponseEntity<ResponseObject<TUser>> signup(@Valid @RequestBody TUserDto t_userDto)
       throws NoSuchAlgorithmException {
-    System.out.println("회원가입");
+    log.debug("회원가입");
     TUser result = userService.signup(t_userDto);
     ResponseObject<TUser> ro = new ResponseObject<>("성공");
     ro.setData(result);
@@ -42,41 +41,34 @@ public class UserController {
   }
 
   // 사용자 전체 조회
-  @GetMapping("/")
-  @PreAuthorize("hasAnyRole('ADMIN')")
-  public ResponseEntity<ResponseObject<TUser>> getMyUserInfo() {
-    // T_user result = userService.getMyUserWithAuthorities().get();
-    System.out.println("전체 사용자 조회 완료");
-    TUserDto t_userDto = userService.getMyUserWithAuthorities();
-    TUser result = TUser.builder()
-        .id(t_userDto.getId())
-        // .password(t_userDto.getPassword())
-        .userName(t_userDto.getUserName())
-        .creTime(t_userDto.getCrtTime())
-        .loginTime(t_userDto.getLoginTime())
-        .nickName(t_userDto.getNickName())
-        .birthday(t_userDto.getBirthday())
-        .activated(t_userDto.getActivated())
-        .build();
-    ResponseObject<TUser> ro = new ResponseObject<>("성공");
-    ro.setData(result);
-    return new ResponseEntity<>(ro, HttpStatus.OK);
-  }
+//  @GetMapping("/")
+//  @PreAuthorize("hasAnyRole('ADMIN')")
+//  public ResponseEntity<ResponseObject<TUser>> getMyUserInfo() {
+//    // T_user result = userService.getMyUserWithAuthorities().get();
+//    System.out.println("전체 사용자 조회 완료");
+//    TUserDto t_userDto = userService.getMyUserWithAuthorities();
+//    TUser result = TUser.builder().id(t_userDto.getId())//
+//        // .password(t_userDto.getPassword())//
+//        .userName(t_userDto.getUserName())//
+//        .creTime(t_userDto.getCrtTime())//
+//        .loginTime(t_userDto.getLoginTime())//
+//        .nickName(t_userDto.getNickName())//
+//        .birthday(t_userDto.getBirthday())//
+//        .activated(t_userDto.getActivated())//
+//        .build();
+//    ResponseObject<TUser> ro = new ResponseObject<>("성공");
+//    ro.setData(result);
+//    return new ResponseEntity<>(ro, HttpStatus.OK);
+//  }
 
   // 특정 사용자 조회
   @GetMapping("/{id}")
   public ResponseEntity<ResponseObject<TUser>> getMyUserInfo(@RequestParam String id) {
     // T_user result = userService.getMyUserWithAuthorities(id).get();
     TUserDto t_userDto = userService.getMyUserWithAuthorities(id);
-    TUser result = TUser.builder()
-        .id(t_userDto.getId())
-        .userName(t_userDto.getUserName())
-        .creTime(t_userDto.getCrtTime())
-        .loginTime(t_userDto.getLoginTime())
-        .nickName(t_userDto.getNickName())
-        .birthday(t_userDto.getBirthday())
-        .activated(t_userDto.getActivated())
-        .build();
+    TUser result = TUser.builder().id(t_userDto.getId()).userName(t_userDto.getUserName())
+        .creTime(t_userDto.getCrtTime()).loginTime(t_userDto.getLoginTime()).nickName(t_userDto.getNickName())
+        .birthday(t_userDto.getBirthday()).activated(t_userDto.getActivated()).build();
     ResponseObject<TUser> ro = new ResponseObject<>("성공");
     ro.setData(result);
     return new ResponseEntity<>(ro, HttpStatus.OK);

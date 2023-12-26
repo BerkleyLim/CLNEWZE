@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -99,7 +98,7 @@ public class SheetMusicController {
   }
 
   /**
-   * 
+   *
    * @return 레스너 찾기 카테고리 출력 관련 메소드
    */
   // 장르 선택 메뉴를 집어넣는 악보 카테고리 리스트 출력 - 전체 사용자 권한 부여
@@ -122,7 +121,7 @@ public class SheetMusicController {
 
   // 장르 리스트 추가 - 관리자 권한만 부여
   @PostMapping("/master/menu/create")
-  @PreAuthorize("hasAnyRole('ADMIN')")
+  //@PreAuthorize("hasAnyRole('ADMIN')")
   public Integer createSheetMusicMenu(@RequestBody SheetMusicMenuCategory sheetMusicMenuCategory) {
     log.info("controller : SheetMusicMenu : create Sheet music MusicMenu() 호출 성공");
     Integer createSuccess = sheetMusicService.createSheetMusicMenu(sheetMusicMenuCategory.getName(),
@@ -135,7 +134,7 @@ public class SheetMusicController {
 
   // 장르 리스트 표시 순서 변경 - 관리자 권한만 부여
   @PostMapping("/master/menu/change/orderby")
-  @PreAuthorize("hasAnyRole('ADMIN')")
+  //@PreAuthorize("hasAnyRole('ADMIN')")
   public Integer orderbyChangeSheetMusicMenu(@RequestBody SheetMusicMenuCategory sheetMusicMenuCategory) {
     log.info("controller : SheetMusicMenu : orderbyChangeMusicMenu() 호출 성공");
     return sheetMusicService.orderbyChangeSheetMusicMenu(sheetMusicMenuCategory.getSmtno(),
@@ -144,7 +143,7 @@ public class SheetMusicController {
 
   // 장르 리스트 중 카테고리 내용 변경 - 관리자 권한만 부여
   @PostMapping("/master/menu/update")
-  @PreAuthorize("hasAnyRole('ADMIN')")
+  //@PreAuthorize("hasAnyRole('ADMIN')")
   public Integer updateSheetMusicMenu(@RequestBody SheetMusicMenuCategory sheetMusicMenuCategory) {
     log.info("controller : SheetMusicMenu : updateSheetMusicMenu() 호출 성공");
     return sheetMusicService.updateSheetMusicMenu(sheetMusicMenuCategory.getSmtno(), sheetMusicMenuCategory.getName(),
@@ -153,7 +152,7 @@ public class SheetMusicController {
 
   // 장르 리스트 중 필요없는 장리 제거 - 관리자 권한만 부여
   @PostMapping("/master/menu/delete")
-  @PreAuthorize("hasAnyRole('ADMIN')")
+  //@PreAuthorize("hasAnyRole('ADMIN')")
   public Integer deleteSheetMusicMenu(@RequestBody SheetMusicMenuCategory sheetMusicMenuCategory) {
     log.info("controller : SheetMusicMenu : deleteSheetMusicMenu() 호출 성공");
     return sheetMusicService.deleteSheetMusicMenu(sheetMusicMenuCategory.getSmtno());
