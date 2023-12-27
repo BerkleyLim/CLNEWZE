@@ -12,16 +12,27 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.clnewze.back.clnewzeback.configuration.Description;
 import com.clnewze.back.clnewzeback.domain.dto.TUserDto;
 import com.clnewze.back.clnewzeback.domain.entity.TUser;
 import com.clnewze.back.clnewzeback.domain.model.ResponseObject;
 import com.clnewze.back.clnewzeback.service.UserService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.ExampleObject;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+// 스웨거 설정
+@Tag(name = "01. 사용자", description = "사용자 정보 조회 API")
+//
 @RestController
 @RequestMapping("/api/user")
 @Slf4j
@@ -29,6 +40,25 @@ import lombok.extern.slf4j.Slf4j;
 public class UserController {
   private UserService userService;
 
+  // 스웨거 설정
+  @Operation(//
+      summary = "회원가입", //
+      description = "회원가입 합니다." //
+  )
+  @ApiResponses(value = { //
+      @ApiResponse(//
+          responseCode = "200", //
+          description = "회원가입 성공", //
+          content = { @Content(//
+              mediaType = "application/json" //
+          ) }//
+      ), //
+      @ApiResponse(responseCode = "401", description = "인증실패", content = {
+          @Content(mediaType = "application/json", examples = { @ExampleObject(Description.ERROR_401) }) }), //
+      @ApiResponse(responseCode = "403", description = "권한없음", content = {
+          @Content(mediaType = "application/json", examples = { @ExampleObject(Description.ERROR_403) }) }),//
+  })
+  //
   // 회원 가입
   @PostMapping("/signup")
   public ResponseEntity<ResponseObject<TUser>> signup(@Valid @RequestBody TUserDto t_userDto)
