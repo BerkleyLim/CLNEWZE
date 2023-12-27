@@ -9,6 +9,7 @@ import AdminDashboard from "../admin/dashboard";
 import SubScriptIndex from "../subscript/SubScriptComponent";
 import MyCareer from "../career/CareerComponent";
 import MyPageTeacherPage from "../../../pages/mypage/teacher/MyPageTeacherPage";
+import MyPagePerformancePage from "../../../pages/mypage/performance/MyPagePerformancePage";
 
 const MyPageRouter = () => {
   return (
@@ -17,6 +18,7 @@ const MyPageRouter = () => {
       <Route path="/mypage/career" element={<MyCareer />} />
       <Route path="/mypage/teacher" element={<MyPageTeacherPage />} />
       <Route path="/mypage/subscript" element={<SubScriptIndex />} />
+      <Route path="/mypage/performance/info" element={<MyPagePerformancePage />} />
       <Route path="/mypage/admin/teacher" element={<AdminTeacher />} />
       <Route
         path="/mypage/admin/practiceroom"
