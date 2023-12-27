@@ -5,7 +5,6 @@ import Header from "./components/commom/header/HeaderComponent";
 import Footer from "./components/commom/footer/FooterComponent";
 
 import Introduction from "./components/introduction/index";
-import Performance from "./components/performance/index";
 import Blog from "./components/blog/index";
 
 import MypageHeader from "./components/mypage/header/HeaderIndex";
@@ -13,6 +12,7 @@ import Mypage from "./components/mypage/MyPageComponent";
 import TeacherPage from "./pages/teacher/TeacherPage";
 import SheetMusicPage from "./pages/sheetmusic/SheetMusicPage";
 import PracticeRoomPage from "./pages/practiceroom/PracticeRoomPage";
+import PerformancePage from "./pages/performance/PerformancePage";
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<MainPage />} />
                 <Route path="/introduction" element={<Introduction />} />
-                <Route path="/performance" element={<Performance />} />
+                <Route path="/performance" element={<PerformancePage />} />
                 <Route
                   path="/practiceRoom/:pageNo"
                   element={<PracticeRoomPage />}

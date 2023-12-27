@@ -1,0 +1,30 @@
+[
+  {
+    "url"   : "https://www.sac.or.kr/site/main/home",
+    "method": "GET",
+    "extraParams": {
+      "custom_param1": "something",
+      "custom_param2": "somethingelse"
+    },
+    
+    "title" : "예술의 전당 공홈",
+    "start" : "2023-07-01",
+    "end"   : "2023-07-10",
+    "color" : "yellow",
+    "textColor": "black"
+  },
+  {
+    "url"   : "https://www.sac.or.kr/site/main/show/show_view?SN=46475",
+    "method": "GET",
+    "title"  : "뮤지컬 <그날들> 10주년 기념 공연",
+    "start"  : "2023-07-12",
+    "end"    : "2023-09-03",
+    "color"  : "green",
+    "textColor": "pink"
+  },
+  {
+    "title"  : "event3",
+    "start"  : "2023-07-30T12:30:00",
+    "allDay" : false
+  }
+]
