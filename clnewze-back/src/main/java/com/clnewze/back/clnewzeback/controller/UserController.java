@@ -19,9 +19,9 @@ import com.clnewze.back.clnewzeback.domain.model.ResponseObject;
 import com.clnewze.back.clnewzeback.service.UserService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.ExampleObject;
-import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -93,7 +93,9 @@ public class UserController {
 
   // 특정 사용자 조회
   @GetMapping("/{id}")
-  public ResponseEntity<ResponseObject<TUser>> getMyUserInfo(@RequestParam String id) {
+  public ResponseEntity<ResponseObject<TUser>> getMyUserInfo(
+      @Parameter(description = Description.USER_ID, required = true) // 스웨거 파라미터 설정
+      @RequestParam String id) {
     // T_user result = userService.getMyUserWithAuthorities(id).get();
     TUserDto t_userDto = userService.getMyUserWithAuthorities(id);
     TUser result = TUser.builder().id(t_userDto.getId()).userName(t_userDto.getUserName())
