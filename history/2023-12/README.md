@@ -104,3 +104,10 @@
     - 오늘의 소식 숨김 처리
     - 커뮤니티 숨김 처리
   - react-horizontal-scrolling-menu 설치
+
+
+## 27일
+- Back
+  - Swagger 구현
+  - 앞으로 필요한 API는 Swagger를 통해 확인할 예정
+  - 차후, 운영에 반영 시 Swagger 접근 차단 권한 설정 예정
