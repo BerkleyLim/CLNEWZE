@@ -2,13 +2,13 @@ package com.clnewze.back.clnewzeback.domain.entity;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.Set;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Set;
 
 @Data
 @Builder
@@ -18,7 +18,11 @@ public class TUser {
   Long uno;
   String id;
   String password;
+
+  //스웨거 설정
+  @Schema(description = "사용자의 이름", example = "홍길동")
   String userName;
+
   ZonedDateTime creTime;
   ZonedDateTime loginTime;
   String nickName;
