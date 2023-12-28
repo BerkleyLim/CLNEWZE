@@ -2,12 +2,10 @@ package com.clnewze.back.clnewzeback.service;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.clnewze.back.clnewzeback.domain.dto.AuthorityDto;
 import com.clnewze.back.clnewzeback.domain.dto.TUserDto;
 import com.clnewze.back.clnewzeback.domain.entity.TUser;
 import com.clnewze.back.clnewzeback.domain.entity.UserAuthority;
@@ -29,40 +27,23 @@ public class UserService {
       throw new RuntimeException("이미 가입된 유저입니다.");
     }
 
-    TUser user = TUser.builder()
-        .id(t_userDto.getId())
-        .userName(t_userDto.getUserName())
-        .password(SecurityUtil.encodePassword(t_userDto.getPassword()))
-        .build();
-
+    TUser user = TUser.builder().id(t_userDto.getId()).userName(t_userDto.getUserName())
+        .password(SecurityUtil.encodePassword(t_userDto.getPassword())).build();
 
     userMapper.inserUser(user);
 
     // 가입이 되지 않은 회원일 경우
-    UserAuthority userAuthority = UserAuthority.builder()
-        .authorityName("ROLE_USER")
+    UserAuthority userAuthority = UserAuthority.builder().authorityName("ROLE_USER")
         // insert 쿼리에서 selectKey를 통해 uno 값을 TUser에 저장해 준다.
-        .uno(user.getUno())
-        .build();
+        .uno(user.getUno()).build();
     userMapper.inserUserAuthority(userAuthority);
 
     return user;
   }
 
   @Transactional(readOnly = true)
-  public TUserDto getMyUserWithAuthorities(String userName) {
-    TUser user = userMapper.findOneWithAuthoritiesById(userName).orElse(null);
-    if (user == null) {
-      return null;
-    }
-
-    return TUserDto.builder()
-        .userName(user.getUserName())
-        .nickName(user.getNickName())
-        .authorityDtoSet(user.getAuthorities().stream()
-            .map(authority -> AuthorityDto.builder().authorityName(authority.getAuthorityName()).build())
-            .collect(Collectors.toSet()))
-        .build();
+  public TUser getMyUserWithAuthorities(String userName) {
+    return userMapper.findOneWithAuthoritiesById(userName);
   }
 
   // 회원 정보 검색 - simplelogin으로 임시로 로그인 처리용

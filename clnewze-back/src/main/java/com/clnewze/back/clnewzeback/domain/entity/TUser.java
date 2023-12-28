@@ -2,13 +2,13 @@ package com.clnewze.back.clnewzeback.domain.entity;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.List;
+import java.util.Set;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Set;
 
 @Data
 @Builder
@@ -30,4 +30,5 @@ public class TUser {
   String typeOfStringAuthorities;
 
   Set<Authority> authorities;
+  List<UserAuthority> userAuthorities;
 }

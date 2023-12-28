@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.clnewze.back.clnewzeback.mapper.TUserMapper">
+  <resultMap id="TUserRM" type="TUser">
+    <id property="uno" column="uno" />
+    <result property="id" column="id" />
+    <result property="password" column="password" />
+    <result property="userName" column="user_name" />
+    <result property="creTime" column="cre_time" javaType="java.time.ZonedDateTime" />
+    <result property="loginTime" column="login_time" javaType="java.time.ZonedDateTime" />
+    <result property="nickName" column="nick_name" />
+    <result property="birthday" column="birthday" javaType="java.time.LocalDate" />
+    <result property="activated" column="activated" />
+    <collection property="userAuthorities" resultMap="userAuthorityRM" columnPrefix="UA_"></collection>
+  </resultMap>
+  <resultMap id="userAuthorityRM" type="UserAuthority">
+    <id property="uno" column="uno" />
+    <id property="authorityName" column="authority_name" />
+  </resultMap>
+  
 
   <!-- findAll 기준 count는 무시, JPA 유사형식으로 만듬 -->
   <!-- <select id="selectUserById" >
@@ -71,26 +88,21 @@
   </select>
 
   <!-- 유저명 검색 -->
-  <select id="findOneWithAuthoritiesById" resultType="TUser">
+  <select id="findOneWithAuthoritiesById" resultMap="TUserRM">
     select
     u1_0.uno,
     u1_0.id,
     u1_0.activated,
     u1_0.user_name,
     u1_0.nick_name,
-    u1_0.password
+    u1_0.password,
+    a1_0.uno UA_uno,
+    a1_0.authority_name UA_authority_name
     from
         t_user u1_0
     left join
-        (user_authority a1_0
-    join
-        authority a1_1
-            on a1_1.authority_name=a1_0.authority_name)
-        on u1_0.uno=a1_0.uno
-    where 1=1
-    <if test="id != 'null'">
-      and u1_0.id=#{id};
-    </if>
+        user_authority a1_0 on u1_0.uno = a1_0.uno
+    where u1_0.id=#{id}
   </select>
   <!-- select json_arrayagg(a1_1.authority_name) as authorities from -->
 
