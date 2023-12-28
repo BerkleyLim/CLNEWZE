@@ -4,37 +4,66 @@ import java.security.NoSuchAlgorithmException;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.clnewze.back.clnewzeback.configuration.Description;
 import com.clnewze.back.clnewzeback.domain.dto.TUserDto;
 import com.clnewze.back.clnewzeback.domain.entity.TUser;
 import com.clnewze.back.clnewzeback.domain.model.ResponseObject;
 import com.clnewze.back.clnewzeback.service.UserService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.ExampleObject;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestMethod;
-import java.util.List;
+import lombok.extern.slf4j.Slf4j;
 
+// 스웨거 설정
+@Tag(name = "01. 사용자", description = "사용자 정보 조회 API")
+//
 @RestController
 @RequestMapping("/api/user")
+@Slf4j
 @AllArgsConstructor
 public class UserController {
-  UserService userService;
+  private UserService userService;
 
+  // 스웨거 설정
+  @Operation(//
+      summary = "회원가입", //
+      description = "회원가입 합니다." //
+  )
+  @ApiResponses(value = { //
+      @ApiResponse(//
+          responseCode = "200", //
+          description = "회원가입 성공", //
+          content = { @Content(//
+              mediaType = "application/json" //
+          ) }//
+      ), //
+      @ApiResponse(responseCode = "401", description = "인증실패", content = {
+          @Content(mediaType = "application/json", examples = { @ExampleObject(Description.ERROR_401) }) }), //
+      @ApiResponse(responseCode = "403", description = "권한없음", content = {
+          @Content(mediaType = "application/json", examples = { @ExampleObject(Description.ERROR_403) }) }),//
+  })
+  //
   // 회원 가입
   @PostMapping("/signup")
   public ResponseEntity<ResponseObject<TUser>> signup(@Valid @RequestBody TUserDto t_userDto)
       throws NoSuchAlgorithmException {
-    System.out.println("회원가입");
+    log.debug("회원가입");
     TUser result = userService.signup(t_userDto);
     ResponseObject<TUser> ro = new ResponseObject<>("성공");
     ro.setData(result);
@@ -42,41 +71,36 @@ public class UserController {
   }
 
   // 사용자 전체 조회
-  @GetMapping("/")
-  @PreAuthorize("hasAnyRole('ADMIN')")
-  public ResponseEntity<ResponseObject<TUser>> getMyUserInfo() {
-    // T_user result = userService.getMyUserWithAuthorities().get();
-    System.out.println("전체 사용자 조회 완료");
-    TUserDto t_userDto = userService.getMyUserWithAuthorities();
-    TUser result = TUser.builder()
-        .id(t_userDto.getId())
-        // .password(t_userDto.getPassword())
-        .userName(t_userDto.getUserName())
-        .creTime(t_userDto.getCrtTime())
-        .loginTime(t_userDto.getLoginTime())
-        .nickName(t_userDto.getNickName())
-        .birthday(t_userDto.getBirthday())
-        .activated(t_userDto.getActivated())
-        .build();
-    ResponseObject<TUser> ro = new ResponseObject<>("성공");
-    ro.setData(result);
-    return new ResponseEntity<>(ro, HttpStatus.OK);
-  }
+//  @GetMapping("/")
+//  @PreAuthorize("hasAnyRole('ADMIN')")
+//  public ResponseEntity<ResponseObject<TUser>> getMyUserInfo() {
+//    // T_user result = userService.getMyUserWithAuthorities().get();
+//    System.out.println("전체 사용자 조회 완료");
+//    TUserDto t_userDto = userService.getMyUserWithAuthorities();
+//    TUser result = TUser.builder().id(t_userDto.getId())//
+//        // .password(t_userDto.getPassword())//
+//        .userName(t_userDto.getUserName())//
+//        .creTime(t_userDto.getCrtTime())//
+//        .loginTime(t_userDto.getLoginTime())//
+//        .nickName(t_userDto.getNickName())//
+//        .birthday(t_userDto.getBirthday())//
+//        .activated(t_userDto.getActivated())//
+//        .build();
+//    ResponseObject<TUser> ro = new ResponseObject<>("성공");
+//    ro.setData(result);
+//    return new ResponseEntity<>(ro, HttpStatus.OK);
+//  }
 
   // 특정 사용자 조회
   @GetMapping("/{id}")
-  public ResponseEntity<ResponseObject<TUser>> getMyUserInfo(@RequestParam String id) {
+  public ResponseEntity<ResponseObject<TUser>> getMyUserInfo(
+      @Parameter(description = Description.USER_ID, required = true) // 스웨거 파라미터 설정
+      @RequestParam String id) {
     // T_user result = userService.getMyUserWithAuthorities(id).get();
     TUserDto t_userDto = userService.getMyUserWithAuthorities(id);
-    TUser result = TUser.builder()
-        .id(t_userDto.getId())
-        .userName(t_userDto.getUserName())
-        .creTime(t_userDto.getCrtTime())
-        .loginTime(t_userDto.getLoginTime())
-        .nickName(t_userDto.getNickName())
-        .birthday(t_userDto.getBirthday())
-        .activated(t_userDto.getActivated())
-        .build();
+    TUser result = TUser.builder().id(t_userDto.getId()).userName(t_userDto.getUserName())
+        .creTime(t_userDto.getCrtTime()).loginTime(t_userDto.getLoginTime()).nickName(t_userDto.getNickName())
+        .birthday(t_userDto.getBirthday()).activated(t_userDto.getActivated()).build();
     ResponseObject<TUser> ro = new ResponseObject<>("성공");
     ro.setData(result);
     return new ResponseEntity<>(ro, HttpStatus.OK);

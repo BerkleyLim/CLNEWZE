@@ -2,54 +2,51 @@ package com.clnewze.back.clnewzeback.service;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Collections;
 import java.util.stream.Collectors;
 
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.clnewze.back.clnewzeback.domain.dto.AuthorityDto;
 import com.clnewze.back.clnewzeback.domain.dto.TUserDto;
-import com.clnewze.back.clnewzeback.domain.entity.Authority;
 import com.clnewze.back.clnewzeback.domain.entity.TUser;
+import com.clnewze.back.clnewzeback.domain.entity.UserAuthority;
 import com.clnewze.back.clnewzeback.mapper.TUserMapper;
 import com.clnewze.back.clnewzeback.util.SecurityUtil;
-import com.clnewze.back.clnewzeback.util.error.code.NotFoundMemberException;
 
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 
 @Service
-// @Log4j2
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class UserService {
-  TUserMapper userMapper;
-  PasswordEncoder passwordEncoder;
+  private TUserMapper userMapper;
 
   // 회원 가입 - jwt 를 이용한 인증까지 권한 부여
   @Transactional
   public TUser signup(TUserDto t_userDto) {
     // username 검색 시 존재 하면 에러 발생
-    if (userMapper.findOneWithAuthoritiesById(t_userDto.getId()).orElse(null) != null) {
+    if (userMapper.findOneById(t_userDto.getId()) != null) {
       throw new RuntimeException("이미 가입된 유저입니다.");
     }
-
-    // 가입이 되지 않은 회원일 경우
-    Authority authority = Authority.builder()
-        .authorityName("ROLE_USER")
-        .build();
 
     TUser user = TUser.builder()
         .id(t_userDto.getId())
         .userName(t_userDto.getUserName())
-        .password(passwordEncoder.encode(t_userDto.getPassword()))
-        .authorities(Collections.singleton(authority))
+        .password(SecurityUtil.encodePassword(t_userDto.getPassword()))
         .build();
 
-    System.out.println(user);
 
-    // return userMapper.signUp(user); // 아직 구현이 안되어서 임시로 끊음
-    return null;
+    userMapper.inserUser(user);
+
+    // 가입이 되지 않은 회원일 경우
+    UserAuthority userAuthority = UserAuthority.builder()
+        .authorityName("ROLE_USER")
+        // insert 쿼리에서 selectKey를 통해 uno 값을 TUser에 저장해 준다.
+        .uno(user.getUno())
+        .build();
+    userMapper.inserUserAuthority(userAuthority);
+
+    return user;
   }
 
   @Transactional(readOnly = true)
@@ -59,24 +56,6 @@ public class UserService {
       return null;
     }
 
-    return TUserDto.builder()
-        .userName(user.getUserName())
-        .nickName(user.getNickName())
-        .authorityDtoSet(user.getAuthorities().stream()
-            .map(authority -> AuthorityDto.builder().authorityName(authority.getAuthorityName()).build())
-            .collect(Collectors.toSet()))
-        .build();
-  }
-
-  @Transactional(readOnly = true)
-  public TUserDto getMyUserWithAuthorities() {
-    TUser user = SecurityUtil.getCurrentUsername()
-        .flatMap(userMapper::findOneWithAuthoritiesById)
-        .orElseThrow(() -> new NotFoundMemberException("Member not found"));
-
-    if (user == null) {
-      return null;
-    }
     return TUserDto.builder()
         .userName(user.getUserName())
         .nickName(user.getNickName())
