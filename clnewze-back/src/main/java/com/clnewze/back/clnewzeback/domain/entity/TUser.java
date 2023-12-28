@@ -2,6 +2,7 @@ package com.clnewze.back.clnewzeback.domain.entity;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.List;
 import java.util.Set;
 
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -19,7 +20,7 @@ public class TUser {
   String id;
   String password;
 
-  //스웨거 설정
+  // 스웨거 설정
   @Schema(description = "사용자의 이름", example = "홍길동")
   String userName;
 
@@ -34,4 +35,5 @@ public class TUser {
   String typeOfStringAuthorities;
 
   Set<Authority> authorities;
+  List<UserAuthority> userAuthorities;
 }

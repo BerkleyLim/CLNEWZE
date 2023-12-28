@@ -14,10 +14,10 @@ public interface TUserMapper {
   public TUser findByIdAndPassword(String id, String password);
 
   // id로 User 조회
-  TUser findOneById(String id);
+  public TUser findOneById(String id);
 
   // 인증된 유저명
-  Optional<TUser> findOneWithAuthoritiesById(String id);
+  public TUser findOneWithAuthoritiesById(String id);
 
   // 전체 조회
   Optional<TUser> findOneWithAuthoritiesById();

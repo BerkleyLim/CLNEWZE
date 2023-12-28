@@ -25,4 +25,24 @@ public class UserTest {
     System.out.println(JsonUtil.toPrettyJson(responseBody));
   }
 
+  @Test
+  public void 내정보조회_테스트() {
+    String url = CommonLoginTest.HOST + "/api/user/myinfo";
+    Header[] headers = new BasicHeader[2];
+    headers[0] = new BasicHeader("Content-Type", "application/json");
+    headers[1] = new BasicHeader("Authorization", "Bearer " + AuthTest.getToken()); // JWT인증
+    String responseBody = HttpUtil.get(url, headers, "UTF-8");
+    System.out.println(JsonUtil.toPrettyJson(responseBody));
+  }
+
+  @Test
+  public void 모든회원목록조회_테스트() {
+    String url = CommonLoginTest.HOST + "/api/user/";
+    Header[] headers = new BasicHeader[2];
+    headers[0] = new BasicHeader("Content-Type", "application/json");
+    headers[1] = new BasicHeader("Cookie", CommonLoginTest.loginAdmin());// 세션인증, ADMIN 로그인
+    String responseBody = HttpUtil.get(url, headers, "UTF-8");
+    System.out.println(JsonUtil.toPrettyJson(responseBody));
+  }
+
 }
