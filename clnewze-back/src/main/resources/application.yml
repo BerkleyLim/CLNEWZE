@@ -20,13 +20,13 @@ spring:
   # 데이터베이스 누수 현상 해결하기 : https://do-study.tistory.com/97
   datasource:
     # type: org.apache.tomcat.jdbc.pool.DataSource
-    url: jdbc:mysql://localhost:3306/clnewze?useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true&autoReconnect=true
+    url: jdbc:mysql://localhost:3306/music?useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true&autoReconnect=true
     #url: jdbc:log4jdbc:mysql://localhost:3306/music?useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true&autoReconnect=true
     dataSourceClassName: com.mysql.cj.jdbc.Driver  #마리아 DB시 org.mariadb.jdbc.Driver
     #dataSourceClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
     # jdbc-url: jdbc:mysql://localhost:3306/profile?useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true&autoReconnect=true
-    password: test1234 # 비밀번호 수정
-    username: test
+    password: 1111 # 비밀번호 수정
+    username: root
     # hikariCP 커넥션 과사용으로 누수 현상 나오면 메모리 부족 현상 발생
     # mysql 서비스 죽이는 것은 Idle 상태의 커넥션으로 끊어진다.
     # 히카리에서는 SELECT 1 대신 maxLifetime 설정
