@@ -122,19 +122,20 @@ public class UserController {
   // 혹은 signin API 필요 없이 AuthController를 이용하여 token 값만 받은 것으로 끝내도 무방한지 여부를 알고
   // 싶습니다.
   @PostMapping("/signin")
-  public ResponseEntity<ResponseObject<Boolean>> signIn(@RequestBody LoginDto loginDto)
+  public ResponseEntity<ResponseObject<TUser>> signIn(@RequestBody LoginDto loginDto)
       throws NoSuchAlgorithmException {
     log.debug("로그인 처리 완료");
     TUser tUser = userService.getMyUserWithAuthorities(loginDto.getId());
+    log.debug(tUser.toString());
     if (tUser == null) {
-      ResponseObject<Boolean> ro = new ResponseObject<>("로그인 실패");
-      ro.setData(false);
+      ResponseObject<TUser> ro = new ResponseObject<>("로그인 실패");
+      ro.setData(null);
       return new ResponseEntity<>(ro, HttpStatus.UNAUTHORIZED);
     }
     String password = loginDto.getPassword();
     if (!SecurityUtil.checkPassword(password, tUser.getPassword())) {
-      ResponseObject<Boolean> ro = new ResponseObject<>("로그인 실패");
-      ro.setData(false);
+      ResponseObject<TUser> ro = new ResponseObject<>("로그인 실패");
+      ro.setData(null);
       return new ResponseEntity<>(ro, HttpStatus.UNAUTHORIZED);
     }
     List<UserAuthority> userAuthorities = tUser.getUserAuthorities();
@@ -143,17 +144,10 @@ public class UserController {
       role += userAuthority.getAuthorityName() + "|";
     }
     SessionUtil.setSessionUser(tUser.getId(), tUser.getUserName(), role);
-    ResponseObject<Boolean> ro = new ResponseObject<>("로그인 성공");
-    ro.setData(true);
+    ResponseObject<TUser> ro = new ResponseObject<>("로그인 성공");
+    ro.setData(tUser);
     // tokenDto 이용하여 response body에도 넣어서 리턴함
     return new ResponseEntity<>(ro, HttpStatus.OK);
-  }
-
-  // 간편 로그인 (인증 무시)
-  @PostMapping("/login")
-  public Boolean simpleLogin(@RequestBody TUser tUser) throws NoSuchAlgorithmException {
-    Boolean b = userService.userSearch(tUser);
-    return b;
   }
 
   // 로그아웃 처리 용도, 현재는 사용하지 않고 있으며, 개발 예정이다.
