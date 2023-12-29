@@ -7,6 +7,7 @@ import {
   Input,
   InputGroup,
   Label,
+  Nav,
   Navbar,
   Row,
 } from "reactstrap";
@@ -15,11 +16,10 @@ import styles from "../../../scss/sheetmusic/sheetmusic.module.scss";
 import { Search } from "react-bootstrap-icons";
 import SheetMusicService from "../../../service/SheetMusicService";
 
-const ContentsMenu = ({ genreList }) => {
+const SheetMusicMenuComponent = ({ genreList }) => {
   const [menuData, setMenuData] = useState();
-  const [isDetail, setIsDetail] = useState(false);
 
-  const {sheetMusicMasterMenuCategory} = SheetMusicService();
+  const { sheetMusicMasterMenuCategory } = SheetMusicService();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,7 +27,7 @@ const ContentsMenu = ({ genreList }) => {
       if (!!data) {
         setMenuData(data);
       }
-    }
+    };
     fetchData();
   }, []);
 
@@ -37,17 +37,8 @@ const ContentsMenu = ({ genreList }) => {
         <Navbar className={`${styles?.titleArea}`}>
           <h1>악보 모음</h1>
         </Navbar>
-        <Row>
-          <Col></Col>
-          <Col>
-            <Form>
-              <FormGroup check inline>
-                <Input type="checkbox" />
-                <Label check>상세보기</Label>
-              </FormGroup>
-            </Form>
-          </Col>
-          <Col>
+        <Navbar>
+          <div style={{maxWidth:"400px"}} >
             <InputGroup className={`${styles?.searchBox}`}>
               <DropdownForm menuData={menuData} genreList={genreList} />
               <Input className="form-control" title="검색어 입력" />
@@ -55,13 +46,29 @@ const ContentsMenu = ({ genreList }) => {
                 <Search />
               </Button>
             </InputGroup>
-          </Col>
+          </div>
+        </Navbar>
+        <br />
+        <Row className={`border`}>
+          <h4 style={{ textAlign: "left" }}>장르별 검색</h4>
+          <br />
+          <hr />
+          <br />
+          {menuData?.map((data, index) => (
+            <Col key={index}>
+              <InputGroup>
+                <Input
+                  type="checkbox"
+                  name={"selectGenre"}
+                  value={data?.category}
+                />
+                <div style={{ padding: "0 0 0 10px" }}>{data?.name}</div>
+              </InputGroup>
+            </Col>
+          ))}
+          <br />
+          <br />
         </Row>
-        {isDetail && (
-          <Row>
-            <Col></Col>
-          </Row>
-        )}
       </div>
       <Navbar className={`${styles?.listMenu}`}>
         <h2>전체 악보 목록</h2>
@@ -70,4 +77,4 @@ const ContentsMenu = ({ genreList }) => {
   );
 };
 
-export default ContentsMenu;
+export default SheetMusicMenuComponent;
