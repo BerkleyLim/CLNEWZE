@@ -6,13 +6,13 @@ import lombok.Data;
 
 @Data
 public class TeacherDto {
-  Long tno;
-  String username;
-  String title;
-  String img;
-  String name;
-  String major;
-  String place;
-  String contents;
-  LocalDate upLoadDate;
+  private Long tno;
+  private String username;
+  private String title;
+  private String img;
+  private String name;
+  private String major;
+  private String place;
+  private String contents;
+  private LocalDate upLoadDate;
 }

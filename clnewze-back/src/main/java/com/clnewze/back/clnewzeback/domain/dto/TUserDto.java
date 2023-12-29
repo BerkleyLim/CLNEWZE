@@ -14,14 +14,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class TUserDto {
-  String id;
-  String password;
-  String userName;
-  ZonedDateTime crtTime;
-  ZonedDateTime loginTime;
-  String nickName;
-  LocalDate birthday;
-  Boolean activated;
+  private String id;
+  private String password;
+  private String userName;
+  private ZonedDateTime crtTime;
+  private ZonedDateTime loginTime;
+  private String nickName;
+  private LocalDate birthday;
+  private Boolean activated;
 
-  Set<AuthorityDto> authorityDtoSet;
+  private Set<AuthorityDto> authorityDtoSet;
 }

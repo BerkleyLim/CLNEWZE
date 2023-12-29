@@ -25,8 +25,8 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @AllArgsConstructor
 public class PracticeRoomController {
-  PracticeRoomService practiceRoomService;
-  FileService fileService;
+  private PracticeRoomService practiceRoomService;
+  private FileService fileService;
 
   @GetMapping("/selectList")
   public ResponseEntity<ResponseObject<List<PracticeRoom>>> selectList(
@@ -63,7 +63,7 @@ public class PracticeRoomController {
   }
 
   @GetMapping("/master/menu/table/count")
-  //@PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+  // @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
   public Long categoryCountPracticeRoomMenu() {
     log.info("controller : PracticeRoomMenu : categoryCountPracticeRoomMenu() 호출 성공");
     Long result = practiceRoomService.categoryCountPracticeRoomMenu();
@@ -71,7 +71,7 @@ public class PracticeRoomController {
   }
 
   @PostMapping("/master/menu/create")
-  //@PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+  // @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
   public Integer createPracticeRoomMenu(@RequestBody PracticeRoomMenuCategory practiceRoomMenuCategory) {
     log.info("controller : PracticeRoomMenu : create Sheet music MusicMenu() 호출 성공");
     Integer createSuccess = practiceRoomService.createPracticeRoomMenu(practiceRoomMenuCategory.getName(),
@@ -83,7 +83,7 @@ public class PracticeRoomController {
   };
 
   @PostMapping("/master/menu/change/orderby")
-  //@PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+  // @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
   public Integer orderbyChangePracticeRoomMenu(@RequestBody PracticeRoomMenuCategory practiceRoomMenuCategory) {
     log.info("controller : PracticeRoomMenu : orderbyChangeMusicMenu() 호출 성공");
     return practiceRoomService.orderbyChangePracticeRoomMenu(practiceRoomMenuCategory.getPtno(),
@@ -91,7 +91,7 @@ public class PracticeRoomController {
   }
 
   @PostMapping("/master/menu/update")
-  //@PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+  // @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
   public Integer updatePracticeRoomMenu(@RequestBody PracticeRoomMenuCategory practiceRoomMenuCategory) {
     log.info("controller : PracticeRoomMenu : updatePracticeRoomMenu() 호출 성공");
     return practiceRoomService.updatePracticeRoomMenu(practiceRoomMenuCategory.getPtno(),
@@ -100,7 +100,7 @@ public class PracticeRoomController {
   }
 
   @PostMapping("/master/menu/delete")
-  //@PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+  // @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
   public Integer deletePracticeRoomMenu(@RequestBody PracticeRoomMenuCategory practiceRoomMenuCategory) {
     log.info("controller : PracticeRoomMenu : deletePracticeRoomMenu() 호출 성공");
     return practiceRoomService.deletePracticeRoomMenu(practiceRoomMenuCategory.getPtno());

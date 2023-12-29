@@ -15,7 +15,7 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @AllArgsConstructor
 public class SubScriptService {
-  SubScriptMapper subScriptMapper;
+  private SubScriptMapper subScriptMapper;
 
   // 1) 내가 구독한 사람 리스트 조회
   public List<SubScriptMyList> selectSubScriptMyList(Long uno) {

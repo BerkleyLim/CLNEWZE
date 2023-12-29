@@ -16,8 +16,8 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @AllArgsConstructor
 public class TeacherService {
-  TeacherMapper teacherMapper;
-  TeacherMenuCategoryMapper teacherMenuCategoryMapper;
+  private TeacherMapper teacherMapper;
+  private TeacherMenuCategoryMapper teacherMenuCategoryMapper;
 
   public List<Teacher> selectList(String major, int pageNo, int limit) {
     return teacherMapper.selectList(major, pageNo, limit);

@@ -19,7 +19,7 @@ import lombok.AllArgsConstructor;
 @RequestMapping("/api/information")
 @AllArgsConstructor
 public class InformationController {
-  InformationService informationService;
+  private InformationService informationService;
 
   @GetMapping("/selectList")
   public ResponseEntity<ResponseObject<List<Information>>> selectList(

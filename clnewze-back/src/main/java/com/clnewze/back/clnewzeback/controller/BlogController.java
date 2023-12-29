@@ -19,7 +19,7 @@ import lombok.AllArgsConstructor;
 @RequestMapping("/api/blog")
 @AllArgsConstructor
 public class BlogController {
-  BlogService blogService;
+  private BlogService blogService;
 
   /**
    * @return

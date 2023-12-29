@@ -16,7 +16,7 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @AllArgsConstructor
 public class BlogService {
-  BlogMapper blogMapper;
+  private BlogMapper blogMapper;
 
   public List<BlogVo> selectList(int pageNo, int limit) {
     List<Blog> blog = blogMapper.selectList(pageNo, limit);

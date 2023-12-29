@@ -26,8 +26,8 @@ import lombok.extern.log4j.Log4j2;
 @RequestMapping("/api/sheetmusic")
 @AllArgsConstructor
 public class SheetMusicController {
-  SheetMusicService sheetMusicService;
-  FileService fileService;
+  private SheetMusicService sheetMusicService;
+  private FileService fileService;
 
   @GetMapping("/selectList")
   public ResponseEntity<ResponseObject<List<SheetMusic>>> selectList(
@@ -121,7 +121,7 @@ public class SheetMusicController {
 
   // 장르 리스트 추가 - 관리자 권한만 부여
   @PostMapping("/master/menu/create")
-  //@PreAuthorize("hasAnyRole('ADMIN')")
+  // @PreAuthorize("hasAnyRole('ADMIN')")
   public Integer createSheetMusicMenu(@RequestBody SheetMusicMenuCategory sheetMusicMenuCategory) {
     log.info("controller : SheetMusicMenu : create Sheet music MusicMenu() 호출 성공");
     Integer createSuccess = sheetMusicService.createSheetMusicMenu(sheetMusicMenuCategory.getName(),
@@ -134,7 +134,7 @@ public class SheetMusicController {
 
   // 장르 리스트 표시 순서 변경 - 관리자 권한만 부여
   @PostMapping("/master/menu/change/orderby")
-  //@PreAuthorize("hasAnyRole('ADMIN')")
+  // @PreAuthorize("hasAnyRole('ADMIN')")
   public Integer orderbyChangeSheetMusicMenu(@RequestBody SheetMusicMenuCategory sheetMusicMenuCategory) {
     log.info("controller : SheetMusicMenu : orderbyChangeMusicMenu() 호출 성공");
     return sheetMusicService.orderbyChangeSheetMusicMenu(sheetMusicMenuCategory.getSmtno(),
@@ -143,7 +143,7 @@ public class SheetMusicController {
 
   // 장르 리스트 중 카테고리 내용 변경 - 관리자 권한만 부여
   @PostMapping("/master/menu/update")
-  //@PreAuthorize("hasAnyRole('ADMIN')")
+  // @PreAuthorize("hasAnyRole('ADMIN')")
   public Integer updateSheetMusicMenu(@RequestBody SheetMusicMenuCategory sheetMusicMenuCategory) {
     log.info("controller : SheetMusicMenu : updateSheetMusicMenu() 호출 성공");
     return sheetMusicService.updateSheetMusicMenu(sheetMusicMenuCategory.getSmtno(), sheetMusicMenuCategory.getName(),
@@ -152,7 +152,7 @@ public class SheetMusicController {
 
   // 장르 리스트 중 필요없는 장리 제거 - 관리자 권한만 부여
   @PostMapping("/master/menu/delete")
-  //@PreAuthorize("hasAnyRole('ADMIN')")
+  // @PreAuthorize("hasAnyRole('ADMIN')")
   public Integer deleteSheetMusicMenu(@RequestBody SheetMusicMenuCategory sheetMusicMenuCategory) {
     log.info("controller : SheetMusicMenu : deleteSheetMusicMenu() 호출 성공");
     return sheetMusicService.deleteSheetMusicMenu(sheetMusicMenuCategory.getSmtno());

@@ -16,8 +16,8 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @AllArgsConstructor
 public class SheetMusicService {
-  SheetMusicMapper sheetMusicMapper;
-  SheetMusicMenuCategoryMapper sheetMusicMenuCategoryMapper;
+  private SheetMusicMapper sheetMusicMapper;
+  private SheetMusicMenuCategoryMapper sheetMusicMenuCategoryMapper;
 
   // 전체 악보 갯수 출력
   public List<SheetMusic> selectList(String genre, int pageNo, int limit) {

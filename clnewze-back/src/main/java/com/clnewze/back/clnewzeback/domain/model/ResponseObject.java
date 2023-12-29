@@ -8,8 +8,8 @@ import lombok.Data;
 
 @Data
 public class ResponseObject<T> {
-  String message;
-  T data;
+  private String message;
+  private T data;
 
   @JsonInclude(value = JsonInclude.Include.NON_NULL)
   String errorMessage;

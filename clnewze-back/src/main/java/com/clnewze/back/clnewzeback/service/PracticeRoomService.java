@@ -16,8 +16,8 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @AllArgsConstructor
 public class PracticeRoomService {
-  PracticeRoomMapper practiceRoomMapper;
-  PracticeRoomMenuCategoryMapper practiceRoomMenuCategoryMapper;
+  private PracticeRoomMapper practiceRoomMapper;
+  private PracticeRoomMenuCategoryMapper practiceRoomMenuCategoryMapper;
 
   public List<PracticeRoom> selectList(String categories, int pageNo, int limit) {
     return practiceRoomMapper.selectList(categories, pageNo, limit);

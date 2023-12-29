@@ -12,7 +12,7 @@ import lombok.AllArgsConstructor;
 @Service
 @AllArgsConstructor
 public class InformationService {
-  InformationMapper informationMapper;
+  private InformationMapper informationMapper;
 
   public List<Information> selectList(String genre) {
     return informationMapper.selectList(genre);
