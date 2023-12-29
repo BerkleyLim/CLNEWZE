@@ -18,6 +18,6 @@ public class SheetMusic {
   LocalDate upLoadDate;
   String userName;
   String musicLink;
-  String sheetfile;
+  String sheetFile;
   Long uno;
 }

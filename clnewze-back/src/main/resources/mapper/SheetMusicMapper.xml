@@ -4,11 +4,26 @@
   
   <!-- <select id="selectList" resultType="java.util.List"> -->
   <select id="selectList" resultType="SheetMusic">
-    select * from sheetmusic
-    where 1=1
-    <if test="genre != 'null'">
-      and genre=#{genre}
-    </if>
+    select 
+      s.sno, 
+      tu.user_name,
+      s.title,
+      s.view_number,
+      s.artist,
+      s.img,
+      s.genre, 
+      s.release_date,
+      s.album_name,
+      s.music_link,
+      s.contents,
+      s.upload_date,
+      s.sheet_file
+    from sheetmusic s 
+      left join t_user tu 
+    on s.uno = tu.uno
+    <where>
+      and s.genre=#{genre}
+    </where>
     limit #{limit} offset #{pageNo}
   </select>
 
@@ -19,29 +34,30 @@
   <!-- 유저별 업로드자만 악보 공개 - My Page 부분에 출력될 악보 -->
   <select id="selectListUserSheetMusic">
     select 
-      s.ino, 
+      s.sno, 
       tu.user_name,
       s.title,
-      s.viewNumber,
+      s.view_number,
       s.artist,
       s.img,
       s.genre, 
-      s.releaseDate,
-      s.albumName,
-      s.musicLink,
+      s.release_date,
+      s.album_name,
+      s.music_link,
       s.contents,
-      s.uploadDate,
-      s.sheetFile
+      s.upload_date,
+      s.sheet_file
     from sheetmusic s 
       left join t_user tu 
     on s.uno = tu.uno
-    where 1=1
-    <if test="uno != 'null'">
-      and s.uno=#{uno}
-    </if>
-    <if test="genre != 'null'">
-      and s.genre=#{genre}
-    </if>
+    <where>
+      <if test="uno != 'null'">
+        and s.uno=#{uno}
+      </if>
+      <if test="genre != 'null'">
+        and s.genre=#{genre}
+      </if>
+    </where>
     limit #{limit} offset #{pageNo}
   </select>
 
