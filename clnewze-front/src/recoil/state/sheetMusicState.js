@@ -23,7 +23,7 @@ export const sheetMusicModalDataState = atom({
 
 export const sheetMusicPagingNationState = atom({
   key: 'sheetMusicPagingNation',
-  default: 0
+  default: 1
 });
 
 export const sheetMusicModalIsOpenState = atom({
