@@ -1,5 +1,6 @@
 package com.clnewze.back.clnewzeback.domain.vo;
 
+import java.time.LocalDate;
 import java.time.ZonedDateTime;
 
 import lombok.AllArgsConstructor;
@@ -15,6 +16,6 @@ public class UserInfoVo {
   private String userName;
   private String nickName;
   private ZonedDateTime loginTime;
-  private String birthday;
-  private String activated;
+  private LocalDate birthday;
+  private Boolean activated;
 }

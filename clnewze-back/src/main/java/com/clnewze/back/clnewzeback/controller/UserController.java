@@ -21,6 +21,7 @@ import com.clnewze.back.clnewzeback.domain.dto.TUserDto;
 import com.clnewze.back.clnewzeback.domain.entity.TUser;
 import com.clnewze.back.clnewzeback.domain.entity.UserAuthority;
 import com.clnewze.back.clnewzeback.domain.model.ResponseObject;
+import com.clnewze.back.clnewzeback.domain.vo.UserInfoVo;
 import com.clnewze.back.clnewzeback.service.UserService;
 import com.clnewze.back.clnewzeback.util.SecurityUtil;
 import com.clnewze.back.clnewzeback.util.SessionUtil;
@@ -111,9 +112,13 @@ public class UserController {
   // .birthday(t_userDto.getBirthday()).activated(t_userDto.getActivated()).build();
   // 나의 정보 조회
   @GetMapping("/myinfo")
-  public ResponseEntity<ResponseObject<TUser>> getMyUserInfo(@CurrentUser SessionUser sessionUser) {
-    TUser result = userService.getMyUserWithAuthorities(sessionUser.getId());
-    ResponseObject<TUser> ro = new ResponseObject<>("성공");
+  public ResponseEntity<ResponseObject<UserInfoVo>> getMyUserInfo(@CurrentUser SessionUser sessionUser) {
+    TUser tUser = userService.getMyUserWithAuthorities(sessionUser.getId());
+    // front-End 개발자에게 보낼 회원 정보
+    UserInfoVo result = UserInfoVo.builder().uno(tUser.getUno()).userName(tUser.getUserName())
+        .nickName(tUser.getNickName()).loginTime(tUser.getLoginTime()).birthday(tUser.getBirthday())
+        .activated(tUser.getActivated()).build();
+    ResponseObject<UserInfoVo> ro = new ResponseObject<>("로그인 이후 필요 유저 정보 확인 성공");
     ro.setData(result);
     return new ResponseEntity<>(ro, HttpStatus.OK);
   }
