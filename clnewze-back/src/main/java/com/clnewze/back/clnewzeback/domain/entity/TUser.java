@@ -28,7 +28,7 @@ public class TUser {
   private ZonedDateTime loginTime;
   private String nickName;
   private LocalDate birthday;
-  private boolean activated;
+  private Boolean activated;
 
   // DB -> Mybatis로 authorities가 안받아져서 임시로 String 형으로 받아 사용
   // 이후, 로직으로 authorities를 넣어 사용한다.
