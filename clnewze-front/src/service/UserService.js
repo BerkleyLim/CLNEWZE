@@ -30,10 +30,42 @@ const UserService = () => {
       console.error(e)
       return false; 
     });
+
+  }
+
+  // 로그인 확인
+  const signIn = async (inputs) => {
+    return await restApiAuthJwt.post(process.env.REACT_APP_API_ROOT + "user/singin", {
+      id: inputs.id,
+      password: inputs.password
+    })
+    .then((response) => {
+      console.log(response)
+      return response.data.data
+    })
+    .catch((e)=> {
+      console.error(e);
+      return false;
+    })
+  }
+
+  // 로그인 이후 
+  const getMyUserInfo = async () => {
+    return await restApiAuthJwt.get(process.env.REACT_APP_API_ROOT+"user/myinfo")
+    .then((response) => {
+      console.log(response)
+      return response.data.data
+    })
+    .catch((e) => {
+      console.error(e)
+      return null
+    })
   }
 
   return {
     createToken,
+    signIn,
+    getMyUserInfo
   }
 }
 
