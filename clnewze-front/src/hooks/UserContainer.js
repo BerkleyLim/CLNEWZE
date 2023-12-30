@@ -9,7 +9,7 @@ const UserContainer = () => {
   const [user, setUser] = useRecoilState(userState);
   const logout = useResetRecoilState(userState);
   const myPageMenuRefresh = useResetRecoilState(myPageMenuState); // 마이페이지 번호 default로 변경
-  const { isExistUserService, createToken } = UserService();
+  const { signIn, createToken, getMyUserInfo } = UserService();
 
   // 로그인 처리 함수
   const handlerLogin = async (inputs) => {
@@ -19,22 +19,26 @@ const UserContainer = () => {
     
     // 아직 로그인 구현 중이니 순수 하드코딩으로만 로그인 처리 된 것처럼 만들기
     // const data = await createToken(inputs)
-    // if (data) {
+    const signIn = await signIn(inputs)
+    if (signIn) {
       alert("로그인 성공")
-      // 하드코딩으로 테스트 하기
-      setUser({
-        ...user,
-        uno: 2,
-        id: "test1",
-        role_admin: "ROLE_USER",
-        userName: "test1",
-        birthday: '1999-11-11',
-
-        isLogin: true // 순수 프론트엔드에서만 로그인 중인지만 확인
-      })
-    // } else {
-    //   alert("로그인 실패")
-    // }
+      const data = await getMyUserInfo();
+      if (!!data) {
+        // 하드코딩으로 테스트 하기
+        setUser({
+          ...user,
+          uno: 2,
+          id: data?.id,
+          role_admin: "ROLE_USER",
+          userName: data?.userName,
+          birthday: data?.birthday,
+  
+          isLogin: true // 순수 프론트엔드에서만 로그인 중인지만 확인
+        })
+      }
+    } else {
+      alert("로그인 실패")
+    }
     myPageMenuRefresh(); // 로그인 시 myPage 메뉴 default 값으로 변경
     // return data;
     return true;
@@ -42,7 +46,7 @@ const UserContainer = () => {
 
   // 회원정보 다시 확인용 로그인 처리 함수 (API 호출은 필요 없다.)
   const handlerMyPageLogin = async (inputs) => {
-    const data = await isExistUserService(inputs)
+    const data = await signIn(inputs)
     if (data) {
       alert("로그인 성공")
     } else {
