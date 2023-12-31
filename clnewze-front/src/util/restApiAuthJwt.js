@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useRecoilValue, useResetRecoilState, useSetRecoilState } from "recoil";
-import { refreshTokenState, tokenState, userState } from "../recoil/state/userState";
+import { refreshTokenState, tokenState, userState } from "../state/userState";
 
 // jwt에 필요한 토큰 가져오기
 let isTokenRefreshing = false;
@@ -127,17 +127,22 @@ instance.interceptors.response.use(
           .then((res) => res.json())
           .then((res) => {
             if (res.status !== 401 && res.status !== 417) {
-              setToken(res.data.data.token);
-              setRefreshToken(res.data.data.refreshToken);
+              setToken(res.data.data);
+              setRefreshToken(res.data.data);
+              // setToken(res.data.data.token);
+              // setRefreshToken(res.data.data.refreshToken);
 
               // Default Instance Header update
               instance.defaults.headers["X-Authorization"] =
-                "Bearer " + res.data.token;
+                // "Bearer " + res.data.token;
+                "Bearer " + res.data.data;
 
               // Original Request Header update
               originalReq.headers["X-Authorization"] =
-                "Bearer " + res.data.token;
-              onTokenRefreshed(res.data.token);
+                // "Bearer " + res.data.token;
+                "Bearer " + res.data.data;
+              onTokenRefreshed(res.data.data);
+              // onTokenRefreshed(res.data.token);
 
               isTokenRefreshing = false;
             } else {
