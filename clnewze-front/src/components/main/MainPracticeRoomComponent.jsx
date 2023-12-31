@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "../../scss/main/main.module.scss";
 
 import { useRecoilState } from "recoil";
-import { sheetMusicState } from "../../recoil/state/sheetMusicState";
+import { practiceRoomState } from "../../recoil/state/practiceRoomState";
 import CustomHorizonScroll from "./item/CustomHorizonScroll";
 import {
   Card,
@@ -17,10 +17,10 @@ import {
 } from "reactstrap";
 import PracticeRoomService from "../../service/PracticeRoomService";
 
-const MainSheetMusicComponent = () => {
+const MainPracticeRoomComponent = () => {
   const navigate = useNavigate();
   const { practiceRoomSelectList } = PracticeRoomService();
-  const [sheetMusic, setSheetMusic] = useRecoilState(sheetMusicState);
+  const [practiceRoom, setPracticeRoom] = useRecoilState(practiceRoomState);
 
   // 장르 설정 할때 마다
   useEffect(() => {
@@ -29,7 +29,7 @@ const MainSheetMusicComponent = () => {
 
       // error 나면 null 값 표시
       if (!!data) {
-        setSheetMusic(data);
+        setPracticeRoom(data);
       }
     };
 
@@ -37,7 +37,7 @@ const MainSheetMusicComponent = () => {
   }, []);
 
   // 가로 스크롤용 component 추가
-  const SheetMusicComponent = ({data}) => {
+  const PracticeRoomComponent = ({data}) => {
     return (
       <Row className={`${styles?.bootstrapRowAndColCenter}`}>
         <Col className={`${styles?.bootstrapRowAndColCenter} mb-5`}>
@@ -71,14 +71,14 @@ const MainSheetMusicComponent = () => {
     <div>
       {/* 참조 : https://velog.io/@071yoon/React-Horizontal-Scroll-%EA%B5%AC%ED%98%84 */}
       <div className={`${styles?.mainCommonHeader}`}>
-        <h1>악보</h1>
-        <p onClick={() => navigate("/sheetmusic")}>
+        <h1>연습실 찾기</h1>
+        <p onClick={() => navigate("/practiceroom")}>
           <ChevronRight /> 더보기
         </p>
       </div>
-      <CustomHorizonScroll data={sheetMusic} Component={SheetMusicComponent} />
+      <CustomHorizonScroll data={practiceRoom} Component={PracticeRoomComponent} />
     </div>
   );
 };
 
-export default MainSheetMusicComponent;
+export default MainPracticeRoomComponent;
