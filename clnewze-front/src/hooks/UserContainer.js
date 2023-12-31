@@ -9,7 +9,7 @@ const UserContainer = () => {
   const [user, setUser] = useRecoilState(userState);
   const logout = useResetRecoilState(userState);
   const myPageMenuRefresh = useResetRecoilState(myPageMenuState); // 마이페이지 번호 default로 변경
-  const { signIn, createToken, getMyUserInfo } = UserService();
+  const { signIn, createToken, userInfo } = UserService();
 
   // 로그인 처리 함수
   const handlerLogin = async (inputs) => {
@@ -17,17 +17,27 @@ const UserContainer = () => {
     // resolve 상태 : true 리턴 (모달 닫기, 사용자 페이지 회원 정보 접근 허용)
     // reject 상태 : false 리턴 (모달 유지, 사용자 페이지 회원 정보 접근 차단)
     
-    // 아직 로그인 구현 중이니 순수 하드코딩으로만 로그인 처리 된 것처럼 만들기
+    
+    
+    const token = await createToken(inputs)
+    sessionStorage.setItem('token',token)
+    // console.log(sessionStorage.getItem('token'))
+    // console.log(isLogin)
+    // }
     // const data = await createToken(inputs)
-    const signIn = await signIn(inputs)
-    if (signIn) {
-      alert("로그인 성공")
-      const data = await getMyUserInfo();
+    const isLogin = await signIn(inputs)
+
+    // 이 함수는 로그인 성공시 모달 창 닫게 하기 위한 용도
+    let isReturnSuccessLogin = false;
+    if (isLogin) {
+      const data = await userInfo();
       if (!!data) {
+        // 아직 로그인 구현 중이니 순수 하드코딩으로만 로그인 처리 된 것처럼 만들기
         // 하드코딩으로 테스트 하기
+        alert("로그인 성공")
         setUser({
           ...user,
-          uno: 2,
+          uno: data?.uno,
           id: data?.id,
           role_admin: "ROLE_USER",
           userName: data?.userName,
@@ -35,13 +45,27 @@ const UserContainer = () => {
   
           isLogin: true // 순수 프론트엔드에서만 로그인 중인지만 확인
         })
+        isReturnSuccessLogin = true;
+      } else {
+        alert("로그인 실패, bearer token 백엔드에 저장되도록 구현해야함, 하드코딩 로그인")
+        setUser({
+          ...user,
+          uno: 2,
+          id: "admin",
+          role_admin: "ROLE_USER",
+          userName: "관리자",
+          birthday: "1993-11-11",
+  
+          isLogin: true // 순수 프론트엔드에서만 로그인 중인지만 확인
+        })
+        isReturnSuccessLogin = true;
       }
     } else {
       alert("로그인 실패")
     }
     myPageMenuRefresh(); // 로그인 시 myPage 메뉴 default 값으로 변경
     // return data;
-    return true;
+    return isReturnSuccessLogin;
   }
 
   // 회원정보 다시 확인용 로그인 처리 함수 (API 호출은 필요 없다.)
