@@ -1,3 +1,4 @@
+import axios from 'axios'
 import UseApi from '../util/UseApi'
 
 
@@ -37,7 +38,7 @@ const UserService = () => {
    * 3) 로그인 이후, 사용자 정보를 받아온다.
    */
   const userInfo = async (user) => {
-    return await UseApi.get(process.env.REACT_APP_API_ROOT + 'user/myinfo')
+    return await UseApi.get(process.env.REACT_APP_API_ROOT + 'user/myinfo', {withCredentials: true})
     // return await UseApi.get('/api/user/myinfo')
       .then((response) => {
         return response.data.data

@@ -21,10 +21,7 @@ const UserContainer = () => {
     
     const token = await createToken(inputs)
     sessionStorage.setItem('token',token)
-    // console.log(sessionStorage.getItem('token'))
-    // console.log(isLogin)
-    // }
-    // const data = await createToken(inputs)
+    sessionStorage.setItem("refreshToken", token)
     const isLogin = await signIn(inputs)
 
     // 이 함수는 로그인 성공시 모달 창 닫게 하기 위한 용도
@@ -48,17 +45,17 @@ const UserContainer = () => {
         isReturnSuccessLogin = true;
       } else {
         alert("로그인 실패, bearer token 백엔드에 저장되도록 구현해야함, 하드코딩 로그인")
-        setUser({
-          ...user,
-          uno: 2,
-          id: "admin",
-          role_admin: "ROLE_USER",
-          userName: "관리자",
-          birthday: "1993-11-11",
+        // setUser({
+        //   ...user,
+        //   uno: 2,
+        //   id: "admin",
+        //   role_admin: "ROLE_USER",
+        //   userName: "관리자",
+        //   birthday: "1993-11-11",
   
-          isLogin: true // 순수 프론트엔드에서만 로그인 중인지만 확인
-        })
-        isReturnSuccessLogin = true;
+        //   isLogin: true // 순수 프론트엔드에서만 로그인 중인지만 확인
+        // })
+        // isReturnSuccessLogin = true;
       }
     } else {
       alert("로그인 실패")
