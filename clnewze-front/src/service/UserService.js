@@ -1,72 +1,69 @@
-import { useSetRecoilState } from 'recoil'
-import restApiAllUser from '../util/restApiAllUser'
-import restApiAuthJwt from '../util/restApiAuthJwt'
-import { tokenState } from '../recoil/state/userState'
+import UseApi from '../util/UseApi'
 
+
+// 이부분은 API 호출하는 파일
 const UserService = () => {
-  const setToken = useSetRecoilState(tokenState);
-  // 1) 로그인 여부 설정
-  const createToken = async (inputs) => {
-  // const authRequest = async (inputs) => {
-    // 입력 (차후 복잡한 권한을 부여 받을 예정 => jwt 도입 예정)
-    const options = {
-      headers: {
-        "Content-Type": "application/json",
-        "X-Requested-With": "XMLHttpRequest"  
-      }
-    }
-    // return await restApiAllUser.post(process.env.REACT_APP_API_ROOT + "user/singin", {
-    // return await restApiAuthJwt.post(process.env.REACT_APP_API_ROOT + "user/singin", {
-    return await restApiAuthJwt.post(process.env.REACT_APP_API_ROOT + "auth/authenticate", {
-      id: inputs.id,
-      password: inputs.password,
-    }, options)
-    .then((response) => {
-      setToken(response.data.data.token)
-      console.log(response.data.data.token)
-      return true;
-    })
-    .catch((e) => { 
-      console.error(e)
-      return false; 
-    });
-
+  /**
+   * 1) 로그인 시 토큰을 생성하여 진행 한다.
+   */
+  const createToken = async (user) => {
+    return await UseApi.post(process.env.REACT_APP_API_ROOT + 'auth/authenticate' ,user)
+    // return await UseApi.post('/api/auth/authenticate' ,user)
+      .then((response) => {
+        return response.data.data
+      })
+      .catch ((e) => {
+        console.error(e)
+        return null;
+      })
   }
 
-  // 로그인 확인
-  const signIn = async (inputs) => {
-    return await restApiAuthJwt.post(process.env.REACT_APP_API_ROOT + "user/singin", {
-      id: inputs.id,
-      password: inputs.password
-    })
-    .then((response) => {
-      console.log(response)
-      return response.data.data
-    })
-    .catch((e)=> {
-      console.error(e);
-      return false;
-    })
+  /**
+   * 2) 로그인 시도를 위한 API를 호출 한다.
+   */
+  const signIn = async (user) => {
+    return await UseApi.post(process.env.REACT_APP_API_ROOT + 'user/signin' ,user)
+    // return await UseApi.post('/api/user/signin' ,user)
+      .then((response) => {
+        return response.data.data
+      })
+      .catch((e) => {
+        console.error(e)
+        return null;
+      })
   }
 
-  // 로그인 이후 
-  const getMyUserInfo = async () => {
-    return await restApiAuthJwt.get(process.env.REACT_APP_API_ROOT+"user/myinfo")
+  /**
+   * 3) 로그인 이후, 사용자 정보를 받아온다.
+   */
+  const userInfo = async (user) => {
+    return await UseApi.get(process.env.REACT_APP_API_ROOT + 'user/myinfo')
+    // return await UseApi.get('/api/user/myinfo')
+      .then((response) => {
+        return response.data.data
+      })
+      .catch((e) => {
+        console.error(e)
+        return null;
+      })
+  }
+
+  /**
+   * 4) 회원 가입을 위한 API를 호출한다.
+   */
+  const signUp = async (user) => {
+    return await UseApi.post(process.env.REACT_APP_API_ROOT + 'user/signup', user)
+    // return await UseApi.post('/api/user/signup', user)
     .then((response) => {
-      console.log(response)
-      return response.data.data
+      return response.data
     })
     .catch((e) => {
       console.error(e)
-      return null
+      return null;
     })
   }
 
-  return {
-    createToken,
-    signIn,
-    getMyUserInfo
-  }
+  return {createToken, signIn, userInfo, signUp}
 }
 
 export default UserService
