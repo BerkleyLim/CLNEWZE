@@ -10,8 +10,8 @@ const CustomHorizonScroll = ({data, Component}) => {
       {/* 참조 : https://velog.io/@071yoon/React-Horizontal-Scroll-%EA%B5%AC%ED%98%84 */}
       
       <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
-        {data?.map((d) => {
-          return <Component data={d} />;
+        {data?.map((d, index) => {
+          return <Component key={index} data={d} />;
         })}
       </ScrollMenu>
     </Container>
