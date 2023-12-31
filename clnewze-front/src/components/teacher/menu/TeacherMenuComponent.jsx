@@ -12,7 +12,7 @@ import {
 } from "reactstrap";
 import styles from "../../../scss/teacher/teacher.module.scss";
 import TeacherDropdownItemComponent from "./TeacherDropdownItemComponent";
-import restApiAllUser from "../../../util/restApiAllUser";
+import UseApi from "../../../util/UseApi";
 import { Search } from "react-bootstrap-icons";
 import TeacherContainer from "../../../hooks/TeacherContainer";
 
@@ -23,7 +23,7 @@ const TeacherMenuComponent = () => {
   // const {teachers} = TeacherContainer();
 
   useEffect(() => {
-    restApiAllUser.get(
+    UseApi.get(
       process.env.REACT_APP_API_ROOT + "teacher/master/menu/category"
     )
       .then((res) => {

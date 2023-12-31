@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import restApiAllUser from "../util/restApiAllUser";
+import UseApi from "../util/UseApi";
 import { useRecoilState, useResetRecoilState } from "recoil";
 import { useQuery } from "react-query";
 import {
@@ -27,7 +27,7 @@ const PracticeRoomContainer = () => {
 
   // 조회 관련 api 호출 정의
   const selectPracticeRoom = () => {
-    restApiAllUser.get(
+    UseApi.get(
       process.env.REACT_APP_API_ROOT +
         "practiceroom/selectList"
           + "?categories=" + selectCategories
@@ -50,7 +50,7 @@ const PracticeRoomContainer = () => {
   }, [selectCategories, offset]);
 
   useEffect(() => {
-    restApiAllUser.get(
+    UseApi.get(
       process.env.REACT_APP_API_ROOT + "practiceroom/selectListAllCount"
     )
       .then((res) => setPagingCount(res.data.data))

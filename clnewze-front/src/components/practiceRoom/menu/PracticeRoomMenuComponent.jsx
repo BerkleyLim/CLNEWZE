@@ -11,7 +11,7 @@ import {
   Row,
 } from "reactstrap";
 import styles from "../../../scss/practiceroom/practiceRoom.module.scss";
-import restApiAllUser from "../../../util/restApiAllUser";
+import UseApi from "../../../util/UseApi";
 import { Search } from "react-bootstrap-icons";
 import PracticeRoomDropdownItem from "./PracticeRoomDropdownItem";
 import PracticeRoomService from "../../../service/PracticeRoomService";

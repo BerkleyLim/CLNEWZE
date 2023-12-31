@@ -9,7 +9,7 @@ import {
   CarouselIndicators,
   CarouselItem,
 } from "reactstrap";
-import restApiAllUser from "../../util/restApiAllUser";
+import UseApi from "../../util/UseApi";
 import Teacher from '../teacher/contents/TeacherListComponent';
 
 const MainTeacherComponent = () => {
@@ -20,7 +20,7 @@ const MainTeacherComponent = () => {
 
   // 장르 설정 할때 마다
   useEffect(() => {
-    restApiAllUser.get(
+    UseApi.get(
       process.env.REACT_APP_API_ROOT +
         "teacher/selectList?major=null"
     )

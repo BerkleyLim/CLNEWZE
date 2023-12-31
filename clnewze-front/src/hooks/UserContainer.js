@@ -2,7 +2,7 @@ import { useRecoilState, useResetRecoilState } from "recoil";
 import { userState } from "../recoil/state/userState";
 import UserService from "../service/UserService";
 import { myPageMenuState } from "../recoil/state/myPageHeaderState";
-import restApiAuthJwt from "../util/restApiAuthJwt"
+import UseApi from "../util/UseApi"
 
 // container 부분
 const UserContainer = () => {
@@ -59,7 +59,7 @@ const UserContainer = () => {
 
   // 로그아웃 함수
   const handlerLogout = () => {
-    delete restApiAuthJwt.defaults.headers['X-Authorization'];
+    delete UseApi.defaults.headers['Authorization'];
 
     // debugger;
     sessionStorage.removeItem("token")

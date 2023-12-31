@@ -4,7 +4,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import update from "immutability-helper";
 import { Table, Button, Input } from "reactstrap";
 import DataTable from "./menu/dataTable";
-import restApiAllUser from "../../../../util/restApiAllUser";
+import UseApi from "../../../../util/UseApi";
 
 function AdminSheetmusic() {
   const [menuData, setMenuData] = useState();
@@ -24,7 +24,7 @@ function AdminSheetmusic() {
   }, [menuData]);
 
   useEffect(() => {
-    restApiAllUser.get(
+    UseApi.get(
       process.env.REACT_APP_API_ROOT + "sheetmusic/master/menu/category"
     )
       .then((res) => {
@@ -67,7 +67,7 @@ function AdminSheetmusic() {
 
   // SheetMusic Menu 삽입 기능 추가
   const addMenu = () => {
-    restApiAllUser.post(
+    UseApi.post(
       process.env.REACT_APP_API_ROOT + "sheetmusic/master/menu/create",
       createMenuData
       )
@@ -90,7 +90,7 @@ function AdminSheetmusic() {
     });
 
     menuData?.map((data) => {
-      restApiAllUser.post(
+      UseApi.post(
         process.env.REACT_APP_API_ROOT + "sheetmusic/master/menu/change/orderby",
         data
       )
@@ -109,7 +109,7 @@ function AdminSheetmusic() {
   const deleteMenu = (index) => {
     let deleteData = menuData[index];
     
-    restApiAllUser.post(process.env.REACT_APP_API_ROOT + "sheetmusic/master/menu/delete", deleteData)
+    UseApi.post(process.env.REACT_APP_API_ROOT + "sheetmusic/master/menu/delete", deleteData)
     .then((res) => {
       setMenuData(
         update(menuData, {
@@ -126,7 +126,7 @@ function AdminSheetmusic() {
 
   // SheetMusic Menu 수정
   const updateMenu = (data, index) => {
-    restApiAllUser.post(process.env.REACT_APP_API_ROOT + "sheetmusic/master/menu/update", data)
+    UseApi.post(process.env.REACT_APP_API_ROOT + "sheetmusic/master/menu/update", data)
     .then((res) => {
         setMenuData(
           update(menuData, {
