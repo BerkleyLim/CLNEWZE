@@ -12,7 +12,7 @@ import SheetMusicService from "../service/SheetMusicService";
 
 const SheetMusicContainer = () => {
   const param = useParams();
-  const [sheetMusics, setBoards] = useRecoilState(sheetMusicState);
+  const [sheetMusics, setSheetMusics] = useRecoilState(sheetMusicState);
   const [selectGenre, setSelectGenre] = useState(null);
   // Pagination 관련
   const [page, setPage] = useRecoilState(sheetMusicPagingNationState); // 페이지
@@ -30,6 +30,7 @@ const SheetMusicContainer = () => {
   // 조회 관련 api 호출 정의
   const selectSheetMusic = async () => {
     const data = await sheetMusicSelectList(selectGenre, offset, limit);
+    setSheetMusics(data)
   };
 
   // 리액트 Query를 이용하여 누군가 작업을 진행하면 자동으로 React-Query 실행하여 즉시 갱신
