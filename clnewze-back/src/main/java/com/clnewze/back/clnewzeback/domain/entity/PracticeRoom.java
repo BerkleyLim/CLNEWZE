@@ -1,8 +1,11 @@
 package com.clnewze.back.clnewzeback.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import lombok.Data;
 
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PracticeRoom {
   private Long pno;
   private String username;
@@ -11,6 +14,6 @@ public class PracticeRoom {
   private String name;
   private String place;
   private String contents;
-  Integer price;
+  private Integer price;
   private String categories;
 }
