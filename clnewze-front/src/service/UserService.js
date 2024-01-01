@@ -40,8 +40,8 @@ const UserService = () => {
   const userInfo = async (user) => {
     return await UseApi.get(process.env.REACT_APP_API_ROOT + 'user/myinfo', {withCredentials: true})
     // return await UseApi.get('/api/user/myinfo')
-      .then((response) => {
-        return response.data.data
+      .then(async (response) => {
+        return await response.data.data
       })
       .catch((e) => {
         console.error(e)
