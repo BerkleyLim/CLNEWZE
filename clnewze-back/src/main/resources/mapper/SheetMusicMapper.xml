@@ -17,12 +17,15 @@
       s.music_link,
       s.contents,
       s.upload_date,
-      s.sheet_file
+      s.sheet_file,
+      s.uno
     from sheetmusic s 
       left join t_user tu 
     on s.uno = tu.uno
     <where>
-      and s.genre=#{genre}
+      <if test="genre != 'null'">
+        and s.genre=#{genre}
+      </if>
     </where>
     limit #{limit} offset #{pageNo}
   </select>
