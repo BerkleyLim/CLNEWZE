@@ -10,11 +10,8 @@ import com.clnewze.back.clnewzeback.domain.entity.SheetMusic;
 @Repository
 @Mapper
 public interface SheetMusicMapper {
-  // 전체 악보 리스트 출력
-  public List<SheetMusic> selectList(String genre, int pageNo, int limit);
-
-  // 특정 유저만 악보 리스트 출력
-  public List<SheetMusic> selectListUserSheetMusic(String genre, Long uno, int pageNo, int limit);
+  // 전체 악보 리스트 출력 (조건 : genre, uno 값이 존재하면 해당 값만 출력함)
+  public List<SheetMusic> selectList(String genre, Long uno, int pageNo, int limit);
 
   // 악보 카운터
   public int selectListAllCount();

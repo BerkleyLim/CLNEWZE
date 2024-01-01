@@ -32,10 +32,11 @@ public class SheetMusicController {
   @GetMapping("/selectList")
   public ResponseEntity<ResponseObject<List<SheetMusic>>> selectList(
       @RequestParam(required = false) String genre,
+      @RequestParam(required = false) Long uno,
       @RequestParam int pageNo,
       @RequestParam int limit) {
 
-    List<SheetMusic> result = sheetMusicService.selectList(genre, pageNo, limit);
+    List<SheetMusic> result = sheetMusicService.selectList(genre, uno, pageNo, limit);
     ResponseObject<List<SheetMusic>> ro = new ResponseObject<>("성공");
     ro.setData(result);
     return new ResponseEntity<>(ro, HttpStatus.OK);
@@ -46,19 +47,6 @@ public class SheetMusicController {
   public ResponseEntity<ResponseObject<Integer>> selectListAllCount() {
     Integer result = sheetMusicService.selectListAllCount();
     ResponseObject<Integer> ro = new ResponseObject<>("성공");
-    ro.setData(result);
-    return new ResponseEntity<>(ro, HttpStatus.OK);
-  }
-
-  // 특정 유저만 악보 리스트 출력
-  @GetMapping("selectListUserSheetMusic")
-  public ResponseEntity<ResponseObject<List<SheetMusic>>> selectListUserSheetMusic(
-      @RequestParam(required = false) String genre,
-      @RequestParam Long uno,
-      @RequestParam int pageNo,
-      @RequestParam int limit) {
-    List<SheetMusic> result = sheetMusicService.selectList(genre, pageNo, limit);
-    ResponseObject<List<SheetMusic>> ro = new ResponseObject<>("성공");
     ro.setData(result);
     return new ResponseEntity<>(ro, HttpStatus.OK);
   }

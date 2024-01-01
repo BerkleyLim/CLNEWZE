@@ -19,19 +19,14 @@ public class SheetMusicService {
   private SheetMusicMapper sheetMusicMapper;
   private SheetMusicMenuCategoryMapper sheetMusicMenuCategoryMapper;
 
-  // 전체 악보 갯수 출력
-  public List<SheetMusic> selectList(String genre, int pageNo, int limit) {
-    return sheetMusicMapper.selectList(genre, pageNo, limit);
+  // 전체 악보 출력 (10페이지 단위, genre와 uno가 존재 시 그 조건에 맞게 출력함)
+  public List<SheetMusic> selectList(String genre, Long uno, int pageNo, int limit) {
+    return sheetMusicMapper.selectList(genre, uno, pageNo, limit);
   }
 
   // 악보 전체 갯수 보기
   public int selectListAllCount() {
     return sheetMusicMapper.selectListAllCount();
-  }
-
-  // 특정 유저만 악보 리스트 출력
-  public List<SheetMusic> selectListUserSheetMusic(String genre, Long uno, int pageNo, int limit) {
-    return sheetMusicMapper.selectListUserSheetMusic(genre, uno, pageNo, limit);
   }
 
   // 악보 삽입
