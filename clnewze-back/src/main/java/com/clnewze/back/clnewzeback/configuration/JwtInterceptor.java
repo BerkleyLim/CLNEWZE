@@ -1,5 +1,6 @@
 package com.clnewze.back.clnewzeback.configuration;
 
+import org.springframework.web.cors.CorsUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -8,11 +9,26 @@ import com.clnewze.back.clnewzeback.util.JwtUtil;
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 
 public class JwtInterceptor implements HandlerInterceptor {
 
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    // Preflight 인 경우 허용 시키기
+    // - 이 방법은 OPTIONS 자체를 무조건 허용 하는 형식
+    // - prefilght는 헤더가 존재 x Authorization이 존재하지 않음
+    // - 하지만 무조건 허용이라 그냥 조건부 허용으로 지정하는게 옳다.
+    // if (request.getMethod().equals("OPTIONS")) {
+    // return true;
+    // }
+
+    // 이방식으로 해결해 봄, preflight인 경우에만 요청 통과 가능하게 함
+    // 이것으로 헤더 안 Authorization 이 존재 하지 않아 통과만 시켜줌
+    if (CorsUtils.isPreFlightRequest(request)) {
+      return true;
+    }
+
     String token = request.getHeader("Authorization");
     if (token == null || !token.startsWith("Bearer ")) {
       response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
