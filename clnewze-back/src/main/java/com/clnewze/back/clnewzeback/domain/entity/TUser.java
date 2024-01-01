@@ -19,24 +19,37 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TUser {
+  // 스웨거 설정
+  @Schema(description = "사용자 인덱스", example = "1")
   private Long uno;
+  // 스웨거 설정
+  @Schema(description = "사용자 아이디", example = "test1")
   private String id;
+  // 스웨거 설정
+  @Schema(description = "사용자 비밀번호", example = "test1")
   private String password;
 
   // 스웨거 설정
   @Schema(description = "사용자의 이름", example = "홍길동")
   private String userName;
 
+  // 스웨거 설정
+  @Schema(description = "사용자 생성일", example = "2023-11-11")
   private ZonedDateTime creTime;
+  // 스웨거 설정
+  @Schema(description = "로그인 시간", example = "2023-12-01T11:11:11")
   private ZonedDateTime loginTime;
+  // 스웨거 설정
+  @Schema(description = "사용자의 별명", example = "홍길동")
   private String nickName;
+  // 스웨거 설정
+  @Schema(description = "사용자의 생년월일", example = "1999-11-11")
   private LocalDate birthday;
+  // 스웨거 설정
+  @Schema(description = "사용자의 활동 여부", example = "true")
   private Boolean activated;
 
-  // DB -> Mybatis로 authorities가 안받아져서 임시로 String 형으로 받아 사용
-  // 이후, 로직으로 authorities를 넣어 사용한다.
-  private String typeOfStringAuthorities;
-
-  private Set<Authority> authorities;
+  // 스웨거 설정
+  @Schema(description = "사용자의 인증 정보", example = "ROLE_ADMIN, ROLE_USER")
   private List<UserAuthority> userAuthorities;
 }
