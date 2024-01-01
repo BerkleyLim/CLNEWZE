@@ -11,13 +11,11 @@ const UserContainer = () => {
   const myPageMenuRefresh = useResetRecoilState(myPageMenuState); // 마이페이지 번호 default로 변경
   const { signIn, createToken, userInfo } = UserService();
 
-  // 로그인 처리 함수
+  // 1) 로그인 처리 함수
   const handlerLogin = async (inputs) => {
     // 입력 (차후 복잡한 권한을 부여 받을 예정 => jwt 도입 예정)
     // resolve 상태 : true 리턴 (모달 닫기, 사용자 페이지 회원 정보 접근 허용)
     // reject 상태 : false 리턴 (모달 유지, 사용자 페이지 회원 정보 접근 차단)
-    
-    
     
     const token = await createToken(inputs)
     sessionStorage.setItem('token',token)
@@ -29,8 +27,6 @@ const UserContainer = () => {
     if (isLogin) {
       const data = await userInfo();
       if (!!data) {
-        // 아직 로그인 구현 중이니 순수 하드코딩으로만 로그인 처리 된 것처럼 만들기
-        // 하드코딩으로 테스트 하기
         alert("로그인 성공")
         setUser({
           ...user,
@@ -44,18 +40,7 @@ const UserContainer = () => {
         })
         isReturnSuccessLogin = true;
       } else {
-        alert("로그인 실패, bearer token 백엔드에 저장되도록 구현해야함, 하드코딩 로그인")
-        // setUser({
-        //   ...user,
-        //   uno: 2,
-        //   id: "admin",
-        //   role_admin: "ROLE_USER",
-        //   userName: "관리자",
-        //   birthday: "1993-11-11",
-  
-        //   isLogin: true // 순수 프론트엔드에서만 로그인 중인지만 확인
-        // })
-        // isReturnSuccessLogin = true;
+        alert("로그인 실패")
       }
     } else {
       alert("로그인 실패")
@@ -65,24 +50,23 @@ const UserContainer = () => {
     return isReturnSuccessLogin;
   }
 
-  // 회원정보 다시 확인용 로그인 처리 함수 (API 호출은 필요 없다.)
+  // 2) 회원정보 다시 확인용 로그인 처리 함수 (API 호출은 필요 없다.)
   const handlerMyPageLogin = async (inputs) => {
-    const data = await signIn(inputs)
-    if (data) {
+    const isLogin = await signIn(inputs)
+    if (isLogin) {
       alert("로그인 성공")
     } else {
       alert("로그인 실패")
     }
-    return data;
+    return isLogin;
   }
 
 
 
-  // 로그아웃 함수
+  // 3) 로그아웃 함수
   const handlerLogout = () => {
     delete UseApi.defaults.headers['Authorization'];
 
-    // debugger;
     sessionStorage.removeItem("token")
     sessionStorage.removeItem("refresh_token");
     logout() // 로그아웃 시 state 값 초기화
