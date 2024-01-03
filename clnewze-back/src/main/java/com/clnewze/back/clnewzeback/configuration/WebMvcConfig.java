@@ -16,14 +16,14 @@ public class WebMvcConfig implements WebMvcConfigurer {
   @Override
   public void addCorsMappings(CorsRegistry registry) {
     registry.addMapping("/api/**").allowCredentials(true).allowedOriginPatterns("*").allowedHeaders("*")
-        .allowedMethods("*").allowedOrigins("http://localhost:3000");
+        .allowedMethods("*").allowedOrigins("http://localhost:3000", "http://35.90.31.168:35000");
   }
 
   @Bean
   public LoginInterceptor loginInterceptor() {
     return new LoginInterceptor();
   }
-  
+
   @Bean
   public JwtInterceptor jwtInterceptor() {
     return new JwtInterceptor();
@@ -35,7 +35,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     // 세션 인증 url 리스트
     List<String> sessionUrlList = new ArrayList<String>();
     sessionUrlList.add("/api/user/");
-    
+
     // JWT 인증 url 리스트
     List<String> jwtUrlList = new ArrayList<String>();
     jwtUrlList.add("/api/user/myinfo");
@@ -43,7 +43,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     registry.addInterceptor(loginInterceptor()).addPathPatterns(sessionUrlList);
     registry.addInterceptor(jwtInterceptor()).addPathPatterns(jwtUrlList);
   }
-  
+
   @Override
   public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
     argumentResolvers.add(new CurrentUserArgumentResolver());
