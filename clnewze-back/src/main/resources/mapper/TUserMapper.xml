@@ -19,31 +19,6 @@
   </resultMap>
   
 
-  <!-- findAll 기준 count는 무시, JPA 유사형식으로 만듬 -->
-  <!-- <select id="selectUserById" >
-    select
-    u1_0.uno,
-    u1_0.id,
-    u1_0.activated,
-    u1_0.user_name,
-    json_arrayagg(a1_1.authority_name) as typeOfStringAuthorities,
-    concat('\'',json_arrayagg(concat('\'',json_object('\"authority_name\"', concat('\"',a1_1.authority_name,'\"')),'\'')),'\'') as authorities,
-    u1_0.nick_name,
-    u1_0.password
-    from
-        t_user u1_0
-    left join
-        (user_authority a1_0
-    join
-        authority a1_1
-            on a1_1.authority_name=a1_0.authority_name)
-        on u1_0.uno=a1_0.uno
-    where 1=1
-    <if test="id != 'null'">
-      and u1_0.id=#{id};
-    </if>
-  </select> -->
-
   <!-- 회원가입1 -->
   <!-- insert 구문 user 테이블만 적용 -->
   <insert id="inserUser">
@@ -64,8 +39,6 @@
   </insert>
 
 
-
-  <!-- \\\\\\\\\\\\\\\\\\\\\ 구버전 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
   <!-- 간편 로그인 -->
   <select id="findByIdAndPassword" resultType="TUser">
     select * from t_user
@@ -105,23 +78,4 @@
     where u1_0.id=#{id}
   </select>
   <!-- select json_arrayagg(a1_1.authority_name) as authorities from -->
-
-
-  <!-- 회원 가입 -->
-  <!-- <insert id="signUp">
-    insert
-    into
-        "user"
-        (activated, nick_name, password, user_name, user_id)
-    values
-        (?, ?, ?, ?, default);
-
-    insert
-    into
-        user_authority
-        (user_id, authority_name)
-    values
-        (?, ?)
-  </insert> -->
-
 </mapper>
