@@ -63,7 +63,6 @@ instance.interceptors.request.use(
       config.headers["Authorization"] =
         "Bearer " + sessionStorage.getItem("token");
     }
-    console.log(config)
     return config;
   },
 
