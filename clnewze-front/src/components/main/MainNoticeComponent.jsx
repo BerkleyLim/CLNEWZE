@@ -11,20 +11,20 @@ const MainNoticeComponent = () => {
       </div>
       <Table className="table-hover">
         <thead>
-          <th>번호</th>
-          <th>제목</th>
-          <th>{" "}</th>
+          <tr>
+            <th>번호</th>
+            <th>제목</th>
+          </tr>
         </thead>
         <tbody>
           <tr>
             <td>1</td>
-            <td>뮤직스타일 이용안내</td>
+            <td>clnewze 이용안내</td>
           </tr>
           <tr>
             <td>2</td>
             <td>경고 및 제재사항</td>
           </tr>
-          <tr></tr>
         </tbody>
       </Table>
     </Col>

@@ -14,9 +14,10 @@ const MainQnaComponent = () => {
       </div>
       <Table className="table-hover">
         <thead>
-          <th>번호</th>
-          <th>제목</th>
-          <th>{" "}</th>
+          <tr>
+            <th>번호</th>
+            <th>제목</th>
+          </tr>
         </thead>
         <tbody>
           <tr>
