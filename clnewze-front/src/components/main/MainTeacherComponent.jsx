@@ -39,13 +39,13 @@ const MainTeacherComponent = () => {
   // 가로 스크롤용 component 추가
   const TeacherComponent = ({data}) => {
     return (
-      <Row className={`${styles?.bootstrapRowAndColCenter}`}>
-        <Col className={`${styles?.bootstrapRowAndColCenter} mb-5`}>
+      // <Row className={`${styles?.bootstrapRowAndColCenter}`}>
+      //   <Col className={`${styles?.bootstrapRowAndColCenter} mb-5`}>
           <Card
             style={{
               width: "18rem",
             }}
-            className={`${styles?.bootstrapRowAndColCenter}`}
+            // className={`${styles?.bootstrapRowAndColCenter}`}
           >
             <img
               alt="Card"
@@ -62,8 +62,8 @@ const MainTeacherComponent = () => {
             </CardBody>
             <CardFooter>{data?.upLoadDate}</CardFooter>
           </Card>
-        </Col>
-      </Row>
+      //   </Col>
+      // </Row>
     );
   };
 
@@ -76,7 +76,7 @@ const MainTeacherComponent = () => {
           <ChevronRight /> 더보기
         </p>
       </div>
-      <CustomHorizonScroll data={teacher} Component={TeacherComponent} />
+      <CustomHorizonScroll data={teacher} SelectParentsComponent={TeacherComponent} />
     </div>
   );
 };

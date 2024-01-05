@@ -39,13 +39,13 @@ const MainPracticeRoomComponent = () => {
   // 가로 스크롤용 component 추가
   const PracticeRoomComponent = ({data}) => {
     return (
-      <Row className={`${styles?.bootstrapRowAndColCenter}`}>
-        <Col className={`${styles?.bootstrapRowAndColCenter} mb-5`}>
+      // <div className={`${styles?.bootstrapRowAndColCenter}`}>
+      //   <div className={`${styles?.bootstrapRowAndColCenter} mb-5`}>
           <Card
             style={{
               width: "18rem",
             }}
-            className={`${styles?.bootstrapRowAndColCenter}`}
+            // className={`${styles?.bootstrapRowAndColCenter}`}
           >
             <img
               alt="Card"
@@ -62,8 +62,8 @@ const MainPracticeRoomComponent = () => {
             </CardBody>
             <CardFooter>{data?.upLoadDate}</CardFooter>
           </Card>
-        </Col>
-      </Row>
+      //   </div>
+      // </div>
     );
   };
 
@@ -76,7 +76,7 @@ const MainPracticeRoomComponent = () => {
           <ChevronRight /> 더보기
         </p>
       </div>
-      <CustomHorizonScroll data={practiceRoom} Component={PracticeRoomComponent} />
+      <CustomHorizonScroll data={practiceRoom} SelectParentsComponent={PracticeRoomComponent} />
     </div>
   );
 };

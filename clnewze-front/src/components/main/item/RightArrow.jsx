@@ -15,13 +15,13 @@ const Right = ({ children, onClick }) => {
 
 const RightArrow = () => {
   const {scrollPrev} = React.useContext(VisibilityContext);
-  return <Right onClick={() => scrollPrev()}>{"->"}</Right>
+  return <Right onClick={() => scrollPrev()}>{">"}</Right>
 }
 
 const Transparent = styled.div`
   width: 10rem;
   position: absolute;
-  z-index: 999;
+  // z-index: 999;
   height: 50rem;
 `;
 
