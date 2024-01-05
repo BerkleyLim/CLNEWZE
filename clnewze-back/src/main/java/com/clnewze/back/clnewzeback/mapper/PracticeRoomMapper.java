@@ -10,7 +10,7 @@ import com.clnewze.back.clnewzeback.domain.entity.PracticeRoom;
 @Repository
 @Mapper
 public interface PracticeRoomMapper {
-  public List<PracticeRoom> selectList(String categories, int pageNo, int limit);
+  public List<PracticeRoom> selectList(String categories, Long uno, int pageNo, int limit);
 
   public int selectListAllCount();
 }

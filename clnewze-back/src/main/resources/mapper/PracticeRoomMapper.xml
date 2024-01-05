@@ -13,12 +13,19 @@
       p.contents, 
       p.upload_date, 
       p.price, 
-      p.categories 
+      p.categories,
+      p.uno
     from practiceroom p 
-    left join t_user tu on p.uno=tu.uno
-    <if test="categories != 'null'">
-      where categories=#{categories}
-    </if>
+      left join t_user tu 
+    on p.uno=tu.uno
+    <where>
+      <if test="categories != 'null'">
+        and categories=#{categories}
+      </if>
+      <if test="uno !=null and uno gt 0">
+        and tu.uno = #{uno}
+      </if>
+    </where>
     limit #{limit} offset #{pageNo}
   </select>
   <select id="selectListAllCount" resultType="int">

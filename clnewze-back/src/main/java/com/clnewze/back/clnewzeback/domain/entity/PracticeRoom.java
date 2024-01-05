@@ -16,4 +16,5 @@ public class PracticeRoom {
   private String contents;
   private Integer price;
   private String categories;
+  private Long uno;
 }

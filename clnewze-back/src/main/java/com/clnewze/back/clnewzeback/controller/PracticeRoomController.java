@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.clnewze.back.clnewzeback.domain.entity.PracticeRoom;
 import com.clnewze.back.clnewzeback.domain.entity.PracticeRoomMenuCategory;
 import com.clnewze.back.clnewzeback.domain.model.ResponseObject;
-import com.clnewze.back.clnewzeback.service.FileService;
+// import com.clnewze.back.clnewzeback.service.FileService;
 import com.clnewze.back.clnewzeback.service.PracticeRoomService;
 
 import lombok.AllArgsConstructor;
@@ -26,15 +26,16 @@ import lombok.extern.log4j.Log4j2;
 @AllArgsConstructor
 public class PracticeRoomController {
   private PracticeRoomService practiceRoomService;
-  private FileService fileService;
+  // private FileService fileService;
 
   @GetMapping("/selectList")
   public ResponseEntity<ResponseObject<List<PracticeRoom>>> selectList(
       @RequestParam(required = false) String categories,
+      @RequestParam(required = false) Long uno,
       @RequestParam int pageNo,
       @RequestParam int limit) {
 
-    List<PracticeRoom> result = practiceRoomService.selectList(categories, pageNo, limit);
+    List<PracticeRoom> result = practiceRoomService.selectList(categories, uno, pageNo, limit);
     ResponseObject<List<PracticeRoom>> ro = new ResponseObject<>("성공");
     ro.setData(result);
     return new ResponseEntity<>(ro, HttpStatus.OK);

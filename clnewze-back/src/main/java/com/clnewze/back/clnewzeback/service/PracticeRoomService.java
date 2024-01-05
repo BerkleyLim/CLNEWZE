@@ -19,8 +19,8 @@ public class PracticeRoomService {
   private PracticeRoomMapper practiceRoomMapper;
   private PracticeRoomMenuCategoryMapper practiceRoomMenuCategoryMapper;
 
-  public List<PracticeRoom> selectList(String categories, int pageNo, int limit) {
-    return practiceRoomMapper.selectList(categories, pageNo, limit);
+  public List<PracticeRoom> selectList(String categories, Long uno, int pageNo, int limit) {
+    return practiceRoomMapper.selectList(categories, uno, pageNo, limit);
   }
 
   public int selectListAllCount() {
