@@ -18,7 +18,7 @@ const PracticeRoomViewComponent = () => {
         <Nav className={`${styles?.commonContentDetailContainer}`}>
           <img src={modalData?.img} alt="" className={`${styles?.album}`} />
           <div className={`${styles?.detailContainer}`}>
-            <div className="">성함 : {modalData?.username}</div>
+            <div className="">성함 : {modalData?.userName}</div>
             <div className="">위치 : {modalData?.place}</div>
             <div className="">문의 번호 : {modalData?.phone}</div>
           </div>

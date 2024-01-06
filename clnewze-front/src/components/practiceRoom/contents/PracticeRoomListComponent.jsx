@@ -29,7 +29,7 @@ const PracticeRoomListComponent = () => {
             {/* 조회수 : {practiceRoom?.viewNumber} */}
             <CardBody>
               <CardTitle className={`${styles?.commonEllipsisTitle}`} tag="h5">{practiceRoom?.title}</CardTitle>
-              <CardText className={`${styles?.commonEllipsisContent}`}>● 성함 : {practiceRoom?.name}</CardText>
+              <CardText className={`${styles?.commonEllipsisContent}`}>● 성함 : {practiceRoom?.userName}</CardText>
               <CardText className={`${styles?.commonEllipsisContent}`}>● 위치 : {practiceRoom?.place}</CardText>
               <CardText className={`${styles?.commonEllipsisContent}`}>● 연습실 정보 : {practiceRoom?.categories}</CardText>
               <CardText className={`${styles?.commonEllipsisContent}`}>● 대여 가격 : {practiceRoom?.price}</CardText>
