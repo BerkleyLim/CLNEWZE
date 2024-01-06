@@ -8,11 +8,11 @@ import Introduction from "./components/introduction/index";
 import Blog from "./components/blog/index";
 
 import MypageHeader from "./components/mypage/header/HeaderIndex";
-import Mypage from "./components/mypage/MyPageComponent";
 import TeacherPage from "./pages/teacher/TeacherPage";
 import SheetMusicPage from "./pages/sheetmusic/SheetMusicPage";
 import PracticeRoomPage from "./pages/practiceroom/PracticeRoomPage";
 import PerformancePage from "./pages/performance/PerformancePage";
+import MyPage from "./pages/mypage/MyPage";
 
 function App() {
   return (
@@ -39,12 +39,13 @@ function App() {
             <Footer />
           </>
         ) : (
-          <>
-            <MypageHeader />
-            <div className="mypage-container">
-              <Mypage />
-            </div>
-          </>
+          // <>
+          //   <MypageHeader />
+          //   <div className="mypage-container">
+          //     <MyPage />
+          //   </div>
+          // </>
+          <MyPage />
         )}
       </Router>
     </div>
