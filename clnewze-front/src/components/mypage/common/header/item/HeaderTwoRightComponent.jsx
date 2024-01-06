@@ -6,7 +6,7 @@ const HeaderTwoRightComponent = () => {
   const { subscriptModalToggle } = MyPageHeaderContainer();
 
   return (
-    <>
+    <div className={"mt-4"}>
       <Row>
         <Col className="mt-3">
           <Button color="warning" style={{ width: "100%" }} size={"lg"}>
@@ -69,7 +69,7 @@ const HeaderTwoRightComponent = () => {
           100,000 p
         </Col>
       </Row>
-    </>
+    </div>
   );
 };
 

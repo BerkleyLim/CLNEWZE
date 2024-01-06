@@ -1,11 +1,11 @@
 // 웹 환경 컨텐츠 - 각 사용자 컴포넌트 화면에 출력될 view 조정
 
-.mypageMenuContainer {
+.myPageMenuContainer {
   background:#eee;
   text-align: center;
 }
 
-.mypageMenuContainer > button {
+.myPageMenuContainer > button {
   width:200px;
   height:50px;
   margin:10px 10px 10px 10px;
@@ -16,15 +16,15 @@
   margin: 5em 5em 5em 5em;
 }
 
-.mypageListGroupItem {
+.myPageListGroupItem {
   padding: 5em 5em 5em 5em;
   cursor:pointer;
 }
 
-.mypageListGroupItem:hover {
+.myPageListGroupItem:hover {
   border-color: blue;
 }
 
-.mypageListGroupItem:active {
+.myPageListGroupItem:active {
   background-color: blue;
 }

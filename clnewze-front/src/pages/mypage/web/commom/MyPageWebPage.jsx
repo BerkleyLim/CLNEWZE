@@ -13,8 +13,8 @@ const MyPageWebPage = () => {
       {/* 헤더 표시 */}
       <MyPageWebHeaderComponent />
       {/* <!-- 마이페이지 카테고리 --> */}
-      <Row className={`${styles?.mypageContainer}`}>
-        <Col md={2} className={`${styles?.mypageMenuContainer} p-3`}>
+      <Row className={`${styles?.myPageContainer}`}>
+        <Col md={2} className={`${styles?.myPageMenuContainer} p-3`}>
           <MyPageMenuComponent />
         </Col>
         {/* 영역 출력 */}
