@@ -47,36 +47,18 @@
 
   <!-- 악보 수정 -->
   <update id="updateSheetMusic">
-    UPDATE music.sheetmusic
-      SET 
-      <if test="title != 'null'">
-        title='', 
-      </if>
-      <if test="artist != 'null'">
-        artist='', 
-      </if>
-      <if test="img != 'null'">
-        img='', 
-      </if>
-      <if test="genre != 'null'">
-        genre='', 
-      </if>
-      <if test="releaseDate != 'null'">
-        releaseDate='', 
-      </if>
-      <if test="albumName != 'null'">
-        albumName='', 
-      </if>
-      <if test="musicLink != 'null'">
-        musicLink='', 
-      </if>
-      <if test="contents != 'null'">
-        contents='', 
-      </if>
-      <if test="sheetFile != 'null'">
-        sheetFile='', 
-      </if>
-    WHERE ino=#{ino};
+    UPDATE sheetmusic SET
+        title=#{title}
+        artist=#{artist}
+        img=#{img}
+        genre=#{genre}
+        release_date=#{releaseDate}
+        album_name=#{albumName}
+        music_link=#{musicLink}
+        contents=#{contents}
+        sheet_file=#{sheetFile}
+    WHERE ino=#{ino}
+    and sno=#{sno};
   </update>
 
   <delete id="deleteSheetMusic">
