@@ -10,7 +10,7 @@ import com.clnewze.back.clnewzeback.domain.entity.Teacher;
 @Repository
 @Mapper
 public interface TeacherMapper {
-  public List<Teacher> selectList(String major, int pageNo, int limit);
+  public List<Teacher> selectList(String major, Long uno, int pageNo, int limit);
 
   public int selectListAllCount();
 }

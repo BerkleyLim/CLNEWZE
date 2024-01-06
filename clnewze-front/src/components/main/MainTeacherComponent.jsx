@@ -55,10 +55,9 @@ const MainTeacherComponent = () => {
             {/* 조회수 : {data?.viewNumber} */}
             <CardBody>
             <CardTitle className={`${styles?.commonEllipsisTitle}`} tag="h5">{data?.title}</CardTitle>
-              <CardText className={`${styles?.commonEllipsisContent}`}>● 성함 : {data?.name}</CardText>
+              <CardText className={`${styles?.commonEllipsisContent}`}>● 성함 : {data?.userName}</CardText>
               <CardText className={`${styles?.commonEllipsisContent}`}>● 위치 : {data?.place}</CardText>
-              <CardText className={`${styles?.commonEllipsisContent}`}>● 연습실 정보 : {data?.categories}</CardText>
-              <CardText className={`${styles?.commonEllipsisContent}`}>● 대여 가격 : {data?.price}</CardText>
+              <CardText className={`${styles?.commonEllipsisContent}`}>● 전공 : {data?.major}</CardText>
             </CardBody>
             <CardFooter>{data?.upLoadDate}</CardFooter>
           </Card>

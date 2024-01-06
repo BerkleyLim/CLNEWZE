@@ -19,8 +19,8 @@ public class TeacherService {
   private TeacherMapper teacherMapper;
   private TeacherMenuCategoryMapper teacherMenuCategoryMapper;
 
-  public List<Teacher> selectList(String major, int pageNo, int limit) {
-    return teacherMapper.selectList(major, pageNo, limit);
+  public List<Teacher> selectList(String major, Long uno, int pageNo, int limit) {
+    return teacherMapper.selectList(major, uno, pageNo, limit);
   }
 
   public int selectListAllCount() {

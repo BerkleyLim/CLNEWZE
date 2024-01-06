@@ -12,15 +12,19 @@
       t.major,
       t.place, 
       t.contents, 
-      t.uploadDate, 
+      t.upload_date, 
       tu.id  
     from teacher t
-    left join t_user tu
+      left join t_user tu
     on t.uno = tu.uno
-    where 1=1
-    <if test="major != 'null'">
-      and major=#{major}
-    </if>
+    <where>
+      <if test="major != 'null'">
+        and major=#{major}
+      </if>
+      <if test="uno !=null and uno gt 0">
+        and tu.uno = #{uno}
+      </if>
+    </where>
     limit #{limit} offset #{pageNo}
   </select>
 

@@ -11,7 +11,7 @@
       p.img, 
       p.place,
       p.contents, 
-      p.upload_date, 
+      p.upload_date as upLoadDate, 
       p.price, 
       p.categories,
       p.uno
@@ -31,6 +31,14 @@
   <select id="selectListAllCount" resultType="int">
     select count(*) from practiceroom
   </select>
+
+  
+  <!-- 연습실 추가 -->
+  <insert id="insertPracticeRoom">
+    INSERT INTO practiceroom
+      (pno, title, img, name, place, contents, upload_date, price, categories, uno)
+    VALUES('', '', '', '', '', '', 0, '', 0);
+  </insert>
   
   
 </mapper>

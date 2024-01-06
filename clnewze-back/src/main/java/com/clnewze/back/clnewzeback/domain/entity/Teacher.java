@@ -10,7 +10,7 @@ import lombok.Data;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Teacher {
   private Long tno;
-  private String username;
+  private String userName;
   private String title;
   private String img;
   private String name;

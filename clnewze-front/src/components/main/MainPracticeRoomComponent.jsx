@@ -30,6 +30,7 @@ const MainPracticeRoomComponent = () => {
       // error 나면 null 값 표시
       if (!!data) {
         setPracticeRoom(data);
+        console.log(data)
       }
     };
 
@@ -55,7 +56,7 @@ const MainPracticeRoomComponent = () => {
             {/* 조회수 : {data?.viewNumber} */}
             <CardBody>
             <CardTitle className={`${styles?.commonEllipsisTitle}`} tag="h5">{data?.title}</CardTitle>
-              <CardText className={`${styles?.commonEllipsisContent}`}>● 성함 : {data?.name}</CardText>
+              <CardText className={`${styles?.commonEllipsisContent}`}>● 성함 : {data?.userName}</CardText>
               <CardText className={`${styles?.commonEllipsisContent}`}>● 위치 : {data?.place}</CardText>
               <CardText className={`${styles?.commonEllipsisContent}`}>● 연습실 정보 : {data?.categories}</CardText>
               <CardText className={`${styles?.commonEllipsisContent}`}>● 대여 가격 : {data?.price}</CardText>
