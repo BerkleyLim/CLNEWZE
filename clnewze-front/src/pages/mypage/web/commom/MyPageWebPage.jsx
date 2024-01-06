@@ -14,7 +14,7 @@ const MyPageWebPage = () => {
       <MyPageWebHeaderComponent />
       {/* <!-- 마이페이지 카테고리 --> */}
       <Row className={`${styles?.myPageContainer}`}>
-        <Col md={2} className={`${styles?.myPageMenuContainer} p-3`}>
+        <Col md={2} className={`${styles?.myPageMenuContainer} p-4`}>
           <MyPageMenuComponent />
         </Col>
         {/* 영역 출력 */}

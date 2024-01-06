@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import MyPageWebPage from './web/commom/MyPageWebPage';
 import styles from '../../scss/mypage/mypage.module.scss'
+import MyPageMobilePage from './mobile/common/MyPageMobilePage';
 
 const MyPage = () => {
     // 반응형 웹앱을 위한 state 변수
@@ -22,7 +23,7 @@ const MyPage = () => {
         innerWidth >= 860 ?
         <MyPageWebPage />
         : 
-        <>모바일</>
+        <MyPageMobilePage />
       }
     </div>
     // <div>

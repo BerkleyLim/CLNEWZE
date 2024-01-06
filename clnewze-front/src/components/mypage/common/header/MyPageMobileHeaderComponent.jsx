@@ -8,7 +8,7 @@ import { useRecoilValue } from "recoil";
 import { myPageHeaderSubScriptModalIsOpenState } from "../../../../recoil/state/myPageHeaderState";
 import { BellFill, CardList } from "react-bootstrap-icons";
 
-const MyPageWebHeaderComponent = () => {
+const MyPageMobileHeaderComponent = () => {
   const isSubScriptModal = useRecoilValue(
     myPageHeaderSubScriptModalIsOpenState
   );
@@ -40,7 +40,7 @@ const MyPageWebHeaderComponent = () => {
       </div>
       {/* <!-- 마이페이지 정보 (커버랑 같이 겹치기) --> */}
       <Navbar className={`${styles?.profileHeader}`}>
-        <div style={{width:"200px"}}>
+        <div style={{width:"20%"}}>
           <div className={`${styles?.profileImg}`}>
             <img
               src="/image/file/myPage/defalut-my-profile.png"
@@ -49,7 +49,7 @@ const MyPageWebHeaderComponent = () => {
             />
           </div>
         </div>
-        <div style={{width:"40%"}}>
+        <div style={{width:"50%"}}>
           <Row>
             <h3 style={{ textAlign: "left" }}>홍길동</h3>
           </Row>
@@ -57,12 +57,9 @@ const MyPageWebHeaderComponent = () => {
             소개 : 홍길동 님의 페이지 입니다..
           </Row>
         </div>
-        <HeaderTwoRightComponent />
       </Navbar>
-
-      {isSubScriptModal && <SubScriptModalComponet />}
     </div>
   );
 };
 
-export default MyPageWebHeaderComponent;
+export default MyPageMobileHeaderComponent;
