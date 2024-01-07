@@ -42,8 +42,8 @@ public class UserService {
   }
 
   @Transactional(readOnly = true)
-  public TUser getMyUserWithAuthorities(String userName) {
-    return userMapper.findOneWithAuthoritiesById(userName);
+  public TUser getMyUserWithAuthorities(String id) {
+    return userMapper.findOneWithAuthoritiesById(id);
   }
 
   // 회원정보 수정
