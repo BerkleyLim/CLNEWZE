@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -100,17 +101,26 @@ public class UserController {
     return new ResponseEntity<>(ro, HttpStatus.OK);
   }
 
-  // // 특정 사용자 조회
-  // @GetMapping("/{id}")
-  // public ResponseEntity<ResponseObject<TUser>> getMyUserInfo(
-  // @Parameter(description = Description.USER_ID, required = true) // 스웨거 파라미터 설정
-  // @RequestParam String id) {
-  // // T_user result = userService.getMyUserWithAuthorities(id).get();
-  // TUserDto t_userDto = userService.getMyUserWithAuthorities(id);
-  // TUser result =
-  // TUser.builder().id(t_userDto.getId()).userName(t_userDto.getUserName())
-  // .creTime(t_userDto.getCrtTime()).loginTime(t_userDto.getLoginTime()).nickName(t_userDto.getNickName())
-  // .birthday(t_userDto.getBirthday()).activated(t_userDto.getActivated()).build();
+  // 특정 사용자 조회
+  // 프로필 조회를 위해 적용
+  @GetMapping("/another")
+  public ResponseEntity<ResponseObject<UserInfoVo>> getMyUserInfo(
+      @Valid @Parameter(description = Description.USER_ID, required = true) // 스웨거 파라미터 설정
+      @RequestParam("id") String id) {
+    TUser tUser = userService.getMyUserWithAuthorities(id);
+    UserInfoVo result = UserInfoVo.builder().uno(tUser.getUno()).id(tUser.getId()).userName(tUser.getUserName())
+        .nickName(tUser.getNickName()).loginTime(tUser.getLoginTime()).birthday(tUser.getBirthday())
+        .activated(tUser.getActivated()).build();
+    if (result.getId().equals("admin")) {
+      ResponseObject<UserInfoVo> ro = new ResponseObject<>("관리자는 조회 할 수 없습니다.");
+      ro.setData(null);
+      return new ResponseEntity<>(ro, HttpStatus.NON_AUTHORITATIVE_INFORMATION);
+    }
+    ResponseObject<UserInfoVo> ro = new ResponseObject<>("로그인 이후 필요 유저 정보 확인 성공");
+    ro.setData(result);
+    return new ResponseEntity<>(ro, HttpStatus.OK);
+  }
+
   // 나의 정보 조회
   @GetMapping("/myinfo")
   public ResponseEntity<ResponseObject<UserInfoVo>> getMyUserInfo(@CurrentUser SessionUser sessionUser) {
@@ -158,7 +168,7 @@ public class UserController {
   // 회원 정보 수정
   @PostMapping("/update")
   public int updateUserInfo(TUser tUser) {
-    int i = updateUserInfo(tUser); 
+    int i = updateUserInfo(tUser);
     return 1;
   }
 

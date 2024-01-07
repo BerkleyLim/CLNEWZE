@@ -13,6 +13,7 @@ import lombok.Data;
 @Builder
 public class UserInfoVo {
   private Long uno;
+  private String id;
   private String userName;
   private String nickName;
   private ZonedDateTime loginTime;
