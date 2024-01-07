@@ -20,7 +20,7 @@ public interface TUserMapper {
   public TUser findOneWithAuthoritiesById(String id);
 
   // 전체 조회
-  Optional<TUser> findOneWithAuthoritiesById();
+  TUser findOneWithAuthoritiesById();
 
   // 회원 가입
   public TUser signUp(TUser user);
