@@ -25,6 +25,10 @@ public interface TUserMapper {
   // 회원 가입
   public TUser signUp(TUser user);
 
+  // 회원 정보 수정
+  public int updateUserInfo(TUser user);
+
   public int inserUser(TUser user);
+
   public int inserUserAuthority(UserAuthority userAuthority);
 }

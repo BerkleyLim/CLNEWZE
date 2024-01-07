@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -152,6 +153,13 @@ public class UserController {
     ro.setData(true);
     // tokenDto 이용하여 response body에도 넣어서 리턴함
     return new ResponseEntity<>(ro, HttpStatus.OK);
+  }
+
+  // 회원 정보 수정
+  @PostMapping("/update")
+  public int updateUserInfo(TUser tUser) {
+    int i = updateUserInfo(tUser); 
+    return 1;
   }
 
   // 로그아웃 처리 용도, 현재는 사용하지 않고 있으며, 개발 예정이다.

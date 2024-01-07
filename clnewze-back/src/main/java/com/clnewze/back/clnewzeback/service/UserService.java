@@ -46,6 +46,12 @@ public class UserService {
     return userMapper.findOneWithAuthoritiesById(userName);
   }
 
+  // 회원정보 수정
+  // @Transactional(readOnly = true)
+  public int updateUserInfo(TUser tUser) {
+    return updateUserInfo(tUser);
+  }
+
   // 회원 정보 검색 - simplelogin으로 임시로 로그인 처리용
   public Boolean userSearch(TUser t_user) throws NoSuchAlgorithmException {
     MessageDigest md = MessageDigest.getInstance("SHA-256");

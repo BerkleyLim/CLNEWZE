@@ -38,6 +38,19 @@
     VALUES(#{uno}, #{authorityName})
   </insert>
 
+  <update id="updateUserInfo">
+    UPDATE t_user SET
+        id=#{id}
+        password=#{password}
+        user_name=#{userName}
+        nick_name=#{nickName}
+        birthday=#{birthday}
+        activated=#{activated}
+    WHERE uno=#{uno};
+  </update>
+
+
+
 
   <!-- 간편 로그인 -->
   <select id="findByIdAndPassword" resultType="TUser">
