@@ -103,8 +103,8 @@ public class UserController {
 
   // 특정 사용자 조회
   // 프로필 조회를 위해 적용
-  @GetMapping("/another")
-  public ResponseEntity<ResponseObject<UserInfoVo>> getMyUserInfo(
+  @GetMapping("/profile")
+  public ResponseEntity<ResponseObject<UserInfoVo>> getMyProfileUserInfo(
       @Valid @Parameter(description = Description.USER_ID, required = true) // 스웨거 파라미터 설정
       @RequestParam("id") String id) {
     TUser tUser = userService.getMyUserWithAuthorities(id);
