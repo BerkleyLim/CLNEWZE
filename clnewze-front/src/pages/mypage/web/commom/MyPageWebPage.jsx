@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from "../../../../scss/mypage/commom/mypage.main.module.scss";
-import { Col, ListGroup, ListGroupItem, Row } from "reactstrap";
+import { Col, Row } from "reactstrap";
 
 import MyPageRouter from "../../../../components/mypage/router/MyPageRouter";
 import MyPageMenuComponent from "../../../../components/mypage/common/menu/MyPageMenuComponent";
