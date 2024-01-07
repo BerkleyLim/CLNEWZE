@@ -64,7 +64,23 @@ const UserService = () => {
     })
   }
 
-  return {createToken, signIn, userInfo, signUp}
+  /**
+   * 5) 로그인 하지 않은 사용자 및 타 사용자가 접근한다.
+   *   프로필 조회 할때 쓰이는 API
+   */
+  const getMyProfileUserInfo = async (id) => {
+    return await UseApi.get(process.env.REACT_APP_API_ROOT + "user/profile?"
+      + "id=" + id
+    ).then((response) => {
+      return response.data.data
+    })
+    .catch((e) => {
+      console.error(e);
+      return null;
+    })
+  }
+
+  return {createToken, signIn, userInfo, signUp, getMyProfileUserInfo}
 }
 
 export default UserService
