@@ -126,7 +126,7 @@ public class UserController {
   public ResponseEntity<ResponseObject<UserInfoVo>> getMyUserInfo(@CurrentUser SessionUser sessionUser) {
     TUser tUser = userService.getMyUserWithAuthorities(sessionUser.getId());
     // front-End 개발자에게 보낼 회원 정보
-    UserInfoVo result = UserInfoVo.builder().uno(tUser.getUno()).userName(tUser.getUserName())
+    UserInfoVo result = UserInfoVo.builder().uno(tUser.getUno()).id(tUser.getId()).userName(tUser.getUserName())
         .nickName(tUser.getNickName()).loginTime(tUser.getLoginTime()).birthday(tUser.getBirthday())
         .activated(tUser.getActivated()).build();
     ResponseObject<UserInfoVo> ro = new ResponseObject<>("로그인 이후 필요 유저 정보 확인 성공");

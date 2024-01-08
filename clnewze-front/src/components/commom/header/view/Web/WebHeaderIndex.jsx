@@ -26,7 +26,7 @@ const WebHeaderIndex = () => {
 
   const userMenu = () => {
     if (user.isLogin) {
-      moveHrefPage("/mypage");
+      moveHrefPage("/mypage/"+user?.id);
     } else {
       modalToggle();
     }
