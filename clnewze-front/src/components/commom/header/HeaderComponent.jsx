@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "./header.module.scss";
+import styles from "../../../scss/main/common/header.module.scss";
 import WebHeaderIndex from "./view/Web/WebHeaderIndex";
 import MobileHeaderIndex from "./view/Mobile/MobileHeaderIndex";
 

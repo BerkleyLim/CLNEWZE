@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../../header.module.scss";
+import styles from "../../../../../scss/main/common/header.module.scss";
 import {
   Button,
   Modal,

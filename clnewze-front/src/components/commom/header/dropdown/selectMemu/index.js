@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Input, InputGroup } from "reactstrap";
 import SelectMenuDropdown from "./dropdown";
-import styles from "../../header.module.scss";
+import styles from "../../../../../scss/main/common/header.module.scss";
 
 const SelectMenuIndex = () => {
   return (
