@@ -18,7 +18,6 @@ const MyPage = () => {
   return (
     // 여기서는 component가 모바일 모드와 웹 모드로 나눔
     <div className={`${styles?.myPageContainer}`}>
-      {/* <MypageHeader /> */}
       {
         innerWidth >= 860 ?
         <MyPageWebPage />
@@ -26,14 +25,6 @@ const MyPage = () => {
         <MyPageMobilePage />
       }
     </div>
-    // <div>
-    //   {
-    //     innerWidth >= 860 ?
-    //     <MyPageWebPage />
-    //     : 
-    //     <>모바일</>
-    //   }
-    // </div>
   )
 }
 
