@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 
 import styles from "../../../../scss/mypage/commom/mypage.main.module.scss";
 import { Col, ListGroup, ListGroupItem, Row } from "reactstrap";
@@ -7,13 +7,28 @@ import UserContainer from "../../../../hooks/UserContainer";
 import CommonContaier from "../../../../hooks/CommonContaier";
 import { useRecoilState } from "recoil";
 import { myPageMenuState } from "../../../../recoil/state/myPageHeaderState";
+import { useLocation, useParams } from "react-router-dom";
+import UserService from "../../../../service/UserService";
 
 const MyPageMenuComponent = () => {
+  // 경로 : /mypage/"유저 ID"/*
+  const location = useLocation();
+  const id = location.pathname.split('/')[2];
+  const {getMyProfileUserInfo} = UserService();
   // state 정의
   const [menuInfo, setMenuInfo] = useRecoilState(myPageMenuState);
   // 리액트 훅 정의
   const { moveNavPage, moveHrefPage } = CommonContaier();
   const { handlerLogout } = UserContainer();
+
+  // 프로필 state 문 적용, useMemo 사용
+  const user = useMemo(async () => {
+    const data = await getMyProfileUserInfo(id);
+    console.log(data)
+    return data;
+  }, [])
+
+
 
   // 로그아웃
   const onClickLogout = () => {
@@ -29,6 +44,31 @@ const MyPageMenuComponent = () => {
     });
     moveNavPage(link);
   };
+
+  let menuListCount = 1;
+
+  const webListView = (menuData, title) => {
+    return (
+      <ListGroup>
+        <h6>{title}</h6>
+        {menuData?.map((data, index) => (
+          <ListGroupItem
+            key={index}
+            value={menuListCount}
+            className={`${styles?.myPageListGroupItem} ${
+              menuInfo?.index === (menuListCount++) ? "active" : ""
+            }`}
+            onClick={(e) => {
+              toggleMenuClick(e, data?.link);
+            }}
+          >
+            {data?.title}
+          </ListGroupItem>
+        ))}
+      </ListGroup>
+    );
+  };
+
   return (
     <>
       <ListGroup>
@@ -39,7 +79,7 @@ const MyPageMenuComponent = () => {
             menuInfo?.index === 1 ? "active" : ""
           }`}
           onClick={(e) => {
-            toggleMenuClick(e, "/mypage/info");
+            toggleMenuClick(e, `/mypage/${id}/info`);
           }}
         >
           회원 정보 및 수정
@@ -49,7 +89,7 @@ const MyPageMenuComponent = () => {
           className={`${styles?.myPageListGroupItem} ${
             menuInfo.index === 2 ? "active" : ""
           }`}
-          onClick={(e) => toggleMenuClick(e, "/mypage/career")}
+          onClick={(e) => toggleMenuClick(e, `/mypage/${id}/career`)}
         >
           프로필 정보
         </ListGroupItem>
@@ -58,7 +98,7 @@ const MyPageMenuComponent = () => {
           className={`${styles?.myPageListGroupItem} ${
             menuInfo.index === 3 ? "active" : ""
           }`}
-          onClick={(e) => toggleMenuClick(e, "/mypage/subscript")}
+          onClick={(e) => toggleMenuClick(e, `/mypage/${id}/subscript`)}
         >
           구독 등급 관리
         </ListGroupItem>
@@ -67,7 +107,7 @@ const MyPageMenuComponent = () => {
           className={`${styles?.myPageListGroupItem} ${
             menuInfo.index === 4 ? "active" : ""
           }`}
-          onClick={(e) => toggleMenuClick(e, "/mypage/apply/return")}
+          onClick={(e) => toggleMenuClick(e, `/mypage/${id}/apply/return`)}
         >
           환전 신청
         </ListGroupItem>
@@ -76,7 +116,7 @@ const MyPageMenuComponent = () => {
           className={`${styles?.myPageListGroupItem} ${
             menuInfo.index === 5 ? "active" : ""
           }`}
-          onClick={(e) => toggleMenuClick(e, "/mypage/teacher")}
+          onClick={(e) => toggleMenuClick(e, `/mypage/${id}/teacher`)}
         >
           선생님 등록/관리
         </ListGroupItem>
@@ -91,7 +131,7 @@ const MyPageMenuComponent = () => {
             menuInfo.index === 6 ? "active" : ""
           }`}
           onClick={(e) => {
-            toggleMenuClick(e, "/mypage/performance/info");
+            toggleMenuClick(e, `/mypage/${id}/performance/info`);
           }}
         >
           공연정보
@@ -101,7 +141,7 @@ const MyPageMenuComponent = () => {
           className={`${styles?.myPageListGroupItem} ${
             menuInfo.index === 7 ? "active" : ""
           }`}
-          onClick={(e) => toggleMenuClick(e, "/mypage/practiceroom/info")}
+          onClick={(e) => toggleMenuClick(e, `/mypage/${id}/practiceroom/info`)}
         >
           연습실
         </ListGroupItem>
@@ -110,7 +150,7 @@ const MyPageMenuComponent = () => {
           className={`${styles?.myPageListGroupItem} ${
             menuInfo.index === 8 ? "active" : ""
           }`}
-          onClick={(e) => toggleMenuClick(e, "/mypage/sheetmusic/info")}
+          onClick={(e) => toggleMenuClick(e, `/mypage/${id}/sheetmusic/info`)}
         >
           악보
         </ListGroupItem>
@@ -119,7 +159,7 @@ const MyPageMenuComponent = () => {
           className={`${styles?.myPageListGroupItem} ${
             menuInfo.index === 9 ? "active" : ""
           }`}
-          onClick={(e) => toggleMenuClick(e, "/mypage/blog/info")}
+          onClick={(e) => toggleMenuClick(e, `/mypage/${id}/blog/info`)}
         >
           블로그
         </ListGroupItem>
