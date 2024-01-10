@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 import styles from "../../../../scss/mypage/mypage.module.scss";
 import { Button, Navbar, Row } from "reactstrap";
@@ -7,11 +7,32 @@ import SubScriptModalComponet from "./item/SubScriptModalComponet";
 import { useRecoilValue } from "recoil";
 import { myPageHeaderSubScriptModalIsOpenState } from "../../../../recoil/state/myPageHeaderState";
 import { BellFill, CardList } from "react-bootstrap-icons";
+import UserService from "../../../../service/UserService";
+import { useLocation } from "react-router-dom";
 
 const MyPageWebHeaderComponent = () => {
   const isSubScriptModal = useRecoilValue(
     myPageHeaderSubScriptModalIsOpenState
   );
+
+  const { getMyProfileUserInfo } = UserService();
+  const location = useLocation();
+  const id = location?.pathname.split("/")[2];
+
+  const [user, setUser] = useState();
+  // 프로필 state 문 적용, useMemo 사용
+  useEffect(() => {
+    const fetch = async () => {
+      const data = await getMyProfileUserInfo(id);
+      setUser(data);
+    }
+    fetch();
+  },[])
+  // const user = useMemo(async () => {
+  //   return data;
+  // }, []);
+
+  // user.then((res) => setAnotherUser(res)).catch((e) => console.error(e));
 
   return (
     <div className={`${styles?.myPageHeader}`}>
@@ -40,7 +61,7 @@ const MyPageWebHeaderComponent = () => {
       </div>
       {/* <!-- 마이페이지 정보 (커버랑 같이 겹치기) --> */}
       <Navbar className={`${styles?.profileHeader}`}>
-        <div style={{width:"200px"}}>
+        <div style={{ width: "200px" }}>
           <div className={`${styles?.profileImg}`}>
             <img
               src="/image/file/myPage/defalut-my-profile.png"
@@ -49,12 +70,12 @@ const MyPageWebHeaderComponent = () => {
             />
           </div>
         </div>
-        <div style={{width:"40%"}}>
+        <div style={{ width: "40%" }}>
           <Row>
-            <h3 style={{ textAlign: "left" }}>홍길동</h3>
+            <h3 style={{ textAlign: "left" }}>{user?.userName}</h3>
           </Row>
           <Row style={{ fontSize: "20px" }} className="mt-1">
-            소개 : 홍길동 님의 페이지 입니다..
+            소개 : {user?.userName} 님의 페이지 입니다..
           </Row>
         </div>
         <HeaderTwoRightComponent />
