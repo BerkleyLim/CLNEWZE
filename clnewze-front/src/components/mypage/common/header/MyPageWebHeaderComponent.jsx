@@ -9,6 +9,7 @@ import { myPageHeaderSubScriptModalIsOpenState } from "../../../../recoil/state/
 import { BellFill, CardList } from "react-bootstrap-icons";
 import UserService from "../../../../service/UserService";
 import { useLocation } from "react-router-dom";
+import { userState } from "../../../../recoil/state/userState";
 
 const MyPageWebHeaderComponent = () => {
   const isSubScriptModal = useRecoilValue(
@@ -19,12 +20,23 @@ const MyPageWebHeaderComponent = () => {
   const location = useLocation();
   const id = location?.pathname.split("/")[2];
 
-  const [user, setUser] = useState();
+  const [anotherUser, setAnotherUser] = useState();
+
+  const user = useRecoilValue(userState)
   // 프로필 state 문 적용, useMemo 사용
   useEffect(() => {
     const fetch = async () => {
       const data = await getMyProfileUserInfo(id);
-      setUser(data);
+      
+      debugger
+      // admin 권한 접근 제어
+      if (id === 'admin' && data?.id !== user?.id) {
+        alert('해당 접근 권한이 없습니다.')
+        location.href = '/'
+        return;
+      }
+
+      setAnotherUser(data);
     }
     fetch();
   },[])
@@ -72,10 +84,10 @@ const MyPageWebHeaderComponent = () => {
         </div>
         <div style={{ width: "40%" }}>
           <Row>
-            <h3 style={{ textAlign: "left" }}>{user?.userName}</h3>
+            <h3 style={{ textAlign: "left" }}>{anotherUser?.userName}</h3>
           </Row>
           <Row style={{ fontSize: "20px" }} className="mt-1">
-            소개 : {user?.userName} 님의 페이지 입니다..
+            소개 : {anotherUser?.userName} 님의 페이지 입니다..
           </Row>
         </div>
         <HeaderTwoRightComponent />
