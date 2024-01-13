@@ -3,7 +3,7 @@ import React from "react";
 import styles from "../../../../scss/mypage/commom/mypage.main.module.scss";
 import { Col, Row } from "reactstrap";
 
-import MyPageRouter from "../../../../components/mypage/router/MyPageRouter";
+import MyPageRouter from "../../../../router/MyPageRouter";
 import MyPageMenuComponent from "../../../../components/mypage/common/menu/MyPageMenuComponent";
 import MyPageWebHeaderComponent from "../../../../components/mypage/common/header/MyPageWebHeaderComponent";
 
