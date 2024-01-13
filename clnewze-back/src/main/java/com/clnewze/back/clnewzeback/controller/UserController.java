@@ -167,14 +167,4 @@ public class UserController {
     return 1;
   }
 
-  // 로그아웃 처리 용도, 현재는 사용하지 않고 있으며, 개발 예정이다.
-  @RequestMapping("/logout")
-  public void logout(SessionStatus status, HttpSession session) throws Exception {
-    SessionUtil.clearUser();
-    // @SessionAttributes에서 관리하는 세션 데이터를 모두 제거한다.
-    status.setComplete();
-    // 세션을 꺼내 무효화시킨다.
-    session.invalidate();
-  }
-
 }
