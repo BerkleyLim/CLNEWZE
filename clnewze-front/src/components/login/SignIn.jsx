@@ -14,6 +14,15 @@ const SignIn =  ({setLoginIsModal, changeView}) => {
       [name]: value,
     });
   };
+
+  // password 입력 후 enter 로직
+  const onKeyDownEnter = (e) => {
+    if (e.keyCode === 13) {
+      loginButton();
+    }
+  }
+
+
   // 로그인 버튼 클릭 시
   const loginButton = async () => {
     // 입력 (차후 복잡한 권한을 부여 받을 예정 => jwt 도입 예정)
@@ -44,6 +53,9 @@ const SignIn =  ({setLoginIsModal, changeView}) => {
             type="password"
             className={`${styles?.flexLabelRight}`}
             onChange={onChange}
+            onKeyDown={(e) => {
+              onKeyDownEnter(e)
+            }}
           />
         </div>
       </div>
