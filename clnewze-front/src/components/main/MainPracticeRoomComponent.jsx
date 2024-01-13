@@ -30,7 +30,7 @@ const MainPracticeRoomComponent = () => {
       // error 나면 null 값 표시
       if (!!data) {
         setPracticeRoom(data);
-        console.log(data)
+        // console.log(data)
       }
     };
 
