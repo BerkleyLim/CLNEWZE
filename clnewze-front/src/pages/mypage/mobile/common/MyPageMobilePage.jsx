@@ -1,7 +1,6 @@
 import React from "react";
 
 import styles from "../../../../scss/mypage/commom/mypage.main.module.scss";
-import { Col, ListGroup, ListGroupItem, Row } from "reactstrap";
 
 import MyPageRouter from "../../../../router/MyPageRouter";
 import MyPageMobileHeaderComponent from "../../../../components/mypage/common/header/MyPageMobileHeaderComponent";
