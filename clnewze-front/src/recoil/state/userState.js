@@ -35,18 +35,10 @@ export const userState = atom({
 export const userAdminListState = atom({
   key: 'userList',
   default: []
-})
+});
 
-// jwt 토큰 발급된 것을 저장하기 위한 state 값
-export const tokenState = atom({
-  key: 'token',
-  default: '',
-  effects_UNSTABLE: [persistAtom]
-})
-
-// jwt 토큰 발급된 것을 저장하기 위한 state 값
-export const refreshTokenState = atom({
-  key: 'refreshToken',
-  default: '',
-  effects_UNSTABLE: [persistAtom]
-})
+// 익명 유저가 다른 유저 프로필 접근시 정보 상태 관리 값
+export const anotherUserState = atom({
+  key: 'anotherUser',
+  default: InitState
+});

@@ -7,13 +7,14 @@ import SubScriptModalComponent from "./item/SubScriptModalComponent";
 import { useRecoilValue } from "recoil";
 import { myPageHeaderSubScriptModalIsOpenState } from "../../../../recoil/state/myPageHeaderState";
 import { BellFill, CardList } from "react-bootstrap-icons";
+import { anotherUserState } from "../../../../recoil/state/userState";
 
 const MyPageWebHeaderComponent = () => {
   const isSubScriptModal = useRecoilValue(
     myPageHeaderSubScriptModalIsOpenState
   );
 
-  const anotherUser = useRecoilValue(anotherUser);
+  const anotherUser = useRecoilValue(anotherUserState);
 
   return (
     <div className={`${styles?.myPageHeader}`}>
