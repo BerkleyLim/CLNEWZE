@@ -14,7 +14,7 @@ import MyPageHeaderContainer from "../../../../../hooks/MyPageHeaderContainer";
 import { useRecoilValue } from "recoil";
 import { myPageHeaderSubScriptModalIsOpenState } from "../../../../../recoil/state/myPageHeaderState";
 
-const SubScriptModalComponet = () => {
+const SubScriptModalComponent = () => {
   const isModal = useRecoilValue(myPageHeaderSubScriptModalIsOpenState);
   const { subscriptModalToggle } = MyPageHeaderContainer();
 
@@ -44,4 +44,4 @@ const SubScriptModalComponet = () => {
   );
 };
 
-export default SubScriptModalComponet;
+export default SubScriptModalComponent;

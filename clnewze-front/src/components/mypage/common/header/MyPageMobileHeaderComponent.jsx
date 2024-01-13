@@ -3,7 +3,7 @@ import React from "react";
 import styles from "../../../../scss/mypage/mypage.module.scss";
 import { Button, Col, Nav, Navbar, Row } from "reactstrap";
 import HeaderTwoRightComponent from "./item/HeaderTwoRightComponent";
-import SubScriptModalComponet from "./item/SubScriptModalComponet";
+import SubScriptModalComponent from "./item/SubScriptModalComponent";
 import { useRecoilValue } from "recoil";
 import { myPageHeaderSubScriptModalIsOpenState } from "../../../../recoil/state/myPageHeaderState";
 import { BellFill, CardList } from "react-bootstrap-icons";
