@@ -14,19 +14,12 @@ const MyPageMenuComponent = () => {
   // 경로 : /mypage/"유저 ID"/*
   const location = useLocation();
   const id = location.pathname.split('/')[2];
-  const {getMyProfileUserInfo} = UserService();
   // state 정의
   const [menuInfo, setMenuInfo] = useRecoilState(myPageMenuState);
   // 리액트 훅 정의
   const { moveNavPage, moveHrefPage } = CommonContaier();
   const { handlerLogout } = UserContainer();
 
-  // 프로필 state 문 적용, useMemo 사용
-  const user = useMemo(async () => {
-    const data = await getMyProfileUserInfo(id);
-    console.log(data)
-    return data;
-  }, [])
 
 
 
