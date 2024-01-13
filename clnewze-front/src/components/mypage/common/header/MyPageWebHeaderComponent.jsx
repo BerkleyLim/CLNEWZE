@@ -1,13 +1,13 @@
 import React from "react";
 
 import styles from "../../../../scss/mypage/mypage.module.scss";
-import { Button, Navbar, Row } from "reactstrap";
+import { Navbar, Row } from "reactstrap";
 import HeaderTwoRightComponent from "./item/HeaderTwoRightComponent";
 import SubScriptModalComponent from "./item/SubScriptModalComponent";
 import { useRecoilValue } from "recoil";
 import { myPageHeaderSubScriptModalIsOpenState } from "../../../../recoil/state/myPageHeaderState";
-import { BellFill, CardList } from "react-bootstrap-icons";
 import { anotherUserState } from "../../../../recoil/state/userState";
+import FirstHeaderComponent from "./item/FirstHeaderComponent";
 
 const MyPageWebHeaderComponent = () => {
   const isSubScriptModal = useRecoilValue(
@@ -18,29 +18,8 @@ const MyPageWebHeaderComponent = () => {
 
   return (
     <div className={`${styles?.myPageHeader}`}>
-      {/* 메뉴바 */}
-      <div style={{ backgroundColor: "#eee" }}>
-        <Navbar className={`${styles?.myPageHeaderMenu}`}>
-          {/* 헤더 부분 */}
-          <div style={{ width: "15%" }}>CLNEWZE</div>
-
-          {/* 오른쪽으로 배치하고, 다시 Navbar로 조정 */}
-          <Row style={{ width: "85%" }}>
-            <div style={{ display: "flex", justifyContent: "end" }}>
-              <div style={{ padding: "0 0 0 2%" }}>
-                <Button>
-                  <BellFill />
-                </Button>
-              </div>
-              <div style={{ padding: "0 0 0 2%" }}>
-                <Button>
-                  <CardList />
-                </Button>
-              </div>
-            </div>
-          </Row>
-        </Navbar>
-      </div>
+      {/* 첫번째 헤더에 있는 메뉴바 표시 - 모바일과 비슷함 */}
+      <FirstHeaderComponent />
       {/* <!-- 마이페이지 정보 (커버랑 같이 겹치기) --> */}
       <Navbar className={`${styles?.profileHeader}`}>
         <div style={{ width: "200px" }}>
