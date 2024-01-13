@@ -1,50 +1,19 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React from "react";
 
 import styles from "../../../../scss/mypage/mypage.module.scss";
 import { Button, Navbar, Row } from "reactstrap";
 import HeaderTwoRightComponent from "./item/HeaderTwoRightComponent";
-import SubScriptModalComponet from "./item/SubScriptModalComponet";
+import SubScriptModalComponent from "./item/SubScriptModalComponent";
 import { useRecoilValue } from "recoil";
 import { myPageHeaderSubScriptModalIsOpenState } from "../../../../recoil/state/myPageHeaderState";
 import { BellFill, CardList } from "react-bootstrap-icons";
-import UserService from "../../../../service/UserService";
-import { useLocation } from "react-router-dom";
-import { userState } from "../../../../recoil/state/userState";
 
 const MyPageWebHeaderComponent = () => {
   const isSubScriptModal = useRecoilValue(
     myPageHeaderSubScriptModalIsOpenState
   );
 
-  const { getMyProfileUserInfo } = UserService();
-  const location = useLocation();
-  const id = location?.pathname.split("/")[2];
-
-  const [anotherUser, setAnotherUser] = useState();
-
-  const user = useRecoilValue(userState)
-  // 프로필 state 문 적용, useMemo 사용
-  useEffect(() => {
-    const fetch = async () => {
-      const data = await getMyProfileUserInfo(id);
-      
-      debugger
-      // admin 권한 접근 제어
-      if (id === 'admin' && data?.id !== user?.id) {
-        alert('해당 접근 권한이 없습니다.')
-        location.href = '/'
-        return;
-      }
-
-      setAnotherUser(data);
-    }
-    fetch();
-  },[])
-  // const user = useMemo(async () => {
-  //   return data;
-  // }, []);
-
-  // user.then((res) => setAnotherUser(res)).catch((e) => console.error(e));
+  const anotherUser = useRecoilValue(anotherUser);
 
   return (
     <div className={`${styles?.myPageHeader}`}>
@@ -93,7 +62,7 @@ const MyPageWebHeaderComponent = () => {
         <HeaderTwoRightComponent />
       </Navbar>
 
-      {isSubScriptModal && <SubScriptModalComponet />}
+      {isSubScriptModal && <SubScriptModalComponent />}
     </div>
   );
 };
