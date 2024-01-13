@@ -1,4 +1,4 @@
-import { useRecoilState, useResetRecoilState } from "recoil";
+import { useRecoilState, useResetRecoilState, useSetRecoilState } from "recoil";
 import { anotherUserState, userState } from "../recoil/state/userState";
 import UserService from "../service/UserService";
 import { myPageMenuState } from "../recoil/state/myPageHeaderState";
@@ -9,7 +9,7 @@ const UserContainer = () => {
   const [user, setUser] = useRecoilState(userState);
   const logout = useResetRecoilState(userState);
   const myPageMenuRefresh = useResetRecoilState(myPageMenuState); // 마이페이지 번호 default로 변경
-  const [setAnotherUser] = useRecoilState(anotherUserState);
+  const setAnotherUser = useSetRecoilState(anotherUserState);  // 타인이 내프로필 접근할 때
   const { signIn, createToken, userInfo, getMyProfileUserInfo } = UserService();
 
   // 1) 로그인 처리 함수
@@ -76,14 +76,12 @@ const UserContainer = () => {
   // 4) 프로필 접근시 유저 조회
   const userProfile = async (id) => {
     const data = await getMyProfileUserInfo(id);
-      
     // admin 권한 접근 제어
     if (id === 'admin' && data?.id !== user?.id) {
       alert('해당 접근 권한이 없습니다.')
       window.location.href = '/'
       return;
     }
-
     setAnotherUser(data);
   }
 
