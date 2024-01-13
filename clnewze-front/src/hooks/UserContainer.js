@@ -9,7 +9,7 @@ const UserContainer = () => {
   const [user, setUser] = useRecoilState(userState);
   const logout = useResetRecoilState(userState);
   const myPageMenuRefresh = useResetRecoilState(myPageMenuState); // 마이페이지 번호 default로 변경
-  const [anotherUser, setAnotherUser] = useRecoilState(anotherUserState);
+  const [setAnotherUser] = useRecoilState(anotherUserState);
   const { signIn, createToken, userInfo, getMyProfileUserInfo } = UserService();
 
   // 1) 로그인 처리 함수
@@ -61,7 +61,6 @@ const UserContainer = () => {
     }
     return isLogin;
   }
-
 
 
   // 3) 로그아웃 함수
