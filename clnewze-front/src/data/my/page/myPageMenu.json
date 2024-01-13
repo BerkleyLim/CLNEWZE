@@ -64,7 +64,7 @@
     {
       "index":12,
       "title": "회원 정보 출력",
-      "link":"/mypage/admin/user"
+      "link":"/mypage/admin/user/list"
     },
     {
       "index":13,

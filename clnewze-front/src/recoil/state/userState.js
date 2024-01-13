@@ -32,7 +32,7 @@ export const userState = atom({
 });
 
 // 관리자를 위한 권한, userAdminListState를 지정
-export const userAdminListState = atom({
+export const userListState = atom({
   key: 'userList',
   default: []
 });

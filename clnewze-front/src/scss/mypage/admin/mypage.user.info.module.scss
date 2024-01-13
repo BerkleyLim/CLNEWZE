@@ -1,0 +1,46 @@
+// Web 버전 컨테이너
+.myPageRightContainer {
+  text-align : left;
+  margin: 5em 5em 5em 5em;
+}
+
+
+.rowHeadTable {
+  display: flex;
+  border-top: 2px solid;
+  border-right: 2px solid;
+  width:100%;
+  text-align: center;
+  align-items: center;
+  font-size:1.5em;
+}
+
+.colHeadTable {
+  border-left: 2px solid;
+  border-bottom: 4px solid;
+  width:25%;
+}
+
+.rowBodyTable {
+  display: flex;
+  border-right: 1px solid;
+  width:100%;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.rowBodyTable:hover {
+  cursor:pointer;
+  background-color: green;
+}
+
+.rowBodyTable:active {
+  background-color: green;
+}
+
+.colBodyTable {
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  border-bottom: 1px solid;
+  width:25%;
+}

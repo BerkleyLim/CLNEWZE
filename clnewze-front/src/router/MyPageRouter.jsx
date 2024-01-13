@@ -10,6 +10,7 @@ import SubScriptIndex from "../components/mypage/subscript/SubScriptComponent";
 import MyCareer from "../components/mypage/career/CareerComponent";
 import MyPageTeacherPage from "../pages/mypage/teacher/MyPageTeacherPage";
 import MyPagePerformancePage from "../pages/mypage/performance/MyPagePerformancePage";
+import UserListPage from "../pages/mypage/admin/UserListPage";
 
 const MyPageRouter = () => {
   return (
@@ -20,6 +21,10 @@ const MyPageRouter = () => {
       <Route path="/mypage/:id/subscript" element={<SubScriptIndex />} />
       <Route path="/mypage/:id/performance/info" element={<MyPagePerformancePage />} />
       <Route path="/mypage/:id/admin/teacher" element={<AdminTeacher />} />
+      <Route
+        path="/mypage/admin/user/list"
+        element={<UserListPage />}
+      />
       <Route
         path="/mypage/admin/practiceroom"
         element={<AdminPracticeRoom />}
