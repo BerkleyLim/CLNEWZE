@@ -111,11 +111,6 @@ public class UserController {
     UserInfoVo result = UserInfoVo.builder().uno(tUser.getUno()).id(tUser.getId()).userName(tUser.getUserName())
         .nickName(tUser.getNickName()).loginTime(tUser.getLoginTime()).birthday(tUser.getBirthday())
         .activated(tUser.getActivated()).build();
-    if (result.getId().equals("admin")) {
-      ResponseObject<UserInfoVo> ro = new ResponseObject<>("관리자는 조회 할 수 없습니다.");
-      ro.setData(null);
-      return new ResponseEntity<>(ro, HttpStatus.NON_AUTHORITATIVE_INFORMATION);
-    }
     ResponseObject<UserInfoVo> ro = new ResponseObject<>("로그인 이후 필요 유저 정보 확인 성공");
     ro.setData(result);
     return new ResponseEntity<>(ro, HttpStatus.OK);
