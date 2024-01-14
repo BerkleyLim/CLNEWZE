@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { ChevronRight } from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
-import styles from "../../scss/main/main.module.scss";
+import styles from "../../../scss/main/main.module.scss";
 
 import { useRecoilState } from "recoil";
-import { practiceRoomState } from "../../recoil/state/practiceRoomState";
-import CustomHorizonScroll from "./item/CustomHorizonScroll";
+import { practiceRoomState } from "../../../recoil/state/practiceRoomState";
+import CustomHorizonScroll from "./slice/CustomHorizonScroll";
 import {
   Card,
   CardBody,
@@ -15,7 +15,7 @@ import {
   Col,
   Row,
 } from "reactstrap";
-import PracticeRoomService from "../../service/PracticeRoomService";
+import PracticeRoomService from "../../../service/PracticeRoomService";
 
 const MainPracticeRoomComponent = () => {
   const navigate = useNavigate();

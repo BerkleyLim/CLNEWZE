@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Routes, Route } from "react-router-dom";
-import MainPage from "../pages/main/MainPage";
+import MainPage from "../components/main/MainComponent";
 import Header from "../components/commom/header/HeaderComponent";
 import Footer from "../components/commom/footer/FooterComponent";
 
@@ -15,21 +15,15 @@ import PerformancePage from "../pages/performance/PerformancePage";
 
 const MainRouter = () => {
   return (
-    <div className="App">
-      <Header />
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/introduction" element={<Introduction />} />
-          <Route path="/performance" element={<PerformancePage />} />
-          <Route path="/practiceRoom/:pageNo" element={<PracticeRoomPage />} />
-          <Route path="/sheetmusic/:pageNo" element={<SheetMusicPage />} />
-          <Route path="/teacher/:pageNo" element={<TeacherPage />} />
-          <Route path="/blog/:pageNo" element={<Blog />} />
-        </Routes>
-      </div>
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/" element={<MainPage />} />
+      <Route path="/introduction" element={<Introduction />} />
+      <Route path="/performance" element={<PerformancePage />} />
+      <Route path="/practiceRoom/:pageNo" element={<PracticeRoomPage />} />
+      <Route path="/sheetmusic/:pageNo" element={<SheetMusicPage />} />
+      <Route path="/teacher/:pageNo" element={<TeacherPage />} />
+      <Route path="/blog/:pageNo" element={<Blog />} />
+    </Routes>
   );
 };
 

@@ -1,16 +1,13 @@
 import React from "react";
-import { ChevronRight } from "react-bootstrap-icons";
 import { Col, Table } from "reactstrap";
-import styles from "../../scss/main/main.module.scss";
+import styles from "../../../scss/main/main.module.scss";
 
-const MainQnaComponent = () => {
+const MainNoticeComponent = () => {
   return (
     <Col className={`${styles?.mainNotice}`}>
       <div className={`${styles?.mainCommonHeader}`}>
-        <h1>QnA</h1>
-        <p>
-          <ChevronRight /> 더보기
-        </p>
+        <h1>공지사항</h1>
+        <p>&gt; 더보기</p>
       </div>
       <Table className="table-hover">
         <thead>
@@ -22,11 +19,11 @@ const MainQnaComponent = () => {
         <tbody>
           <tr>
             <td>1</td>
-            <td>영상 올리는 방법이 궁금해여</td>
+            <td>clnewze 이용안내</td>
           </tr>
           <tr>
             <td>2</td>
-            <td>마이페이지 기능은 무엇인가요?</td>
+            <td>경고 및 제재사항</td>
           </tr>
         </tbody>
       </Table>
@@ -34,4 +31,4 @@ const MainQnaComponent = () => {
   );
 };
 
-export default MainQnaComponent;
+export default MainNoticeComponent;

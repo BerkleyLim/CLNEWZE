@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { ChevronRight } from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
-import styles from "../../scss/main/main.module.scss";
+import styles from "../../../scss/main/main.module.scss";
 
 import { useRecoilState } from "recoil";
-import { teacherState } from "../../recoil/state/teacherState";
-import CustomHorizonScroll from "./item/CustomHorizonScroll";
+import { teacherState } from "../../../recoil/state/teacherState";
+import CustomHorizonScroll from "./slice/CustomHorizonScroll";
 import {
   Card,
   CardBody,
@@ -15,7 +15,7 @@ import {
   Col,
   Row,
 } from "reactstrap";
-import TeacherService from "../../service/TeacherService";
+import TeacherService from "../../../service/TeacherService";
 
 const MainTeacherComponent = () => {
   const navigate = useNavigate();

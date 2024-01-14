@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router } from "react-router-dom";
 import MyPage from "./pages/mypage/MyPage";
-import MainRouter from "./router/MainRouter";
+import MainPage from "./pages/main/MainPage";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Router>
         {/* 경로의 따라 view 기본 셋팅 조정 */}
         {!window.location.href.includes("/mypage") ? (
-          <MainRouter />
+          <MainPage />
         ) : (
           <MyPage />
         )}

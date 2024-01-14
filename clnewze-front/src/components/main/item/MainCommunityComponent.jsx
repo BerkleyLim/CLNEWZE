@@ -1,7 +1,7 @@
 import React from "react";
 import { ChevronRight } from "react-bootstrap-icons";
 import { Col, Table } from "reactstrap";
-import styles from "../../scss/main/main.module.scss";
+import styles from "../../../scss/main/main.module.scss";
 
 const MainCommunityComponent = () => {
   return (

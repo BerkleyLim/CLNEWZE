@@ -1,4 +1,4 @@
-import styles from "../../scss/main/main.module.scss";
+import styles from "../../../scss/main/main.module.scss";
 import React, { useState } from 'react';
 import {
   Carousel,

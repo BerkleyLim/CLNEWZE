@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { ChevronRight } from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
-import styles from "../../scss/main/main.module.scss";
+import styles from "../../../scss/main/main.module.scss";
 
-import SheetMusicService from "../../service/SheetMusicService";
+import SheetMusicService from "../../../service/SheetMusicService";
 import { useRecoilState } from "recoil";
-import { sheetMusicState } from "../../recoil/state/sheetMusicState";
-import CustomHorizonScroll from "./item/CustomHorizonScroll";
+import { sheetMusicState } from "../../../recoil/state/sheetMusicState";
+import CustomHorizonScroll from "./slice/CustomHorizonScroll";
 import {
   Card,
   CardBody,
