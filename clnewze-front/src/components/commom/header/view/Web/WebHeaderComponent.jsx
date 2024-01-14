@@ -10,12 +10,12 @@ import { Alarm, PersonCircle } from "react-bootstrap-icons";
 import headerData from "../../sampledata/data.json";
 import { useRecoilValue } from "recoil";
 import { userState } from "../../../../../recoil/state/userState";
-import CommonContaier from "../../../../../hooks/CommonContaier";
+import CommonContaier from "../../../../../hooks/CommonContainer";
 import LoginPage from "../../../../../pages/login/LoginPage";
 
 const WebHeaderComponent = () => {
-  const [loginIsModal, setLoginIsModal] = useState(false);
-  const modalToggle = () => setLoginIsModal(!loginIsModal);
+  const {toggleIsLoginOpen} = CommonContaier();
+
   const user = useRecoilValue(userState);
 
   // 커스텀 훅 정의
@@ -25,7 +25,7 @@ const WebHeaderComponent = () => {
     if (user.isLogin) {
       moveHrefPage("/mypage/"+user?.id);
     } else {
-      modalToggle();
+      toggleIsLoginOpen();
     }
   };
 
@@ -56,7 +56,7 @@ const WebHeaderComponent = () => {
               <PersonCircle />
             </span>
             <span className={`${styles?.headerNickname}`}>
-              {user?.isLogin ? user.userName : " 로그인"}
+              {user?.isLogin ? ` ${user.userName}` : " 로그인"}
             </span>
           </Button>
           <Button color="blank" size="lg">

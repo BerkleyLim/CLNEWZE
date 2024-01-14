@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import styles from "../../scss/login/login.module.scss"
-import UserContainer from "../../hooks/UserContainer";
+import CommonContaier from "../../hooks/CommonContainer";
 
-const SignInComponent =  ({setLoginIsModal, changeView}) => {
+const SignInComponent =  ({changeView}) => {
   const [inputs, setInputs] = useState();
-  const { handlerLogin } = UserContainer();
+  const {loginButton} = CommonContaier();
 
   // 입력
   const onChange = (e) => {
@@ -18,17 +18,9 @@ const SignInComponent =  ({setLoginIsModal, changeView}) => {
   // password 입력 후 enter 로직
   const onKeyDownEnter = (e) => {
     if (e.keyCode === 13) {
-      loginButton();
+      loginButton(inputs);
     }
   }
-
-
-  // 로그인 버튼 클릭 시
-  const loginButton = async () => {
-    // 입력 (차후 복잡한 권한을 부여 받을 예정 => jwt 도입 예정)
-    const isNotClose = await handlerLogin(inputs)
-    await setLoginIsModal(!isNotClose) 
-  };
 
   return (
     <>
@@ -62,7 +54,7 @@ const SignInComponent =  ({setLoginIsModal, changeView}) => {
       <div className={`${styles?.loginButtonComponent}`}>
         <button
           className={`primary ${styles?.commonButton} ${styles?.loginButton}`}
-          onClick={loginButton}
+          onClick={() => loginButton(inputs)}
         >
           로그인
         </button>

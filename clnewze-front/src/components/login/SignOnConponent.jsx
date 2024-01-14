@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "../../scss/login/login.module.scss"
 
-const SignOnComponent = ({setLoginIsModal, changeView}) => {
+const SignOnComponent = ({changeView}) => {
   const [inputs, setInputs] = useState();
 
   // 입력
@@ -24,7 +24,7 @@ const SignOnComponent = ({setLoginIsModal, changeView}) => {
             placeholder="id"
             type="text"
             className={`${styles?.flexLabelRight}`}
-            // onChange={onChange}
+            onChange={onChange}
           />
         </div>
         <div className={`${styles?.flexInput}`}>
@@ -34,7 +34,7 @@ const SignOnComponent = ({setLoginIsModal, changeView}) => {
             placeholder="Password"
             type="password"
             className={`${styles?.flexLabelRight}`}
-            // onChange={onChange}
+            onChange={onChange}
           />
         </div>
         <div className={`${styles?.flexInput}`}>
@@ -44,7 +44,7 @@ const SignOnComponent = ({setLoginIsModal, changeView}) => {
             placeholder="username"
             type="text"
             className={`${styles?.flexLabelRight}`}
-            // onChange={onChange}
+            onChange={onChange}
           />
         </div>
         <div className={`${styles?.flexInput}`}>
@@ -54,7 +54,7 @@ const SignOnComponent = ({setLoginIsModal, changeView}) => {
             placeholder="phone"
             type="text"
             className={`${styles?.flexLabelRight}`}
-            // onChange={onChange}
+            onChange={onChange}
           />
         </div>
       </div>

@@ -5,7 +5,6 @@ import {
   DropdownItem,
   DropdownMenu,
   DropdownToggle,
-  Modal,
   Navbar,
 } from "reactstrap";
 
@@ -14,24 +13,23 @@ import { CardList } from "react-bootstrap-icons";
 import headerData from "../../sampledata/data.json";
 import { useRecoilValue } from "recoil";
 import { userState } from "../../../../../recoil/state/userState";
-import CommonContaier from "../../../../../hooks/CommonContaier";
 import LoginPage from "../../../../../pages/login/LoginPage";
+import CommonContainer from "../../../../../hooks/CommonContainer";
 
 const MobileHeaderComponent = () => {
-  const [loginIsModal, setLoginIsModal] = useState(false);
   const [mobileIsDropDown, setMobileIsDropDown] = useState(false);
-  const modalToggle = () => setLoginIsModal(!loginIsModal);
   const mobileIsDropDownToggle = () => setMobileIsDropDown(!mobileIsDropDown);
   const user = useRecoilValue(userState);
+  const {toggleIsLoginOpen} = CommonContainer();
 
   // 커스텀 훅 정의
-  const { moveNavPage, moveHrefPage } = CommonContaier();
+  const { moveNavPage, moveHrefPage } = CommonContainer();
 
   const userMenu = () => {
     if (user.isLogin) {
-      moveHrefPage("/mypage");
+      moveHrefPage("/mypage/"+user?.id);
     } else {
-      modalToggle();
+      toggleIsLoginOpen();
     }
   };
 
@@ -55,7 +53,7 @@ const MobileHeaderComponent = () => {
           </DropdownToggle>
           <DropdownMenu>
             <DropdownItem onClick={() => userMenu()}>
-              {user?.isLogin ? user.userNm : "로그인"}
+              {user?.isLogin ?  ` ${user.userNm}` : "로그인"}
             </DropdownItem>
             {headerData?.map((data, index) => (
               <DropdownItem
@@ -68,8 +66,6 @@ const MobileHeaderComponent = () => {
           </DropdownMenu>
         </ButtonDropdown>
       </Navbar>
-
-      <LoginPage />
 
       {/* 로그인 모달 출력 */}
       <LoginPage />

@@ -2,9 +2,9 @@ import React from "react";
 import { ListGroup, ListGroupItem } from "reactstrap";
 import { useRecoilState, useRecoilValue } from "recoil";
 import styles from "../../../../../scss/mypage/commom/mypage.main.module.scss";
-import CommonContaier from "../../../../../hooks/CommonContaier";
 import { anotherUserState } from "../../../../../recoil/state/userState";
 import { myPageMenuState } from "../../../../../recoil/state/myPageHeaderState";
+import CommonContainer from "../../../../../hooks/CommonContainer";
 
 const MyPageMenuViewComponent = ({ menuData, title }) => {
   // 경로 : /mypage/"유저 ID"/*
@@ -13,7 +13,7 @@ const MyPageMenuViewComponent = ({ menuData, title }) => {
   // state 정의
   const [menuInfo, setMenuInfo] = useRecoilState(myPageMenuState);
   // 리액트 훅 정의
-  const { moveNavPage } = CommonContaier();
+  const { moveNavPage } = CommonContainer();
 
   const toggleMenuClick = (e, link) => {
     const { value } = e.target;
