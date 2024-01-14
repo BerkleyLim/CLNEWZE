@@ -1,7 +1,7 @@
 import React from 'react'
 import { Input } from 'reactstrap'
 
-const UserInfoIndex = () => {
+const UserInfoComponent = () => {
   return (
     <div>
       <div>조금 더 조사하고, 무엇이 들어가야 할지 정하기</div>
@@ -18,4 +18,4 @@ const UserInfoIndex = () => {
   )
 }
 
-export default UserInfoIndex
+export default UserInfoComponent
