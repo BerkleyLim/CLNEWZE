@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "../../../../../scss/main/common/header.module.scss";
 import {
-  Button,
   ButtonDropdown,
   DropdownItem,
   DropdownMenu,
@@ -10,17 +9,15 @@ import {
   Navbar,
 } from "reactstrap";
 
-import SelectMenuIndex from "../../dropdown/selectMemu/index";
-import SelectLanguageIndex from "../../dropdown/language/index";
-import LoginForm from "../../../../login/LoginFormComponent";
-import { Alarm, CardList, PersonCircle } from "react-bootstrap-icons";
+import { CardList } from "react-bootstrap-icons";
 
 import headerData from "../../sampledata/data.json";
 import { useRecoilValue } from "recoil";
 import { userState } from "../../../../../recoil/state/userState";
 import CommonContaier from "../../../../../hooks/CommonContaier";
+import LoginPage from "../../../../../pages/login/LoginPage";
 
-const MobileHeaderIndex = () => {
+const MobileHeaderComponent = () => {
   const [loginIsModal, setLoginIsModal] = useState(false);
   const [mobileIsDropDown, setMobileIsDropDown] = useState(false);
   const modalToggle = () => setLoginIsModal(!loginIsModal);
@@ -72,12 +69,12 @@ const MobileHeaderIndex = () => {
         </ButtonDropdown>
       </Navbar>
 
+      <LoginPage />
+
       {/* 로그인 모달 출력 */}
-      <Modal isOpen={loginIsModal} toggle={modalToggle} centered={true}>
-        <LoginForm setLoginIsModal={setLoginIsModal} />
-      </Modal>
+      <LoginPage />
     </>
   );
 };
 
-export default MobileHeaderIndex;
+export default MobileHeaderComponent;

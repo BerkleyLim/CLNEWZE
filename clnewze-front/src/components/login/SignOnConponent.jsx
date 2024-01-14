@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import styles from "./login.module.scss"
-import UserContainer from "../../hooks/UserContainer";
+import styles from "../../scss/login/login.module.scss"
 
-const SignIn =  ({setLoginIsModal, changeView}) => {
+const SignOnComponent = ({setLoginIsModal, changeView}) => {
   const [inputs, setInputs] = useState();
-  const { handlerLogin } = UserContainer();
 
   // 입력
   const onChange = (e) => {
@@ -14,35 +12,19 @@ const SignIn =  ({setLoginIsModal, changeView}) => {
       [name]: value,
     });
   };
-
-  // password 입력 후 enter 로직
-  const onKeyDownEnter = (e) => {
-    if (e.keyCode === 13) {
-      loginButton();
-    }
-  }
-
-
-  // 로그인 버튼 클릭 시
-  const loginButton = async () => {
-    // 입력 (차후 복잡한 권한을 부여 받을 예정 => jwt 도입 예정)
-    const isNotClose = await handlerLogin(inputs)
-    await setLoginIsModal(!isNotClose) 
-  };
-
   return (
     <>
       <div className={`${styles?.loginLogo}`}></div>
-      <div className={`${styles?.loginTitle}`}>로그인을 하여 주시기 바랍니다.</div>
+      <div className={`${styles?.loginTitle}`}>회원가입안내</div>
       <div className={`${styles?.loginForm}`}>
         <div className={`${styles?.flexInput}`}>
           <label className={`${styles?.flexLabelLeft}`}>id : </label>
           <input
             name="id"
             placeholder="id"
-            type="id"
+            type="text"
             className={`${styles?.flexLabelRight}`}
-            onChange={onChange}
+            // onChange={onChange}
           />
         </div>
         <div className={`${styles?.flexInput}`}>
@@ -52,30 +34,46 @@ const SignIn =  ({setLoginIsModal, changeView}) => {
             placeholder="Password"
             type="password"
             className={`${styles?.flexLabelRight}`}
-            onChange={onChange}
-            onKeyDown={(e) => {
-              onKeyDownEnter(e)
-            }}
+            // onChange={onChange}
+          />
+        </div>
+        <div className={`${styles?.flexInput}`}>
+          <label className={`${styles?.flexLabelLeft}`}>Username : </label>
+          <input
+            name="username"
+            placeholder="username"
+            type="text"
+            className={`${styles?.flexLabelRight}`}
+            // onChange={onChange}
+          />
+        </div>
+        <div className={`${styles?.flexInput}`}>
+          <label className={`${styles?.flexLabelLeft}`}>Phone : </label>
+          <input
+            name="phone"
+            placeholder="phone"
+            type="text"
+            className={`${styles?.flexLabelRight}`}
+            // onChange={onChange}
           />
         </div>
       </div>
       <div className={`${styles?.loginButtonComponent}`}>
         <button
           className={`primary ${styles?.commonButton} ${styles?.loginButton}`}
-          onClick={loginButton}
+          onClick={() => changeView(1)}
         >
-          로그인
+          이전화면
         </button>
-        <button className={`secondary ${styles?.commonButton} ${styles?.signInButton}`}
-          onClick={() => changeView(2)}>
+        <button className={`secondary ${styles?.commonButton} ${styles?.signInButton}`}>
           회원가입
         </button>
         <button className={`secondary ${styles?.commonButton} ${styles?.findIdPasswordButton}`}>
-          아이디/비밀번호 찾기
+          다음
         </button>
       </div>
     </>
   );
-};
+}
 
-export default SignIn;
+export default SignOnComponent

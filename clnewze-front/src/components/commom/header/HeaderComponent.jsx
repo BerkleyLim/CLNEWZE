@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "../../../scss/main/common/header.module.scss";
-import WebHeaderIndex from "./view/Web/WebHeaderIndex";
-import MobileHeaderIndex from "./view/Mobile/MobileHeaderIndex";
+import WebHeaderComponent from "./view/Web/WebHeaderComponent";
+import MobileHeaderComponent from "./view/Mobile/MobileHeaderComponent";
 
 const HeaderComponent = () => {
   // 반응형 웹앱을 위한 state 변수
@@ -21,9 +21,9 @@ const HeaderComponent = () => {
     <div className={`${innerWidth >= 860 ? styles?.webHeader : styles?.mobileHeader}`}>
         {/* 여기는 픽셀의 따라 view 출력 달라짐, Web 모드, Mobile 모드 */}
         {innerWidth >= 860 ? (
-          <WebHeaderIndex />
+          <WebHeaderComponent />
         ) : (
-          <MobileHeaderIndex />
+          <MobileHeaderComponent />
         )}
     </div>
   );

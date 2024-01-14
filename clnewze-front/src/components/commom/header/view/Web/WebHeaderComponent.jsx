@@ -2,21 +2,18 @@ import React, { useState } from "react";
 import styles from "../../../../../scss/main/common/header.module.scss";
 import {
   Button,
-  Modal,
   Navbar,
 } from "reactstrap";
 
-import SelectMenuIndex from "../../dropdown/selectMemu/index";
-import SelectLanguageIndex from "../../dropdown/language/index";
-import LoginForm from "../../../../login/LoginFormComponent";
-import { Alarm, CardList, PersonCircle } from "react-bootstrap-icons";
+import { Alarm, PersonCircle } from "react-bootstrap-icons";
 
 import headerData from "../../sampledata/data.json";
 import { useRecoilValue } from "recoil";
 import { userState } from "../../../../../recoil/state/userState";
 import CommonContaier from "../../../../../hooks/CommonContaier";
+import LoginPage from "../../../../../pages/login/LoginPage";
 
-const WebHeaderIndex = () => {
+const WebHeaderComponent = () => {
   const [loginIsModal, setLoginIsModal] = useState(false);
   const modalToggle = () => setLoginIsModal(!loginIsModal);
   const user = useRecoilValue(userState);
@@ -81,11 +78,9 @@ const WebHeaderIndex = () => {
       </Navbar>
 
       {/* 로그인 모달 출력 */}
-      <Modal isOpen={loginIsModal} toggle={modalToggle} centered={true}>
-        <LoginForm setLoginIsModal={setLoginIsModal} />
-      </Modal>
+      <LoginPage />
     </>
   );
 };
 
-export default WebHeaderIndex;
+export default WebHeaderComponent;
