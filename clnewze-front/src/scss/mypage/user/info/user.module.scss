@@ -7,6 +7,12 @@
   margin: 5em 5em 5em 5em;
 }
 
+// Mobile 버전 컨테이너
+.myPageMobileContainer {
+  text-align : left;
+  margin: 1em 1em 1em 1em;
+}
+
 // 가운데 정렬 - 컴포넌트별
 .componentCenterAlign {
   padding: 0.5rem calc((100vw - 1000px)/2);
