@@ -17,6 +17,8 @@ import {
   InputGroup,
   Row,
 } from "reactstrap";
+import { useRecoilValue } from "recoil";
+import { innerWidthState } from "../../../recoil/state/commonState";
 
 const MyPagePerformancePage = () => {
   // 리액트 방식 - fullCalendar 시작
@@ -37,8 +39,9 @@ const MyPagePerformancePage = () => {
   const events = data;
   // 리액트 방식 - fullCalendar 끝
 
+  const innerWidth = useRecoilValue(innerWidthState);
   return (
-    <div className={`${styles?.myPageWebContainer}`}>
+    <div className={`${innerWidth >= 860 ? styles?.myPageWebContainer : styles?.myPageMobileContainer}`}>
       <Row className="m-3">
         <Col md={8}></Col>
         <Col md={4}>

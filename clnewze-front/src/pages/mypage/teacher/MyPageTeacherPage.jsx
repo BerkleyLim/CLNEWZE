@@ -1,10 +1,13 @@
 import React from 'react'
 import styles from '../../../scss/mypage/mypage.module.scss'
 import TeacherRegisterComponent from '../../../components/mypage/teacher/register/TeacherRegisterComponent'
+import { useRecoilValue } from 'recoil'
+import { innerWidthState } from '../../../recoil/state/commonState'
 
 const MyTeacherPage = () => {
+  const innerWidth = useRecoilValue(innerWidthState);
   return (
-    <div className={`${styles?.myPageWebContainer}`}>
+    <div className={`${innerWidth >= 860 ? styles?.myPageWebContainer : styles?.myPageMobileContainer}`}>
       <h1>선생님 등록/관리</h1>
       <br/><br/>
 

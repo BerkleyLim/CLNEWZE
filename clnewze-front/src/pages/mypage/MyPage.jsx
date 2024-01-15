@@ -4,6 +4,8 @@ import styles from '../../scss/mypage/mypage.module.scss'
 import MyPageMobilePage from './mobile/common/MyPageMobilePage';
 import { useLocation } from 'react-router-dom';
 import UserContainer from '../../hooks/UserContainer';
+import { innerWidthState } from '../../recoil/state/commonState';
+import { useRecoilState } from 'recoil';
 
 const MyPage = () => {
   // id값 추출하고, another state 변수에 저장
@@ -11,7 +13,8 @@ const MyPage = () => {
   const id = location.pathname.split('/')[2];
   const { userProfile } = UserContainer();
   // 반응형 웹앱을 위한 state 변수
-  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+  // const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+  const [innerWidth, setInnerWidth] = useRecoilState(innerWidthState);
 
   // 반응형 웹 적용
   useEffect(() => {
