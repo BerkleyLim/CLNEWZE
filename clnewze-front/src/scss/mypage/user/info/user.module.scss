@@ -1,5 +1,12 @@
 /* User 정보 */
 
+
+// Web 버전 컨테이너
+.myPageWebContainer {
+  text-align : left;
+  margin: 5em 5em 5em 5em;
+}
+
 // 가운데 정렬 - 컴포넌트별
 .componentCenterAlign {
   padding: 0.5rem calc((100vw - 1000px)/2);
