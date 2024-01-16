@@ -3,8 +3,12 @@ import React from "react";
 import styles from "../../../../scss/mypage/mypage.module.scss";
 import { Navbar, Row } from "reactstrap";
 import FirstHeaderComponent from "./item/FirstHeaderComponent";
+import { useRecoilValue } from "recoil";
+import { anotherUserState } from "../../../../recoil/state/userState";
 
 const MyPageMobileHeaderComponent = () => {
+  const anotherUser = useRecoilValue(anotherUserState);
+
   return (
     <div className={`${styles?.myPageHeader}`}>
       {/* 메뉴바 - 첫번째 헤더 부분, web과 비슷함 */}
@@ -23,10 +27,10 @@ const MyPageMobileHeaderComponent = () => {
         </div>
         <div style={{width:"50%"}}>
           <Row>
-            <h3 style={{ textAlign: "left" }}>홍길동</h3>
+            <h3 style={{ textAlign: "left" }}>{anotherUser?.id}</h3>
           </Row>
           <Row style={{ fontSize: "20px" }} className="mt-1">
-            소개 : 홍길동 님의 페이지 입니다..
+            소개 : {anotherUser?.id} 님의 페이지 입니다..
           </Row>
         </div>
       </Navbar>
