@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "../../../../../scss/main/common/header.module.scss";
 import {
   Button,
   Navbar,
 } from "reactstrap";
 
-import { Alarm, PersonCircle } from "react-bootstrap-icons";
+import { BellFill, PersonCircle } from "react-bootstrap-icons";
 
 import headerData from "../../sampledata/data.json";
 import { useRecoilValue } from "recoil";
@@ -60,7 +60,7 @@ const WebHeaderComponent = () => {
             </span>
           </Button>
           <Button color="blank" size="lg">
-            <Alarm />
+            <BellFill />
           </Button>
         </div>
       </Navbar>

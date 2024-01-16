@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "../../../../../scss/main/common/header.module.scss";
 import {
+  Button,
   ButtonDropdown,
   DropdownItem,
   DropdownMenu,
@@ -8,7 +9,7 @@ import {
   Navbar,
 } from "reactstrap";
 
-import { CardList } from "react-bootstrap-icons";
+import { BellFill, CardList } from "react-bootstrap-icons";
 
 import headerData from "../../sampledata/data.json";
 import { useRecoilValue } from "recoil";
@@ -43,28 +44,34 @@ const MobileHeaderComponent = () => {
             <img src="" alt="" />
           </a>
         </div>
-        <ButtonDropdown
-          isOpen={mobileIsDropDown}
-          direction="down"
-          toggle={mobileIsDropDownToggle}
-        >
-          <DropdownToggle color="blank" caret size="lg">
-            <CardList />
-          </DropdownToggle>
-          <DropdownMenu>
-            <DropdownItem onClick={() => userMenu()}>
-              {user?.isLogin ?  ` ${user.userName}` : "로그인"}
-            </DropdownItem>
-            {headerData?.map((data, index) => (
-              <DropdownItem
-                key={index}
-                onClick={() => moveNavPage(data?.category)}
-              >
-                {data?.menuName}
+
+        <div>
+          <Button>
+            <BellFill />
+          </Button>
+          <ButtonDropdown
+            isOpen={mobileIsDropDown}
+            direction="down"
+            toggle={mobileIsDropDownToggle}
+          >
+            <DropdownToggle color="blank" caret size="lg">
+              <CardList />
+            </DropdownToggle>
+            <DropdownMenu>
+              <DropdownItem onClick={() => userMenu()}>
+                {user?.isLogin ?  ` ${user.userName}` : "로그인"}
               </DropdownItem>
-            ))}
-          </DropdownMenu>
-        </ButtonDropdown>
+              {headerData?.map((data, index) => (
+                <DropdownItem
+                  key={index}
+                  onClick={() => moveNavPage(data?.category)}
+                >
+                  {data?.menuName}
+                </DropdownItem>
+              ))}
+            </DropdownMenu>
+          </ButtonDropdown>
+        </div>
       </Navbar>
 
       {/* 로그인 모달 출력 */}
