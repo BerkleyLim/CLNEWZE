@@ -53,7 +53,7 @@ const MobileHeaderComponent = () => {
           </DropdownToggle>
           <DropdownMenu>
             <DropdownItem onClick={() => userMenu()}>
-              {user?.isLogin ?  ` ${user.userNm}` : "로그인"}
+              {user?.isLogin ?  ` ${user.userName}` : "로그인"}
             </DropdownItem>
             {headerData?.map((data, index) => (
               <DropdownItem
