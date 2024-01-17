@@ -1,10 +1,10 @@
 import React from "react";
-import { Input, InputGroup, Label } from "reactstrap";
+import { Button, Input, InputGroup, Label } from "reactstrap";
 import styles from '../../../../scss/mypage/user/info/user.module.scss'
 
 const UserInfoComponent = () => {
   return (
-    <div className={`${styles?.mypageUserInfoForm}`}>
+    <div className={`${styles?.myPageUserInfoForm}`}>
       {/* 아이디 */}
       <InputGroup>
         <div style={{ width: "25%" }}>
@@ -59,15 +59,8 @@ const UserInfoComponent = () => {
           <Input type="text" name="sex" />
         </div>
       </InputGroup>
-      {/* 소개 */}
-      <InputGroup>
-        <div style={{ width: "25%" }}>
-          <Label>소개</Label>
-        </div>
-        <div style={{ width: "75%" }}>
-          <Input type="textarea" name="introduction" />
-        </div>
-      </InputGroup>
+
+      <Button>수정</Button>
     </div>
   );
 };
