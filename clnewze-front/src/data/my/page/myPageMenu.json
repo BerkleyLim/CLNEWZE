@@ -3,103 +3,122 @@
     {
       "index":1,
       "title": "회원 정보 및 수정",
-      "link":"/mypage/:id/info"
+      "link":"/mypage/:id/info",
+      "isUsing": true
     },
     {
       "index":2,
       "title": "프로필 정보",
-      "link":"/mypage/:id/career"
+      "link":"/mypage/:id/career",
+      "isUsing": true
     },
     {
       "index":3,
       "title": "구독 등급 관리",
-      "link":"/mypage/:id/subscript"
+      "link":"/mypage/:id/subscript",
+      "isUsing": false
     },
     {
       "index":4,
       "title": "환전 신청",
-      "link":"/mypage/:id/apply/return"
+      "link":"/mypage/:id/apply/return",
+      "isUsing": false
     },
     {
       "index":5,
       "title": "선생님 등록/관리",
-      "link":"/mypage/:id/teacher"
+      "link":"/mypage/:id/teacher",
+      "isUsing": true
     }
   ],
   "uploadInfo": [
     {
       "index":6,
       "title": "공연정보",
-      "link":"/mypage/:id/performance/info"
+      "link":"/mypage/:id/performance/info",
+      "isUsing": true
     },
     {
       "index":7,
       "title": "연습실",
-      "link":"/mypage/:id/practiceroom/info"
+      "link":"/mypage/:id/practiceroom/info",
+      "isUsing": true
     },
     {
       "index":8,
       "title": "악보",
-      "link":"/mypage/:id/sheetmusic/info"
+      "link":"/mypage/:id/sheetmusic/info",
+      "isUsing": true
     },
     {
       "index":9,
       "title": "블로그",
-      "link":"/mypage/:id/blog/info"
+      "link":"/mypage/:id/blog/info",
+      "isUsing": false
     }
   ],
   "salesInfo": [
     {
       "index":10,
       "title": "구입악보",
-      "link":"/mypage/:id/buy/sheetmusic"
+      "link":"/mypage/:id/buy/sheetmusic",
+      "isUsing": false
     },
     {
       "index":11,
       "title": "판매악보",
-      "link":"/mypage/:id/sell/sheetmusic"
+      "link":"/mypage/:id/sell/sheetmusic",
+      "isUsing": false
     }
   ],
   "adminMenu": [
     {
       "index":12,
       "title": "회원 정보 출력",
-      "link":"/mypage/admin/user/list"
+      "link":"/mypage/admin/user/list",
+      "isUsing": true
     },
     {
       "index":13,
       "title": "매출액",
-      "link":"/mypage/admin/dashboard"
+      "link":"/mypage/admin/dashboard",
+      "isUsing": true
     },
     {
       "index":14,
       "title": "악보 페이지 관리",
-      "link":"/mypage/admin/sheetmusic"
+      "link":"/mypage/admin/sheetmusic",
+      "isUsing": true
     },
     {
       "index":15,
       "title": "연습실 페이지 관리",
-      "link":"/mypage/admin/practiceroom"
+      "link":"/mypage/admin/practiceroom",
+      "isUsing": true
     },
     {
       "index":16,
       "title": "레스너찾기 페이지 관리",
-      "link":"/mypage/admin/teacher"
+      "link":"/mypage/admin/teacher",
+      "isUsing": true
     },
     {
       "index":17,
       "title": "블로그 페이지 관리",
-      "link":"/mypage/admin/blog"
+      "link":"/mypage/admin/blog",
+      "isUsing": true
     },
     {
       "index":18,
       "title": "공지사항",
-      "link":"/mypage/admin/notice"
+      "link":"/mypage/admin/notice",
+      "isUsing": true
     },
     {
       "index":19,
       "title": "QnA",
-      "link":"/mypage/admin/qna"
+      "link":"/mypage/admin/qna",
+      "isUsing": true
     }
   ]
 }

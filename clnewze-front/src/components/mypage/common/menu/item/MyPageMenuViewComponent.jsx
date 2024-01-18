@@ -29,8 +29,8 @@ const MyPageMenuViewComponent = ({ menuData, title }) => {
 
   return (
     <ListGroup>
-      <h6>{title}</h6>
-      {menuData?.map((data, index) => (
+      <h6>{menuData.length > 0 && title}</h6>
+      {menuData?.filter(data => data?.isUsing).map((data, index) => (
         <ListGroupItem
           key={index}
           value={data?.index}
