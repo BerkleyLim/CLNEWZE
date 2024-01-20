@@ -6,7 +6,7 @@ import { Table, Button, Input } from "reactstrap";
 import DataTable from "./menu/dataTable";
 import UseApi from "../../../../util/UseApi";
 
-function AdminSheetmusic() {
+const AdminSheetMusicComponent = () => {
   const [menuData, setMenuData] = useState();
   const [isStateUpdate, setIsStateUpdate] = useState(false);
   const [createMenuData, setCreateMenuData] = useState({
@@ -191,4 +191,4 @@ function AdminSheetmusic() {
   );
 }
 
-export default AdminSheetmusic;
+export default AdminSheetMusicComponent;
