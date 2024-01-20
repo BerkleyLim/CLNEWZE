@@ -39,7 +39,9 @@ const MyPageWebHeaderComponent = () => {
             소개 : {anotherUser?.userName} 님의 페이지 입니다..
           </Row>
         </div>
-        <HeaderTwoRightComponent />
+        <div style={{width:"30%"}}>
+          <HeaderTwoRightComponent />
+        </div>
       </Navbar>
 
       {isSubScriptModal && <SubScriptModalComponent />}

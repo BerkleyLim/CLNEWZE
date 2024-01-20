@@ -1,15 +1,19 @@
 import React from "react";
 import { Button, Col, Row } from "reactstrap";
-import MyPageHeaderContainer from "../../../../../hooks/MyPageHeaderContainer";
+// import MyPageHeaderContainer from "../../../../../hooks/MyPageHeaderContainer";
 
 const HeaderTwoRightComponent = () => {
-  const { subscriptModalToggle } = MyPageHeaderContainer();
+  // const { subscriptModalToggle } = MyPageHeaderContainer();
+
+  const toggleOnDisplay = () => {
+    alert("이 기능은 개발 중입니다. 빠른 시일 내에 개발하겠습니다.");
+  }
 
   return (
     <div className={"mt-4"}>
       <Row>
         <Col className="mt-3">
-          <Button color="warning" style={{ width: "100%" }} size={"lg"}>
+          <Button color="warning" style={{ width: "100%" }} size={"lg"} onClick={toggleOnDisplay}>
             충전
           </Button>
         </Col>
@@ -18,7 +22,10 @@ const HeaderTwoRightComponent = () => {
             size={"lg"}
             style={{ width: "100%" }}
             color="info"
-            onClick={() => subscriptModalToggle()}
+            onClick={() => 
+              toggleOnDisplay()
+              // subscriptModalToggle()
+            }
           >
             구독
             {/* <br/>(본인일경우 구독조회) */}
