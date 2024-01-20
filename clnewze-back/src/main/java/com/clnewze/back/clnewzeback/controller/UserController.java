@@ -81,23 +81,13 @@ public class UserController {
   }
 
   // 사용자 전체 조회
-  @GetMapping("/")
+  @PostMapping("/")
   @RequireRole("ADMIN")
-  public ResponseEntity<ResponseObject<TUser>> getAllUserInfoList() {
-    // T_user result = userService.getMyUserWithAuthorities().get();
+  public ResponseEntity<ResponseObject<List<TUser>>> getAllUserInfoList() {
     log.debug("전체 사용자 조회 완료");
-    // TUserDto tUserDto = userService.getMyUserWithAuthorities();
-    // TUser result = TUser.builder().id(tUserDto.getId())//
-    // // .password(tUserDto.getPassword())//
-    // .userName(tUserDto.getUserName())//
-    // .creTime(tUserDto.getCrtTime())//
-    // .loginTime(tUserDto.getLoginTime())//
-    // .nickName(tUserDto.getNickName())//
-    // .birthday(tUserDto.getBirthday())//
-    // .activated(tUserDto.getActivated())//
-    // .build();
-    ResponseObject<TUser> ro = new ResponseObject<>("성공");
-    // ro.setData(result);
+    List<TUser> result = userService.getMyUserWithAuthorities();
+    ResponseObject<List<TUser>> ro = new ResponseObject<>("성공");
+    ro.setData(result);
     return new ResponseEntity<>(ro, HttpStatus.OK);
   }
 

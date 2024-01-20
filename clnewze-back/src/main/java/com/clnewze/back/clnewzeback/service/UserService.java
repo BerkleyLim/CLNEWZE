@@ -12,6 +12,7 @@ import com.clnewze.back.clnewzeback.domain.entity.UserAuthority;
 import com.clnewze.back.clnewzeback.mapper.TUserMapper;
 import com.clnewze.back.clnewzeback.util.SecurityUtil;
 
+import java.util.List;
 import lombok.AllArgsConstructor;
 
 @Service
@@ -39,6 +40,11 @@ public class UserService {
     userMapper.inserUserAuthority(userAuthority);
 
     return user;
+  }
+
+  @Transactional(readOnly = true)
+  public List<TUser> getMyUserWithAuthorities() {
+    return userMapper.findOneWithAuthoritiesById();
   }
 
   @Transactional(readOnly = true)

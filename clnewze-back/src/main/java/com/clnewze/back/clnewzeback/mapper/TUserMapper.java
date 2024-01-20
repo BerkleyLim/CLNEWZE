@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.clnewze.back.clnewzeback.domain.entity.TUser;
 import com.clnewze.back.clnewzeback.domain.entity.UserAuthority;
 
-import java.util.Optional;
+import java.util.List;
 
 @Repository
 @Mapper
@@ -20,7 +20,7 @@ public interface TUserMapper {
   public TUser findOneWithAuthoritiesById(String id);
 
   // 전체 조회
-  TUser findOneWithAuthoritiesById();
+  List<TUser> findOneWithAuthoritiesById();
 
   // 회원 가입
   public TUser signUp(TUser user);

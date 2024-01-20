@@ -88,7 +88,9 @@
         t_user u1_0
     left join
         user_authority a1_0 on u1_0.uno = a1_0.uno
-    where u1_0.id=#{id}
+    <where>
+      and u1_0.id=#{id}
+    </where>
   </select>
   <!-- select json_arrayagg(a1_1.authority_name) as authorities from -->
 </mapper>
