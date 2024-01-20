@@ -75,49 +75,49 @@
     {
       "index":12,
       "title": "회원 정보 출력",
-      "link":"/mypage/admin/user/list",
+      "link":"/admin/admin/user/list",
       "isUsing": true
     },
     {
       "index":13,
       "title": "매출액",
-      "link":"/mypage/admin/dashboard",
+      "link":"/admin/admin/dashboard",
       "isUsing": true
     },
     {
       "index":14,
       "title": "악보 페이지 관리",
-      "link":"/mypage/admin/sheetmusic",
+      "link":"/admin/admin/sheetmusic",
       "isUsing": true
     },
     {
       "index":15,
       "title": "연습실 페이지 관리",
-      "link":"/mypage/admin/practiceroom",
+      "link":"/admin/admin/practiceroom",
       "isUsing": true
     },
     {
       "index":16,
       "title": "레스너찾기 페이지 관리",
-      "link":"/mypage/admin/teacher",
+      "link":"/admin/admin/teacher",
       "isUsing": true
     },
     {
       "index":17,
       "title": "블로그 페이지 관리",
-      "link":"/mypage/admin/blog",
+      "link":"/admin/admin/blog",
       "isUsing": true
     },
     {
       "index":18,
       "title": "공지사항",
-      "link":"/mypage/admin/notice",
+      "link":"/admin/admin/notice",
       "isUsing": true
     },
     {
       "index":19,
       "title": "QnA",
-      "link":"/mypage/admin/qna",
+      "link":"/admin/admin/qna",
       "isUsing": true
     }
   ]

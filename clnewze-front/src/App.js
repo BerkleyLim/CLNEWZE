@@ -9,7 +9,7 @@ function App() {
     <div>
       <Router>
         {/* 경로의 따라 view 기본 셋팅 조정 */}
-        {!window.location.href.includes("/mypage") ? (
+        {!window.location.href.includes("/mypage") || !window.location.href.includes("/admin") ? (
           <MainPage />
         ) : (
           <MyPage />

@@ -20,11 +20,11 @@ const MyPageRouter = () => {
       <Route path="/mypage/:id/teacher" element={<MyPageTeacherPage />} />
       <Route path="/mypage/:id/subscript" element={<SubScriptIndex />} />
       <Route path="/mypage/:id/performance/info" element={<MyPagePerformancePage />} />
-      <Route path="/mypage/admin/user/list" element={<UserListPage />} />
-      <Route path="/mypage/admin/practiceroom" element={<AdminPracticeRoomPage />} />
-      <Route path="/mypage/admin/sheetmusic" element={<AdminSheetMusicPage />} />
-      <Route path="/mypage/admin/teacher" element={<AdminTeacherPage />} />
-      <Route path="/mypage/admin/dashboard" element={<AdminDashboard />} />
+      <Route path="/admin/admin/user/list" element={<UserListPage />} />
+      <Route path="/admin/admin/practiceroom" element={<AdminPracticeRoomPage />} />
+      <Route path="/admin/admin/sheetmusic" element={<AdminSheetMusicPage />} />
+      <Route path="/admin/admin/teacher" element={<AdminTeacherPage />} />
+      <Route path="/admin/admin/dashboard" element={<AdminDashboard />} />
     </Routes>
   );
 };
