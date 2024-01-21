@@ -91,3 +91,9 @@ npm start
 cd *back
 mvn spring-boot:run
 ```
+
+
+### 감사의 인사
+
+- 먼저 아랫분들께서 저의 개발 숙련도를 올려주시는데에 도움을 주셔서 감사드립니다.
+- commiter : @goni9071, @Joon1313
