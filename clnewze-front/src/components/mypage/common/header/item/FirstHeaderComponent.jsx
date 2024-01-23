@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   Button,
   ButtonDropdown,
-  DropdownItem,
   DropdownMenu,
   DropdownToggle,
   Navbar,
@@ -11,13 +10,11 @@ import {
 import styles from "../../../../../scss/mypage/commom/mypage.main.module.scss";
 import { BellFill, CardList } from "react-bootstrap-icons";
 import UserContainer from "../../../../../hooks/UserContainer";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 import { userState } from "../../../../../recoil/state/userState";
 import CommonContainer from "../../../../../hooks/CommonContainer";
 import LoginPage from "../../../../../pages/login/LoginPage";
-import { myPageMenuState } from "../../../../../recoil/state/myPageHeaderState";
 import menuData from "../../../../../data/my/page/myPageMenu.json";
-import { useLocation } from "react-router-dom";
 import HeaderDropdownMenuComponent from "./HeaderDropdownMenuComponent";
 
 const FirstHeaderComponent = () => {
@@ -39,7 +36,6 @@ const FirstHeaderComponent = () => {
   // 로그아웃
   const onClickLogout = () => {
     handlerLogout();
-    // moveHrefPage("/");
   };
 
   console.log(menuData);

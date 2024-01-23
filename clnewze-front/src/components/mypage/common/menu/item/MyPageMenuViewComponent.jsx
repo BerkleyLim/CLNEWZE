@@ -1,9 +1,8 @@
 import React from "react";
 import { ListGroup, ListGroupItem } from "reactstrap";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 import styles from "../../../../../scss/mypage/commom/mypage.main.module.scss";
 import { anotherUserState } from "../../../../../recoil/state/userState";
-import { myPageMenuState } from "../../../../../recoil/state/myPageHeaderState";
 import CommonContainer from "../../../../../hooks/CommonContainer";
 import { useLocation } from "react-router-dom";
 
