@@ -48,7 +48,7 @@
       "index":7,
       "title": "연습실",
       "link":"/mypage/:id/practiceroom/info",
-      "isUsing": true,
+      "isUsing": false,
       "isLogin": false
     },
     {
