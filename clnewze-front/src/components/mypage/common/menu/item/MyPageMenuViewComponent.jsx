@@ -2,7 +2,10 @@ import React from "react";
 import { ListGroup, ListGroupItem } from "reactstrap";
 import { useRecoilValue } from "recoil";
 import styles from "../../../../../scss/mypage/commom/mypage.main.module.scss";
-import { anotherUserState } from "../../../../../recoil/state/userState";
+import {
+  anotherUserState,
+  userState,
+} from "../../../../../recoil/state/userState";
 import CommonContainer from "../../../../../hooks/CommonContainer";
 import { useLocation } from "react-router-dom";
 
@@ -31,6 +34,8 @@ const MyPageMenuViewComponent = ({ menuData, title }) => {
   // 리액트 훅 정의
   const { moveNavPage } = CommonContainer();
 
+  const user = useRecoilValue(userState);
+
   const toggleMenuClick = (e, link) => {
     const { value } = e.target;
     // 파라미터 부분 변경
@@ -55,6 +60,11 @@ const MyPageMenuViewComponent = ({ menuData, title }) => {
             className={`${styles?.myPageListGroupItem} ${
               isCurrentMenu(data?.link) && "active"
             }`}
+            style={
+              !(data?.isNotLogin || user?.isLogin === !data?.isNotLogin) && {
+                display: "none",
+              }
+            }
             onClick={(e) => {
               toggleMenuClick(e, data?.link);
             }}
