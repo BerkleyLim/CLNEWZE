@@ -38,8 +38,6 @@ const FirstHeaderComponent = () => {
     handlerLogout();
   };
 
-  console.log(menuData);
-
   return (
     <div style={{ backgroundColor: "#eee" }}>
       <Navbar className={`${styles?.myPageHeaderMenu}`}>
