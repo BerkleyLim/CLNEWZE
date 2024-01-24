@@ -61,9 +61,9 @@ const MyPageMenuViewComponent = ({ menuData, title }) => {
               isCurrentMenu(data?.link) && "active"
             }`}
             style={
-              !(data?.isNotLogin || user?.isLogin === !data?.isNotLogin) && {
-                display: "none",
-              }
+              !(data?.isNotLogin || (user?.isLogin === data?.isNotLogin)) ? {
+                display: 'none'
+              } : {}
             }
             onClick={(e) => {
               toggleMenuClick(e, data?.link);
