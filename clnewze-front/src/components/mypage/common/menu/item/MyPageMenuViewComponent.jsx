@@ -54,7 +54,7 @@ const MyPageMenuViewComponent = ({ menuData, title }) => {
     <ListGroup>
       <h6>{menuData.length > 0 && title}</h6>
       {menuData
-        ?.filter((data) => data?.isUsing)
+        ?.filter((data) => data?.isUsing && !(data?.isNotLogin && user?.id !== id))
         .map((data, index) => (
           <ListGroupItem
             key={index}
@@ -62,11 +62,6 @@ const MyPageMenuViewComponent = ({ menuData, title }) => {
             className={`${styles?.myPageListGroupItem} ${
               isCurrentMenu(data?.link) && "active"
             }`}
-            style={
-              (data?.isNotLogin && user?.id !== id) ? {
-                display: 'none'
-              } : {}
-            }
             onClick={(e) => {
               toggleMenuClick(e, data?.link);
             }}
