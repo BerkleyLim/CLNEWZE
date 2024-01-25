@@ -1,0 +1,6 @@
+// 웹 환경 컨텐츠 - 각 사용자 컴포넌트 화면에 출력될 view 조정
+
+// 가운데 정렬 - 컴포넌트별
+.componentCenterAlign {
+  padding: 0.5rem calc((100vw - 1000px)/2);
+}

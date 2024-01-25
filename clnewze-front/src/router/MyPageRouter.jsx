@@ -11,6 +11,7 @@ import UserInfoPage from "../pages/mypage/user/UserInfoPage";
 import AdminPracticeRoomPage from "../pages/mypage/admin/AdminPracticeRoomPage";
 import AdminSheetMusicPage from "../pages/mypage/admin/AdminSheetMusicPage";
 import AdminTeacherPage from "../pages/mypage/admin/AdminTeacherPage";
+import MyPageSheetMusicPage from "../pages/mypage/sheetmusic/MyPageSheetMusicPage";
 
 const MyPageRouter = () => {
   return (
@@ -20,6 +21,7 @@ const MyPageRouter = () => {
       <Route path="/mypage/:id/teacher" element={<MyPageTeacherPage />} />
       <Route path="/mypage/:id/subscript" element={<SubScriptIndex />} />
       <Route path="/mypage/:id/performance/info" element={<MyPagePerformancePage />} />
+      <Route path="/mypage/:id/sheetmusic/info" element={<MyPageSheetMusicPage />} />
       <Route path="/admin/admin/user/list" element={<UserListPage />} />
       <Route path="/admin/admin/practiceroom" element={<AdminPracticeRoomPage />} />
       <Route path="/admin/admin/sheetmusic" element={<AdminSheetMusicPage />} />
