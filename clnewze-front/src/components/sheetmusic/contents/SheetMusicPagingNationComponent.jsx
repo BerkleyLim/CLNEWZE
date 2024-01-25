@@ -6,7 +6,7 @@ import SheetMusicContainer from "../../../hooks/SheetMusicContainer";
 import { sheetMusicPagingNationState } from "../../../recoil/state/sheetMusicState";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 
-const SheetMusicPagingnation = () => {
+const SheetMusicPagingNationComponent = () => {
   const { pagingCount, limit } = SheetMusicContainer();
   const page = useRecoilValue(sheetMusicPagingNationState)
   const setPage = useSetRecoilState(sheetMusicPagingNationState)
@@ -81,4 +81,4 @@ const SheetMusicPagingnation = () => {
   );
 };
 
-export default SheetMusicPagingnation;
+export default SheetMusicPagingNationComponent;

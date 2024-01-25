@@ -5,7 +5,7 @@ import SheetMusicContainer from "../../../hooks/SheetMusicContainer";
 import { useRecoilValue } from "recoil";
 import { sheetMusicModalDataState, sheetMusicModalIsOpenState } from "../../../recoil/state/sheetMusicState";
 
-const SheetMusicComponent = () => {
+const SheetMusicViewComponent = () => {
   const { toggleModal } = SheetMusicContainer();
   const modalData = useRecoilValue(sheetMusicModalDataState);
 
@@ -45,4 +45,4 @@ const SheetMusicComponent = () => {
   );
 };
 
-export default SheetMusicComponent;
+export default SheetMusicViewComponent;

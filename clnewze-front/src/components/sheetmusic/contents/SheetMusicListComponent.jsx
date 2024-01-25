@@ -12,7 +12,7 @@ import {
 import styles from "../../../scss/sheetmusic/sheetmusic.module.scss";
 import SheetMusicContainer from "../../../hooks/SheetMusicContainer";
 
-const SheetMusicIndex = () => {
+const SheetMusicListComponent = () => {
 
   const {sheetMusics, onClickView} = SheetMusicContainer();
 
@@ -45,4 +45,4 @@ const SheetMusicIndex = () => {
   );
 };
 
-export default SheetMusicIndex;
+export default SheetMusicListComponent;
