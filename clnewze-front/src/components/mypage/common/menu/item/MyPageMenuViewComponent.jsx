@@ -48,6 +48,8 @@ const MyPageMenuViewComponent = ({ menuData, title }) => {
     moveNavPage(link);
   };
 
+  console.log(user)
+
   return (
     <ListGroup>
       <h6>{menuData.length > 0 && title}</h6>
@@ -61,7 +63,7 @@ const MyPageMenuViewComponent = ({ menuData, title }) => {
               isCurrentMenu(data?.link) && "active"
             }`}
             style={
-              !(data?.isNotLogin || (user?.isLogin === data?.isNotLogin)) ? {
+              (data?.isNotLogin && user?.id !== id) ? {
                 display: 'none'
               } : {}
             }
