@@ -3,7 +3,7 @@ import { DropdownItem } from "reactstrap";
 import {  useRecoilValue } from "recoil";
 import CommonContainer from "../../../../../hooks/CommonContainer";
 import styles from "../../../../../scss/mypage/commom/mypage.main.module.scss";
-import { anotherUserState } from "../../../../../recoil/state/userState";
+import { anotherUserState, userState } from "../../../../../recoil/state/userState";
 import { useLocation } from "react-router-dom";
 
 const HeaderDropdownMenuComponent = ({ menuData, title }) => {
@@ -25,6 +25,8 @@ const HeaderDropdownMenuComponent = ({ menuData, title }) => {
   // 경로 : /mypage/"유저 ID"/*
   const anotherUser = useRecoilValue(anotherUserState);
   const id = anotherUser?.id;
+
+  const user = useRecoilValue(userState);
   // state 정의
   // 전역 상태관리 필요 없이 구현으로 주석처리
   // const [menuInfo, setMenuInfo] = useRecoilState(myPageMenuState);
@@ -44,7 +46,7 @@ const HeaderDropdownMenuComponent = ({ menuData, title }) => {
       <DropdownItem disabled>{title}</DropdownItem>
       <DropdownItem divider={true} />
       {menuData
-        ?.filter((data) => data?.isUsing)
+        ?.filter((data) => data?.isUsing && !(data?.isNotLogin && user?.id !== id))
         .map((data, index) => (
           <DropdownItem
             key={index}
