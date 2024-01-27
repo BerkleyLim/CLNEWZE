@@ -145,7 +145,7 @@ instance.interceptors.response.use(
               isTokenRefreshing = false;
 
               window.alert("접근 권한이 만료되어 로그아웃 처리 되어 다시 로그인하여 주시기 바랍니다.");
-              window.location.href = "/login";
+              // window.location.href = "/login";
             }
           })
           .catch((e) => {
@@ -156,8 +156,9 @@ instance.interceptors.response.use(
 
             isTokenRefreshing = false;
 
-            window.alert("접근 권한이 만료되어 로그아웃 처리 되어 다시 로그인하여 주시기 바랍니다.");
-            window.location.href = "/login";
+            // window.alert("접근 권한이 만료되어 로그아웃 처리 되어 다시 로그인하여 주시기 바랍니다.");
+            window.alert("로그인 실패");
+            // window.location.href = "/login";
           });
       }
 
