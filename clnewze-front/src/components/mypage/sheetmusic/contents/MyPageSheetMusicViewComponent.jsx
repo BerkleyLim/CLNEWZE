@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, Nav, Navbar } from "reactstrap";
+import { Modal, ModalHeader, Nav, Navbar } from "reactstrap";
 import styles from "../../../../scss/sheetmusic/sheetmusic.module.scss";
 import SheetMusicContainer from "../../../../hooks/SheetMusicContainer";
 import { useRecoilValue } from "recoil";
@@ -12,6 +12,7 @@ const MyPageSheetMusicViewComponent = () => {
   const isModal = useRecoilValue(sheetMusicModalIsOpenState);
   return (
     <Modal isOpen={isModal} toggle={toggleModal} centered={true} size="xl">
+      <ModalHeader toggle={toggleModal}/>
       <div className={`${styles?.sheetMusicDetail}`}>
         <h5 className={`${styles?.sheetMusicDetailTitle}`}>
           {modalData?.artist} - {modalData?.title}
@@ -34,12 +35,6 @@ const MyPageSheetMusicViewComponent = () => {
         <div style={{ paddingTop: "100px", minHeight: "80%" }}>
           {modalData?.contents}
         </div>
-
-        <Navbar className={`${styles?.sheetMusicButtonEvent}`}>
-          <div>이전 상세목록</div>
-          <div>곡 정보 더보기</div>
-          <div>다음 상세목록</div>
-        </Navbar>
       </div>
     </Modal>
   );
