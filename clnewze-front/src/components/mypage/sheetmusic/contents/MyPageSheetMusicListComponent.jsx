@@ -9,39 +9,33 @@ import {
   Col,
   Row,
 } from "reactstrap";
-import styles from "../../../../scss/sheetmusic/sheetmusic.module.scss";
+import styles from "../../../../scss/mypage/sheetmusic/mypage.sheetmusic.module.scss";
 import SheetMusicContainer from "../../../../hooks/SheetMusicContainer";
 
 const MyPageSheetMusicListComponent = () => {
-
-  const {sheetMusics, onClickView} = SheetMusicContainer();
+  const { sheetMusics, onClickView } = SheetMusicContainer();
 
   return (
-    <Row className={`${styles?.bootstrapRowAndColCenter}`}>
+    <div className={`${styles?.sheetMusicComponent} `}>
       {sheetMusics?.map((sheetMusic, index) => (
-        <Col key={index} className={`${styles?.bootstrapRowAndColCenter} mb-5`}>
+        <div
+          key={index}
+          className={`${styles?.sheetMusicContents}`}
+        >
           <Card
-            style={{
-              width: "18rem",
-            }}
             onClick={() => onClickView(sheetMusic, index)}
-            className={`${styles?.bootstrapRowAndColCenter}`}
           >
-            <img alt="Card" className={`${styles?.teacherCard}`} src={sheetMusic?.img} />
-            {/* 조회수 : {sheetMusic?.viewNumber} */}
-            <CardBody>
-              <CardTitle className={`${styles?.commonEllipsisTitle}`} tag="h5">{sheetMusic?.artist} - {sheetMusic?.title}</CardTitle>
-              <CardText className={`${styles?.commonEllipsisContent}`}>● 장르 : {sheetMusic?.genre}</CardText>
-              <CardText className={`${styles?.commonEllipsisContent}`}>● 조회수 : {sheetMusic?.viewNumber}</CardText>
-              <CardText className={`${styles?.commonEllipsisContent}`}>● 발매날짜 : {sheetMusic?.releaseDate} 년</CardText>
-              <CardText className={`${styles?.commonEllipsisContent}`}>● 앨범명 : {sheetMusic?.albumName}</CardText>
-              <CardText className={`${styles?.commonEllipsisContent}`}>● 상세정보 : {sheetMusic?.contents}</CardText>
-            </CardBody>
+            <CardHeader>{sheetMusic?.title}</CardHeader>
+            <img
+              alt="Card"
+              className={`${styles?.sheetMusicImgCard}`}
+              src={sheetMusic?.img}
+            />
             <CardFooter>{sheetMusic?.upLoadDate}</CardFooter>
           </Card>
-        </Col>
+        </div>
       ))}
-    </Row>
+    </div>
   );
 };
 
