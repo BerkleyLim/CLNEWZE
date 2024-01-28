@@ -88,7 +88,7 @@ h2 {
 
 .sheetMusicImgCard {
   width:100%;
-  height:30vh;
+  height:200px;
 }
 
 // 마이페이지 악보 리스트 추출
@@ -98,13 +98,12 @@ h2 {
   flex-wrap: wrap;
   flex-direction: col;
   width:100%;
-  min-height: 20vh;
-  padding: 2% 2% 2% 2%;
 
   & .sheetMusicContents{
-    max-width:33%;
-    // height:10vh;
+    width:180px;
+    height:250px;
     padding: 2% 2% 2% 2%;
+    margin-bottom: 7vh;
   }
 }
 

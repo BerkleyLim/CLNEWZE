@@ -16,7 +16,21 @@ const MyPageSheetMusicListComponent = () => {
   const { sheetMusics, onClickView } = SheetMusicContainer();
 
   return (
-    <div className={`${styles?.sheetMusicComponent} `}>
+    <div className={`${styles?.sheetMusicComponent} mb-5 `}>
+      <div
+        className={`${styles?.sheetMusicContents}`}
+      >
+        <Card
+        >
+          <CardHeader>{"파일을 추가"}</CardHeader>
+          <CardBody
+            className={`${styles?.sheetMusicImgCard}`}
+          >
+            {"+"}
+          </CardBody>
+          <CardFooter>{"해주세요"}</CardFooter>
+        </Card>
+      </div>
       {sheetMusics?.map((sheetMusic, index) => (
         <div
           key={index}
