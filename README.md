@@ -19,23 +19,24 @@
 
 <br/>
 
-## 개발 환경
+## 기술 스택
 
 - 사용자 페이지
 
 > - Maven XX, VS code, Java 11 -> 17, Nodejs 16 -> 20, MySQL, Windows 11
-> - 프론트 엔드 : React, React-Query, Redux -> Recoil, JavaScript, scss/sass, html, css, reactstrap
-> - 백엔드 : java, springBoot, My-batis, Jwt
+> - 프론트엔드 : React, React-Query, Redux -> Recoil, JavaScript, scss/sass, html, reactstrap
+> - 백엔드 : java, springBoot 3.0.3, My-batis, Jwt
 > - DB : mysql(로컬), mariadb(개발 및 운영)
 > - App : React Native
 > - Infra : AWS, Route 53, SSL
+> - Other : SSE, Web Socket, SEO
 
 <br/>
 
 - 관리자 페이지
 
 > - VS code, Nodejs 20, MySQL, Windows 11
-> - 프론트 엔드 : React, React-Query, MobX, TypeScript, scss/sass, html, css
+> - 프론트엔드 : React, React-Query, MobX, TypeScript, scss/sass, html
 > - 백엔드 : nodejs, express, nest.js, My-batis
 > - DB : mysql(로컬), mariadb(개발 및 운영)
 > - Infra : AWS, Route 53, SSL
@@ -81,7 +82,7 @@ npm run start:dev # 운영 시 npm run start:prod
 
 - 프론트엔드
 
-> - 프론트엔드의 기본 인 html, css, javascript 기본기 습득
+> - 프론트엔드의 기본 인 html, css, javascript 기본기 습득 및 Custom Hooks 디자인 패턴 습득
 > - React를 이용하여 상태관리 Redux, Recoil, mobX로 Client state 습득
 > - React-Query를 활용하여 Server state 관리 가능
 > - SSE으로 FCM 개발 가능, Web Socket으로 사용자 간의 대화 가능
