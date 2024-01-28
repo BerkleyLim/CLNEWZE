@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "../../scss/login/login.module.scss"
 import SignInComponent from "../../components/login/SignInComponent";
 import SignOnComponent from "../../components/login/SignOnConponent";
-import { Modal } from "reactstrap";
+import { Modal, ModalHeader } from "reactstrap";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { isLoginOpenState } from "../../recoil/state/commonState";
 import CommonContaier from "../../hooks/CommonContainer";
@@ -37,6 +37,7 @@ const LoginPage = () => {
 
   return (
     <Modal isOpen={isLoginOpen} toggle={toggleIsLoginOpen} centered={true}>
+      <ModalHeader toggle={toggleIsLoginOpen}>Clnewze 로그인</ModalHeader>
       <div className={`${styles?.modalLogin}`}>
         {view}
       </div>

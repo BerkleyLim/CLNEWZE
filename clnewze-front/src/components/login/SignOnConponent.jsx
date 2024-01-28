@@ -14,8 +14,6 @@ const SignOnComponent = ({changeView}) => {
   };
   return (
     <>
-      <div className={`${styles?.loginLogo}`}></div>
-      <div className={`${styles?.loginTitle}`}>회원가입안내</div>
       <div className={`${styles?.loginForm}`}>
         <div className={`${styles?.flexInput}`}>
           <label className={`${styles?.flexLabelLeft}`}>id : </label>
