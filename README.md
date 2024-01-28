@@ -82,7 +82,7 @@ npm run start:dev # 운영 시 npm run start:prod
 
 - 프론트엔드
 
-> - 프론트엔드의 기본 인 html, css, javascript 기본기 습득 및 Custom Hooks 디자인 패턴 습득
+> - html, css, javascript 기본기 습득 및 Custom Hooks 디자인 패턴 습득
 > - React를 이용하여 상태관리 Redux, Recoil, mobX로 Client state 습득
 > - React-Query를 활용하여 Server state 관리 가능
 > - SSE으로 FCM 개발 가능, Web Socket으로 사용자 간의 대화 가능
