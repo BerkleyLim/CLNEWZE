@@ -6,7 +6,6 @@ import {
   ButtonDropdown,
   Button,
 } from "reactstrap";
-import styles from "../../../../scss/sheetmusic/sheetmusic.module.scss";
 import SheetMusicContainer from "../../../../hooks/SheetMusicContainer";
 
 const MyPageSheetMusicDropdownItem = ({ menuData }) => {
@@ -29,7 +28,7 @@ const MyPageSheetMusicDropdownItem = ({ menuData }) => {
       isOpen={dropdownOpen}
       toggle={toggle}
       direction="down"
-      className={`dropdown ${styles?.searchBox}`}
+      className={`dropdown`}
     >
       <Button className="dropdownTitle" outline>
         {" "}
