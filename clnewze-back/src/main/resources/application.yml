@@ -1,5 +1,6 @@
 server:
   shutdown: graceful
+  # port : 18820
 
 spring:
   profiles:
@@ -25,6 +26,8 @@ spring:
     dataSourceClassName: com.mysql.cj.jdbc.Driver  #마리아 DB시 org.mariadb.jdbc.Driver
     #dataSourceClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
     # jdbc-url: jdbc:mysql://localhost:3306/profile?useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true&autoReconnect=true
+    # password: music1010 # 비밀번호 수정
+    # username: music
     password: 1111 # 비밀번호 수정
     username: root
     # hikariCP 커넥션 과사용으로 누수 현상 나오면 메모리 부족 현상 발생
