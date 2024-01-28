@@ -38,11 +38,23 @@ const MyPageSheetMusicDropdownItem = ({ menuData }) => {
       <DropdownToggle className="dropdownToggle" caret color="primary">
       </DropdownToggle>
       <DropdownMenu>
-        {menuData?.map((data, index) => (
+        {/* {menuData?.map((data, index) => (
           <DropdownItem key={index} onClick={() => selectToggleButton(data)}>
             {data?.name}
           </DropdownItem>
-        ))}
+        ))} */}
+        <DropdownItem>
+          {"전체"}
+        </DropdownItem>
+        <DropdownItem>
+          {"제목"}
+        </DropdownItem>
+        <DropdownItem>
+          {"내용"}
+        </DropdownItem>
+        <DropdownItem>
+          {"글쓴이"}
+        </DropdownItem>
       </DropdownMenu>
     </ButtonDropdown>
   );
