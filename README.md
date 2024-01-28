@@ -87,12 +87,17 @@ npm run start:dev # 운영 시 npm run start:prod
 > - React-Query를 활용하여 Server state 관리 가능
 > - SSE으로 FCM 개발 가능, Web Socket으로 사용자 간의 대화 가능
 
-- 백엔드 서버단
+- 백엔드
 
 > - Java, Spring 으로 활용한 백엔드 개발 가능
 > - JWT 활용하는 방법의 대해 습득 및 비즈니스 로직 설계 가능
 > - DB 쿼리문을 활용하여 개발 구현 가능
 > - Node.js, express, nest.js 기술 스택 습득
+
+- APP
+
+> - React Native의 대해 습득 및 개발 가능
+> - Android와 IOS 환경에서도 개발 구현 가능
 
 - 서버 & 인프라 개발
 
