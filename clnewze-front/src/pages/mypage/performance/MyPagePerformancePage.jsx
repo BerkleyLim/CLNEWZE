@@ -19,6 +19,7 @@ import {
 } from "reactstrap";
 import { useRecoilValue } from "recoil";
 import { innerWidthState } from "../../../recoil/state/commonState";
+import "./fullcalendar.css"
 
 const MyPagePerformancePage = () => {
   // 리액트 방식 - fullCalendar 시작
@@ -31,12 +32,28 @@ const MyPagePerformancePage = () => {
   };
 
   // const themeSystem = "bootstrap5";
+  const themeSystem = "themeSystem";
 
   const aspectRatio = 1.5;
 
   const scrollTime = "08:00";
 
   const events = data;
+
+  const navLinks = true;
+
+  const select = (arg) => {
+    var title = prompt('일정 추가');
+    if (title) {
+        this.addEvent({
+            title: title,
+            start: arg.start,
+            end: arg.end,
+            allDay: arg.allDay
+        })
+    }
+    this.unselect()
+  }
   // 리액트 방식 - fullCalendar 끝
 
   const innerWidth = useRecoilValue(innerWidthState);
@@ -57,10 +74,13 @@ const MyPagePerformancePage = () => {
           plugins={plugins}
           initialView="dayGridMonth"
           headerToolbar={headerToolbar}
-          // themeSystem={themeSystem}
+          locale="ko"
+          themeSystem={themeSystem}
+          select={select}
           aspectRatio={aspectRatio}
           scrollTime={scrollTime}
           events={events}
+          navLinks={navLinks}
         />
       </Row>
     </div>
@@ -68,6 +88,7 @@ const MyPagePerformancePage = () => {
 };
 
 export default MyPagePerformancePage;
+
 
 // Javascript 방식
 // const calendarEl = document.getElementById("calender")
