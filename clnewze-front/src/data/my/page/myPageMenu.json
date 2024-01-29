@@ -5,139 +5,174 @@
       "title": "회원 정보 및 수정",
       "link":"/mypage/:id/info",
       "isUsing": true,
-      "isNotLogin": true
+      "isNotLogin": true,
+      "isDevelop": false
     },
     {
       "index":2,
       "title": "프로필 정보",
       "link":"/mypage/:id/career",
       "isUsing": true,
-      "isNotLogin": false
+      "isNotLogin": false,
+      "isDevelop": false
     },
     {
       "index":3,
       "title": "구독 등급 관리",
       "link":"/mypage/:id/subscript",
-      "isUsing": false,
-      "isNotLogin": true
+      "isUsing": true,
+      "isNotLogin": false,
+      "isDevelop": true
     },
     {
       "index":4,
       "title": "환전 신청",
       "link":"/mypage/:id/apply/return",
-      "isUsing": false,
-      "isNotLogin": true
+      "isUsing": true,
+      "isNotLogin": true,
+      "isDevelop": true
     },
     {
       "index":5,
       "title": "선생님 등록/관리",
       "link":"/mypage/:id/teacher",
       "isUsing": true,
-      "isNotLogin": false
+      "isNotLogin": false,
+      "isDevelop": false
+    },
+    {
+      "index":6,
+      "title": "레스너 구하기",
+      "link":"/mypage/:id/leasoner",
+      "isUsing": true,
+      "isNotLogin": false,
+      "isDevelop": true
     }
   ],
   "uploadInfo": [
     {
-      "index":6,
+      "index":7,
       "title": "공연정보",
       "link":"/mypage/:id/performance/info",
       "isUsing": true,
-      "isNotLogin": false
-    },
-    {
-      "index":7,
-      "title": "연습실",
-      "link":"/mypage/:id/practiceroom/info",
-      "isUsing": false,
-      "isNotLogin": false
+      "isNotLogin": false,
+      "isDevelop": false
     },
     {
       "index":8,
-      "title": "악보",
-      "link":"/mypage/:id/sheetmusic/info",
-      "isUsing": true,
-      "isNotLogin": false
+      "title": "연습실",
+      "link":"/mypage/:id/practiceroom/info",
+      "isUsing": false,
+      "isNotLogin": false,
+      "isDevelop": false
     },
     {
       "index":9,
+      "title": "악보",
+      "link":"/mypage/:id/sheetmusic/info",
+      "isUsing": true,
+      "isNotLogin": false,
+      "isDevelop": false
+    },
+    {
+      "index":10,
       "title": "블로그",
       "link":"/mypage/:id/blog/info",
-      "isUsing": false,
-      "isNotLogin": false
+      "isUsing": true,
+      "isNotLogin": false,
+      "isDevelop": true
     }
   ],
   "salesInfo": [
     {
-      "index":10,
-      "title": "구입악보",
-      "link":"/mypage/:id/buy/sheetmusic",
-      "isUsing": false,
-      "isNotLogin": false
+      "index":11,
+      "title": "매출액 정보",
+      "link":"/mypage/:id/salesmain",
+      "isUsing": true,
+      "isNotLogin": false,
+      "isDevelop": true
     },
     {
       "index":11,
+      "title": "구입악보",
+      "link":"/mypage/:id/buy/sheetmusic",
+      "isUsing": true,
+      "isNotLogin": true,
+      "isDevelop": true
+    },
+    {
+      "index":12,
       "title": "판매악보",
       "link":"/mypage/:id/sell/sheetmusic",
-      "isUsing": false,
-      "isNotLogin": false
+      "isUsing": true,
+      "isNotLogin": true,
+      "isDevelop": true
     }
   ],
   "adminMenu": [
     {
-      "index":12,
+      "index":13,
       "title": "회원 정보 출력",
       "link":"/admin/admin/user/list",
       "isUsing": true,
-      "isNotLogin": true
-    },
-    {
-      "index":13,
-      "title": "매출액",
-      "link":"/admin/admin/dashboard",
-      "isUsing": true,
-      "isNotLogin": true
+      "isNotLogin": true,
+      "isDevelop": false
     },
     {
       "index":14,
-      "title": "악보 페이지 관리",
-      "link":"/admin/admin/sheetmusic",
+      "title": "매출액",
+      "link":"/admin/admin/dashboard",
       "isUsing": true,
-      "isNotLogin": true
+      "isNotLogin": true,
+      "isDevelop": false
     },
     {
       "index":15,
-      "title": "연습실 페이지 관리",
-      "link":"/admin/admin/practiceroom",
+      "title": "악보 페이지 관리",
+      "link":"/admin/admin/sheetmusic",
       "isUsing": true,
-      "isNotLogin": true
+      "isNotLogin": true,
+      "isDevelop": false
     },
     {
       "index":16,
-      "title": "레스너찾기 페이지 관리",
-      "link":"/admin/admin/teacher",
+      "title": "연습실 페이지 관리",
+      "link":"/admin/admin/practiceroom",
       "isUsing": true,
-      "isNotLogin": true
+      "isNotLogin": true,
+      "isDevelop": false
     },
     {
       "index":17,
-      "title": "블로그 페이지 관리",
-      "link":"/admin/admin/blog",
+      "title": "레스너찾기 페이지 관리",
+      "link":"/admin/admin/teacher",
       "isUsing": true,
-      "isNotLogin": true
+      "isNotLogin": true,
+      "isDevelop": false
     },
     {
       "index":18,
-      "title": "공지사항",
-      "link":"/admin/admin/notice",
+      "title": "블로그 페이지 관리",
+      "link":"/admin/admin/blog",
       "isUsing": true,
-      "isNotLogin": true
+      "isNotLogin": true,
+      "isDevelop": false
     },
     {
       "index":19,
+      "title": "공지사항",
+      "link":"/admin/admin/notice",
+      "isUsing": true,
+      "isNotLogin": true,
+      "isDevelop": false
+    },
+    {
+      "index":20,
       "title": "QnA",
       "link":"/admin/admin/qna",
       "isUsing": true,
-      "isNotLogin": true
+      "isNotLogin": true,
+      "isDevelop": false
     }
   ]
 }

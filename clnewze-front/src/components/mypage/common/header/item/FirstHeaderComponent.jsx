@@ -76,7 +76,7 @@ const FirstHeaderComponent = () => {
                   <HeaderDropdownMenuComponent menuData={menuData?.userInfo} title={"회원 정보"}/>
                   <HeaderDropdownMenuComponent menuData={menuData?.uploadInfo} title={"업로드 정보"}/>
                   {/* 매출 정보 임시 제거, 아직 기능 구현 안되어서 잠깐 제거함 */}
-                  {/* <HeaderDropdownMenuComponent menuData={menuData?.salesInfo} title={"매출 정보"}/> */}
+                  <HeaderDropdownMenuComponent menuData={menuData?.salesInfo} title={"매출 정보"}/>
                   {
                     user?.id === 'admin' &&
                       <HeaderDropdownMenuComponent menuData={menuData?.adminMenu} title={"관리자 정보"}/>

@@ -34,7 +34,13 @@ const HeaderDropdownMenuComponent = ({ menuData, title }) => {
   const { moveNavPage } = CommonContainer();
 
   // 여기는 드롭다운에서 클릭 시 메뉴에 알맞게 컴포넌트 변환
-  const toggleMenuClick = (e, link) => {
+  const toggleMenuClick = (e, link, isDevelop) => {
+    // 개발 중일때 개발중으로 표시
+    if (isDevelop) {
+      alert("이 서비스는 개발 중 입니다.")
+      return;
+    }
+
     // 파라미터 부분 변경
     link = link.replaceAll(":id", id);
 
@@ -51,7 +57,7 @@ const HeaderDropdownMenuComponent = ({ menuData, title }) => {
           <DropdownItem
             key={index}
             value={data?.index}
-            onClick={(e) => toggleMenuClick(e, data?.link)}
+            onClick={(e) => toggleMenuClick(e, data?.link, data?.isDevelop)}
             className={`${styles?.myPageListGroupItem} ${
               isCurrentMenu(data?.link) && "active"
             }`}

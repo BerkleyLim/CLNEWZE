@@ -36,7 +36,15 @@ const MyPageMenuViewComponent = ({ menuData, title }) => {
 
   const user = useRecoilValue(userState);
 
-  const toggleMenuClick = (e, link) => {
+  const toggleMenuClick = (e, link, isDevelop) => {
+
+    // 개발 중일때 개발중으로 표시
+    if (isDevelop) {
+      alert("이 서비스는 개발 중 입니다.")
+      return;
+    }
+
+    // 개발중 아닐때 실행
     const { value } = e.target;
     // 파라미터 부분 변경
     link = link.replaceAll(":id", id);
@@ -63,7 +71,7 @@ const MyPageMenuViewComponent = ({ menuData, title }) => {
               isCurrentMenu(data?.link) && "active"
             }`}
             onClick={(e) => {
-              toggleMenuClick(e, data?.link);
+              toggleMenuClick(e, data?.link, data?.isDevelop);
             }}
           >
             {data?.title}
