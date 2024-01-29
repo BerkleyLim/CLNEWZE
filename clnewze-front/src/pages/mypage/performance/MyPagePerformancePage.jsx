@@ -43,17 +43,23 @@ const MyPagePerformancePage = () => {
   const navLinks = true;
 
   const select = (arg) => {
-    var title = prompt('일정 추가');
-    if (title) {
-        this.addEvent({
-            title: title,
-            start: arg.start,
-            end: arg.end,
-            allDay: arg.allDay
-        })
-    }
-    this.unselect()
+    // var title = prompt('일정 추가');
+    // if (title) {
+    //     this.addEvent({
+    //         title: title,
+    //         start: arg.start,
+    //         end: arg.end,
+    //         allDay: arg.allDay
+    //     })
+    // }
+    // this.unselect()
+    alert("클릭")
   }
+
+  const dateClick = () => {
+    alert("클릭")
+  }
+
   // 리액트 방식 - fullCalendar 끝
 
   const innerWidth = useRecoilValue(innerWidthState);
@@ -81,6 +87,7 @@ const MyPagePerformancePage = () => {
           scrollTime={scrollTime}
           events={events}
           navLinks={navLinks}
+          dateClick={dateClick}
         />
       </Row>
     </div>
