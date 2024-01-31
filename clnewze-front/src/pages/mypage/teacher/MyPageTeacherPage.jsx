@@ -8,9 +8,6 @@ const MyTeacherPage = () => {
   const innerWidth = useRecoilValue(innerWidthState);
   return (
     <div className={`${innerWidth >= 860 ? styles?.myPageWebContainer : styles?.myPageMobileContainer}`}>
-      <h1>선생님 등록/관리</h1>
-      <br/><br/>
-
       {/* 선생님 등록 폼 */}
       <TeacherRegisterComponent />
       
