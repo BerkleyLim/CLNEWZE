@@ -1,62 +1,61 @@
 div {
   & .modalLogin {
     margin:0 auto;
-    align-items: center;
     width: 100%;
-    height:500px;
+    min-height:50vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-    & .loginLogo {
-      background-color: #232323;
-      width: 100%;
-      height: 50px;
-      margin: 0 0 30px 0;
-    }
+    // 아래서부터는 로그인 컴포넌트
+    & .loginComponent { 
 
-    & .loginTitle {
-      /* justify-content: center; */
-      margin-left:28%;
-      /* align-items: center;
-      align-content: center; */
-    }
-
-    & .loginForm {
-      padding:20px 50px 20px 50px;
-
-      & .flexInput {
-        display:flex;
-        padding:5px 0 5px 0;
-        align-items: center;
+      & .loginForm {
+        height: 20vh;
+        // text-align: center;
+        display: flex;
+        flex-direction: column;
+        // align-items: center;
+        justify-content: center;
+    
+  
+        & .flexInput {
+          display:flex;
+          // padding:5px 0 5px 0;
+          align-items: center;
+        }
+  
+        & .flexLabelLeft {
+          flex: 0 0 20%;
+        }
+  
+        & .flexLabelRight {
+          flex: 0 0 80%;
+        }
       }
-
-      & .flexLabelLeft {
-        flex: 0 0 20%;
-      }
-
-      & .flexLabelRight {
-        flex: 0 0 80%;
-      }
-    }
-
-    .loginButtonComponent {
-      padding:30px 50px 20px 50px;
-      display:list-item;
-
-      & .commonButton {
-        width:100%;
-        padding: 10px 0 10px 0;
-        font-size: 1.25rem;
-      }
-
-      & .loginButton {
-        background-color: #2222dd;
-      }
-
-      & .signInButton {
-        background-color: #eeeeee;
-      }
-
-      & .findIdPasswordButton {
-        background-color: #dddddd;
+  
+      .loginButtonComponent {
+        height: 30vh;
+  
+        & .commonButton {
+          width:100%;
+          padding: 10px 0 10px 0;
+          font-size: 1.25rem;
+        }
+  
+        & .loginButton {
+          background-color: #2222dd;
+        }
+  
+        & .signInButton {
+          background-color: #eeeeee;
+        }
+  
+        & .findIdPasswordButton {
+          background-color: #dddddd;
+        }
       }
     }
   }

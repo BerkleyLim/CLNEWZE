@@ -23,9 +23,9 @@ const SignInComponent =  ({changeView}) => {
   }
 
   return (
-    <>
+    <div className={`${styles?.loginComponent}`}>
       <div className={`${styles?.loginForm}`}>
-        <div className={`${styles?.flexInput}`}>
+        <div className={`${styles?.flexInput} pt-2 pb-2`}>
           <label className={`${styles?.flexLabelLeft}`}>id : </label>
           <input
             name="id"
@@ -35,8 +35,8 @@ const SignInComponent =  ({changeView}) => {
             onChange={onChange}
           />
         </div>
-        <div className={`${styles?.flexInput}`}>
-          <label className={`${styles?.flexLabelLeft}`}>Password : </label>
+        <div className={`${styles?.flexInput} pt-2 pb-2`}>
+          <label className={`${styles?.flexLabelLeft}`}>pw : </label>
           <input
             name="password"
             placeholder="Password"
@@ -64,7 +64,7 @@ const SignInComponent =  ({changeView}) => {
           아이디/비밀번호 찾기
         </button>
       </div>
-    </>
+    </div>
   );
 };
 
