@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "../../scss/login/login.module.scss"
 import CommonContaier from "../../hooks/CommonContainer";
 
-const SignInComponent =  ({changeView}) => {
+const SignInComponent =  () => {
   const [inputs, setInputs] = useState();
   const {loginButton} = CommonContaier();
 
@@ -57,7 +57,7 @@ const SignInComponent =  ({changeView}) => {
           로그인
         </button>
         <button className={`secondary ${styles?.commonButton} ${styles?.signInButton}`}
-          onClick={() => changeView(2)}>
+          onClick={() => {window.location.href="/signon"}}>
           회원가입
         </button>
         <button className={`secondary ${styles?.commonButton} ${styles?.findIdPasswordButton}`}>
