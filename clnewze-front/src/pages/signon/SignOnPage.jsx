@@ -17,7 +17,7 @@ const SignOnPage = () => {
           </div>
           {/* 25vh */}
           <Navbar className={`${styles?.signOnPhaseComponent}`}>
-            <div className={`${styles?.signOnPhase}`} style={{backgroundColor:"blue", color:"white"}}>1단계</div>
+            <div className={`${styles?.signOnPhase}`} style={{backgroundColor: "blue", color: "white"}}>1단계</div>
             <div className={`${styles?.signOnPhase}`}>2단계</div>
             <div className={`${styles?.signOnPhase}`}>3단계</div>
           </Navbar>
