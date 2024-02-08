@@ -54,8 +54,8 @@ const SignOnPage = () => {
           </div>
 
 
-          <Button onClick={() => navigate('/login')}>가입완료</Button>
-          <Button onClick={() => navigate('/login')}>이전화면</Button>
+          <Button onClick={() => navigate('/')}>가입완료</Button>
+          <Button onClick={() => {window.history.back()}}>이전화면</Button>
         </div>
       </div>
     </div>
