@@ -10,7 +10,7 @@ const SignOnPage = () => {
       {/* 800px로 맞춤 */}
       <div style={{maxWidth:"800px"}}>
         {/* 20vh - 헤더 부분을 가리키는 회원가입 페이지 */}
-        <div style={{minHeight:"30vh", border: "1px solid", padding:"5% 5% 5% 5%"}}>
+        <div style={{minHeight:"20vh", border: "1px solid", padding:"3% 3% 3% 3%"}}>
           {/* 5vh */}
           <div style={{height:"5vh"}}>
             <h1>회원가입</h1> 
@@ -24,7 +24,7 @@ const SignOnPage = () => {
         </div>
         
         {/* 80vh : 아래는 단계별 컴포넌트를 다르게 출력시키기 - 별토 컴포넌트 빼기 */}
-        <div style={{minHeight:"70vh", border: "1px solid", padding:"5% 5% 5% 5%"}}>
+        <div style={{minHeight:"70vh", border: "1px solid", padding:"3% 3% 3% 3%"}}>
           {/* 15vh */}
           <div style={{height:"15vh", textAlign:"start"}}>
             <h2 >회원약관동의</h2>

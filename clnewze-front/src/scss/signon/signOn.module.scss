@@ -25,6 +25,13 @@
   border: 1px solid;
   text-align: center;
   align-content: center;
+  cursor: pointer;
+}
+.signOnPhase:hover {
+  background-color: green;
+}
+.signOnPhase:active {
+  background-color: blue;
 }
 
 .singOnTextArea {
