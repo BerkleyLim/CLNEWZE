@@ -56,7 +56,6 @@ const MyPageMenuViewComponent = ({ menuData, title }) => {
     moveNavPage(link);
   };
 
-  console.log(user)
 
   return (
     <ListGroup>
