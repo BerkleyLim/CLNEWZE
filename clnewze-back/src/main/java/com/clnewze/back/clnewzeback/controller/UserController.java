@@ -114,10 +114,31 @@ public class UserController {
     UserInfoVo result = UserInfoVo.builder().uno(tUser.getUno()).id(tUser.getId()).userName(tUser.getUserName())
         .nickName(tUser.getNickName()).loginTime(tUser.getLoginTime()).birthday(tUser.getBirthday())
         .activated(tUser.getActivated()).build();
+    // UserInfoVo result =
+    // UserInfoVo.builder().uno(tUser.getUno()).id(tUser.getId()).password(tUser.getPassword())
+    // .userName(tUser.getUserName()).nickName(tUser.getNickName()).loginTime(tUser.getLoginTime())
+    // .birthday(tUser.getBirthday()).activated(tUser.getActivated()).build();
     ResponseObject<UserInfoVo> ro = new ResponseObject<>("로그인 이후 필요 유저 정보 확인 성공");
     ro.setData(result);
     return new ResponseEntity<>(ro, HttpStatus.OK);
   }
+
+  // // 나의 정보 조회 - 패스워드 출력
+  // // 이것은 업데이트 용으로 쓰임
+  // @GetMapping("/myinfo/password")
+  // public ResponseEntity<ResponseObject<UserInfoVo>>
+  // getMyUserInfoPassword(@CurrentUser SessionUser sessionUser) {
+  // TUser tUser = userService.getMyUserWithAuthorities(sessionUser.getId());
+  // // front-End 개발자에게 보낼 회원 정보
+  // UserInfoVo result =
+  // UserInfoVo.builder().uno(tUser.getUno()).id(tUser.getId()).password(tUser.getPassword())
+  // .userName(tUser.getUserName()).nickName(tUser.getNickName()).loginTime(tUser.getLoginTime())
+  // .birthday(tUser.getBirthday()).activated(tUser.getActivated()).build();
+  // ResponseObject<UserInfoVo> ro = new ResponseObject<>("로그인 이후 필요 유저 정보 확인
+  // 성공");
+  // ro.setData(result);
+  // return new ResponseEntity<>(ro, HttpStatus.OK);
+  // }
 
   // 인증 로그인 -> 이부분을 JWT 로그인 인증 처리를 진행해야함
   // 혹은 signin API 필요 없이 AuthController를 이용하여 token 값만 받은 것으로 끝내도 무방한지 여부를 알고
