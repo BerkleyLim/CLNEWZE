@@ -42,3 +42,9 @@ export const anotherUserState = atom({
   key: 'anotherUser',
   default: InitState
 });
+
+// 익명 유저가 다른 유저 프로필 접근시 정보 상태 관리 값
+export const selectUpdateLoginUserInfoState = atom({
+  key: 'selectUpdateUserInfo',
+  default: {}
+});

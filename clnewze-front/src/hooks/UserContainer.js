@@ -1,5 +1,5 @@
 import { useRecoilState, useResetRecoilState, useSetRecoilState } from "recoil";
-import { anotherUserState, userState } from "../recoil/state/userState";
+import { anotherUserState, selectUpdateLoginUserInfoState, userState } from "../recoil/state/userState";
 import UserService from "../service/UserService";
 import { myPageMenuState } from "../recoil/state/myPageHeaderState";
 import UseApi from "../util/UseApi"
@@ -11,6 +11,7 @@ const UserContainer = () => {
   const myPageMenuRefresh = useResetRecoilState(myPageMenuState); // 마이페이지 번호 default로 변경
   const setAnotherUser = useSetRecoilState(anotherUserState);  // 타인이 내프로필 접근할 때
   const { signIn, createToken, userInfo, getMyProfileUserInfo } = UserService();
+  const setSelectUpdateLoginUserInfo = useSetRecoilState(selectUpdateLoginUserInfoState);
 
   // 1) 로그인 처리 함수
   const handlerLogin = async (inputs) => {
@@ -82,11 +83,25 @@ const UserContainer = () => {
       window.location.href = '/'
       return;
     }
-    setAnotherUser(data);
+
+    // 아래는 타 유저가 유저에 접근 할 때 쓰임
+    setAnotherUser(data); 
+  }
+
+  // 5) 업데이트에 필요한 회원 정보 조회
+  const selectUpdateUserInfoProfile = async (id) => {
+    const data = await getMyProfileUserInfo(id);
+    
+    // 아래는 회원 정보 표시 할 때 데이터를 의미함
+    // 회원 정보 및 수정 리턴 할때 씀
+    // 이유 : state에 session에 저장 할 때, 비밀번호가 저장 되므로 api 호출한 결과를
+    // 따로 변수 저장 할 것
+    // return data
+    setSelectUpdateLoginUserInfo(data)
   }
 
 
-  return {handlerLogin, handlerLogout, handlerMyPageLogin, userProfile}
+  return {handlerLogin, handlerLogout, handlerMyPageLogin, userProfile, selectUpdateUserInfoProfile}
 }
 
 export default UserContainer
