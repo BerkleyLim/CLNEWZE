@@ -38,7 +38,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     // JWT 인증 url 리스트
     List<String> jwtUrlList = new ArrayList<String>();
-    jwtUrlList.add("/api/user/myinfo");
+    jwtUrlList.add("/api/user/myinfo"); // 회원 정보 조회
+    jwtUrlList.add("/api/user/update"); // 회원 정보 수정
 
     registry.addInterceptor(loginInterceptor()).addPathPatterns(sessionUrlList);
     registry.addInterceptor(jwtInterceptor()).addPathPatterns(jwtUrlList);
