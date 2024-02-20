@@ -39,13 +39,32 @@
   </insert>
 
   <update id="updateUserInfo">
-    UPDATE t_user SET
-        id=#{id}
-        password=#{password}
-        user_name=#{userName}
-        nick_name=#{nickName}
-        birthday=#{birthday}
-        activated=#{activated}
+    UPDATE t_user SET]
+      <choose>
+        <when test="password != null or password != ''">
+          password=#{password}
+        </when>
+      </choose>
+      <choose>
+        <when test="userName != null or userName != ''">
+          user_name=#{userName}
+        </when>
+      </choose>
+      <choose>
+        <when test="nickName != null or nickName != ''">
+          nick_name=#{nickName}
+        </when>
+      </choose>
+      <choose>
+        <when test="birthday != null or birthday != ''">
+          birthday=#{birthday}
+        </when>
+      </choose>
+      <choose>
+        <when test="activated != null or activated != ''">
+          activated=#{activated}
+        </when>
+      </choose>
     WHERE uno=#{uno};
   </update>
 

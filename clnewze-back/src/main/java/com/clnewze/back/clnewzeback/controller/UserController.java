@@ -173,9 +173,23 @@ public class UserController {
 
   // 회원 정보 수정
   @PostMapping("/update")
-  public int updateUserInfo(TUser tUser) {
-    int i = updateUserInfo(tUser);
-    return 1;
+  public ResponseEntity<ResponseObject<UserInfoVo>> updateMyUserInfo(@CurrentUser SessionUser sessionUser,
+      TUser tUser) {
+    // TUser tUser = userService.getMyUserWithAuthorities(sessionUser.getId());
+
+    // 아래는 업데이트 실시
+    int i = userService.updateUserInfo(tUser);
+    // front-End 개발자에게 보낼 회원 정보
+    UserInfoVo result = UserInfoVo.builder().uno(tUser.getUno()).id(tUser.getId()).userName(tUser.getUserName())
+        .nickName(tUser.getNickName()).loginTime(tUser.getLoginTime()).birthday(tUser.getBirthday())
+        .activated(tUser.getActivated()).build();
+    // UserInfoVo result =
+    // UserInfoVo.builder().uno(tUser.getUno()).id(tUser.getId()).password(tUser.getPassword())
+    // .userName(tUser.getUserName()).nickName(tUser.getNickName()).loginTime(tUser.getLoginTime())
+    // .birthday(tUser.getBirthday()).activated(tUser.getActivated()).build();
+    ResponseObject<UserInfoVo> ro = new ResponseObject<>("로그인 이후 필요 유저 정보 확인 성공");
+    ro.setData(result);
+    return new ResponseEntity<>(ro, HttpStatus.OK);
   }
 
 }
