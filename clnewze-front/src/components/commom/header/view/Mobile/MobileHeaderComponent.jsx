@@ -11,7 +11,7 @@ import {
 
 import { BellFill, CardList } from "react-bootstrap-icons";
 
-import headerData from "../../sampledata/data.json";
+import headerData from '../../../../../data/header/headerData.json'
 import { useRecoilValue } from "recoil";
 import { userState } from "../../../../../recoil/state/userState";
 import LoginPage from "../../../../../pages/login/LoginPage";
@@ -33,6 +33,15 @@ const MobileHeaderComponent = () => {
       toggleIsLoginOpen();
     }
   };
+
+  // 헤더 이동, isView의 따라 이동 가능 불가능 결정
+  const moveHeader = (category, isView) => {
+    if(isView) {
+      moveNavPage(category)
+    } else {
+      alert('빠른 시일 내에 개발하여 서비스 제공하겠습니다.')
+    }
+  }
 
   return (
     <>
@@ -64,7 +73,7 @@ const MobileHeaderComponent = () => {
               {headerData?.map((data, index) => (
                 <DropdownItem
                   key={index}
-                  onClick={() => moveNavPage(data?.category)}
+                  onClick={() => moveHeader(data?.category, data?.isView)}
                 >
                   {data?.menuName}
                 </DropdownItem>

@@ -1,20 +1,17 @@
 import React from "react";
 import styles from "../../../../../scss/main/common/header.module.scss";
-import {
-  Button,
-  Navbar,
-} from "reactstrap";
+import { Button, Navbar } from "reactstrap";
 
 import { BellFill, PersonCircle } from "react-bootstrap-icons";
 
-import headerData from "../../sampledata/data.json";
+import headerData from "../../../../../data/header/headerData.json";
 import { useRecoilValue } from "recoil";
 import { userState } from "../../../../../recoil/state/userState";
 import CommonContaier from "../../../../../hooks/CommonContainer";
 import LoginPage from "../../../../../pages/login/LoginPage";
 
 const WebHeaderComponent = () => {
-  const {toggleIsLoginOpen} = CommonContaier();
+  const { toggleIsLoginOpen } = CommonContaier();
 
   const user = useRecoilValue(userState);
 
@@ -23,15 +20,24 @@ const WebHeaderComponent = () => {
 
   const userMenu = () => {
     if (user.isLogin) {
-      moveHrefPage("/mypage/"+user?.id);
+      moveHrefPage("/mypage/" + user?.id);
     } else {
       toggleIsLoginOpen();
     }
   };
 
+  // 헤더 이동, isView의 따라 이동 가능 불가능 결정
+  const moveHeader = (category, isView) => {
+    if (isView) {
+      moveNavPage(category);
+    } else {
+      alert("빠른 시일 내에 개발하여 서비스 제공하겠습니다.");
+    }
+  };
+
   return (
     <>
-    {/* 헤더1 */}
+      {/* 헤더1 */}
       <Navbar className={`${styles?.hdContent1}`}>
         <div className={`${styles?.header_logo}`}>
           <a href="/">
@@ -70,7 +76,7 @@ const WebHeaderComponent = () => {
           <button
             key={index}
             type="button"
-            onClick={() => moveNavPage(data?.category)}
+            onClick={() => moveHeader(data?.category, data?.isView)}
           >
             {data?.menuName}
           </button>
