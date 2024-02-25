@@ -26,6 +26,9 @@ const LoginComponent = () => {
     <Form className={`${styles?.loginFormContainer}`}>
       <div className={`p-5`}>
         <div className={`mb-3`}>
+          <h2>클뉴즈 관리자 로그인</h2>
+        </div>
+        <div className={`mb-3`}>
           <Input
             name="id"
             type="text"
