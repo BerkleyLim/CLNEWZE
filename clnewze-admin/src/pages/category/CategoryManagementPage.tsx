@@ -1,34 +1,15 @@
 import React from "react";
+import SheetMusicManagementComponent from "../../components/category/sub/SheetMusicManagementComponent";
 
 const CategoryManagementPage = () => {
   return (
     <div>
       <h1>카테고리 관리</h1>
-      <br />
-      다음은 내용을 입력하세요.......
-      <br />
-      다음은 내용을 입력하세요.......
-      <br />
-      다음은 내용을 입력하세요.......
-      <br />
-      다음은 내용을 입력하세요.......
-      <br />
-      다음은 내용을 입력하세요.......
-      <br />
-      다음은 내용을 입력하세요.......
-      <br />
-      다음은 내용을 입력하세요.......
-      <br />
-      다음은 내용을 입력하세요.......
-      <br />
-      다음은 내용을 입력하세요.......
-      <br />
-      다음은 내용을 입력하세요.......
-      <br />
-      다음은 내용을 입력하세요.......
-      <br />
-      다음은 내용을 입력하세요.......
-      <br />
+      <hr/>
+      <br /><br />
+
+      {/* 악보 관리 */}
+      <SheetMusicManagementComponent />
     </div>
   );
 };
