@@ -110,6 +110,7 @@ const menuData = [
     },  // bootstrap 기반으로 ListGroupItem css 추가 설정
     title: "악보",  // 제목 보여주기
     isView: true, // 보여주기 여부 설정
+    link: "/category/sheet/music"
   },
   // 하위 리스트 - 카테고리 관리 하위
   {

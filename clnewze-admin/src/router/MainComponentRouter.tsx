@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import SchedulesManagementPage from '../pages/schedules/SchedulesManagementPage'
 import SalesManagementPage from '../pages/sales/SalesManagementPage'
 import CategoryManagementPage from '../pages/category/CategoryManagementPage'
+import SheetMusicManegementPage from '../pages/category/sub/SheetMusicManegementPage'
 
 const MainComponentRouter = () => {
   return (
@@ -20,6 +21,9 @@ const MainComponentRouter = () => {
       <Route
         path="/category"
         element={<CategoryManagementPage />} />
+      <Route
+        path="/category/sheet/music"
+        element={<SheetMusicManegementPage />} />
     </Routes>
   )
 }
