@@ -163,7 +163,7 @@ CREATE TABLE `master_menu_sheetmusic` (
   `orderby` int DEFAULT NULL COMMENT '카테고리 배치 순서',
   `category` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '카테고리 키워드 등록',
   PRIMARY KEY (`smtno`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -172,7 +172,7 @@ CREATE TABLE `master_menu_sheetmusic` (
 
 LOCK TABLES `master_menu_sheetmusic` WRITE;
 /*!40000 ALTER TABLE `master_menu_sheetmusic` DISABLE KEYS */;
-INSERT INTO `master_menu_sheetmusic` VALUES (2,'전체',1,''),(3,'클래식',2,'classic'),(4,'뉴에이지',3,'newage'),(5,'재즈',4,'jazz'),(6,'가요',5,'kpop'),(7,'팝',6,'pop'),(8,'OST',7,'ost'),(9,'기타장르',8,'etc');
+INSERT INTO `master_menu_sheetmusic` VALUES (2,'전체',1,''),(3,'클래식',2,'classic'),(4,'뉴에이지',3,'newage'),(5,'재즈',4,'jazz'),(6,'가요',5,'kpop'),(7,'팝',6,'pop'),(8,'OST',7,'ost'),(9,'기타장르',8,'etc'),(13,'ㅇㄹ',9,'ㄴㅇㄹ');
 /*!40000 ALTER TABLE `master_menu_sheetmusic` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -216,7 +216,7 @@ CREATE TABLE `practiceroom` (
   `name` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `place` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `contents` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `upload_date` datetime DEFAULT NULL,
+  `upLoad_date` datetime DEFAULT NULL,
   `price` int DEFAULT NULL,
   `categories` varchar(100) DEFAULT NULL,
   `uno` int DEFAULT NULL,
@@ -300,7 +300,7 @@ CREATE TABLE `t_user` (
 
 LOCK TABLES `t_user` WRITE;
 /*!40000 ALTER TABLE `t_user` DISABLE KEYS */;
-INSERT INTO `t_user` VALUES (1,'admin','$2a$10$5wNYWG1HyHJoXX0FbxlBPOW9SN5NXUx5RtqmbIAuxSlYNAzvJV9Gu','admin','2023-08-15 23:17:16','2023-08-15 23:17:41','admin','1999-11-11',1),(2,'test1','$2a$10$Lrwj5cH1fTOvRN62Yew97OnGQLdXmVSA0Eps1ydLdQBa6xZqj/qqa','test1','2023-12-16 23:27:41','2023-12-16 23:27:41','test1','1999-11-11',1),(3,'test2','1234','test2','2023-12-16 23:27:51','2023-12-16 23:27:51','test2','1999-11-11',1),(4,'test3','1234','test3','2023-12-16 23:28:02','2023-12-16 23:28:02','test3','1999-11-11',1);
+INSERT INTO `t_user` VALUES (1,'admin','$2a$10$5wNYWG1HyHJoXX0FbxlBPOW9SN5NXUx5RtqmbIAuxSlYNAzvJV9Gu','admin','2023-08-15 23:17:16','2023-08-15 23:17:41','admin','1999-11-11',1),(2,'test1','$2a$10$Lrwj5cH1fTOvRN62Yew97OnGQLdXmVSA0Eps1ydLdQBa6xZqj/qqa','test1','2023-12-16 23:27:41','2023-12-16 23:27:41','test1','1999-11-11',1),(3,'test2','$2a$10$2oYuQry/dOqGxDShyfgMG.sJJkoCnJGfX6h/l8MdXKgoAb69X9x0G','test2','2023-12-16 23:27:51','2023-12-16 23:27:51','test2','1999-11-11',1),(4,'test3','1234','test3','2023-12-16 23:28:02','2023-12-16 23:28:02','test3','1999-11-11',1);
 /*!40000 ALTER TABLE `t_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -347,7 +347,7 @@ CREATE TABLE `teacher` (
   `major` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `place` varchar(45) DEFAULT NULL,
   `contents` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `uploadDate` datetime DEFAULT NULL,
+  `upload_date` datetime DEFAULT NULL,
   `uno` int DEFAULT NULL,
   PRIMARY KEY (`tno`),
   KEY `teacher_FK` (`uno`),
@@ -403,4 +403,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-26  0:33:56
+-- Dump completed on 2024-02-28 10:39:58
