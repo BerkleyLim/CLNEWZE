@@ -135,14 +135,6 @@
       "isDevelop": false
     },
     {
-      "index":17,
-      "title": "악보 페이지 관리",
-      "link":"/admin/admin/sheetmusic",
-      "isUsing": true,
-      "isNotLogin": true,
-      "isDevelop": false
-    },
-    {
       "index":18,
       "title": "연습실 페이지 관리",
       "link":"/admin/admin/practiceroom",

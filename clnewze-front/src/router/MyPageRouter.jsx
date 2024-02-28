@@ -8,8 +8,6 @@ import MyPageTeacherPage from "../pages/mypage/teacher/MyPageTeacherPage";
 import MyPagePerformancePage from "../pages/mypage/performance/MyPagePerformancePage";
 import UserListPage from "../pages/mypage/admin/UserListPage";
 import UserInfoPage from "../pages/mypage/user/UserInfoPage";
-import AdminPracticeRoomPage from "../pages/mypage/admin/AdminPracticeRoomPage";
-import AdminSheetMusicPage from "../pages/mypage/admin/AdminSheetMusicPage";
 import AdminTeacherPage from "../pages/mypage/admin/AdminTeacherPage";
 import MyPageSheetMusicPage from "../pages/mypage/sheetmusic/MyPageSheetMusicPage";
 
@@ -23,8 +21,6 @@ const MyPageRouter = () => {
       <Route path="/mypage/:id/performance/info" element={<MyPagePerformancePage />} />
       <Route path="/mypage/:id/sheetmusic/info" element={<MyPageSheetMusicPage />} />
       <Route path="/admin/admin/user/list" element={<UserListPage />} />
-      <Route path="/admin/admin/practiceroom" element={<AdminPracticeRoomPage />} />
-      <Route path="/admin/admin/sheetmusic" element={<AdminSheetMusicPage />} />
       <Route path="/admin/admin/teacher" element={<AdminTeacherPage />} />
       <Route path="/admin/admin/dashboard" element={<AdminDashboard />} />
     </Routes>
