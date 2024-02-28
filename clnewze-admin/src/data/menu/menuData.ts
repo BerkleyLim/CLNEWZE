@@ -27,7 +27,20 @@ const menuData = [
     title: "개발 일정",  // 제목 보여주기
     isView: true, // 보여주기 여부 설정
   },
-  // 상위 리스트 - 매출관리
+  {
+    style:{
+      textAlign: "left",
+      borderColor: "transparent",
+      width: "100%",
+      backgroundColor: "transparent",
+      color: "#333",
+      padding: "3% 1% 0 25%",
+      fontSize: "1em"
+    },  // bootstrap 기반으로 ListGroupItem css 추가 설정
+    title: "직원관리",  // 제목 보여주기
+    isView: true, // 보여주기 여부 설정
+  },
+  // 상위 리스트 - 대시보드
   {
     style:{
       textAlign: "left",
@@ -38,9 +51,9 @@ const menuData = [
       padding: "10% 1% 0 15%",
       fontSize: "1.2em",
     },  // bootstrap 기반으로 ListGroupItem css 추가 설정
-    title: "매출관리",  // 제목 보여주기
+    title: "대시보드",  // 제목 보여주기
     isView: true, // 보여주기 여부 설정
-    link: "/sales"
+    link: "/dashboard"
   },
   // 하위 리스트 - 매출 관리 하위
   {
@@ -53,7 +66,21 @@ const menuData = [
       padding: "3% 1% 0 25%",
       fontSize: "1em",
     },  // bootstrap 기반으로 ListGroupItem css 추가 설정
-    title: "종합분석",  // 제목 보여주기
+    title: "클뉴즈 매출액",  // 제목 보여주기
+    isView: true, // 보여주기 여부 설정
+    link: "/dashboard/sales"
+  },
+  {
+    style:{
+      textAlign: "left",
+      borderColor: "transparent",
+      width: "100%",
+      backgroundColor: "transparent",
+      color: "#333",
+      padding: "3% 1% 0 25%",
+      fontSize: "1em"
+    },  // bootstrap 기반으로 ListGroupItem css 추가 설정
+    title: "매출항목",  // 제목 보여주기
     isView: true, // 보여주기 여부 설정
   },
   {
@@ -66,20 +93,7 @@ const menuData = [
       padding: "3% 1% 0 25%",
       fontSize: "1em"
     },  // bootstrap 기반으로 ListGroupItem css 추가 설정
-    title: "일자별매출조회",  // 제목 보여주기
-    isView: true, // 보여주기 여부 설정
-  },
-  {
-    style:{
-      textAlign: "left",
-      borderColor: "transparent",
-      width: "100%",
-      backgroundColor: "transparent",
-      color: "#333",
-      padding: "3% 1% 0 25%",
-      fontSize: "1em"
-    },  // bootstrap 기반으로 ListGroupItem css 추가 설정
-    title: "매출리스트",  // 제목 보여주기
+    title: "회계관리",  // 제목 보여주기
     isView: true, // 보여주기 여부 설정
   },
   // 상위 리스트 - 카테고리 관리

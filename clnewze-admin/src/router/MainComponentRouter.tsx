@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import SchedulesManagementPage from '../pages/schedules/SchedulesManagementPage'
-import SalesManagementPage from '../pages/sales/SalesManagementPage'
+import DashboardManagementPage from '../pages/dashboard/DashboardManagementPage'
 import CategoryManagementPage from '../pages/category/CategoryManagementPage'
 import SheetMusicManegementPage from '../pages/category/sub/SheetMusicManegementPage'
 
@@ -15,8 +15,8 @@ const MainComponentRouter = () => {
         element={<SchedulesManagementPage />} />
       {/* 매출 관리를 표시하는 라우터 컴포넌트 */}
       <Route
-        path="/sales"
-        element={<SalesManagementPage />} />
+        path="/dashboard"
+        element={<DashboardManagementPage />} />
       {/* 카테고리 관리를 표시하는 라우터 컴포넌트 */}
       <Route
         path="/category"

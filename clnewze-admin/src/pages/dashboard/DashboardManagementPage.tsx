@@ -1,7 +1,7 @@
 import React from 'react'
 import Chart from 'react-google-charts'
 
-const SalesManagementPage = () => {
+const DashboardManagementPage = () => {
   const data = [
     ['Task', 'Hours per Day'],
     ['Work',     11],
@@ -50,4 +50,4 @@ const SalesManagementPage = () => {
   )
 }
 
-export default SalesManagementPage
+export default DashboardManagementPage
