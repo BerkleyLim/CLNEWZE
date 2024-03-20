@@ -8,7 +8,7 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
 import FullCalendar from "@fullcalendar/react";
 import bootstrap5Plugin from "@fullcalendar/bootstrap5";
-import styles from '../../../scss/mypage/mypage.module.scss'
+import styles from '../../../scss/mypage/commom/mypage.common.module.scss'
 
 import {
   Button,

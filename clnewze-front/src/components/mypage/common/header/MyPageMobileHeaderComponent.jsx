@@ -1,10 +1,11 @@
 import React from "react";
 
-import styles from "../../../../scss/mypage/mypage.module.scss";
+import styles from "../../../../scss/mypage/commom/mypage.common.module.scss";
 import { Navbar, Row } from "reactstrap";
 import FirstHeaderComponent from "./item/FirstHeaderComponent";
 import { useRecoilValue } from "recoil";
 import { anotherUserState } from "../../../../recoil/state/userState";
+import {PersonCircle} from "react-bootstrap-icons";
 
 const MyPageMobileHeaderComponent = () => {
   const anotherUser = useRecoilValue(anotherUserState);
@@ -18,11 +19,14 @@ const MyPageMobileHeaderComponent = () => {
       <Navbar className={`${styles?.profileHeader}`}>
         <div style={{width:"20%"}}>
           <div className={`${styles?.profileImg}`}>
-            <img
-              src="/image/file/myPage/defalut-my-profile.png"
-              alt="my-profile"
-              className={`${styles?.imgSize}`}
-            />
+            {/* 이미지 없을 때 default 값 */}
+            <PersonCircle className={`${styles?.imgSize}`} style={{backgroundColor:"#fff"}} />
+            {/* 이미지 있을 때 아래 반영 */}
+            {/*<img*/}
+            {/*  src="/image/file/myPage/defalut-my-profile.png"*/}
+            {/*  alt="my-profile"*/}
+            {/*  className={`${styles?.imgSize}`}*/}
+            {/*/>*/}
           </div>
         </div>
         <div style={{width:"50%"}}>

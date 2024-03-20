@@ -13,7 +13,7 @@ import UserContainer from "../../../../../hooks/UserContainer";
 import { useRecoilValue } from "recoil";
 import { userState } from "../../../../../recoil/state/userState";
 import CommonContainer from "../../../../../hooks/CommonContainer";
-import LoginPage from "../../../../../pages/login/LoginPage";
+import LoginPage from "../../../../../pages/common/login/LoginPage";
 import menuData from "../../../../../data/my/page/myPageMenu.json";
 import HeaderDropdownMenuComponent from "./HeaderDropdownMenuComponent";
 

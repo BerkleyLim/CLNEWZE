@@ -19,7 +19,6 @@
     "fullcalendar": "^6.1.10",
     "http-proxy-middleware": "^2.0.6",
     "immutability-helper": "^3.1.1",
-    "node-sass": "^9.0.0",
     "react": "^18.2.0",
     "react-beautiful-dnd": "^13.1.1",
     "react-bootstrap-icons": "^1.10.3",
@@ -63,5 +62,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "sass": "^1.71.1"
   }
 }

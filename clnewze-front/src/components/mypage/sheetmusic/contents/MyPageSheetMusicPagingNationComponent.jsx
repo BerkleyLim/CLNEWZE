@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
-import styles from "../../../../scss/sheetmusic/sheetmusic.module.scss";
+import styles from "../../../../scss/user/sheetmusic/sheetmusic.module.scss";
 import { useNavigate } from "react-router-dom";
 import SheetMusicContainer from "../../../../hooks/SheetMusicContainer";
 import { sheetMusicPagingNationState } from "../../../../recoil/state/sheetMusicState";

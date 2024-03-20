@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../mypage.module.scss'
+import styles from '../../../scss/mypage/commom/mypage.common.module.scss'
 
 const CareerComponent = () => {
   return (

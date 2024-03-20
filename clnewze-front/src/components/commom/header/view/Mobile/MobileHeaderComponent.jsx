@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../../../../../scss/main/common/header.module.scss";
+import styles from "../../../../../scss/common/main/common/header.module.scss";
 import {
   Button,
   ButtonDropdown,
@@ -14,7 +14,7 @@ import { BellFill, CardList } from "react-bootstrap-icons";
 import headerData from '../../../../../data/header/headerData.json'
 import { useRecoilValue } from "recoil";
 import { userState } from "../../../../../recoil/state/userState";
-import LoginPage from "../../../../../pages/login/LoginPage";
+import LoginPage from "../../../../../pages/common/login/LoginPage";
 import CommonContainer from "../../../../../hooks/CommonContainer";
 
 const MobileHeaderComponent = () => {
@@ -44,7 +44,7 @@ const MobileHeaderComponent = () => {
   }
 
   return (
-    <>
+    <div className={`${styles?.mobileHeader}`}>
     {/* 모바일 뷰 */}
       <Navbar className={`${styles?.hdContent1}`}>
         <div className={`${styles?.header_logo}`}>
@@ -85,7 +85,7 @@ const MobileHeaderComponent = () => {
 
       {/* 로그인 모달 출력 */}
       <LoginPage />
-    </>
+    </div>
   );
 };
 

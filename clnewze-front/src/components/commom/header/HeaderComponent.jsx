@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "../../../scss/main/common/header.module.scss";
+import styles from "../../../scss/common/main/common/header.module.scss";
 import WebHeaderComponent from "./view/Web/WebHeaderComponent";
 import MobileHeaderComponent from "./view/Mobile/MobileHeaderComponent";
 

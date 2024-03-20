@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../../../scss/mypage/mypage.module.scss'
+import styles from '../../../scss/mypage/commom/mypage.common.module.scss'
 import TeacherRegisterComponent from '../../../components/mypage/teacher/register/TeacherRegisterComponent'
 import { useRecoilValue } from 'recoil'
 import { innerWidthState } from '../../../recoil/state/commonState'

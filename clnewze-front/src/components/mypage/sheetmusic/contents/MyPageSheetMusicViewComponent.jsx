@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal, ModalHeader, Nav, Navbar } from "reactstrap";
-import styles from "../../../../scss/sheetmusic/sheetmusic.module.scss";
+import styles from "../../../../scss/user/sheetmusic/sheetmusic.module.scss";
 import SheetMusicContainer from "../../../../hooks/SheetMusicContainer";
 import { useRecoilValue } from "recoil";
 import { sheetMusicModalDataState, sheetMusicModalIsOpenState } from "../../../../recoil/state/sheetMusicState";

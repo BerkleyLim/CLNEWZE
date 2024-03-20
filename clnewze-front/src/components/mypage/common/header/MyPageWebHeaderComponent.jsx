@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "../../../../scss/mypage/mypage.module.scss";
+import styles from "../../../../scss/mypage/commom/mypage.common.module.scss";
 import { Navbar, Row } from "reactstrap";
 import HeaderTwoRightComponent from "./item/HeaderTwoRightComponent";
 import SubScriptModalComponent from "./item/SubScriptModalComponent";
@@ -8,6 +8,7 @@ import { useRecoilValue } from "recoil";
 import { myPageHeaderSubScriptModalIsOpenState } from "../../../../recoil/state/myPageHeaderState";
 import { anotherUserState } from "../../../../recoil/state/userState";
 import FirstHeaderComponent from "./item/FirstHeaderComponent";
+import {PersonCircle} from "react-bootstrap-icons";
 
 const MyPageWebHeaderComponent = () => {
   const isSubScriptModal = useRecoilValue(
@@ -24,11 +25,14 @@ const MyPageWebHeaderComponent = () => {
       <Navbar className={`${styles?.profileHeader}`}>
         <div style={{ width: "200px" }}>
           <div className={`${styles?.profileImg}`}>
-            <img
-              src="/image/file/myPage/defalut-my-profile.png"
-              alt="my-profile"
-              className={`${styles?.imgSize}`}
-            />
+            {/* 이미지 없을 때 default 값 */}
+            <PersonCircle className={`${styles?.imgSize}`} style={{backgroundColor:"#fff"}} />
+            {/* 이미지 있을 때 아래 반영 */}
+            {/*<img*/}
+            {/*  src="/image/file/myPage/defalut-my-profile.png"*/}
+            {/*  alt="my-profile"*/}
+            {/*  className={`${styles?.imgSize}`}*/}
+            {/*/>*/}
           </div>
         </div>
         <div style={{ width: "40%" }}>

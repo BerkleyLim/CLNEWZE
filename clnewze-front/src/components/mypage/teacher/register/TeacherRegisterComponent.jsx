@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../../../scss/mypage/mypage.module.scss";
+import styles from "../../../../scss/mypage/commom/mypage.common.module.scss";
 import { Col, Form, FormGroup, Input, Label } from "reactstrap";
 
 const TeacherRegister = () => {
