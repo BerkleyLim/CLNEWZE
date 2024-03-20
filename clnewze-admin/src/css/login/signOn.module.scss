@@ -1,0 +1,32 @@
+.signOnContainer {
+  // background-color: black;
+  min-height: 100vh;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.signOnPhaseComponent {
+  max-width: 100%;
+  // min-width: 50%;
+  height: 15vh;
+  text-align: center;
+  align-items: center;
+}
+
+.signOnPhase {
+  display: grid;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  border: 1px solid;
+  text-align: center;
+  align-content: center;
+}
+
+.singOnTextArea {
+  width: 75%;
+}
