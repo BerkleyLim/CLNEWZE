@@ -40,12 +40,12 @@ const TeacherMenuComponent = () => {
         <Row>
           <Col></Col>
           <Col>
-            <Form>
-              <FormGroup check inline>
-                <Input type="checkbox" />
-                <Label check>상세보기</Label>
-              </FormGroup>
-            </Form>
+            {/*<Form>*/}
+            {/*  <FormGroup check inline>*/}
+            {/*    <Input type="checkbox" />*/}
+            {/*    <Label check>상세보기</Label>*/}
+            {/*  </FormGroup>*/}
+            {/*</Form>*/}
           </Col>
           <Col>
             <InputGroup className={`${styles?.searchBox}`}>

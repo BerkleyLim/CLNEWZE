@@ -1,0 +1,50 @@
+// 웹 환경 컨텐츠 - 각 사용자 컴포넌트 화면에 출력될 view 조정
+
+.myPageMenuContainer {
+  background: #eee;
+  text-align: center;
+}
+
+.myPageMenuContainer > button {
+  width: 200px;
+  height: 50px;
+  margin: 10px 10px 10px 10px;
+}
+
+.myPageWebContainer {
+  text-align: left;
+  margin: 5em 5em 5em 5em;
+}
+
+.myPageListGroupItem {
+  padding: 5em 5em 5em 5em;
+  cursor: pointer;
+}
+
+.myPageListGroupItem:hover {
+  border-color: blue;
+}
+
+.myPageListGroupItem:active {
+  background-color: blue;
+}
+
+
+/* career styling form */
+.formComponent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 5% 0 5% 0;
+  align-items: center;
+
+  & .formTitle {
+    min-width: 100%;
+    font-size: 2em;
+  }
+
+  & .formContents {
+    min-width: 100%;
+    font-size: 1.2em;
+  }
+}

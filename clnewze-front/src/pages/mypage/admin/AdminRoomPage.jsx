@@ -4,7 +4,7 @@ import { innerWidthState } from '../../../recoil/state/commonState'
 import AdminPracticeRoomComponent from '../../../components/mypage/admin/practiceroom/AdminPracticeRoomComponent'
 import styles from '../../../scss/mypage/admin/mypage.practiceroom.module.scss'
 
-const AdminPracticeRoomPage = () => {
+const AdminRoomPage = () => {
   const innerWidth = useRecoilValue(innerWidthState);
   return (
     <div className={`${innerWidth >= 860 ? styles?.myPageWebContainer : styles?.myPageMobileContainer}`}>
@@ -16,4 +16,4 @@ const AdminPracticeRoomPage = () => {
   )
 }
 
-export default AdminPracticeRoomPage
+export default AdminRoomPage

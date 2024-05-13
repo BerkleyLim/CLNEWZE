@@ -58,7 +58,7 @@ const MyPageMenuViewComponent = ({ menuData, title }) => {
 
 
   return (
-    <ListGroup>
+    <ListGroup className={`${styles?.myPageMenuComponent}`}>
       <h6>{menuData.length > 0 && title}</h6>
       {menuData
         ?.filter((data) => data?.isUsing && !(data?.isNotLogin && user?.id !== id))

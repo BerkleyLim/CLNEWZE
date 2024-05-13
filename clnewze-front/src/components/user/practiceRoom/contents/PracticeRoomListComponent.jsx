@@ -9,10 +9,10 @@ import {
   Row,
 } from "reactstrap";
 import styles from "../../../../scss/user/practiceroom/practiceRoom.module.scss";
-import PracticeRoomContainer from "../../../../hooks/PracticeRoomContainer";
+import RoomContainer from "../../../../hooks/RoomContainer";
 
 const PracticeRoomListComponent = () => {
-  const {practiceRooms, onClickView} = PracticeRoomContainer();
+  const {practiceRooms, onClickView} = RoomContainer();
 
   return (
     <Row className={`${styles?.bootstrapRowAndColCenter}`}>

@@ -36,52 +36,54 @@ const WebHeaderComponent = () => {
   };
 
   return (
-    <div class={`${styles?.webHeader}`}>
-      {/* 헤더1 */}
-      <Navbar className={`${styles?.hdContent1}`}>
-        <div className={`${styles?.header_logo}`}>
+    <div className={`${styles?.webHeader}`}>
+      <div className={`${styles?.headerMaxPixel}`}>
+        <div className={`${styles?.headerLogo}`}>
           <a href="/">
-            로고(추가예정)
-            <img src="" alt=""/>
+            <img src="/logo.png" alt="" width={'100px'}/>
           </a>
         </div>
+        <div className={`${styles?.headerComponent}`}>
+          {/* 헤더1 */}
+          <Navbar className={`${styles?.hdContent1}`}>
+            {/* 검색 박스 기능도 숨기기 */}
+            {/* <SelectMenuIndex /> */}
+            {/* <!-- 여기는 그냥 100px의 여백 두기 --> */}
+            <div style={{display: "flex", width: "100px"}}></div>
 
-        {/* 검색 박스 기능도 숨기기 */}
-        {/* <SelectMenuIndex /> */}
-        {/* <!-- 여기는 그냥 100px의 여백 두기 --> */}
-        <div style={{display: "flex", width: "100px"}}></div>
+            {/* 언어 선택 임시로 숨김 */}
+            {/* <SelectLanguageIndex /> */}
 
-        {/* 언어 선택 임시로 숨김 */}
-        {/* <SelectLanguageIndex /> */}
+            <i className="fas fa-list header-icon"></i>
 
-        <i className="fas fa-list header-icon"></i>
-
-        <div className={`${styles?.header_mymenu}`}>
-          <Button color="blank" size="lg" onClick={userMenu}>
+            <div className={`${styles?.header_mymenu}`}>
+              <Button color="blank" size="lg" onClick={userMenu}>
             <span className={`${styles?.headerNickname}`}>
               <PersonCircle/>
             </span>
-            <span className={`${styles?.headerNickname}`}>
+                <span className={`${styles?.headerNickname}`}>
               {user?.isLogin ? ` ${user.userName}` : " 로그인"}
             </span>
-          </Button>
-          <Button color="blank" size="lg">
-            <BellFill/>
-          </Button>
+              </Button>
+              <Button color="blank" size="lg">
+                <BellFill/>
+              </Button>
+            </div>
+          </Navbar>
+          {/* 헤더2 */}
+          <Navbar className={`${styles?.hdContent2}`}>
+            {headerData?.map((data, index) => (
+              <button
+                key={index}
+                type="button"
+                onClick={() => moveHeader(data?.category, data?.isView)}
+              >
+                {data?.menuName}
+              </button>
+            ))}
+          </Navbar>
         </div>
-      </Navbar>
-      {/* 헤더2 */}
-      <Navbar className={`${styles?.hdContent2}`}>
-        {headerData?.map((data, index) => (
-          <button
-            key={index}
-            type="button"
-            onClick={() => moveHeader(data?.category, data?.isView)}
-          >
-            {data?.menuName}
-          </button>
-        ))}
-      </Navbar>
+      </div>
 
       {/* 로그인 모달 출력 */}
       <LoginPage/>

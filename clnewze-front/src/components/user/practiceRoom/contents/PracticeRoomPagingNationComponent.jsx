@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
 import styles from "../../../../scss/user/practiceroom/practiceRoom.module.scss";
 import { useNavigate } from "react-router-dom";
-import PracticeRoomContainer from "../../../../hooks/PracticeRoomContainer";
+import RoomContainer from "../../../../hooks/RoomContainer";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { practiceRoomPagingNationState } from "../../../../recoil/state/practiceRoomState";
 
 const PracticeRoomPagingNationComponent = () => {
-  const { pagingCount, limit } = PracticeRoomContainer();
+  const { pagingCount, limit } = RoomContainer();
   const page = useRecoilValue(practiceRoomPagingNationState)
   const setPage = useSetRecoilState(practiceRoomPagingNationState)
 

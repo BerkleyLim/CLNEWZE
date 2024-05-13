@@ -13,16 +13,16 @@ const MyPageWebPage = () => {
       {/* 헤더 표시 */}
       <MyPageWebHeaderComponent/>
       {/* <!-- 마이페이지 카테고리 --> */}
-      <Row className={`${styles?.myPageContainer}`}>
-        <Col md={2} className={`${styles?.myPageMenuContainer} p-4`}>
+      <div className={`${styles?.myPageContainer}`}>
+        <Col md={3} className={`${styles?.myPageMenuContainer} p-4`}>
           <MyPageMenuComponent/>
         </Col>
         {/* 영역 출력 */}
-        <Col md={10} className={`${styles?.MyPageWebComponent}`}>
+        <Col md={9} className={`${styles?.MyPageWebComponent}`}>
           {/* 함수 써서 출력한다. */}
           <Outlet />
         </Col>
-      </Row>
+      </div>
     </div>
   );
 };

@@ -4,17 +4,17 @@ import IntroductionPage from "../pages/user/introduction/IntroductionPage";
 import UserInfoPage from "../pages/mypage/user/UserInfoPage";
 import CareerPage from "../pages/mypage/career/CareerPage";
 import MyPageTeacherPage from "../pages/mypage/teacher/MyPageTeacherPage";
-import SubScriptPage from "../pages/mypage/sub/script/SubScriptPage";
+import SubscriptPage from "../pages/mypage/subscript/SubscriptPage";
 import MyPagePerformancePage from "../pages/mypage/performance/MyPagePerformancePage";
-import SheetMusicPage from "../pages/user/sheetmusic/SheetMusicPage";
+import SheetPage from "../pages/user/sheetmusic/SheetMusicPage";
 import UserListPage from "../pages/mypage/admin/UserListPage";
-import AdminPracticeRoomPage from "../pages/mypage/admin/AdminPracticeRoomPage";
+import AdminRoomPage from "../pages/mypage/admin/AdminRoomPage";
 import AdminTeacherPage from "../pages/mypage/admin/AdminTeacherPage";
 import AdminDashBoardPage from "../pages/mypage/admin/AdminDashBoardPage";
 import UserRouterLayout from "../layout/UserRouterLayout";
 import MyPageLayout from "../layout/MyPageLayout";
 import PerformancePage from "../pages/user/performance/PerformancePage";
-import PracticeRoomPage from "../pages/user/practiceroom/PracticeRoomPage";
+import PracticePage from "../pages/user/practiceroom/PracticeRoomPage";
 import TeacherPage from "../pages/user/teacher/TeacherPage";
 import BlogPage from "../pages/user/blog/BlogPage";
 import MainComponent from "../components/commom/main/MainComponent";
@@ -42,13 +42,13 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage/>,
       },
       {
-        path: 'practiceRoom/:pageNo',
-        element: <PracticeRoomPage />,
+        path: 'practice/:pageNo',
+        element: <PracticePage />,
         errorElement: <ErrorPage/>,
       },
       {
-        path: 'sheetmusic/:pageNo',
-        element: <SheetMusicPage />,
+        path: 'sheet/:pageNo',
+        element: <SheetPage />,
         errorElement: <ErrorPage/>,
       },
       {
@@ -85,7 +85,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'subscript',
-        element: <SubScriptPage/>,
+        element: <SubscriptPage/>,
         errorElement: <ErrorPage/>,
       },
       {
@@ -94,8 +94,8 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage/>,
       },
       {
-        path: 'sheetmusic/info',
-        element: <SheetMusicPage/>,
+        path: 'sheet/info',
+        element: <SheetPage/>,
         errorElement: <ErrorPage/>,
       }
     ]
@@ -111,8 +111,8 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage/>,
       },
       {
-        path: 'practiceroom',
-        element: <AdminPracticeRoomPage/>,
+        path: 'room',
+        element: <AdminRoomPage/>,
         errorElement: <ErrorPage/>,
       },
       {

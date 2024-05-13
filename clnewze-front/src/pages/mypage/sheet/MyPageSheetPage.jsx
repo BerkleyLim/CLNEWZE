@@ -8,7 +8,7 @@ import MyPageSheetMusicViewComponent from "../../../components/mypage/sheetmusic
 import MyPageSheetMusicPagingNationComponent from "../../../components/mypage/sheetmusic/contents/MyPageSheetMusicPagingNationComponent";
 import { anotherUserState } from "../../../recoil/state/userState";
 
-const MyPageSheetMusicPage = () => {
+const MyPageSheetPage = () => {
   const innerWidth = useRecoilValue(innerWidthState);
   const anotherUser = useRecoilValue(anotherUserState);
   return (
@@ -38,4 +38,4 @@ const MyPageSheetMusicPage = () => {
   );
 };
 
-export default MyPageSheetMusicPage;
+export default MyPageSheetPage;

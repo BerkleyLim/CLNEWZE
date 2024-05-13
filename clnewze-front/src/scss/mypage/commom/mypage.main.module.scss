@@ -1,7 +1,22 @@
 // 웹 환경 컨텐츠 - 각 사용자 컴포넌트 화면에 출력될 view 조정
+.myPageContainer {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+// 메뉴부분 view 단 지정
+.myPageMenuComponent {
+  background-color: #eee;
+  padding: 3%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
 
 .myPageMenuContainer {
-  background:#eee;
   text-align: center;
 }
 
@@ -19,6 +34,8 @@
 .myPageListGroupItem {
   padding: 5em 5em 5em 5em;
   cursor:pointer;
+  width:90%;
+  margin-left: 5%;
 }
 
 .myPageListGroupItem:hover {

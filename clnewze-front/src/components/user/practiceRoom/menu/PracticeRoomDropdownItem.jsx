@@ -7,10 +7,10 @@ import {
   Button,
 } from "reactstrap";
 import styles from "../../../../scss/user/practiceroom/practiceRoom.module.scss";
-import PracticeRoomContainer from "../../../../hooks/PracticeRoomContainer";
+import RoomContainer from "../../../../hooks/RoomContainer";
 
 const PracticeRoomDropdownItem = ({ menuData }) => {
-  const {categoriesMenu} = PracticeRoomContainer();
+  const {categoriesMenu} = RoomContainer();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [selectData, setSelectData] = useState();
 

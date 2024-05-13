@@ -47,10 +47,9 @@ const MobileHeaderComponent = () => {
     <div className={`${styles?.mobileHeader}`}>
     {/* 모바일 뷰 */}
       <Navbar className={`${styles?.hdContent1}`}>
-        <div className={`${styles?.header_logo}`}>
+        <div className={`${styles?.headerLogo}`}>
           <a href="/">
-            로고(추가예정)
-            <img src="" alt="" />
+            <img src="/logo.png" alt="" width={'50px'}/>
           </a>
         </div>
 

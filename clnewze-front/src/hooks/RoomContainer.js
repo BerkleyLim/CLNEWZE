@@ -10,7 +10,7 @@ import {
   practiceRoomState,
 } from "../recoil/state/practiceRoomState";
 
-const PracticeRoomContainer = () => {
+const RoomContainer = () => {
   const param = useParams();
   const [practiceRooms, setPracticeRooms] = useRecoilState(practiceRoomState);
   const [selectCategories, setSelectCategories] = useState(null);
@@ -96,4 +96,4 @@ const PracticeRoomContainer = () => {
   };
 };
 
-export default PracticeRoomContainer;
+export default RoomContainer;

@@ -42,7 +42,9 @@ const FirstHeaderComponent = () => {
     <div style={{ backgroundColor: "#eee" }}>
       <Navbar className={`${styles?.myPageHeaderMenu}`}>
         {/* 헤더 부분 */}
-        <div style={{ width: "15%" }}>CLNEWZE</div>
+        <div style={{ width: "15%" }}>
+          <img src={'/logo.png'} alt={''} width={'50px'} />
+        </div>
 
         {/* 오른쪽으로 배치하고, 다시 Navbar로 조정 */}
         <Row style={{ width: "85%" }}>
