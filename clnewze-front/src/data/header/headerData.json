@@ -9,7 +9,7 @@
   {
     "index": 2
     ,"menuName": "악보"
-    ,"category": "sheetmusic/1"
+    ,"category": "music/1"
     ,"orderby": 2
     ,"isView": true
   },
@@ -23,7 +23,7 @@
   {
     "index": 4
     ,"menuName": "연습실 정보"
-    ,"category": "practiceRoom/1"
+    ,"category": "room/1"
     ,"orderby": 4
     ,"isView": false
   },
