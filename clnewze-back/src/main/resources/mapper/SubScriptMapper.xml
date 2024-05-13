@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.clnewze.back.clnewzeback.mapper.SubScriptMapper">
+<mapper namespace="com.clnewze.back.clnewzeback.subscript.SubScriptMapper">
   <!-- 1) 내가 구독한 사람 조회 -->
   <select id="selectSubScriptMyList" resultType="SubScriptMyList">
     select my_name, nick_name, user_name, sub_classify, crt_time from

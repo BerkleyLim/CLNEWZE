@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.clnewze.back.clnewzeback.mapper.SheetMusicMapper">
+<mapper namespace="com.clnewze.back.clnewzeback.sheet.SheetMusicMapper">
   
   <!-- <select id="selectList" resultType="java.util.List"> -->
   <!-- 악보 출력, 여기서, genre와 uno(유저번호)는 없으면 조건절에서 제외함 -->

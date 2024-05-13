@@ -1,14 +1,15 @@
 server:
   shutdown: graceful
+  # port : 18820
 
 spring:
   profiles:
     active: customLogin
     
-  h2:
-    console:
-      enabled: true  # H2 Console을 사용할지 여부 (H2 Console은 H2 Database를 UI로 제공해주는 기능)
-      path: /h2-console  # H2 Console의 Path
+#  h2:
+#    console:
+#      enabled: true  # H2 Console을 사용할지 여부 (H2 Console은 H2 Database를 UI로 제공해주는 기능)
+#      path: /h2-console  # H2 Console의 Path
 
   # Swagger 사용 방식, 2.6부터 PathPatternParser가 기본 값
   # 따라서 이전에는 ANT_PATH_MATCHER가 이전버전 기본값이므로 지정함
@@ -25,6 +26,7 @@ spring:
     dataSourceClassName: com.mysql.cj.jdbc.Driver  #마리아 DB시 org.mariadb.jdbc.Driver
     #dataSourceClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
     # jdbc-url: jdbc:mysql://localhost:3306/profile?useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true&autoReconnect=true
+    # username: music
     password: 1111 # 비밀번호 수정
     username: root
     # hikariCP 커넥션 과사용으로 누수 현상 나오면 메모리 부족 현상 발생
@@ -85,7 +87,7 @@ jwt:
 # 참조 : https://jydlove.tistory.com/49
 # xml 대신 속성값으로 설정한다
 mybatis:
-  type-aliases-package: com.clnewze.back.clnewzeback.domain.entity
+  type-aliases-package: com.clnewze.back.clnewzeback.*.dto
   configuration:
     setting:
       logImpl: "LOG4j2"
