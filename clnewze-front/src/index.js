@@ -1,12 +1,12 @@
 import React from 'react';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css?ver=1"
 
 import { createRoot } from "react-dom/client";
 import { RecoilRoot } from 'recoil';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import {RouterProvider} from "react-router-dom";
+import router from "./router/router";
 
 const queryClient = new QueryClient();
 
@@ -15,7 +15,7 @@ const root = createRoot(container);
 root.render(
     <RecoilRoot>
       <QueryClientProvider client={queryClient}>
-        <App />
+        <RouterProvider router={router}/>
       </QueryClientProvider>
     </RecoilRoot>
 );

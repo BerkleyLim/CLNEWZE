@@ -27,7 +27,7 @@ spring:
     #dataSourceClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
     # jdbc-url: jdbc:mysql://localhost:3306/profile?useSSL=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true&autoReconnect=true
     # username: music
-    password: 1111 # 비밀번호 수정
+    password: # 비밀번호 수정
     username: root
     # hikariCP 커넥션 과사용으로 누수 현상 나오면 메모리 부족 현상 발생
     # mysql 서비스 죽이는 것은 Idle 상태의 커넥션으로 끊어진다.
@@ -69,6 +69,11 @@ spring:
   sql:
     init:
       encoding: UTF-8
+
+  servlet:
+    multipart:
+      maxFileSize: 24MB # 1080 * 1053 * 3 = 3.41172MB / 1000 * 8000 * 3 = 24 MB
+      max-request-size: 30MB
 
 #jwt:
 #  header: Authorization # header : JWT를 검증하는데 필요한 정보
@@ -136,4 +141,11 @@ logging:
 #   secret: c2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQtc2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQK
 #   tokenValidityInSeconds: 86400000
 #   tokenSubject: 'User'
-  
+
+
+# WebMvcConfig 일부 수정
+#cors:
+#  allowed-origins: http://localhost:3000,http://localhost:3001,http://35.87.145.35:35000,http://35.87.145.35:30002,https://www.clnewze.com,https://clnewze.com
+#interceptor:
+#  session-url-patterns: /api/user/
+#  jwt-url-patterns: /api/user/myinfo,/api/user/update

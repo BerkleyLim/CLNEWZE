@@ -1,10 +1,12 @@
 import React from 'react';
-import CareerComponent from "../../../components/mypage/career/CareerComponent";
+import CareerView from "../../../components/mypage/career/CareerView";
+import CareerForm from "../../../components/mypage/career/CareerForm";
 
 const CareerPage = () => {
   return (
     <div>
-      <CareerComponent />
+      <CareerView />
+      {/*<CareerForm/>*/}
     </div>
   );
 }

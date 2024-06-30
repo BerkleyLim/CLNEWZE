@@ -1,98 +1,169 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import UseApi from "../util/UseApi";
-import { useRecoilState, useResetRecoilState } from "recoil";
-import { useQuery } from "react-query";
+import { useResetRecoilState, useSetRecoilState } from "recoil";
+import { useMutation, useQuery, useQueryClient } from "react-query";
 import {
-  practiceRoomModalDataState,
-  practiceRoomModalIsOpenState,
-  practiceRoomPagingNationState,
-  practiceRoomState,
-} from "../recoil/state/practiceRoomState";
+  roomImageFileState, roomImagePreviewState,
+  roomIsEditorModeState,
+  roomModalDataState,
+  roomModalIsEditorOpenState,
+  roomModalIsViewOpenState,
+  roomPageElementState, roomPdfFileState, roomPdfPreviewState,
+  roomState,
+  roomTotalPageState,
+} from "../recoil/state/roomState";
+import RoomService from "../service/RoomService";
 
 const RoomContainer = () => {
-  const param = useParams();
-  const [practiceRooms, setPracticeRooms] = useRecoilState(practiceRoomState);
-  const [selectCategories, setSelectCategories] = useState(null);
-  // Pagination 관련
-  const [page, setPage] = useRecoilState(practiceRoomPagingNationState); // 페이지
-  const limit = 10;
-  const offset = (page - 1) * 10; // 시작점, 끝점 구하는 offset
-  const [pagingCount, setPagingCount] = useState();
-  // Pagination 관련 끝
-  const [isModal, setIsModal] = useRecoilState(practiceRoomModalIsOpenState);
-  const resetModal = useResetRecoilState(practiceRoomModalIsOpenState);
-  const [modalData, setModalData] = useRecoilState(practiceRoomModalDataState);
-  const resetModalData = useResetRecoilState(practiceRoomModalDataState);
+  const setRooms = useSetRecoilState(roomState);
+  const setIsViewModal = useSetRecoilState(roomModalIsViewOpenState);
+  const setIsEditorModal = useSetRecoilState(roomModalIsEditorOpenState);
+  const setTotalPage = useSetRecoilState(roomTotalPageState);
+  const setPageElement = useSetRecoilState(roomPageElementState);
+  const setModalData = useSetRecoilState(roomModalDataState);
+  const resetModalData = useResetRecoilState(roomModalDataState);
+  const resetImagePreview = useResetRecoilState(roomImagePreviewState);
+  const resetImageFile= useResetRecoilState(roomImageFileState);
+  const queryClient = useQueryClient();
 
-  // 조회 관련 api 호출 정의
-  const selectPracticeRoom = () => {
-    UseApi.get(
-      process.env.REACT_APP_API_ROOT +
-        "practiceroom/selectList"
-          + "?categories=" + selectCategories
-          + "&pageNo=" + offset
-          + "&limit=" + limit
-    )
-      .then((res) => setPracticeRooms(res.data.data))
-      .catch((e) => console.error(e));
-  };
+  // editor 폼 모드 수정, 추가 이거 변환시키는 state
+  const setIsEditorMode = useSetRecoilState(roomIsEditorModeState);
 
-  // 리액트 Query를 이용하여 누군가 작업을 진행하면 자동으로 React-Query 실행하여 즉시 갱신
-  const practiceRoomQuery = useQuery({
-    queryKey: "practiceRoomList",
-    queryFn: () => selectPracticeRoom(),
-  });
+  const { connectGetRooms, connectRoomsGenreList, connectRoomCreate, connectRoomUpdate, connectRoomDelete } = RoomService();
 
-  // 장르 설정 할때 마다
-  useEffect(() => {
-    selectPracticeRoom();
-  }, [selectCategories, offset]);
-
-  useEffect(() => {
-    UseApi.get(
-      process.env.REACT_APP_API_ROOT + "practiceroom/selectListAllCount"
-    )
-      .then((res) => setPagingCount(res.data.data))
-      .catch((e) => console.error(e));
-
-    resetModal();
-    resetModalData();
-  }, []);
-
-  // Query 실행 중일 때
-  if (practiceRoomQuery.isLoading) {
-    return "로딩 중입니다.";
+  /**
+   * (1) 리액트 쿼리로 악보 리스트 추가
+   * @param uno 사용자 인덱스 번호
+   * @param page 페이지 시작번호
+   * @param limit 페이지 사이즈
+   * @param search 검색
+   * @return {UseQueryResult<*, unknown>}
+   */
+  const useQueryRoomsList = (uno, page, limit, search) => {
+    return useQuery(
+      ['rooms', { uno, page, limit, search }],
+      connectGetRooms,
+      {
+        onSuccess: (data) => {
+          // console.log(data)
+          setRooms(data?.data?.data?.room)
+          setTotalPage(data?.data?.totalPage);
+          setPageElement(data?.data?.pageElement);
+        }
+      }
+    );
   }
 
-  // 장르 선택 여부 이벤트
-  const categoriesMenu = (categories) => {
-    setSelectCategories(categories);
+  /**
+   * react query 를 활용한 악보 추가
+   * @type {UseMutationResult<*, unknown, void, unknown>}
+   */
+  const addRoomsMutation = useMutation(connectRoomCreate, {
+    onSuccess: () => {
+      queryClient.invalidateQueries('rooms');
+    }
+  });
+
+
+  /**
+   * react query를 활용한 악보 수정
+   * @type {UseMutationResult<*, unknown, void, unknown>}
+   */
+  const updateRoomsMutation = useMutation(connectRoomUpdate, {
+    onSuccess: () => {
+      queryClient.invalidateQueries('rooms');
+    }
+  });
+
+  /**
+   * react query를 활용한 악보 삭제
+   * @type {UseMutationResult<*, unknown, void, unknown>}
+   */
+  const deleteRoomsMutation = useMutation(connectRoomDelete, {
+    onSuccess: () => {
+      queryClient.invalidateQueries('rooms');
+    },
+    onError: (error) => {
+      console.error("Error deleting room:", error);
+    }
+  });
+
+  /**
+   * (2) 악보 상세 보기,
+   *
+   * @param room 악보 상세보기용 데이터
+   * @param mode 'view' 악보상세보기, 'editor' 악보수정, 'create' 악보 생성
+   */
+  const handleModalOpen = (room, mode) => {
+    if (mode === 'view' || mode === 'editor') {
+      setModalData(room);
+    }
+
+    if (mode === 'create' || mode === 'editor') {
+      setIsViewModal(false);
+      setIsEditorModal(true);
+
+      setIsEditorMode((mode !== 'create'))
+    } else {
+      setIsViewModal(true);
+      setIsEditorModal(false);
+    }
   };
 
-  // 리스트 클릭시 모달 데이터 출력시키기
-  const onClickView = (practiceRoom, index) => {
-    console.log(practiceRoom);
-    setModalData({
-      ...practiceRoom,
-      index: index,
+  /**
+   * (3) 모달 닫기, 전부 닫고 모달 상세보기의 데이터 전부 초기화
+   */
+  const handleModalClose = () => {
+    setIsViewModal(false);
+    setIsEditorModal(false);
+    resetModalData();
+    resetImagePreview();
+    resetImageFile();
+  };
+
+  /**
+   * (4) react-query를 활용한 악보 내 장르 카테고리 리스트 출력
+   * @return {UseQueryResult<*, unknown>}
+   */
+  const useQueryRoomsGenreList = () => {
+    return useQuery(['roomsGenreList'], connectRoomsGenreList, {
+      onSuccess: (data) => {
+        // console.log(data);
+      },
     });
-    toggleModal();
   };
 
-  const toggleModal = () => setIsModal(!isModal);
+  /**
+   * (5) 악보 생성
+   * @param data 입력 폼 데이터
+   */
+  const handleRoomCreateForm = (data) => {
+    addRoomsMutation.mutate(data); // 수정된 부분: mutate 메서드를 호출하여 데이터를 전송
+  };
+
+  /**
+   * (6) 악보 수정
+   * @param data 수정 폼 데이터
+   */
+  const handleRoomUpdateForm = (data) => {
+    updateRoomsMutation.mutate(data);
+  }
+
+  /**
+   * (7) 악보 삭제
+   * @param sno
+   */
+  const handleRoomDeleteForm = (sno) => {
+    deleteRoomsMutation.mutate(sno);
+    handleModalClose();
+  }
 
   return {
-    isModal,
-    setIsModal,
-    practiceRooms,
-    selectPracticeRoom,
-    categoriesMenu,
-    onClickView,
-    setModalData,
-    limit,
-    pagingCount,
-    toggleModal,
+    handleModalOpen,
+    useQueryRoomsGenreList,
+    useQueryRoomsList,
+    handleModalClose,
+    handleRoomCreateForm,
+    handleRoomUpdateForm,
+    handleRoomDeleteForm
   };
 };
 

@@ -1,0 +1,19 @@
+// test/{{componentPath}}/{{pascalCase componentName}}.test.js
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
+import { RecoilRoot } from 'recoil';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import {{pascalCase componentName}} from '../../src/{{componentPath}}/{{pascalCase componentName}}';
+import { queryClient } from '../../src/queryClient';
+
+test('renders {{pascalCase componentName}} component', () => {
+render(
+<RecoilRoot>
+    <QueryClientProvider client={queryClient}>
+        <{{pascalCase componentName}} />
+    </QueryClientProvider>
+</RecoilRoot>
+);
+expect(screen.getByText('some value')).toBeInTheDocument();
+});

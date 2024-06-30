@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.clnewze.back.clnewzeback.room.RoomMenuCategoryMapper">
+  
+  <!-- 사용 Menu 리스트 출력 -->
+  <select id="category" resultType="RoomMenuCategoryDTO">
+    select * from master_menu_room order by orderby asc;
+  </select>
+
+  <!-- RoomMenu 전체 수 조회 -->
+  <select id="categoryCountRoomMenu" resultType="Long">
+    select count(*) from master_menu_room;
+  </select>
+
+  <!-- RoomMenu 마지막 행 출력 -->
+  <select id="lastRoomMenuTable" resultType="RoomMenuCategoryDTO">
+    select * from master_menu_room mmt order by ptno desc limit 1;
+  </select>
+  
+  <!-- RoomMenu 생성 -->
+  <insert id="createRoomMenu">
+    INSERT INTO master_menu_room  (name, category) value (#{name},#{category})
+  </insert>
+
+<!-- orderby 갱신, 테이블 추가시 orderby 부여 -->
+  <update id="orderbyChangeRoomMenu">
+    update master_menu_room set orderby=#{changeOrder} where ptno = #{ptno}
+  </update>
+
+<!-- RoomMenu 내용물 수정 -->
+  <update id="updateRoomMenu">
+    update master_menu_room set
+      name=#{name} ,
+      category=#{category} 
+    where ptno = #{ptno}
+  </update>
+
+  <delete id="deleteRoomMenu">
+    delete from master_menu_room where ptno = #{ptno}
+  </delete>
+</mapper>

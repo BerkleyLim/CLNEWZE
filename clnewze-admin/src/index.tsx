@@ -3,25 +3,26 @@ import ReactDOM from 'react-dom/client';
 import './css/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {RecoilRoot} from 'recoil';
 import {QueryClient, QueryClientProvider} from 'react-query';
 import '../node_modules/bootstrap-icons/font/bootstrap-icons.min.css'
 import {Provider} from "react-redux";
 import {store} from "./redux/store";
+import {PersistGate} from 'redux-persist/integration/react'
+import {persistStore} from 'redux-persist'
 
+export let persistor = persistStore(store)
 const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  // <RecoilRoot>
+  <QueryClientProvider client={queryClient}>
     <Provider store={store}>
-      <QueryClientProvider client={queryClient}>
+      <PersistGate loading={null} persistor={persistor}>
         <App/>
-      </QueryClientProvider>
-
+      </PersistGate>
     </Provider>
-  // </RecoilRoot>
+  </QueryClientProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

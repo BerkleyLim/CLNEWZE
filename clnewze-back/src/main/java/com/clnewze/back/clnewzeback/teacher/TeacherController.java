@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.clnewze.back.clnewzeback.teacher.dto.Teacher;
 import com.clnewze.back.clnewzeback.teacher.dto.TeacherMenuCategory;
 import com.clnewze.back.clnewzeback.util.model.ResponseObject;
-import com.clnewze.back.clnewzeback.util.service.FileService;
+import com.clnewze.back.clnewzeback.util.service.FileUtil;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -25,7 +25,6 @@ import lombok.extern.log4j.Log4j2;
 @AllArgsConstructor
 public class TeacherController {
   private TeacherService teacherService;
-  private FileService fileService;
 
   @GetMapping("/selectList")
   public ResponseEntity<ResponseObject<List<Teacher>>> selectList(
@@ -55,7 +54,7 @@ public class TeacherController {
    */
   @GetMapping("/master/menu/category")
   public ResponseEntity<ResponseObject<List<TeacherMenuCategory>>> category() {
-    log.info("controller : SheetMusicMenu : category() 호출 성공");
+    log.info("controller : SheetMenu : category() 호출 성공");
     List<TeacherMenuCategory> result = teacherService.category();
     ResponseObject<List<TeacherMenuCategory>> ro = new ResponseObject<>("성공");
     ro.setData(result);
@@ -65,7 +64,7 @@ public class TeacherController {
   @GetMapping("/master/menu/table/count")
   // @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
   public Long categoryCountTeacherMenu() {
-    log.info("controller : SheetMusicMenu : categoryCountTeacherMenu() 호출 성공");
+    log.info("controller : SheetMenu : categoryCountTeacherMenu() 호출 성공");
     Long result = teacherService.categoryCountTeacherMenu();
     return result;
   }
@@ -73,7 +72,7 @@ public class TeacherController {
   @PostMapping("/master/menu/create")
   // @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
   public Integer createTeacherMenu(@RequestBody TeacherMenuCategory teacherMenuCategory) {
-    log.info("controller : SheetMusicMenu : createTeacherMenu() 호출 성공");
+    log.info("controller : SheetMenu : createTeacherMenu() 호출 성공");
     Integer createSuccess = teacherService.createTeacherMenu(teacherMenuCategory.getName(),
         teacherMenuCategory.getCategory());
     Long count = teacherService.categoryCountTeacherMenu();
@@ -85,7 +84,7 @@ public class TeacherController {
   @PostMapping("/master/menu/change/orderby")
   // @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
   public Integer orderbyChangeTeacherMenu(@RequestBody TeacherMenuCategory teacherMenuCategory) {
-    log.info("controller : SheetMusicMenu : orderbyChangeTeacherMenu() 호출 성공");
+    log.info("controller : SheetMenu : orderbyChangeTeacherMenu() 호출 성공");
     return teacherService.orderbyChangeTeacherMenu(teacherMenuCategory.getMtno(),
         teacherMenuCategory.getOrderByNo());
   }
@@ -93,7 +92,7 @@ public class TeacherController {
   @PostMapping("/master/menu/update")
   // @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
   public Integer updateTeacherMenu(@RequestBody TeacherMenuCategory teacherMenuCategory) {
-    log.info("controller : SheetMusicMenu : updateTeacherMenu() 호출 성공");
+    log.info("controller : SheetMenu : updateTeacherMenu() 호출 성공");
     return teacherService.updateTeacherMenu(teacherMenuCategory.getMtno(), teacherMenuCategory.getName(),
         teacherMenuCategory.getCategory());
   }
@@ -101,7 +100,7 @@ public class TeacherController {
   @PostMapping("/master/menu/delete")
   // @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
   public Integer deleteTeacherMenu(@RequestBody TeacherMenuCategory teacherMenuCategory) {
-    log.info("controller : SheetMusicMenu : deleteTeacherMenu() 호출 성공");
+    log.info("controller : SheetMenu : deleteTeacherMenu() 호출 성공");
     return teacherService.deleteTeacherMenu(teacherMenuCategory.getMtno());
   }
 

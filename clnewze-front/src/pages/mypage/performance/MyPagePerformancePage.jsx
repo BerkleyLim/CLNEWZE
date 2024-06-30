@@ -1,29 +1,14 @@
-import React, { useEffect } from "react";
-
-import UseApi from "../../../util/UseApi";
-import data from "./sample/event.json";
-
+import React from "react";
+import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
-import FullCalendar from "@fullcalendar/react";
-import bootstrap5Plugin from "@fullcalendar/bootstrap5";
-import styles from '../../../scss/mypage/commom/mypage.common.module.scss'
-
-import {
-  Button,
-  Col,
-  Input,
-  InputGroup,
-  Row,
-} from "reactstrap";
-import { useRecoilValue } from "recoil";
-import { innerWidthState } from "../../../recoil/state/commonState";
-import "./fullcalendar.css"
+import data from "./sample/event.json";
+import SearchIcon from '@mui/icons-material/Search'; // Material-UI 아이콘 사용
+import "./fullcalendar.css";
 
 const MyPagePerformancePage = () => {
-  // 리액트 방식 - fullCalendar 시작
-  const plugins = [dayGridPlugin, timeGridPlugin, listPlugin, bootstrap5Plugin];
+  const plugins = [dayGridPlugin, timeGridPlugin, listPlugin];
 
   const headerToolbar = {
     left: "prev,next today",
@@ -31,8 +16,7 @@ const MyPagePerformancePage = () => {
     right: "dayGridMonth,timeGridWeek,listWeek",
   };
 
-  // const themeSystem = "bootstrap5";
-  const themeSystem = "themeSystem";
+  const themeSystem = "standard"; // DaisyUI 스타일 적용
 
   const aspectRatio = 1.5;
 
@@ -43,39 +27,27 @@ const MyPagePerformancePage = () => {
   const navLinks = true;
 
   const select = (arg) => {
-    // var title = prompt('일정 추가');
-    // if (title) {
-    //     this.addEvent({
-    //         title: title,
-    //         start: arg.start,
-    //         end: arg.end,
-    //         allDay: arg.allDay
-    //     })
-    // }
-    // this.unselect()
-    alert("클릭")
-  }
+    alert("클릭");
+  };
 
   const dateClick = () => {
-    alert("클릭")
-  }
+    alert("클릭");
+  };
 
-  // 리액트 방식 - fullCalendar 끝
-
-  const innerWidth = useRecoilValue(innerWidthState);
   return (
-    <div className={`${innerWidth >= 860 ? styles?.myPageWebContainer : styles?.myPageMobileContainer}`}>
-      <Row className="m-3">
-        <Col md={8}></Col>
-        <Col md={4}>
-          <InputGroup>
-            <Button color="primary" outline>전체</Button>
-            <Input className="primary" outline />
-            <Button color="primary" outline>검색</Button>
-          </InputGroup>
-        </Col>
-      </Row>
-      <Row className="m-3">
+    <div className={`py-2`}>
+      <h4 className="text-left mb-4 font-bold text-3xl">
+        공연 일정 (사용자 페이지)
+      </h4>
+      <div className="my-3 flex justify-end items-center">
+        <button className="btn btn-outline btn-primary mr-2">전체</button>
+        <div className="relative w-56 mr-2">
+          <input className="input input-bordered w-full h-10 pl-3 pr-10" placeholder="검색"/>
+          <SearchIcon className="absolute right-2 top-2 text-gray-500"/>
+        </div>
+        <button className="btn btn-outline btn-primary">검색</button>
+      </div>
+      <div className="m-3">
         <FullCalendar
           plugins={plugins}
           initialView="dayGridMonth"
@@ -89,23 +61,9 @@ const MyPagePerformancePage = () => {
           navLinks={navLinks}
           dateClick={dateClick}
         />
-      </Row>
+      </div>
     </div>
   );
 };
 
 export default MyPagePerformancePage;
-
-
-// Javascript 방식
-// const calendarEl = document.getElementById("calender")
-// let calendar = new Calendar(calendarEl, {
-//   plugins: [ dayGridPlugin, timeGridPlugin, listPlugin ],
-//   initialView: 'dayGridMonth',
-//   headerToolbar: {
-//     left: 'prev,next today',
-//     center: 'title',
-//     right: 'dayGridMonth,timeGridWeek,listWeek'
-//   }
-// });
-// calendar.render();

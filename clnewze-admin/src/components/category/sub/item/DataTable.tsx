@@ -1,13 +1,14 @@
 import React, { useRef, useState } from "react";
 import { useDrag, useDrop } from "react-dnd";
-import { Button, Input } from "reactstrap";
-import { DataMenuType } from "../../../../type/sheetMusic";
+import { TableRow, TableCell, IconButton, TextField, Button } from "@mui/material";
+import { Delete as DeleteIcon, Edit as EditIcon, Save as SaveIcon } from "@mui/icons-material";
+import { DataMenuType } from "../../../../type/sheet";
 
 const ItemTypes = {
   TABLE: "table",
 };
 
-function DataTable({ data, index, MenuDataDndMove, deleteMenu, updateMenu }:any) {
+function DataTable({ data, index, MenuDataDndMove, deleteMenu, updateMenu }: any) {
   const [updateMenuData, setUpdateMenuData] = useState<DataMenuType>(data);
   const [isUpdate, setIsUpdate] = useState<boolean>(false);
 
@@ -16,19 +17,15 @@ function DataTable({ data, index, MenuDataDndMove, deleteMenu, updateMenu }:any)
     setUpdateMenuData({
       ...updateMenuData,
       [name]: value,
-      // orderby: (menuData)?.length +1,
     });
   };
 
   // drag and drop 관련
-  // 참조 : https://velog.io/@suyeonme/React-DragDrop-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0
-  // 문서 참조 : https://react-dnd.github.io/react-dnd/docs/api/use-drag
-  const ref = useRef<any>(null); // (*)
+  const ref = useRef<any>(null);
 
   const [, drop] = useDrop({
-    // (*)
     accept: ItemTypes.TABLE,
-    hover(item:any, monitor) {
+    hover(item: any, monitor) {
       if (item.index === index) return;
       if (!ref.current) {
         return;
@@ -44,7 +41,7 @@ function DataTable({ data, index, MenuDataDndMove, deleteMenu, updateMenu }:any)
       const hoverBoundingRect = ref.current?.getBoundingClientRect() as any;
       const hoverMiddleY =
         (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
-      const clientOffset : any = monitor.getClientOffset();
+      const clientOffset: any = monitor.getClientOffset();
       const hoverClientY = clientOffset.y - hoverBoundingRect.top;
 
       if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
@@ -62,7 +59,6 @@ function DataTable({ data, index, MenuDataDndMove, deleteMenu, updateMenu }:any)
   });
 
   const [{ isDragging }, drag] = useDrag({
-    // (*)
     item: { type: ItemTypes.TABLE, data, index },
     type: ItemTypes.TABLE,
     collect: (monitor) => ({
@@ -70,43 +66,51 @@ function DataTable({ data, index, MenuDataDndMove, deleteMenu, updateMenu }:any)
     }),
   });
 
-  drag(drop(ref)); // (*)
-  // drag and drop 끝
+  drag(drop(ref));
+
   return (
-    <tr ref={ref} key={index}>
-      <th scope="row">{index + 1}</th>
-      <th scope="row">{data?.orderby}</th>
-      <td>
+    <TableRow ref={ref} style={{ opacity: isDragging ? 0.5 : 1 }}>
+      <TableCell>{index + 1}</TableCell>
+      <TableCell>{data?.orderby}</TableCell>
+      <TableCell>
         {isUpdate ? (
-          <Input
+          <TextField
             name="name"
             defaultValue={data?.name}
             onChange={updateOnChange}
+            fullWidth
           />
         ) : (
           data?.name
         )}
-      </td>
-      <td>
+      </TableCell>
+      <TableCell>
         {isUpdate ? (
-          <Input
+          <TextField
             name="category"
             defaultValue={data?.category}
             onChange={updateOnChange}
+            fullWidth
           />
         ) : (
           data?.category
         )}
-      </td>
-      <td>
+      </TableCell>
+      <TableCell>
         {isUpdate ? (
-          <Button onClick={() => {updateMenu(updateMenuData, index); setIsUpdate(!isUpdate)}}>수정</Button>
-          ) : (
-          <Button onClick={() => setIsUpdate(!isUpdate)}>편집</Button>
+          <IconButton color="primary" onClick={() => { updateMenu(updateMenuData, index); setIsUpdate(!isUpdate) }}>
+            <SaveIcon />
+          </IconButton>
+        ) : (
+          <IconButton color="primary" onClick={() => setIsUpdate(!isUpdate)}>
+            <EditIcon />
+          </IconButton>
         )}
-        <Button onClick={() => deleteMenu(index)}>삭제</Button>
-      </td>
-    </tr>
+        <IconButton color="secondary" onClick={() => deleteMenu(index)}>
+          <DeleteIcon />
+        </IconButton>
+      </TableCell>
+    </TableRow>
   );
 }
 

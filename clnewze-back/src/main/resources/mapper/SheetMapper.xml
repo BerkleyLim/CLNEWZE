@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.clnewze.back.clnewzeback.sheet.SheetMapper">
+
+    <!-- <select id="selectList" resultType="java.util.List"> -->
+    <!-- 악보 출력, 여기서, genre와 uno(유저번호)는 없으면 조건절에서 제외함 -->
+    <select id="getSheets" resultType="SheetDTO">
+        select
+        s.sno,
+        tu.user_name,
+        s.title,
+        s.view_number,
+        s.artist,
+        s.img,
+        s.genre,
+        s.release_date,
+        s.album_name,
+        s.music_link,
+        s.contents,
+        s.upload_date,
+        s.sheet_file,
+        s.uno
+        from sheet s
+        left join t_user tu
+        on s.uno = tu.uno
+        <where>
+            <if test="uno != null and uno > 0">
+                tu.uno = #{uno}
+            </if>
+            <if test="search != null and search != ''">
+                s.title LIKE CONCAT('%', #{search}, '%')
+            </if>
+        </where>
+        limit #{limit} offset #{pageNo}
+    </select>
+
+    <select id="countSheets" resultType="long">
+        select COUNT(*)
+        from sheet s
+        left join t_user tu
+        on s.uno = tu.uno
+        <where>
+            <if test="search != null and search != ''">
+                and s.title LIKE CONCAT('%', #{search}, '%')
+            </if>
+            <if test="uno !=null and uno > 0">
+                and tu.uno = #{uno}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectListAllCount" resultType="int">
+        select count(*)
+        from sheet
+    </select>
+
+    <!-- 악보 삽입 -->
+    <insert id="insertSheet">
+        INSERT INTO sheet
+        (title, artist, img, genre, release_date, album_name, music_link, contents, upload_date,
+         sheet_file, uno)
+        VALUES (#{title}, #{artist}, #{img}, #{genre}, #{releaseDate}, #{albumName}, #{musicLink},
+                #{contents}, #{uploadDate}, #{sheetFile}, #{uno})
+    </insert>
+
+    <!-- 악보 수정 -->
+    <update id="updateSheet">
+        UPDATE sheet
+        SET title=#{title},
+            artist=#{artist},
+            img=#{img},
+            genre=#{genre},
+            release_date=#{releaseDate},
+            album_name=#{albumName},
+            music_link=#{musicLink},
+            contents=#{contents},
+            sheet_file=#{sheetFile}
+          where sno=#{sno};
+    </update>
+
+    <!-- 악보 삭제 -->
+    <delete id="deleteSheet">
+        DELETE
+        FROM music.sheet
+        WHERE sno = #{sno};
+    </delete>
+
+    <!-- 악보 삭제할 대상 파일 모두 조회 (pdf 파일경로 + image 파일 경로) -->
+    <select id="selectSheetFilePathById" resultType="SheetDTO">
+        select img, sheet_file from
+            music.sheet where sno = #{sno}
+    </select>
+
+</mapper>

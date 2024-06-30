@@ -6,7 +6,7 @@ const SchedulesCalendarComponent = () => {
   const { pathname } = useLocation();
   const [displayView, setDisplayView] = useState<any>();
 
-  const linkMenu = pathname.split('/').slice(2).join("")
+  const linkMenu = pathname.split('/').slice(3).join("")
 
   useEffect(() => {
     const fetch:any = () => {

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.clnewze.back.clnewzeback.sheet.SheetMenuCategoryMapper">
+  
+  <!-- 사용 Menu 리스트 출력 -->
+  <select id="category" resultType="SheetMenuCategoryDTO">
+    select smtno, name, orderby, category from master_menu_sheetmusic order by orderby asc;
+  </select>
+
+  <!-- SheetMenu 전체 수 조회 -->
+  <select id="categoryCountSheetMenu" resultType="Long">
+    select count(*) from master_menu_sheetmusic;
+  </select>
+
+  <!-- SheetMenu 마지막 행 출력 -->
+  <select id="lastSheetMenuTable" resultType="SheetMenuCategoryDTO">
+    select * from master_menu_sheetmusic mmt order by smtno desc limit 1;
+  </select>
+  
+  <!-- SheetMenu 생성 -->
+  <insert id="createSheetMenu">
+    INSERT INTO master_menu_sheetmusic  (name, category) value (#{name},#{category})
+  </insert>
+
+<!-- orderby 갱신, 테이블 추가시 orderby 부여 -->
+  <update id="orderbyChangeSheetMenu">
+    update master_menu_sheetmusic set orderby=#{changeOrder} where smtno = #{smtno}
+  </update>
+
+<!-- SheetMenu 내용물 수정 -->
+  <update id="updateSheetMenu">
+    update master_menu_sheetmusic set
+      name=#{name} ,
+      category=#{category} 
+    where smtno = #{smtno}
+  </update>
+
+  <delete id="deleteSheetMenu">
+    delete from master_menu_sheetmusic where smtno = #{smtno}
+  </delete>
+</mapper>

@@ -2,7 +2,17 @@ import React, { useEffect, useState, useCallback } from "react";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import update from "immutability-helper";
-import { Table, Button, Input } from "reactstrap";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  Button,
+  TextField,
+  Box,
+  Typography,
+} from "@mui/material";
 import DataTable from "./menu/dataTable";
 import UseApi from "../../../../util/UseApi";
 
@@ -108,7 +118,7 @@ function AdminTeacherComponent() {
   // Teacher Menu 삭제
   const deleteMenu = (index) => {
     let deleteData = menuData[index];
-    
+
     UseApi.post(process.env.REACT_APP_API_ROOT + "teacher/master/menu/delete", deleteData)
     .then((res) => {
       setMenuData(
@@ -140,54 +150,65 @@ function AdminTeacherComponent() {
     setIsStateUpdate(!isStateUpdate);
   };
   return (
-    <>
-      <h1>메뉴 관리</h1>
-      <Button onClick={() => changeOrderby()}>순서 변경</Button>
-      <Table striped>
-        <thead>
-          <tr>
-            <th width="10%">index</th>
-            <th width="10%">prevOrderBy</th>
-            <th width="30%">name</th>
-            <th width="30%">category</th>
-            <th width="20%">FN</th>
-          </tr>
-        </thead>
-        <tbody>
-          {menuData?.map((data, index) => (
-            <DndProvider key={index} backend={HTML5Backend}>
+    <Box className="p-4">
+      <Typography variant="h4" className="mb-4">메뉴 관리</Typography>
+      <Button onClick={changeOrderby} variant="contained" color="primary" className="mb-4">
+        순서 변경
+      </Button>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>index</TableCell>
+            <TableCell>prevOrderBy</TableCell>
+            <TableCell>name</TableCell>
+            <TableCell>category</TableCell>
+            <TableCell>FN</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          <DndProvider backend={HTML5Backend}>
+            {menuData?.map((data, index) => (
               <DataTable
+                key={index}
                 index={index}
                 data={data}
                 deleteMenu={deleteMenu}
                 updateMenu={updateMenu}
                 MenuDataDndMove={MenuDataDndMove}
               />
-            </DndProvider>
-          ))}
-          <td></td>
-          <td></td>
-          <td>
-            <Input
-              name="name"
-              defaultValue={createMenuData?.name}
-              onChange={createOnChange}
-            />
-          </td>
-          <td>
-            <Input
-              name="category"
-              defaultValue={createMenuData?.category}
-              onChange={createOnChange}
-            />
-          </td>
-          <td>
-            <Button onClick={() => addMenu()}>추가</Button>
-          </td>
-        </tbody>
+            ))}
+          </DndProvider>
+          <TableRow>
+            <TableCell></TableCell>
+            <TableCell></TableCell>
+            <TableCell>
+              <TextField
+                name="name"
+                value={createMenuData?.name}
+                onChange={createOnChange}
+                fullWidth
+              />
+            </TableCell>
+            <TableCell>
+              <TextField
+                name="category"
+                value={createMenuData?.category}
+                onChange={createOnChange}
+                fullWidth
+              />
+            </TableCell>
+            <TableCell>
+              <Button onClick={addMenu} variant="contained" color="primary">
+                추가
+              </Button>
+            </TableCell>
+          </TableRow>
+        </TableBody>
       </Table>
-      <h1>레스너 순서 관리</h1>
-    </>
+      <Typography variant="h4" className="mt-4">
+        레스너 순서 관리
+      </Typography>
+    </Box>
   );
 }
 

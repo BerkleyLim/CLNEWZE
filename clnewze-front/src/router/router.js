@@ -6,7 +6,7 @@ import CareerPage from "../pages/mypage/career/CareerPage";
 import MyPageTeacherPage from "../pages/mypage/teacher/MyPageTeacherPage";
 import SubscriptPage from "../pages/mypage/subscript/SubscriptPage";
 import MyPagePerformancePage from "../pages/mypage/performance/MyPagePerformancePage";
-import SheetPage from "../pages/user/sheetmusic/SheetMusicPage";
+import SheetPage from "../pages/user/sheet/SheetPage";
 import UserListPage from "../pages/mypage/admin/UserListPage";
 import AdminRoomPage from "../pages/mypage/admin/AdminRoomPage";
 import AdminTeacherPage from "../pages/mypage/admin/AdminTeacherPage";
@@ -14,10 +14,12 @@ import AdminDashBoardPage from "../pages/mypage/admin/AdminDashBoardPage";
 import UserRouterLayout from "../layout/UserRouterLayout";
 import MyPageLayout from "../layout/MyPageLayout";
 import PerformancePage from "../pages/user/performance/PerformancePage";
-import PracticePage from "../pages/user/practiceroom/PracticeRoomPage";
+import RoomPage from "../pages/user/room/RoomPage";
 import TeacherPage from "../pages/user/teacher/TeacherPage";
 import BlogPage from "../pages/user/blog/BlogPage";
-import MainComponent from "../components/commom/main/MainComponent";
+import MainPage from "../pages/MainPage";
+import MyPageRoomPage from "../pages/mypage/room/MyPageRoomPage";
+import MyPageSheetPage from "../pages/mypage/sheet/MyPageSheetPage";
 
 
 const router = createBrowserRouter([
@@ -28,7 +30,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: 'main',
-        element: <MainComponent />,
+        element: <MainPage/>,
         errorElement: <ErrorPage/>,
       },
       {
@@ -38,27 +40,27 @@ const router = createBrowserRouter([
       },
       {
         path: 'performance',
-        element: <PerformancePage />,
+        element: <PerformancePage/>,
         errorElement: <ErrorPage/>,
       },
       {
-        path: 'practice/:pageNo',
-        element: <PracticePage />,
+        path: 'room/:pageNo',
+        element: <RoomPage/>,
         errorElement: <ErrorPage/>,
       },
       {
         path: 'sheet/:pageNo',
-        element: <SheetPage />,
+        element: <SheetPage/>,
         errorElement: <ErrorPage/>,
       },
       {
         path: 'teacher/:pageNo',
-        element: <TeacherPage />,
+        element: <TeacherPage/>,
         errorElement: <ErrorPage/>,
       },
       {
         path: 'blog/:pageNo',
-        element: <BlogPage />,
+        element: <BlogPage/>,
         errorElement: <ErrorPage/>,
       },
     ]
@@ -94,8 +96,13 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage/>,
       },
       {
-        path: 'sheet/info',
-        element: <SheetPage/>,
+        path: 'sheet/info/:pageNo',
+        element: <MyPageSheetPage/>,
+        errorElement: <ErrorPage/>,
+      },
+      {
+        path: 'room/info/:pageNo',
+        element: <MyPageRoomPage/>,
         errorElement: <ErrorPage/>,
       }
     ]

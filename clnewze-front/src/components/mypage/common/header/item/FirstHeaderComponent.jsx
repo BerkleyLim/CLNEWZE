@@ -1,97 +1,64 @@
-import React, { useState } from "react";
-import {
-  Button,
-  ButtonDropdown,
-  DropdownMenu,
-  DropdownToggle,
-  Navbar,
-  Row,
-} from "reactstrap";
-import styles from "../../../../../scss/mypage/commom/mypage.main.module.scss";
-import { BellFill, CardList } from "react-bootstrap-icons";
+import React, {useState} from "react";
+import {AppBar, Box, Button, IconButton, Menu, Toolbar,} from "@mui/material";
+import {Menu as MenuIcon, Notifications as NotificationsIcon} from "@mui/icons-material";
 import UserContainer from "../../../../../hooks/UserContainer";
-import { useRecoilValue } from "recoil";
-import { userState } from "../../../../../recoil/state/userState";
+import {useRecoilValue} from "recoil";
+import {userState} from "../../../../../recoil/state/userState";
 import CommonContainer from "../../../../../hooks/CommonContainer";
 import LoginPage from "../../../../../pages/common/login/LoginPage";
 import menuData from "../../../../../data/my/page/myPageMenu.json";
 import HeaderDropdownMenuComponent from "./HeaderDropdownMenuComponent";
+import {useNavigate} from "react-router-dom";
 
 const FirstHeaderComponent = () => {
-  // 드롭다운 버튼 클릭
-  const [mobileIsDropDown, setMobileIsDropDown] = useState(false);
-  const mobileIsDropDownToggle = () => setMobileIsDropDown(!mobileIsDropDown);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const handleMenuOpen = (event) => setAnchorEl(event.currentTarget);
+  const handleMenuClose = () => setAnchorEl(null);
   const user = useRecoilValue(userState);
+  const {toggleIsLoginOpen} = CommonContainer();
+  const {handlerLogout} = UserContainer();
 
-  // 커스텀 훅 정의
-  const { toggleIsLoginOpen } = CommonContainer();
-  const { handlerLogout } = UserContainer();
+  const navigate = useNavigate();
 
-
-  // 로그인 화면 출력
   const onClickLogin = () => {
     toggleIsLoginOpen();
   };
 
-  // 로그아웃
   const onClickLogout = () => {
     handlerLogout();
   };
 
   return (
-    <div style={{ backgroundColor: "#eee" }}>
-      <Navbar className={`${styles?.myPageHeaderMenu}`}>
-        {/* 헤더 부분 */}
-        <div style={{ width: "15%" }}>
-          <img src={'/logo.png'} alt={''} width={'50px'} />
-        </div>
+    <AppBar position="static" style={{backgroundColor: "#FFF3D4"}}>
+      <Toolbar className="flex justify-between">
+        <img src={'/logo.png'} alt={'logo'} width={'50px'} className={`cursor-pointer`} onClick={() => navigate('/')}/>
 
-        {/* 오른쪽으로 배치하고, 다시 Navbar로 조정 */}
-        <Row style={{ width: "85%" }}>
-          <div style={{ display: "flex", justifyContent: "end" }}>
-            <div style={{ padding: "0 0 0 2%" }}>
-              {
-                // 로그인 여부 측정
-                user?.uno > -1 ? (
-                  <Button onClick={onClickLogout}>로그아웃</Button>
-                ) : (
-                  <Button onClick={onClickLogin}>로그인</Button>
-                )
-              }
-            </div>
-            <div style={{ padding: "0 0 0 2%" }}>
-              <Button>
-                <BellFill />
-              </Button>
-            </div>
-            <div style={{ padding: "0 0 0 2%" }}>
-              <ButtonDropdown
-                isOpen={mobileIsDropDown}
-                direction="down"
-                toggle={mobileIsDropDownToggle}
-              >
-                <DropdownToggle caret>
-                  <CardList />
-                </DropdownToggle>
-                {/* 이부분 나중에 리팩토링 하기 */}
-                <DropdownMenu>
-                  <HeaderDropdownMenuComponent menuData={menuData?.userInfo} title={"회원 정보"}/>
-                  <HeaderDropdownMenuComponent menuData={menuData?.uploadInfo} title={"업로드 정보"}/>
-                  {/* 매출 정보 임시 제거, 아직 기능 구현 안되어서 잠깐 제거함 */}
-                  <HeaderDropdownMenuComponent menuData={menuData?.salesInfo} title={"매출 정보"}/>
-                  {
-                    user?.id === 'admin' &&
-                      <HeaderDropdownMenuComponent menuData={menuData?.adminMenu} title={"관리자 정보"}/>
-                  }
-                </DropdownMenu>
-              </ButtonDropdown>
-            </div>
-          </div>
-        </Row>
-      </Navbar>
-
-      <LoginPage />
-    </div>
+        <Box className="flex items-center space-x-4">
+          <Button onClick={user?.uno > -1 ? onClickLogout : onClickLogin}>
+            {user?.uno > -1 ? '로그아웃' : '로그인'}
+          </Button>
+          <IconButton>
+            <NotificationsIcon/>
+          </IconButton>
+          <IconButton onClick={handleMenuOpen}>
+            <MenuIcon/>
+          </IconButton>
+          <Menu
+            anchorEl={anchorEl}
+            open={Boolean(anchorEl)}
+            onClose={handleMenuClose}
+          >
+            <HeaderDropdownMenuComponent menuData={menuData?.userInfo} title={"회원 정보"}/>
+            <HeaderDropdownMenuComponent menuData={menuData?.uploadInfo} title={"업로드 정보"}/>
+            <HeaderDropdownMenuComponent menuData={menuData?.salesInfo} title={"매출 정보"}/>
+            {user?.id === 'admin' && (
+              <HeaderDropdownMenuComponent menuData={menuData?.adminMenu} title={"관리자 정보"}/>
+            )}
+          </Menu>
+        </Box>
+      </Toolbar>
+      <LoginPage/>
+    </AppBar>
   );
 };
 

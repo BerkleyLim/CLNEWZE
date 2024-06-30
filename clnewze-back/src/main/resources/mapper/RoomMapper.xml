@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.clnewze.back.clnewzeback.room.RoomMapper">
+  
+  <select id="getRooms" resultType="RoomDTO">
+    select 
+      r.rno,
+      r.title,
+      tu.user_name, 
+      r.img,
+      r.place,
+      r.contents,
+      r.upload_date as upLoadDate,
+      r.price,
+      r.categories,
+      r.uno
+    from room r
+      left join t_user tu 
+    on r.uno=tu.uno
+    <where>
+      <if test="uno != null and uno > 0">
+        tu.uno = #{uno}
+      </if>
+      <if test="search != null and search != ''">
+        s.title LIKE CONCAT('%', #{search}, '%')
+      </if>
+    </where>
+    limit #{limit} offset #{pageNo}
+  </select>
+
+  <select id="countRooms" resultType="long">
+    select COUNT(*)
+    from room r
+    left join t_user tu
+    on r.uno = tu.uno
+    <where>
+      <if test="search != null and search != ''">
+        and s.title LIKE CONCAT('%', #{search}, '%')
+      </if>
+      <if test="uno !=null and uno > 0">
+        and tu.uno = #{uno}
+      </if>
+    </where>
+  </select>
+
+  <!-- 연습실 카운트 -->
+  <select id="selectListAllCount" resultType="int">
+    select count(*) from room
+  </select>
+
+  
+  <!-- 연습실 추가 -->
+  <insert id="insertRoom">
+    INSERT INTO room
+      (rno, title, img, name, place, contents, upload_date, price, categories, uno)
+    VALUES (#{rno}, #{title}, #{img}, #{name}, #{place}, #{contents}, NOW(), #{price}, #{categories}, #{uno});
+  </insert>
+
+
+  <!-- 연습실 삭제 -->
+  <delete id="deleteRoom">
+    DELETE
+    FROM room
+    WHERE rno = #{rno};
+  </delete>
+
+  <!-- 악보 삭제할 대상 파일 모두 조회 (image 파일 경로) -->
+  <select id="selectRoomFilePathById" resultType="RoomDTO">
+    select img from
+      music.room where rno = #{rno}
+  </select>
+
+
+</mapper>

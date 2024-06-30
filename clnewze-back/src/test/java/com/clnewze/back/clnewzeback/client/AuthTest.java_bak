@@ -4,7 +4,7 @@ import org.apache.http.Header;
 import org.apache.http.message.BasicHeader;
 import org.junit.jupiter.api.Test;
 
-import com.clnewze.back.clnewzeback.domain.dto.LoginDto;
+import com.clnewze.back.clnewzeback.auth.dto.LoginDto;
 import com.clnewze.back.clnewzeback.util.HttpUtil;
 import com.clnewze.back.clnewzeback.util.JsonUtil;
 

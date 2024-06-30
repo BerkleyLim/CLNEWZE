@@ -1,24 +1,37 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import userReducer from './state/userSlice';
+import {FLUSH, PAUSE, PERSIST, persistReducer, PURGE, REGISTER, REHYDRATE} from 'redux-persist'
+import userReducer from './slice/userSlice';
+import storageSession from 'redux-persist/lib/storage/session';
 
-const sessionStorage =
-    typeof window !== 'undefined' ? window.sessionStorage : undefined
+// const sessionStorage =
+//     typeof window !== 'undefined' ? window.sessionStorage : undefined
 const persistConfig = {
-    key: 'root',
-    storage: sessionStorage,
-    whilelist: ['user'],
-    // blacklist : []
+  key: 'root',
+  // storage: sessionStorage,
+  storage: storageSession,
+  whitelist: ['user'],
+  version: 1,
+  // blacklist : []
 }
 
 const rootReducer = combineReducers({
-    user:userReducer
+  user: userReducer
 })
 
-// const persistedReducer = persistReducer(persistConfig, rootReducer)
+// @ts-ignore
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
-    reducer: rootReducer
-    // reducer: persistedReducer
+  // reducer: rootReducer
+  reducer: persistedReducer,
+  // devTools: process.env.NODE_ENV !== 'production',
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      // serializableCheck: false
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 })
 
 // 기존 설정 방식 (persistConfig 때문에 제외함)

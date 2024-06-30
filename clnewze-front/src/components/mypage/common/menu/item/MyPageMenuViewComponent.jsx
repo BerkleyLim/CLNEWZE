@@ -1,7 +1,6 @@
 import React from "react";
-import { ListGroup, ListGroupItem } from "reactstrap";
+import { List, ListItem, ListItemText, ListItemButton } from "@mui/material";
 import { useRecoilValue } from "recoil";
-import styles from "../../../../../scss/mypage/commom/mypage.main.module.scss";
 import {
   anotherUserState,
   userState,
@@ -12,6 +11,7 @@ import { useLocation } from "react-router-dom";
 const MyPageMenuViewComponent = ({ menuData, title }) => {
   // 현재 경로 구하는 React Hook
   const { pathname } = useLocation();
+
   // admin이 아닌 mypage접근시 유저 ID가 동적이므로 데이터 가공
   const currentPath = pathname.includes("mypage")
     ? pathname.split("/").slice(3).join("")
@@ -25,22 +25,20 @@ const MyPageMenuViewComponent = ({ menuData, title }) => {
 
     return currentPath === menuPath;
   };
+
   // 경로 : /mypage/"유저 ID"/*
   const anotherUser = useRecoilValue(anotherUserState);
   const id = anotherUser?.id;
-  // state 정의
-  // 전역 상태관리 필요 없이 구현으로 주석처리
-  // const [menuInfo, setMenuInfo] = useRecoilState(myPageMenuState);
+
   // 리액트 훅 정의
   const { moveNavPage } = CommonContainer();
 
   const user = useRecoilValue(userState);
 
   const toggleMenuClick = (e, link, isDevelop) => {
-
     // 개발 중일때 개발중으로 표시
     if (isDevelop) {
-      alert("이 서비스는 개발 중 입니다.")
+      alert("이 서비스는 개발 중 입니다.");
       return;
     }
 
@@ -48,35 +46,28 @@ const MyPageMenuViewComponent = ({ menuData, title }) => {
     const { value } = e.target;
     // 파라미터 부분 변경
     link = link.replaceAll(":id", id);
+    link = link.replaceAll(":pageNo", 1);
 
-    // setMenuInfo({
-    //   index: value,
-    //   link: link,
-    // });
+    // 메뉴 이동 실행
     moveNavPage(link);
   };
 
-
   return (
-    <ListGroup className={`${styles?.myPageMenuComponent}`}>
+    <List className="bg-white shadow-md rounded p-4 max-w-[200px]">
       <h6>{menuData.length > 0 && title}</h6>
       {menuData
         ?.filter((data) => data?.isUsing && !(data?.isNotLogin && user?.id !== id))
         .map((data, index) => (
-          <ListGroupItem
-            key={index}
-            value={data?.index}
-            className={`${styles?.myPageListGroupItem} ${
-              isCurrentMenu(data?.link) && "active"
-            }`}
-            onClick={(e) => {
-              toggleMenuClick(e, data?.link, data?.isDevelop);
-            }}
-          >
-            {data?.title}
-          </ListGroupItem>
+          <ListItem key={index} disablePadding>
+            <ListItemButton
+              selected={isCurrentMenu(data?.link)}
+              onClick={(e) => toggleMenuClick(e, data?.link, data?.isDevelop)}
+            >
+              <ListItemText primary={data?.title} />
+            </ListItemButton>
+          </ListItem>
         ))}
-    </ListGroup>
+    </List>
   );
 };
 

@@ -1,55 +1,38 @@
 import React from "react";
-
-import styles from "../../../../scss/mypage/commom/mypage.common.module.scss";
-import { Navbar, Row } from "reactstrap";
-import HeaderTwoRightComponent from "./item/HeaderTwoRightComponent";
-import SubScriptModalComponent from "./item/SubScriptModalComponent";
+import { AppBar, Box, Toolbar, Typography, Avatar } from "@mui/material";
 import { useRecoilValue } from "recoil";
 import { myPageHeaderSubScriptModalIsOpenState } from "../../../../recoil/state/myPageHeaderState";
 import { anotherUserState } from "../../../../recoil/state/userState";
 import FirstHeaderComponent from "./item/FirstHeaderComponent";
-import {PersonCircle} from "react-bootstrap-icons";
+import HeaderTwoRightComponent from "./item/HeaderTwoRightComponent";
+import SubScriptModalComponent from "./item/SubScriptModalComponent";
+import { PersonCircle } from "react-bootstrap-icons";
 
 const MyPageWebHeaderComponent = () => {
-  const isSubScriptModal = useRecoilValue(
-    myPageHeaderSubScriptModalIsOpenState
-  );
-
+  const isSubScriptModal = useRecoilValue(myPageHeaderSubScriptModalIsOpenState);
   const anotherUser = useRecoilValue(anotherUserState);
 
   return (
-    <div className={`${styles?.myPageHeader}`}>
-      {/* 첫번째 헤더에 있는 메뉴바 표시 - 모바일과 비슷함 */}
+    <Box className="bg-[#FFF3D4] w-full mb-5">
       <FirstHeaderComponent />
-      {/* <!-- 마이페이지 정보 (커버랑 같이 겹치기) --> */}
-      <Navbar className={`${styles?.profileHeader}`}>
-        <div style={{ width: "200px" }}>
-          <div className={`${styles?.profileImg}`}>
-            {/* 이미지 없을 때 default 값 */}
-            <PersonCircle className={`${styles?.imgSize}`} style={{backgroundColor:"#fff"}} />
-            {/* 이미지 있을 때 아래 반영 */}
-            {/*<img*/}
-            {/*  src="/image/file/myPage/defalut-my-profile.png"*/}
-            {/*  alt="my-profile"*/}
-            {/*  className={`${styles?.imgSize}`}*/}
-            {/*/>*/}
-          </div>
-        </div>
-        <div style={{ width: "40%" }}>
-          <Row>
-            <h3 style={{ textAlign: "left" }}>{anotherUser?.userName}</h3>
-          </Row>
-          <Row style={{ fontSize: "20px" }} className="mt-1">
-            소개 : {anotherUser?.userName} 님의 페이지 입니다..
-          </Row>
-        </div>
-        <div style={{width:"30%"}}>
-          <HeaderTwoRightComponent />
-        </div>
-      </Navbar>
-
+      <AppBar position="static" className="bg-transparent shadow-none mx-auto max-w-[1200px]">
+        <Toolbar className="flex items-center justify-between">
+          <Box className="flex items-center space-x-4 flex-grow-0">
+            <Avatar className="bg-white w-15 h-15">
+              <PersonCircle className="text-gray-500" size={60} />
+            </Avatar>
+            <Box>
+              <Typography variant="h6">{anotherUser?.userName}</Typography>
+              <Typography variant="body1">소개 : {anotherUser?.userName} 님의 페이지 입니다.</Typography>
+            </Box>
+          </Box>
+          <Box className="w-1/4">
+            <HeaderTwoRightComponent />
+          </Box>
+        </Toolbar>
+      </AppBar>
       {isSubScriptModal && <SubScriptModalComponent />}
-    </div>
+    </Box>
   );
 };
 

@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react';
-import HeaderComponent from "../components/commom/header/HeaderComponent";
-import Footer from "../components/commom/footer/FooterComponent";
+import HeaderComponent from "../components/common/header/HeaderComponent";
+import Footer from "../components/common/footer/FooterComponent";
 import {Outlet, useLocation, useNavigate} from "react-router-dom";
+import LoginPage from "../pages/common/login/LoginPage";
 
 const UserRouterLayout = () => {
   const {pathname} = useLocation()
@@ -22,6 +23,9 @@ const UserRouterLayout = () => {
         <Outlet/>
       </div>
       <Footer/>
+
+      {/* 모달 영역*/}
+      <LoginPage/>
     </div>
   );
 }

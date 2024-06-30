@@ -1,6 +1,6 @@
 import React from "react";
-import { DropdownItem } from "reactstrap";
-import {  useRecoilValue } from "recoil";
+import { MenuItem, Typography } from "@mui/material";
+import { useRecoilValue } from "recoil";
 import CommonContainer from "../../../../../hooks/CommonContainer";
 import styles from "../../../../../scss/mypage/commom/mypage.main.module.scss";
 import { anotherUserState, userState } from "../../../../../recoil/state/userState";
@@ -49,23 +49,23 @@ const HeaderDropdownMenuComponent = ({ menuData, title }) => {
 
   return (
     <>
-      <DropdownItem disabled>{title}</DropdownItem>
-      <DropdownItem divider={true} />
+      <Typography variant="h6" className="px-4 py-2" style={{ opacity: 0.5 }}>
+        {title}
+      </Typography>
+      <MenuItem divider />
       {menuData
         ?.filter((data) => data?.isUsing && !(data?.isNotLogin && user?.id !== id))
         .map((data, index) => (
-          <DropdownItem
+          <MenuItem
             key={index}
             value={data?.index}
             onClick={(e) => toggleMenuClick(e, data?.link, data?.isDevelop)}
-            className={`${styles?.myPageListGroupItem} ${
-              isCurrentMenu(data?.link) && "active"
-            }`}
+            className={`${styles?.myPageListGroupItem} ${isCurrentMenu(data?.link) ? "bg-gray-200" : ""}`}
           >
             {data?.title}
-          </DropdownItem>
+          </MenuItem>
         ))}
-      <DropdownItem divider={true} />
+      <MenuItem divider />
     </>
   );
 };

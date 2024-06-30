@@ -69,15 +69,15 @@
     {
       "index":9,
       "title": "연습실",
-      "link":"/mypage/:id/practiceroom/info",
-      "isUsing": false,
+      "link":"/mypage/:id/room/info/:pageNo",
+      "isUsing": true,
       "isNotLogin": false,
       "isDevelop": false
     },
     {
       "index":10,
       "title": "악보",
-      "link":"/mypage/:id/sheetmusic/info",
+      "link":"/mypage/:id/sheet/info/:pageNo",
       "isUsing": true,
       "isNotLogin": false,
       "isDevelop": false
@@ -103,7 +103,7 @@
     {
       "index":13,
       "title": "구입악보",
-      "link":"/mypage/:id/buy/sheetmusic",
+      "link":"/mypage/:id/buy/sheet",
       "isUsing": true,
       "isNotLogin": true,
       "isDevelop": true
@@ -111,7 +111,7 @@
     {
       "index":14,
       "title": "판매악보",
-      "link":"/mypage/:id/sell/sheetmusic",
+      "link":"/mypage/:id/sell/sheet",
       "isUsing": true,
       "isNotLogin": true,
       "isDevelop": true

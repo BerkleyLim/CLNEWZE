@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useDrag, useDrop } from "react-dnd";
-import { Button, Input } from "reactstrap";
+import { Button, TextField, TableCell, TableRow } from "@mui/material";
+import { Delete as DeleteIcon, Edit as EditIcon, Save as SaveIcon } from "@mui/icons-material";
 
 const ItemTypes = {
   TABLE: "table",
@@ -72,40 +73,38 @@ function DataTable({ data, index, MenuDataDndMove, deleteMenu, updateMenu }) {
   drag(drop(ref)); // (*)
   // drag and drop 끝
   return (
-    <tr ref={ref} key={index}>
-      <th scope="row">{index + 1}</th>
-      <th scope="row">{data?.orderby}</th>
-      <td>
+    <TableRow ref={ref} key={index} style={{ opacity: isDragging ? 0.5 : 1 }}>
+      <TableCell>{index + 1}</TableCell>
+      <TableCell>{data?.orderby}</TableCell>
+      <TableCell>
         {isUpdate ? (
-          <Input
-            name="name"
-            defaultValue={data?.name}
-            onChange={updateOnChange}
-          />
+          <TextField name="name" defaultValue={data?.name} onChange={updateOnChange} fullWidth />
         ) : (
           data?.name
         )}
-      </td>
-      <td>
+      </TableCell>
+      <TableCell>
         {isUpdate ? (
-          <Input
-            name="category"
-            defaultValue={data?.category}
-            onChange={updateOnChange}
-          />
+          <TextField name="category" defaultValue={data?.category} onChange={updateOnChange} fullWidth />
         ) : (
           data?.category
         )}
-      </td>
-      <td>
+      </TableCell>
+      <TableCell>
         {isUpdate ? (
-          <Button onClick={() => {updateMenu(updateMenuData, index); setIsUpdate(!isUpdate)}}>수정</Button>
-          ) : (
-          <Button onClick={() => setIsUpdate(!isUpdate)}>편집</Button>
+          <Button onClick={() => { updateMenu(updateMenuData, index); setIsUpdate(!isUpdate); }}>
+            <SaveIcon />
+          </Button>
+        ) : (
+          <Button onClick={() => setIsUpdate(!isUpdate)}>
+            <EditIcon />
+          </Button>
         )}
-        <Button onClick={() => deleteMenu(index)}>삭제</Button>
-      </td>
-    </tr>
+        <Button onClick={() => deleteMenu(index)}>
+          <DeleteIcon />
+        </Button>
+      </TableCell>
+    </TableRow>
   );
 }
 

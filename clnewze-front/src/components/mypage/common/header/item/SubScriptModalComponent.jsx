@@ -1,15 +1,15 @@
 import React from "react";
 import {
   Button,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
   Card,
-  CardText,
-  CardTitle,
-  Modal,
-  ModalBody,
-  ModalFooter,
-  ModalHeader,
-  Row,
-} from "reactstrap";
+  CardContent,
+  Typography,
+  Grid,
+} from "@mui/material";
 import MyPageHeaderContainer from "../../../../../hooks/MyPageHeaderContainer";
 import { useRecoilValue } from "recoil";
 import { myPageHeaderSubScriptModalIsOpenState } from "../../../../../recoil/state/myPageHeaderState";
@@ -19,28 +19,43 @@ const SubScriptModalComponent = () => {
   const { subscriptModalToggle } = MyPageHeaderContainer();
 
   return (
-    <Modal isOpen={isModal} toggle={subscriptModalToggle} centered={true}>
-      <ModalHeader toggle={subscriptModalToggle}>
-        홍길동 님을 구독하시겠습니까?
-      </ModalHeader>
-      <ModalBody>
+    <Dialog open={isModal} onClose={subscriptModalToggle} maxWidth="sm" fullWidth>
+      <DialogTitle>홍길동 님을 구독하시겠습니까?</DialogTitle>
+      <DialogContent>
         <Card>
-          <CardTitle>
-            다음은 회원님이 지정한 등급의 대한 구독 레벨을 수행할 수 있습니다.
-          </CardTitle>
-          <CardText>
-            <Row>1. VVIP 등급 : 월 100,000 원</Row>
-            <Row>2. VIP 등급 : 월 50,000 원</Row>
-            <Row>3. Senior 등급 : 월 30,000 원</Row>
-            <Row>4. Middle 등급 : 월 10,000 원</Row>
-            <Row>5. Junior 등급 : 월 3,000 원</Row>
-          </CardText>
+          <CardContent>
+            <Typography variant="h6">
+              다음은 회원님이 지정한 등급의 대한 구독 레벨을 수행할 수 있습니다.
+            </Typography>
+            <Grid container spacing={2} className="mt-2">
+              <Grid item xs={12}>
+                <Typography>1. VVIP 등급 : 월 100,000 원</Typography>
+              </Grid>
+              <Grid item xs={12}>
+                <Typography>2. VIP 등급 : 월 50,000 원</Typography>
+              </Grid>
+              <Grid item xs={12}>
+                <Typography>3. Senior 등급 : 월 30,000 원</Typography>
+              </Grid>
+              <Grid item xs={12}>
+                <Typography>4. Middle 등급 : 월 10,000 원</Typography>
+              </Grid>
+              <Grid item xs={12}>
+                <Typography>5. Junior 등급 : 월 3,000 원</Typography>
+              </Grid>
+            </Grid>
+          </CardContent>
         </Card>
-        <Button color="primary">구독하기</Button>{" "}
-        <Button color="secondary">취소하기</Button>
-      </ModalBody>
-      <ModalFooter>CLNEWZE musician by CleanDev.Inc</ModalFooter>
-    </Modal>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={subscriptModalToggle} color="primary">
+          구독하기
+        </Button>
+        <Button onClick={subscriptModalToggle} color="secondary">
+          취소하기
+        </Button>
+      </DialogActions>
+    </Dialog>
   );
 };
 

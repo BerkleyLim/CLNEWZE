@@ -9,7 +9,7 @@
   {
     "index": 2
     ,"menuName": "악보"
-    ,"category": "music/1"
+    ,"category": "sheet/1"
     ,"orderby": 2
     ,"isView": true
   },
@@ -18,7 +18,7 @@
     ,"menuName": "레스너 찾기"
     ,"category": "teacher/1"
     ,"orderby": 3
-    ,"isView": true
+    ,"isView": false
   },
   {
     "index": 4

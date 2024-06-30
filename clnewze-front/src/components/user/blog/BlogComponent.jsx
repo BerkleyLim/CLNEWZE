@@ -20,7 +20,7 @@ const BlogComponent = () => {
   useEffect(() => {
     UseApi.get(
       process.env.REACT_APP_API_ROOT +
-        "blog/selectList" 
+        "blog/selectList"
           + "?pageNo=" + offset
           + "&limit=" + limit
     )
@@ -28,20 +28,20 @@ const BlogComponent = () => {
       .catch((e) => console.error(e));
   }, [offset])
 
-  console.log(offset)
+  // console.log(offset)
 
   useEffect(() => {
     UseApi.get(
-      process.env.REACT_APP_API_ROOT + 
+      process.env.REACT_APP_API_ROOT +
         "blog/selectListAllCount"
     )
       .then((res) => setPagingCount(res.data.data))
       .catch((e) => console.error(e))
   }, [])
 
-  console.log(page)
+  // console.log(page)
 
-  console.log(blogData)
+  // console.log(blogData)
 
   return (
     <div>
@@ -57,7 +57,7 @@ const BlogComponent = () => {
         {/* <Menu boards={boards} major={selectMajor} majormenu={majormenu} /> */}
 
         <div>
-          <BlogList 
+          <BlogList
             // blogData={postsData(blogData)}
             blogData={blogData}
             // onClickView={onClickView}

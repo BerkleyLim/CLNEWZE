@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
-import styles from "../../../../scss/user/blog/blog.module.scss";
+import { Pagination, PaginationItem } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { ChevronLeft, ChevronRight } from "@mui/icons-material";
+import styles from "../../../../scss/user/blog/blog.module.scss";
 
 const BoardPagingnation = ({ totalPosts, limit, page, setPage }) => {
   const navigate = useNavigate();
@@ -9,68 +10,25 @@ const BoardPagingnation = ({ totalPosts, limit, page, setPage }) => {
   const [currPage, setCurrPage] = useState(page);
   let firstNum = currPage - (currPage % 5) + 1;
   let lastNum = currPage - (currPage % 5) + 5;
+
+  const handlePageClick = (newPage) => {
+    setPage(newPage);
+    setCurrPage(newPage);
+    navigate(`/blog/${newPage}`);
+  };
+
   return (
-    <Pagination className={`${styles?.paging} justify-content-center`}>
-      <PaginationItem className={`${page === 1 && "disabled"}`}>
-        <PaginationLink
-          onClick={() => {
-            setPage(page - 1);
-            setCurrPage(page - 2);
-          }}
-          disabled={page === 1}
-          tabIndex="-1"
-        >
-          Previous
-        </PaginationLink>
-      </PaginationItem>
-      {Array(5)
-        .fill()
-        .map((_, i) => (
-          <div key={i + 1}>
-            {i < numPages && (
-              <PaginationItem>
-                {" "}
-                {i < 4 ? (
-                  <PaginationLink
-                    onClick={() => 
-                      {
-                        setPage(firstNum + i);
-                        navigate('/blog/' + (firstNum + i));
-                      }}
-                      aria-current={page === firstNum + 1 + i ? "page" : null}
-                      >
-                    {firstNum + i}
-                  </PaginationLink>
-                ) : (
-                  /*
-                  i > 4 일때
-                  */
-                 <PaginationLink
-                 onClick={() => {
-                   setPage(lastNum)
-                   navigate('/blog/' + (lastNum));
-                    }}
-                    aria-current={page === lastNum ? "page" : null}
-                  >
-                    {lastNum}
-                  </PaginationLink>
-                )}
-              </PaginationItem>
-            )}
-          </div>
-        ))}
-      <PaginationItem className={`${page === numPages && "disabled"}`}>
-        <PaginationLink
-          onClick={() => {
-            setPage(page + 1);
-            setCurrPage(page + 1);
-          }}
-          disabled={page === numPages}
-        >
-          Next
-        </PaginationLink>
-      </PaginationItem>
-    </Pagination>
+    <Pagination
+      className={`${styles?.paging} justify-content-center`}
+      count={numPages}
+      page={page}
+      onChange={(event, value) => handlePageClick(value)}
+      renderItem={(item) => (
+        <PaginationItem
+          components={{ previous: ChevronLeft, next: ChevronRight }}
+        />
+      )}
+    />
   );
 };
 

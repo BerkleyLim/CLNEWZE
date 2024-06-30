@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  front:
+    build:
+      context: ./clnewze-front
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./clnewze-front:/app
+    environment:
+      - NODE_ENV=development
+
+  admin:
+    build:
+      context: ./clnewze-admin
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./clnewze-admin:/app
+    environment:
+      - NODE_ENV=development
+
+  back:
+    build:
+      context: ./clnewze-back
+    ports:
+      - "4000:8080"
+    volumes:
+      - ./clnewze-back:/app
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+
+  admin-server:
+    build:
+      context: ./clnewze-admin-server
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./clnewze-admin-server:/app
+    environment:
+      - NODE_ENV=production

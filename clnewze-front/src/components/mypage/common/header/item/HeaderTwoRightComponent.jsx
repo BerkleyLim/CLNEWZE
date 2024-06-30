@@ -1,6 +1,5 @@
 import React from "react";
-import { Button, Col, Row } from "reactstrap";
-// import MyPageHeaderContainer from "../../../../../hooks/MyPageHeaderContainer";
+import { Box, Button, Typography, Grid } from "@mui/material";
 
 const HeaderTwoRightComponent = () => {
   // const { subscriptModalToggle } = MyPageHeaderContainer();
@@ -10,73 +9,56 @@ const HeaderTwoRightComponent = () => {
   }
 
   return (
-    <div className={"mt-4"}>
-      <Row>
-        <Col className="mt-3">
-          <Button color="warning" style={{ width: "100%" }} size={"lg"} onClick={toggleOnDisplay}>
+    <Box className="mt-4 w-full">
+      <Grid container spacing={3} className="py-2">
+        <Grid item xs={6}>
+          <Button
+            variant="contained"
+            color="warning"
+            fullWidth
+            size="large"
+            onClick={toggleOnDisplay}
+          >
             충전
           </Button>
-        </Col>
-        <Col className="mt-3">
+        </Grid>
+        <Grid item xs={6}>
           <Button
-            size={"lg"}
-            style={{ width: "100%" }}
+            variant="contained"
             color="info"
-            onClick={() => 
-              toggleOnDisplay()
-              // subscriptModalToggle()
-            }
+            fullWidth
+            size="large"
+            onClick={toggleOnDisplay}
           >
             구독
-            {/* <br/>(본인일경우 구독조회) */}
           </Button>
-        </Col>
-      </Row>
-      <Row className="m-1 mt-3">
-        <Col
-          style={{
-            textAlign: "left",
-            fontWeight: "bold",
-            fontSize: "18px",
-            float: "left",
-          }}
-        >
-          환전 포인트 :
-        </Col>
-        <Col
-          style={{
-            textAlign: "right",
-            fontWeight: "bold",
-            fontSize: "18px",
-            float: "right",
-          }}
-        >
-          100,000 p
-        </Col>
-      </Row>
-      <Row className="m-1">
-        <Col
-          style={{
-            textAlign: "left",
-            fontWeight: "bold",
-            fontSize: "18px",
-            float: "left",
-          }}
-        >
-          보유 캐쉬 :
-        </Col>
-        <Col
-          style={{
-            textAlign: "right",
-            fontWeight: "bold",
-            fontSize: "18px",
-            float: "right",
-          }}
-        >
-          100,000 p
-        </Col>
-      </Row>
-    </div>
+        </Grid>
+      </Grid>
+      <Grid container spacing={3} className="mt-3">
+        <Grid item xs={6}>
+          <Typography variant="body1" align="left" fontWeight="bold">
+            환전 포인트 :
+          </Typography>
+        </Grid>
+        <Grid item xs={6}>
+          <Typography variant="body1" align="right" fontWeight="bold">
+            100,000 p
+          </Typography>
+        </Grid>
+      </Grid>
+      <Grid container spacing={2} className="py-2">
+        <Grid item xs={6}>
+          <Typography variant="body1" align="left" fontWeight="bold">
+            보유 캐쉬 :
+          </Typography>
+        </Grid>
+        <Grid item xs={6}>
+          <Typography variant="body1" align="right" fontWeight="bold">
+            100,000 p
+          </Typography>
+        </Grid>
+      </Grid>
+    </Box>
   );
 };
 

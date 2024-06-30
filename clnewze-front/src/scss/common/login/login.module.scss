@@ -1,62 +1,127 @@
-div {
-  & .modalLogin {
-    margin:0 auto;
-    width: 100%;
-    min-height:50vh;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    // 아래서부터는 로그인 컴포넌트
-    & .loginComponent { 
-
-      & .loginForm {
-        height: 20vh;
-        // text-align: center;
-        display: flex;
-        flex-direction: column;
-        // align-items: center;
-        justify-content: center;
-    
-  
-        & .flexInput {
-          display:flex;
-          // padding:5px 0 5px 0;
-          align-items: center;
-        }
-  
-        & .flexLabelLeft {
-          flex: 0 0 20%;
-        }
-  
-        & .flexLabelRight {
-          flex: 0 0 80%;
-        }
-      }
-  
-      .loginButtonComponent {
-        height: 30vh;
-  
-        & .commonButton {
-          width:100%;
-          padding: 10px 0 10px 0;
-          font-size: 1.25rem;
-        }
-  
-        & .loginButton {
-          background-color: #2222dd;
-        }
-  
-        & .signInButton {
-          background-color: #eeeeee;
-        }
-  
-        & .findIdPasswordButton {
-          background-color: #dddddd;
-        }
-      }
-    }
-  }
+.modalLogin {
+  margin: 0 auto;
+  width: 100%;
+  min-height: 50vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
+.loginComponent {
+  margin: 0 auto;
+  width: 100%;
+  min-height: 50vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginForm {
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flexInput {
+  display: flex;
+  align-items: center;
+}
+
+.flexLabelLeft {
+  flex: 0 0 20%;
+}
+
+.flexLabelRight {
+  flex: 0 0 80%;
+}
+
+.loginButtonComponent {
+  height: 30vh;
+}
+
+.commonButton {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 1.25rem;
+}
+
+.loginButton {
+  background-color: #2222dd;
+}
+
+.signInButton {
+  background-color: #eeeeee;
+}
+
+.findIdPasswordButton {
+  background-color: #dddddd;
+}
+
+
+//div {
+//  & .modalLogin {
+//    margin:0 auto;
+//    width: 100%;
+//    min-height:50vh;
+//    text-align: center;
+//    display: flex;
+//    flex-direction: column;
+//    align-items: center;
+//    justify-content: center;
+//
+//    // 아래서부터는 로그인 컴포넌트
+//    & .loginComponent {
+//
+//      & .loginForm {
+//        height: 20vh;
+//        // text-align: center;
+//        display: flex;
+//        flex-direction: column;
+//        // align-items: center;
+//        justify-content: center;
+//
+//
+//        & .flexInput {
+//          display:flex;
+//          // padding:5px 0 5px 0;
+//          align-items: center;
+//        }
+//
+//        & .flexLabelLeft {
+//          flex: 0 0 20%;
+//        }
+//
+//        & .flexLabelRight {
+//          flex: 0 0 80%;
+//        }
+//      }
+//
+//      .loginButtonComponent {
+//        height: 30vh;
+//
+//        & .commonButton {
+//          width:100%;
+//          padding: 10px 0 10px 0;
+//          font-size: 1.25rem;
+//        }
+//
+//        & .loginButton {
+//          background-color: #2222dd;
+//        }
+//
+//        & .signInButton {
+//          background-color: #eeeeee;
+//        }
+//
+//        & .findIdPasswordButton {
+//          background-color: #dddddd;
+//        }
+//      }
+//    }
+//  }
+//}

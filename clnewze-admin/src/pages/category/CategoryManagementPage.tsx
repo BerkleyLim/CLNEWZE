@@ -1,5 +1,5 @@
 import React from "react";
-import SheetMusicManagementComponent from "../../components/category/sub/SheetMusicManagementComponent";
+import SheetManagementComponent from "../../components/category/sub/SheetManagementComponent";
 
 const CategoryManagementPage = () => {
   return (
@@ -9,7 +9,7 @@ const CategoryManagementPage = () => {
       <br /><br />
 
       {/* 악보 관리 */}
-      <SheetMusicManagementComponent />
+      <SheetManagementComponent />
     </div>
   );
 };

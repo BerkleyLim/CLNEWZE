@@ -1,8 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from "@nestjs/typeorm";
-import { Repository } from "typeorm";
-import { SheetCategoryEntity } from "./entities/sheet-category.entity";
-import { SheetEntity } from "./entities/sheet.entity";
+import { CreateSheetDto } from './dto/create-sheet.dto';
+import { UpdateSheetDto } from './dto/update-sheet.dto';
+import {SheetEntity} from "./entities/sheet.entity";
+import {InjectRepository} from "@nestjs/typeorm";
+import {DataSource, Repository} from "typeorm";
+import {SheetCategoryEntity} from "./entities/sheet-category.entity";
 
 @Injectable()
 export class SheetService {
@@ -13,6 +15,10 @@ export class SheetService {
     @InjectRepository(SheetCategoryEntity)
     private readonly sheetCategoryRepository: Repository<SheetCategoryEntity>
   ) {}
+
+  create(createSheetDto: CreateSheetDto) {
+    return 'This action adds a new sheet';
+  }
 
   async findAllSheetMusic() {
     return await this.sheetRepository.find();
@@ -26,4 +32,15 @@ export class SheetService {
     return sheetCategory;
   }
 
+  findOne(id: number) {
+    return `This action returns a #${id} sheet`;
+  }
+
+  update(id: number, updateSheetDto: UpdateSheetDto) {
+    return `This action updates a #${id} sheet`;
+  }
+
+  remove(id: number) {
+    return `This action removes a #${id} sheet`;
+  }
 }
