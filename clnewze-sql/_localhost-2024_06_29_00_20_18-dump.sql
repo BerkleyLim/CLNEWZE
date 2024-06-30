@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.23, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.3.0, for macos14.2 (arm64)
 --
--- Host: localhost    Database: music
+-- Host: 127.0.0.1    Database: music
 -- ------------------------------------------------------
--- Server version	8.0.23
+-- Server version	8.3.0
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -125,29 +125,29 @@ LOCK TABLES `master_header` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `master_menu_practiceroom`
+-- Table structure for table `master_menu_room`
 --
 
-DROP TABLE IF EXISTS `master_menu_practiceroom`;
+DROP TABLE IF EXISTS `master_menu_room`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `master_menu_practiceroom` (
-  `ptno` int NOT NULL AUTO_INCREMENT COMMENT '연습실찾기 인덱스 번호',
-  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '연습실 찾기 메뉴 이름',
+CREATE TABLE `master_menu_room` (
+  `rtno` int NOT NULL AUTO_INCREMENT COMMENT '연습실찾기 인덱스 번호',
+  `name` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '연습실 찾기 메뉴 이름',
   `orderby` int DEFAULT NULL COMMENT '카테고리 배치 순서',
-  `category` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '카테고리 키워드 등록',
-  PRIMARY KEY (`ptno`)
+  `category` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '카테고리 키워드 등록',
+  PRIMARY KEY (`rtno`)
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `master_menu_practiceroom`
+-- Dumping data for table `master_menu_room`
 --
 
-LOCK TABLES `master_menu_practiceroom` WRITE;
-/*!40000 ALTER TABLE `master_menu_practiceroom` DISABLE KEYS */;
-INSERT INTO `master_menu_practiceroom` VALUES (4,'서울',2,'seoul'),(5,'부산',3,'busan'),(6,'대구',4,'daegu'),(7,'인천',5,'incheon'),(8,'광주',6,'gangju'),(9,'대전',7,'daejeon'),(10,'울산',8,'ulsan'),(11,'경기도',9,'gyunggi'),(12,'강원도',10,'gangwon'),(13,'충청북도',11,'chungcung'),(14,'경상도',12,'kungsang'),(15,'전라도',13,'junra'),(16,'제주도',14,'jeju'),(17,'전체',14,'');
-/*!40000 ALTER TABLE `master_menu_practiceroom` ENABLE KEYS */;
+LOCK TABLES `master_menu_room` WRITE;
+/*!40000 ALTER TABLE `master_menu_room` DISABLE KEYS */;
+INSERT INTO `master_menu_room` VALUES (4,'서울',2,'seoul'),(5,'부산',3,'busan'),(6,'대구',4,'daegu'),(7,'인천',5,'incheon'),(8,'광주',6,'gangju'),(9,'대전',7,'daejeon'),(10,'울산',8,'ulsan'),(11,'경기도',9,'gyunggi'),(12,'강원도',10,'gangwon'),(13,'충청북도',11,'chungcung'),(14,'경상도',12,'kungsang'),(15,'전라도',13,'junra'),(16,'제주도',14,'jeju'),(17,'전체',14,'');
+/*!40000 ALTER TABLE `master_menu_room` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -159,9 +159,9 @@ DROP TABLE IF EXISTS `master_menu_sheetmusic`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `master_menu_sheetmusic` (
   `smtno` int NOT NULL AUTO_INCREMENT COMMENT '악보 인덱스 번호',
-  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '악보 메뉴 이름',
+  `name` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '악보 메뉴 이름',
   `orderby` int DEFAULT NULL COMMENT '카테고리 배치 순서',
-  `category` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '카테고리 키워드 등록',
+  `category` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '카테고리 키워드 등록',
   PRIMARY KEY (`smtno`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -185,9 +185,9 @@ DROP TABLE IF EXISTS `master_menu_teacher`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `master_menu_teacher` (
   `mtno` int NOT NULL AUTO_INCREMENT COMMENT '레스너찾기 인덱스 번호',
-  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '레스너 찾기 메뉴 이름',
+  `name` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '레스너 찾기 메뉴 이름',
   `order_by_no` int DEFAULT NULL COMMENT '카테고리 배치 순서',
-  `category` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '카테고리 키워드 등록',
+  `category` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '카테고리 키워드 등록',
   PRIMARY KEY (`mtno`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -203,14 +203,44 @@ INSERT INTO `master_menu_teacher` VALUES (1,'전체',1,NULL),(2,'피아노',2,'p
 UNLOCK TABLES;
 
 --
--- Table structure for table `practiceroom`
+-- Table structure for table `profile_info`
 --
 
-DROP TABLE IF EXISTS `practiceroom`;
+DROP TABLE IF EXISTS `profile_info`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `practiceroom` (
-  `pno` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `profile_info` (
+  `pno` int NOT NULL AUTO_INCREMENT COMMENT '프로필 정보 인덱스',
+  `uno` int NOT NULL COMMENT '회원 인덱스 번호',
+  `introduction` varchar(255) DEFAULT NULL COMMENT '소개',
+  `specialization` varchar(255) DEFAULT NULL COMMENT '전문분야',
+  `experience_detail` int DEFAULT NULL COMMENT '경력사항상세',
+  `education` varchar(255) DEFAULT NULL COMMENT '학력(학사,전문학사 등)',
+  `major` varchar(255) DEFAULT NULL COMMENT '전공',
+  PRIMARY KEY (`pno`),
+  KEY `profile_info_t_user_uno_fk` (`uno`),
+  CONSTRAINT `profile_info_t_user_uno_fk` FOREIGN KEY (`uno`) REFERENCES `t_user` (`uno`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='프로필 정보 (career)';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `profile_info`
+--
+
+LOCK TABLES `profile_info` WRITE;
+/*!40000 ALTER TABLE `profile_info` DISABLE KEYS */;
+/*!40000 ALTER TABLE `profile_info` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `room`
+--
+
+DROP TABLE IF EXISTS `room`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `room` (
+  `rno` int NOT NULL AUTO_INCREMENT,
   `title` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `img` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
   `name` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
@@ -220,33 +250,33 @@ CREATE TABLE `practiceroom` (
   `price` int DEFAULT NULL,
   `categories` varchar(100) DEFAULT NULL,
   `uno` int DEFAULT NULL,
-  PRIMARY KEY (`pno`),
+  PRIMARY KEY (`rno`),
   KEY `practiceroom_FK` (`uno`),
   CONSTRAINT `practiceroom_FK` FOREIGN KEY (`uno`) REFERENCES `t_user` (`uno`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `practiceroom`
+-- Dumping data for table `room`
 --
 
-LOCK TABLES `practiceroom` WRITE;
-/*!40000 ALTER TABLE `practiceroom` DISABLE KEYS */;
-INSERT INTO `practiceroom` VALUES (1,'산본에서 다양한 그랜드 피아노를 지원합니다','/image/file/practiceroom/c8ce560f-fc7d-4006-aed8-eaa8668396a7.jpg.1440x1440_q85_detail_upscale.jpg','sanbon','경기도 군포시 산본동','지금 현재 그랜드 피아노 연습실, 업라이트 피아노 연습실 뿐만 아니라 다양하게 있습니다.','2023-05-18 14:32:31',5000,'piano',2);
-/*!40000 ALTER TABLE `practiceroom` ENABLE KEYS */;
+LOCK TABLES `room` WRITE;
+/*!40000 ALTER TABLE `room` DISABLE KEYS */;
+INSERT INTO `room` VALUES (1,'산본에서 다양한 그랜드 피아노를 지원합니다','/image/file/practiceroom/c8ce560f-fc7d-4006-aed8-eaa8668396a7.jpg.1440x1440_q85_detail_upscale.jpg','sanbon','경기도 군포시 산본동','지금 현재 그랜드 피아노 연습실, 업라이트 피아노 연습실 뿐만 아니라 다양하게 있습니다.','2023-05-18 14:32:31',5000,'piano',2);
+/*!40000 ALTER TABLE `room` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `sheetmusic`
+-- Table structure for table `sheet`
 --
 
-DROP TABLE IF EXISTS `sheetmusic`;
+DROP TABLE IF EXISTS `sheet`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `sheetmusic` (
+CREATE TABLE `sheet` (
   `sno` int NOT NULL AUTO_INCREMENT COMMENT '악보 리스트 인덱스',
   `title` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '악보 제목',
-  `view_number` int DEFAULT NULL COMMENT '조회수',
+  `view_number` int DEFAULT '0' COMMENT '조회수',
   `artist` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '작곡가/아티스트명',
   `img` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '미리보기 이미지 경로',
   `genre` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '장르 키워드',
@@ -254,23 +284,23 @@ CREATE TABLE `sheetmusic` (
   `album_name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '앨범명',
   `music_link` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '음악 링크',
   `contents` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '내용',
-  `upload_date` datetime DEFAULT NULL COMMENT '업로드 날짜',
-  `sheet_file` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '악보 파일',
+  `upload_date` datetime DEFAULT (now()) COMMENT '업로드 날짜',
+  `sheet_file` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '악보 파일',
   `uno` int DEFAULT NULL COMMENT '회원번호(외래키)',
   PRIMARY KEY (`sno`),
   KEY `sheetmusic_FK` (`uno`),
   CONSTRAINT `sheetmusic_FK` FOREIGN KEY (`uno`) REFERENCES `t_user` (`uno`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `sheetmusic`
+-- Dumping data for table `sheet`
 --
 
-LOCK TABLES `sheetmusic` WRITE;
-/*!40000 ALTER TABLE `sheetmusic` DISABLE KEYS */;
-INSERT INTO `sheetmusic` VALUES (1,'The lark',0,'Glinka','/image/file/sheetmusic/1684322911420.jpg','classic','1894','1','','이 곡은 러시아의 신 낭만 주의에서 만들어진 곡 종달새처럼 와르르','2023-05-17 18:24:51','/image/file/sheetmusic/Glinka(글린카)-Balakirev(발라키레프) - The Lark (종달새) (1864).pdf',2);
-/*!40000 ALTER TABLE `sheetmusic` ENABLE KEYS */;
+LOCK TABLES `sheet` WRITE;
+/*!40000 ALTER TABLE `sheet` DISABLE KEYS */;
+INSERT INTO `sheet` VALUES (1,'The lark',0,'Glinka','/image/file/sheet/1684322911420.jpg','classic','1894','1','','이 곡은 러시아의 신 낭만 주의에서 만들어진 곡 종달새처럼 와르르','2023-05-17 18:24:51','/image/file/sheetmusic/Glinka(글린카)-Balakirev(발라키레프) - The Lark (종달새) (1864).pdf',2);
+/*!40000 ALTER TABLE `sheet` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -282,16 +312,16 @@ DROP TABLE IF EXISTS `t_user`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `t_user` (
   `uno` int NOT NULL AUTO_INCREMENT COMMENT '유저인덱스',
-  `id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '아이디',
-  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '패스워드',
-  `user_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '회원명',
+  `id` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '아이디',
+  `password` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '패스워드',
+  `user_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '회원명',
   `cre_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '회원가입날짜',
   `login_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '최근로그인날짜',
-  `nick_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '닉네임',
+  `nick_name` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '닉네임',
   `birthday` date DEFAULT NULL COMMENT '생년월일',
   `activated` tinyint NOT NULL DEFAULT '1' COMMENT '활동중인지 확인',
   PRIMARY KEY (`uno`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -389,10 +419,6 @@ LOCK TABLES `user_authority` WRITE;
 INSERT INTO `user_authority` VALUES (1,'ROLE_ADMIN'),(1,'ROLE_USER'),(2,'ROLE_USER'),(3,'ROLE_USER'),(4,'ROLE_USER');
 /*!40000 ALTER TABLE `user_authority` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping routines for database 'music'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -403,4 +429,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-28 10:39:58
+-- Dump completed on 2024-06-29  0:20:18
