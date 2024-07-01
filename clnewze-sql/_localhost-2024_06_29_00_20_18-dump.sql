@@ -330,7 +330,7 @@ CREATE TABLE `t_user` (
 
 LOCK TABLES `t_user` WRITE;
 /*!40000 ALTER TABLE `t_user` DISABLE KEYS */;
-INSERT INTO `t_user` VALUES (1,'admin','$2a$10$5wNYWG1HyHJoXX0FbxlBPOW9SN5NXUx5RtqmbIAuxSlYNAzvJV9Gu','admin','2023-08-15 23:17:16','2023-08-15 23:17:41','admin','1999-11-11',1),(2,'test1','$2a$10$Lrwj5cH1fTOvRN62Yew97OnGQLdXmVSA0Eps1ydLdQBa6xZqj/qqa','test1','2023-12-16 23:27:41','2023-12-16 23:27:41','test1','1999-11-11',1),(3,'test2','$2a$10$2oYuQry/dOqGxDShyfgMG.sJJkoCnJGfX6h/l8MdXKgoAb69X9x0G','test2','2023-12-16 23:27:51','2023-12-16 23:27:51','test2','1999-11-11',1),(4,'test3','1234','test3','2023-12-16 23:28:02','2023-12-16 23:28:02','test3','1999-11-11',1);
+INSERT INTO `t_user` VALUES (3,'test2','$2a$10$2oYuQry/dOqGxDShyfgMG.sJJkoCnJGfX6h/l8MdXKgoAb69X9x0G','test2','2023-12-16 23:27:51','2023-12-16 23:27:51','test2','1999-11-11',1);
 /*!40000 ALTER TABLE `t_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -416,7 +416,7 @@ CREATE TABLE `user_authority` (
 
 LOCK TABLES `user_authority` WRITE;
 /*!40000 ALTER TABLE `user_authority` DISABLE KEYS */;
-INSERT INTO `user_authority` VALUES (1,'ROLE_ADMIN'),(1,'ROLE_USER'),(2,'ROLE_USER'),(3,'ROLE_USER'),(4,'ROLE_USER');
+INSERT INTO `user_authority` VALUES (3,'ROLE_USER');
 /*!40000 ALTER TABLE `user_authority` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
